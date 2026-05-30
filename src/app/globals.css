@@ -90,3 +90,23 @@ a {
 .card-glow {
   box-shadow: var(--shadow-soft);
 }
+
+@keyframes loading-shimmer {
+  0% {
+    transform: translateX(-60%);
+  }
+
+  100% {
+    transform: translateX(160%);
+  }
+}
+
+.loading-shimmer {
+  animation: loading-shimmer 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-shimmer {
+    animation: none;
+  }
+}
