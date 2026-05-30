@@ -226,17 +226,17 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
                 <ul className="grid gap-3">
                   {isLuxury ? (
                     <>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.85)]/90" /> <span className="text-sm font-medium">Arrival support</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.6)]" /> <span className="text-sm font-medium">Chauffeur options</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.5)]" /> <span className="text-sm font-medium">Dining planning</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.4)]" /> <span className="text-sm font-medium">Flexible itinerary</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.85)]/90 ring-1 ring-white/18" /> <span className="text-sm font-medium">Arrival support</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.6)] ring-1 ring-white/12" /> <span className="text-sm font-medium">Chauffeur options</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.5)] ring-1 ring-white/12" /> <span className="text-sm font-medium">Dining planning</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.4)] ring-1 ring-white/12" /> <span className="text-sm font-medium">Flexible itinerary</span></li>
                     </>
                   ) : (
                     <>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/90" /> <span className="text-sm font-medium">Alcázar & Cathedral</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/80" /> <span className="text-sm font-medium">Granada · Córdoba · Ronda</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/70" /> <span className="text-sm font-medium">Private pace</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/60" /> <span className="text-sm font-medium">Licensed historian</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/90 ring-1 ring-white/20" /> <span className="text-sm font-medium">Alcázar & Cathedral</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/80 ring-1 ring-white/20" /> <span className="text-sm font-medium">Granada · Córdoba · Ronda</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/70 ring-1 ring-white/20" /> <span className="text-sm font-medium">Private pace</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/60 ring-1 ring-white/20" /> <span className="text-sm font-medium">Licensed historian</span></li>
                     </>
                   )}
                 </ul>
