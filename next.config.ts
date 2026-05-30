@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
         pathname: '/wp-content/uploads/**',
       },
     ],
+    qualities: [65, 75],
   },
   async redirects() {
     return [
