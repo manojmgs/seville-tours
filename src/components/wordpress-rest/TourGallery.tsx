@@ -72,6 +72,8 @@ export function TourGallery({
             fill
             sizes="(max-width: 1024px) 100vw, 760px"
             className="object-cover"
+            priority
+            fetchPriority="high"
           />
         </div>
       </div>
@@ -101,6 +103,8 @@ export function TourGallery({
                   fill
                   sizes="96px"
                   className="object-cover"
+                  loading="lazy"
+                  fetchPriority="low"
                 />
               </button>
             );

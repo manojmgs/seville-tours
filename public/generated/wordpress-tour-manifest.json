@@ -1,0 +1,1268 @@
+{
+  "generatedAt": "2026-05-30T19:51:40.120Z",
+  "source": "https://sevilletoursco.com",
+  "entries": {
+    "cathedral-of-seville-guided-tour": {
+      "sourceType": "product",
+      "slug": "cathedral-of-seville-guided-tour",
+      "uri": "/tours/cathedral-of-seville-guided-tour/",
+      "link": "https://sevilletoursco.com/tours/cathedral-of-seville-guided-tour/",
+      "title": "Cathedral of Seville guided tour",
+      "excerptHtml": "<p>Discover the Cathedral of Seville and the Giralda tower with an official licensed guide. Skip the lines and explore the world’s largest Gothic cathedral, home to masterpieces of art and history.</p>\n",
+      "contentHtml": "<h3 data-start=\"3256\" data-end=\"3305\">Cathedral of Seville Guided Tour with Giralda</h3>\n<p data-start=\"3307\" data-end=\"3606\">Visit one of Seville’s most iconic landmarks on this guided tour of the Cathedral of Seville, a UNESCO World Heritage Site and the largest Gothic cathedral in the world. With skip-the-line access and an official licensed guide, you’ll explore this monumental building without waiting in long queues.</p>\n<p data-start=\"3608\" data-end=\"3832\">Built on the site of a former mosque, the cathedral reflects centuries of history, art, and religious significance. Inside, you’ll discover chapels, altarpieces, and the tomb traditionally attributed to Christopher Columbus.</p>\n<hr data-start=\"4603\" data-end=\"4606\" />\n<h3 data-start=\"4608\" data-end=\"4633\">Practical Information</h3>\n<ul data-start=\"4635\" data-end=\"4936\">\n<li data-start=\"4635\" data-end=\"4676\">\n<p data-start=\"4637\" data-end=\"4676\"><strong data-start=\"4637\" data-end=\"4650\">Duration:</strong> Approximately 1.5 hours</p>\n</li>\n<li data-start=\"4677\" data-end=\"4756\">\n<p data-start=\"4679\" data-end=\"4756\"><strong data-start=\"4679\" data-end=\"4697\">Meeting Point:</strong> Near the Cathedral main entrance (details after booking)</p>\n</li>\n<li data-start=\"4790\" data-end=\"4854\">\n<p data-start=\"4792\" data-end=\"4854\"><strong data-start=\"4792\" data-end=\"4805\">Language:</strong> English (other languages available on request)</p>\n</li>\n<li data-start=\"4855\" data-end=\"4936\">\n<p data-start=\"4857\" data-end=\"4936\"><strong data-start=\"4857\" data-end=\"4875\">Accessibility:</strong> Cathedral accessible; Giralda not suitable for wheelchairs</p>\n</li>\n</ul>\n<hr data-start=\"4938\" data-end=\"4941\" />\n<h3 data-start=\"4943\" data-end=\"4962\">Important Notes</h3>\n<ul data-start=\"4964\" data-end=\"5124\">\n<li data-start=\"4964\" data-end=\"5013\">\n<p data-start=\"4966\" data-end=\"5013\">Modest dress is required inside the cathedral</p>\n</li>\n<li data-start=\"5014\" data-end=\"5069\">\n<p data-start=\"5016\" data-end=\"5069\">Comfortable shoes recommended for the Giralda climb</p>\n</li>\n<li data-start=\"5070\" data-end=\"5124\">\n<p data-start=\"5072\" data-end=\"5124\">Skip-the-line access is subject to security checks</p>\n</li>\n<li data-start=\"5070\" data-end=\"5124\">ID required</li>\n</ul>\n",
+      "seo": {
+        "title": "Cathedral of Seville guided tour",
+        "description": "Discover the Cathedral of Seville and the Giralda tower with an official licensed guide. Skip the lines and explore the world’s largest Gothic cathedral, home to masterpieces of art and history.",
+        "canonical": "https://sevilletoursco.com/tours/cathedral-of-seville-guided-tour/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-18T22:32:05",
+      "commerce": {
+        "type": "external",
+        "price": {
+          "amountMinor": 3500,
+          "formatted": "35,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "booking": {
+          "label": "Book your tour",
+          "url": "https://fareharbor.com/embeds/book/sevilletoursco/items/577857/?full-items=yes&flow=1257181",
+          "provider": "fareharbor"
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 3555,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/09/IMG_30082020_175951_1080_x_720_pixel-e1642420238639.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/09/IMG_30082020_175951_1080_x_720_pixel-300x300.jpg",
+            "alt": "Cathedral of seville guided tour",
+            "name": "Seville Cathedral guided tour"
+          },
+          {
+            "id": 9025,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.15",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.15"
+          },
+          {
+            "id": 9012,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.20",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.20"
+          },
+          {
+            "id": 7493,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/IMG_20210207_101620-1-scaled-e1650625457991.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/IMG_20210207_101620-1-300x300.jpg",
+            "alt": "highlights of seville",
+            "name": "IMG_20210207_101620 (1)"
+          },
+          {
+            "id": 1545,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/02/IMG-20180630-WA0000.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/02/IMG-20180630-WA0000-300x300.jpg",
+            "alt": "seville in kansas city",
+            "name": "giralda"
+          },
+          {
+            "id": 3467,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190904_115232-01-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190904_115232-01-300x300.jpeg",
+            "alt": "tour guiado de la catedral de sevilla",
+            "name": "tumba colon"
+          },
+          {
+            "id": 190,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2019/11/158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6-e1652901888325.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2019/11/158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6-300x300.jpg",
+            "alt": "158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6",
+            "name": "158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6"
+          },
+          {
+            "id": 3388,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/801942f787747a090c325c57e9a3f587dfd9bec99fb18c4a3cda128642e6cce4.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/801942f787747a090c325c57e9a3f587dfd9bec99fb18c4a3cda128642e6cce4-300x300.jpg",
+            "alt": "801942f787747a090c325c57e9a3f587dfd9bec99fb18c4a3cda128642e6cce4",
+            "name": "801942f787747a090c325c57e9a3f587dfd9bec99fb18c4a3cda128642e6cce4"
+          },
+          {
+            "id": 805,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6-300x300.jpg",
+            "alt": "gate of forgiveness",
+            "name": "puerta perdon"
+          },
+          {
+            "id": 3441,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190309_122816-01-scaled-e1628153899642.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190309_122816-01-300x300.jpeg",
+            "alt": "cathedral of seville guided tour",
+            "name": "cathedral of seville guided tour"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=9124&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": true,
+        "isRequestOnly": false
+      }
+    },
+    "seville-alcazar-guided-tour": {
+      "sourceType": "product",
+      "slug": "seville-alcazar-guided-tour",
+      "uri": "/tours/seville-alcazar-guided-tour/",
+      "link": "https://sevilletoursco.com/tours/seville-alcazar-guided-tour/",
+      "title": "Seville Alcazar Guided Tour",
+      "excerptHtml": "<p>Explore the Royal Alcázar of Seville with an official licensed guide. Skip the lines and discover one of Europe’s oldest royal palaces, famous for its Mudéjar architecture, royal rooms, and stunning gardens.</p>\n",
+      "contentHtml": "<h3 data-start=\"864\" data-end=\"922\">Seville Alcázar Guided Tour – Skip the Line Experience</h3>\n<p data-start=\"924\" data-end=\"1178\">Discover the Royal Alcázar of Seville, one of Spain’s most extraordinary UNESCO World Heritage Sites, on a guided tour led by an official licensed guide. With skip-the-line access, you’ll avoid long queues and explore this historic royal palace in depth.</p>\n<p data-start=\"1180\" data-end=\"1453\">Originally built during the Islamic period and later expanded by Christian kings, the Alcázar is a unique architectural masterpiece blending Islamic, Gothic, Renaissance, and Mudéjar styles. Today, it remains an official royal residence, still used by the Spanish monarchy.</p>\n<hr data-start=\"1455\" data-end=\"1458\" />\n<h3 data-start=\"1460\" data-end=\"1486\">Highlights of the Tour</h3>\n<ul data-start=\"1488\" data-end=\"1779\">\n<li data-start=\"1488\" data-end=\"1546\">\n<p data-start=\"1490\" data-end=\"1546\">Skip-the-line entrance to the Royal Alcázar of Seville</p>\n</li>\n<li data-start=\"1547\" data-end=\"1580\">\n<p data-start=\"1549\" data-end=\"1580\">Official licensed local guide</p>\n</li>\n<li data-start=\"1581\" data-end=\"1627\">\n<p data-start=\"1583\" data-end=\"1627\">Explore the Mudéjar Palace of King Pedro I</p>\n</li>\n<li data-start=\"1628\" data-end=\"1674\">\n<p data-start=\"1630\" data-end=\"1674\">Visit the Gothic Palace and royal chambers</p>\n</li>\n<li data-start=\"1675\" data-end=\"1726\">\n<p data-start=\"1677\" data-end=\"1726\">Walk through the Alcázar gardens and courtyards</p>\n</li>\n<li data-start=\"1727\" data-end=\"1779\">\n<p data-start=\"1729\" data-end=\"1779\">Learn about the palace’s role in <em data-start=\"1762\" data-end=\"1779\">Game of Thrones</em></p>\n</li>\n</ul>\n<hr data-start=\"1781\" data-end=\"1784\" />\n<h3 data-start=\"1786\" data-end=\"1804\">What to Expect</h3>\n<p data-start=\"1806\" data-end=\"2097\">Meet your guide near the Alcázar entrance and begin your visit with a historical introduction. Inside, explore the stunning Mudéjar Palace, famous for its intricate tilework, arches, and courtyards. Continue through the Gothic Palace and royal halls, still used during official royal visits.</p>\n<p data-start=\"2099\" data-end=\"2329\">The tour concludes with a guided walk through the Alcázar gardens, where fountains, pavilions, and lush vegetation create a peaceful atmosphere. After the tour, you are free to stay inside and explore the gardens at your own pace.</p>\n<hr data-start=\"2331\" data-end=\"2334\" />\n<h3 data-start=\"2336\" data-end=\"2361\">Practical Information</h3>\n<ul data-start=\"2363\" data-end=\"2665\">\n<li data-start=\"2363\" data-end=\"2404\">\n<p data-start=\"2365\" data-end=\"2404\"><strong data-start=\"2365\" data-end=\"2378\">Duration:</strong> Approximately 1.5 hours</p>\n</li>\n<li data-start=\"2405\" data-end=\"2488\">\n<p data-start=\"2407\" data-end=\"2488\"><strong data-start=\"2407\" data-end=\"2425\">Meeting Point:</strong> Near the Royal Alcázar main entrance (details after booking)</p>\n</li>\n<li data-start=\"2522\" data-end=\"2586\">\n<p data-start=\"2524\" data-end=\"2586\"><strong data-start=\"2524\" data-end=\"2537\">Language:</strong> English (other languages available on request)</p>\n</li>\n<li data-start=\"2587\" data-end=\"2665\">\n<p data-start=\"2589\" data-end=\"2665\"><strong data-start=\"2589\" data-end=\"2607\">Accessibility:</strong> Partially accessible for visitors with reduced mobility</p>\n</li>\n</ul>\n",
+      "seo": {
+        "title": "Seville Alcazar Guided Tour",
+        "description": "Explore the Royal Alcázar of Seville with an official licensed guide. Skip the lines and discover one of Europe’s oldest royal palaces, famous for its Mudéjar architecture, royal rooms, and stunning gardens.",
+        "canonical": "https://sevilletoursco.com/tours/seville-alcazar-guided-tour/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-04-08T06:47:41",
+      "commerce": {
+        "type": "external",
+        "price": {
+          "amountMinor": 3900,
+          "formatted": "39,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "booking": {
+          "label": "Book your tour",
+          "url": "https://fareharbor.com/embeds/book/sevilletoursco/items/577856/?full-items=yes&flow=1257181",
+          "provider": "fareharbor"
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 9186,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-15-at-13.08.16-1.webp",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-15-at-13.08.16-1-300x300.webp",
+            "alt": "seville alcazar guided tour",
+            "name": "seville alcazar guided tour"
+          },
+          {
+            "id": 8801,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-22-at-19.30.06-e1758562455159.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-22-at-19.30.06-e1758562390197-300x300.jpeg",
+            "alt": "seville tours",
+            "name": "group photo seville tours"
+          },
+          {
+            "id": 8800,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2025/09/foto-grupo-seville-tours-co.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2025/09/foto-grupo-seville-tours-co-300x300.jpeg",
+            "alt": "seville tours",
+            "name": "foto grupo seville tours co"
+          },
+          {
+            "id": 8705,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/alcazar-seville-tour-e1757431510984.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/alcazar-seville-tour-e1757431510984-300x300.jpeg",
+            "alt": "alcazar seville tour",
+            "name": "alcazar seville tour"
+          },
+          {
+            "id": 8362,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2024/08/alcazar-guided-tour-8-scaled-e1722868702637.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2024/08/alcazar-guided-tour-8-300x300.jpeg",
+            "alt": "alcazar tour",
+            "name": "group tour"
+          },
+          {
+            "id": 8991,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.50-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.50-2-300x300.jpeg",
+            "alt": "seville alcazar guided tour",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.50 (2)"
+          },
+          {
+            "id": 9008,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-4.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-4-300x300.jpeg",
+            "alt": "seville alcazar guided tour",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.20 (4)"
+          },
+          {
+            "id": 9002,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.21-3.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.21-3-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.21 (3)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.21 (3)"
+          },
+          {
+            "id": 8316,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/alcazar-guided-tour-9-scaled-e1722528604220.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/alcazar-guided-tour-9-300x300.jpeg",
+            "alt": "seville alcazar guided tour",
+            "name": "Seville alcazar guided tour"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=9122&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": true,
+        "isRequestOnly": false
+      }
+    },
+    "highlights-of-seville": {
+      "sourceType": "product",
+      "slug": "highlights-of-seville",
+      "uri": "/tours/highlights-of-seville/",
+      "link": "https://sevilletoursco.com/tours/highlights-of-seville/",
+      "title": "Highlights of Seville Tour",
+      "excerptHtml": "<p>Discover the highlights of Seville on a private panoramic tour designed for first-time visitors. Explore Plaza de España, the Santa Cruz neighbourhood, and the river area while gaining a clear understanding of Seville’s history, layout, and cultural importance.</p>\n",
+      "contentHtml": "<h3 data-start=\"858\" data-end=\"908\">Highlights of Seville – Private Panoramic Tour</h3>\n<p data-start=\"910\" data-end=\"1131\">Get to know Seville with confidence on this <strong data-start=\"954\" data-end=\"992\">Highlights of Seville private tour</strong>, a panoramic experience designed to help you understand the city’s history, layout, and significance from the very beginning of your stay.</p>\n<p data-start=\"1133\" data-end=\"1450\">Led by an official licensed guide, this private tour offers an engaging overview of Seville’s most important areas and viewpoints. Rather than focusing on monument interiors, the visit is entirely <strong data-start=\"1330\" data-end=\"1350\">from the outside</strong>, allowing you to move comfortably through the city while gaining essential context and orientation.</p>\n<p data-start=\"1452\" data-end=\"1653\">This tour is ideal for first-time visitors who want to get their bearings, understand how the city developed over time, and decide which areas or monuments they may wish to explore in more depth later.</p>\n<hr data-start=\"1655\" data-end=\"1658\" />\n<h3 data-start=\"1660\" data-end=\"1686\">Highlights of the Tour</h3>\n<ul data-start=\"1688\" data-end=\"2070\">\n<li data-start=\"1688\" data-end=\"1746\">\n<p data-start=\"1690\" data-end=\"1746\">Private panoramic tour with an official licensed guide</p>\n</li>\n<li data-start=\"1747\" data-end=\"1806\">\n<p data-start=\"1749\" data-end=\"1806\">Perfect introduction for first-time visitors to Seville</p>\n</li>\n<li data-start=\"1807\" data-end=\"1843\">\n<p data-start=\"1809\" data-end=\"1843\">Visit the iconic Plaza de España</p>\n</li>\n<li data-start=\"1844\" data-end=\"1898\">\n<p data-start=\"1846\" data-end=\"1898\">Walk through the historic Santa Cruz neighbourhood</p>\n</li>\n<li data-start=\"1899\" data-end=\"1964\">\n<p data-start=\"1901\" data-end=\"1964\">Explore the river area and understand Seville’s maritime past</p>\n</li>\n<li data-start=\"1965\" data-end=\"2022\">\n<p data-start=\"1967\" data-end=\"2022\">Overview of the Torre del Oro and the Triana district</p>\n</li>\n<li data-start=\"2023\" data-end=\"2070\">\n<p data-start=\"2025\" data-end=\"2070\">Flexible pace and personalized explanations</p>\n</li>\n</ul>\n<hr data-start=\"2072\" data-end=\"2075\" />\n<h3 data-start=\"2077\" data-end=\"2095\">What to Expect</h3>\n<p data-start=\"2097\" data-end=\"2356\">Your private panoramic tour begins at a central meeting point in Seville. The experience starts at <strong data-start=\"2196\" data-end=\"2215\">Plaza de España</strong>, one of the city’s most impressive landmarks, where your guide will explain its historical and symbolic importance within Spain and Seville.</p>\n<p data-start=\"2358\" data-end=\"2596\">From there, continue to the <strong data-start=\"2386\" data-end=\"2414\">Santa Cruz neighbourhood</strong>, the city’s former Jewish quarter. As you walk through its narrow streets and squares, your guide will explain how this area reflects Seville’s medieval past and cultural diversity.</p>\n<p data-start=\"2598\" data-end=\"2989\">The tour then moves toward the <strong data-start=\"2629\" data-end=\"2651\">Guadalquivir River</strong>, a key element in Seville’s history as a trading and maritime city. From the riverbanks, you’ll enjoy an exterior view of the <strong data-start=\"2778\" data-end=\"2795\">Torre del Oro</strong> and learn about its defensive role. Your guide will also provide a detailed explanation of <strong data-start=\"2887\" data-end=\"2897\">Triana</strong>, one of Seville’s most traditional districts, known for flamenco, ceramics, and local life.</p>\n<p data-start=\"2991\" data-end=\"3127\">All visits are <strong data-start=\"3006\" data-end=\"3032\">panoramic and exterior</strong>, focusing on storytelling, orientation, and historical context rather than monument entrances.</p>\n<hr data-start=\"3129\" data-end=\"3132\" />\n<h3 data-start=\"3134\" data-end=\"3159\">Who Is This Tour For?</h3>\n<ul data-start=\"3161\" data-end=\"3396\">\n<li data-start=\"3161\" data-end=\"3195\">\n<p data-start=\"3163\" data-end=\"3195\">First-time visitors to Seville</p>\n</li>\n<li data-start=\"3196\" data-end=\"3227\">\n<p data-start=\"3198\" data-end=\"3227\">Travelers with limited time</p>\n</li>\n<li data-start=\"3228\" data-end=\"3290\">\n<p data-start=\"3230\" data-end=\"3290\">Visitors looking for an overview before deeper exploration</p>\n</li>\n<li data-start=\"3291\" data-end=\"3352\">\n<p data-start=\"3293\" data-end=\"3352\">Families or private groups wanting a relaxed introduction</p>\n</li>\n<li data-start=\"3353\" data-end=\"3396\">\n<p data-start=\"3355\" data-end=\"3396\">Guests who prefer outdoor walking tours</p>\n</li>\n</ul>\n<hr data-start=\"3955\" data-end=\"3958\" />\n<h3 data-start=\"3960\" data-end=\"4004\">Why Choose a Highlights Tour in Seville?</h3>\n<p data-start=\"4006\" data-end=\"4303\">A highlights tour is the best way to understand Seville as a city, not just as a collection of monuments. By learning how its neighborhoods, river, and landmarks connect, you’ll gain a deeper appreciation of Seville’s role in Spanish and world history — and make the most of the rest of your stay.</p>\n",
+      "seo": {
+        "title": "Highlights of Seville Tour",
+        "description": "Discover the highlights of Seville on a private panoramic tour designed for first-time visitors. Explore Plaza de España, the Santa Cruz neighbourhood, and the river area while gaining a clear understanding of Seville’s history, layout, and cultural importance.",
+        "canonical": "https://sevilletoursco.com/tours/highlights-of-seville/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-22T09:23:04",
+      "commerce": {
+        "type": "external",
+        "price": {
+          "amountMinor": 13000,
+          "formatted": "130,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "booking": {
+          "label": "Book your tour",
+          "url": "https://fareharbor.com/embeds/book/sevilletoursco/items/577861/?full-items=yes&flow=1257181",
+          "provider": "fareharbor"
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 9190,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2026/01/IMG_20180706_141116-01.webp",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2026/01/IMG_20180706_141116-01-300x300.webp",
+            "alt": "highlights of seville guided tour",
+            "name": "highlights of seville"
+          },
+          {
+            "id": 9011,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.20 (1)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.20 (1)"
+          },
+          {
+            "id": 9010,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-2-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.20 (2)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.20 (2)"
+          },
+          {
+            "id": 9013,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-5.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-5-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.19 (5)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.19 (5)"
+          },
+          {
+            "id": 9014,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-4.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-4-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.19 (4)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.19 (4)"
+          },
+          {
+            "id": 9009,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-3.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.20-3-300x300.jpeg",
+            "alt": "highlights of seville",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.20 (3)"
+          },
+          {
+            "id": 8986,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.54-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.54-2-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.54 (2)",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.54 (2)"
+          },
+          {
+            "id": 8987,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.54-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.54-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.54 (1)",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.54 (1)"
+          },
+          {
+            "id": 8989,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.52.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.52-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.52",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.52"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=7509&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": true,
+        "isRequestOnly": false
+      }
+    },
+    "tour-barrio-santacruz": {
+      "sourceType": "product",
+      "slug": "tour-barrio-santacruz",
+      "uri": "/tours/tour-barrio-santacruz/",
+      "link": "https://sevilletoursco.com/tours/tour-barrio-santacruz/",
+      "title": "tour barrio santacruz",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "tour barrio santacruz",
+        "canonical": "https://sevilletoursco.com/tours/tour-barrio-santacruz/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2021-09-09T16:39:31",
+      "commerce": {
+        "type": "variable",
+        "price": {
+          "amountMinor": 1000,
+          "formatted": "10,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=5887&per_page=10",
+        "isInStock": true,
+        "isPurchasable": true,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "tour-privado-de-granada-y-la-alhambra": {
+      "sourceType": "product",
+      "slug": "tour-privado-de-granada-y-la-alhambra",
+      "uri": "/tours/tour-privado-de-granada-y-la-alhambra/",
+      "link": "https://sevilletoursco.com/tours/tour-privado-de-granada-y-la-alhambra/",
+      "title": "Tour privado de Granada y La Alhambra",
+      "excerptHtml": "<p>Descubre Granada en una <strong>excursión privada desde Sevilla</strong> diseñada para que vivas la esencia de la ciudad con total comodidad y a tu propio ritmo. Acompañado por un <strong>guía oficial</strong>, visitarás la <strong>Alhambra</strong>, incluyendo los <strong>Palacios Nazaríes</strong>, la <strong>Alcazaba</strong>, el <strong>Generalife</strong> y el <strong>Palacio de Carlos V</strong>, uno de los conjuntos monumentales más impresionantes del mundo.</p>\n<p>El tour se completa con un recorrido por el <strong>Albaicín</strong>, el barrio más emblemático de Granada, famoso por sus calles históricas y sus vistas únicas de la Alhambra. Incluye <strong>transporte privado</strong>, atención personalizada y entradas, para que solo te preocupes de disfrutar de una experiencia exclusiva e inolvidable.</p>\n",
+      "contentHtml": "",
+      "seo": {
+        "title": "Tour privado de Granada y La Alhambra",
+        "description": "Descubre Granada en una excursión privada desde Sevilla diseñada para que vivas la esencia de la ciudad con total comodidad y a tu propio ritmo. Acompañado por un guía oficial , visitarás la Alhambra , incluyendo los Palacios Nazaríes , la Alcazaba , el Generalife y el Palacio de Carlos V , uno de los conjuntos monumentales más impresionantes del mundo. El tour se completa con un recorrido por el Albaicín , el barrio más emblemático de Granada, famoso por sus calles históricas y sus vistas únicas de la Alhambra. Incluye transporte privado , atención personalizada y entradas, para que solo te preocupes de disfrutar de una experiencia exclusiva e inolvidable.",
+        "canonical": "https://sevilletoursco.com/tours/tour-privado-de-granada-y-la-alhambra/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2025-12-20T17:37:58",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=5584&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "luxury-day-trip-from-seville-to-granada-the-alhambra-private": {
+      "sourceType": "product",
+      "slug": "luxury-day-trip-from-seville-to-granada-the-alhambra-private",
+      "uri": "/tours/luxury-day-trip-from-seville-to-granada-the-alhambra-private/",
+      "link": "https://sevilletoursco.com/tours/luxury-day-trip-from-seville-to-granada-the-alhambra-private/",
+      "title": "LUXURY DAY TRIP FROM SEVILLE TO GRANADA & THE ALHAMBRA (PRIVATE)",
+      "excerptHtml": "<p>Enjoy a private luxury day trip from Seville to Granada, including a guided visit of the Alhambra. Explore the Nasrid Palaces, Generalife, and Albaicín with an expert guide and private transportation.</p>\n",
+      "contentHtml": "<h2>Overview</h2>\n<p>A private luxury day trip from Seville to Granada, combining comfortable transportation,<br />\nexpert guidance, and a deep exploration of the Alhambra and the historic Albaicín.<br />\nDesigned for travelers who value depth, comfort, and cultural insight.</p>\n<h2>Why This Tour</h2>\n<p>• Private experience with an official licensed guide<br />\n• Carefully paced visit with guaranteed access to the Alhambra<br />\n• Seamless logistics from Seville to Granada and back<br />\n• Ideal for travelers seeking history, architecture, and refinement  </p>\n<h2>What You Will See</h2>\n<p>• The Alhambra complex<br />\n• Nasrid Palaces, Alcazaba, and Generalife<br />\n• Palace of Charles V<br />\n• Albaicín neighborhood and viewpoints  </p>\n<h2>Itinerary</h2>\n<p>The day begins with private pickup in Seville and a scenic drive through Andalusia.<br />\nUpon arrival in Granada, you explore the Alhambra in depth, followed by time in the<br />\nhistoric Albaicín quarter, with flexibility built into the schedule.</p>\n<h2>Practical Information</h2>\n<p><strong>Duration:</strong> Full day (approximately 10–12 hours)<br />\n<strong>Type:</strong> Private luxury day trip<br />\n<strong>Language:</strong> English (other languages on request)<br />\n<strong>Meeting point:</strong> Hotel pickup in Seville<br />\n<strong>Includes:</strong> Private transportation, licensed guide<br />\n<strong>Not included:</strong> Alhambra tickets, meals  </p>\n<h2>Good to Know</h2>\n<p>• Alhambra tickets must be arranged in advance<br />\n• Moderate walking involved<br />\n• Comfortable footwear recommended<br />\n• Tour itinerary adapts to your interests  </p>\n<h2>Why Choose a Private Tour</h2>\n<p>A private tour allows you to experience the Alhambra without rushing, focus on details<br />\nthat interest you most, and enjoy Granada at a relaxed, elegant pace.</p>\n<h2>About Your Guide</h2>\n<p>Your guide is an official licensed professional with deep knowledge of Andalusian<br />\nhistory, offering thoughtful explanations and cultural context throughout the day.</p>\n<p> </p>\n<div style=\"width: 478px;\" class=\"wp-video\"><video class=\"wp-video-shortcode\" id=\"video-5574-1\" width=\"478\" height=\"850\" preload=\"metadata\" controls=\"controls\"><source type=\"video/mp4\" src=\"https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Video-2025-12-18-at-11.58.05.mp4?_=1\" /><a href=\"https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Video-2025-12-18-at-11.58.05.mp4\">https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Video-2025-12-18-at-11.58.05.mp4</a></video></div>\n",
+      "seo": {
+        "title": "LUXURY DAY TRIP FROM SEVILLE TO GRANADA & THE ALHAMBRA (PRIVATE)",
+        "description": "Enjoy a private luxury day trip from Seville to Granada, including a guided visit of the Alhambra. Explore the Nasrid Palaces, Generalife, and Albaicín with an expert guide and private transportation.",
+        "canonical": "https://sevilletoursco.com/tours/luxury-day-trip-from-seville-to-granada-the-alhambra-private/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-16T18:31:38",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 8995,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.49-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.49-1-300x300.jpeg",
+            "alt": "granada and alhambra private tour",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.49 (1)"
+          },
+          {
+            "id": 9027,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.06.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.06-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.06",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.06"
+          },
+          {
+            "id": 9029,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.57.54-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.57.54-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.57.54 (1)",
+            "name": "WhatsApp Image 2025-12-18 at 11.57.54 (1)"
+          },
+          {
+            "id": 9017,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.19 (1)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.19 (1)"
+          },
+          {
+            "id": 9019,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.17.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.17-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.17",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.17"
+          },
+          {
+            "id": 9005,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.21.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.21-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.21",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.21"
+          },
+          {
+            "id": 8997,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-5.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-5-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.48 (5)",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.48 (5)"
+          },
+          {
+            "id": 8996,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.49.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.49-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.49",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.49"
+          },
+          {
+            "id": 8994,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.49-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.49-2-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.49 (2)",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.49 (2)"
+          },
+          {
+            "id": 8993,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.50.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.50-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.50",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.50"
+          },
+          {
+            "id": 8998,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-4.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-4-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.46.48 (4)",
+            "name": "WhatsApp Image 2025-12-18 at 11.46.48 (4)"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=5574&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "visita-privada-palacio-de-las-duenas": {
+      "sourceType": "product",
+      "slug": "visita-privada-palacio-de-las-duenas",
+      "uri": "/tours/visita-privada-palacio-de-las-duenas/",
+      "link": "https://sevilletoursco.com/tours/visita-privada-palacio-de-las-duenas/",
+      "title": "Visita Privada Palacio de las Dueñas",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Visita Privada Palacio de las Dueñas",
+        "canonical": "https://sevilletoursco.com/tours/visita-privada-palacio-de-las-duenas/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2021-05-28T18:15:29",
+      "commerce": {
+        "type": "simple",
+        "price": {
+          "amountMinor": 8000,
+          "formatted": "80,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=5125&per_page=10",
+        "isInStock": true,
+        "isPurchasable": true,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "excursion-privada-sevilla-ronda": {
+      "sourceType": "product",
+      "slug": "excursion-privada-sevilla-ronda",
+      "uri": "/tours/excursion-privada-sevilla-ronda/",
+      "link": "https://sevilletoursco.com/tours/excursion-privada-sevilla-ronda/",
+      "title": "Excursión privada de Sevilla a Ronda",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Excursión privada de Sevilla a Ronda",
+        "canonical": "https://sevilletoursco.com/tours/excursion-privada-sevilla-ronda/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2025-12-20T17:43:37",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=5104&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "luxury-day-trip-from-seville-to-ronda-white-villages-private": {
+      "sourceType": "product",
+      "slug": "luxury-day-trip-from-seville-to-ronda-white-villages-private",
+      "uri": "/tours/luxury-day-trip-from-seville-to-ronda-white-villages-private/",
+      "link": "https://sevilletoursco.com/tours/luxury-day-trip-from-seville-to-ronda-white-villages-private/",
+      "title": "Luxury Day Trip from Seville to Ronda & White Villages (Private)",
+      "excerptHtml": "<p>A private luxury day trip from Seville through the heart of Andalusia, visiting Zahara de la Sierra, Ronda, and Setenil de las Bodegas. Travel in comfort with a licensed guide and discover dramatic landscapes, timeless white villages, and one of Spain’s most iconic historic towns at a relaxed, unhurried pace.</p>\n",
+      "contentHtml": "<h2>Overview</h2>\n<p>A luxury private day trip from Seville through the heart of Andalusia, visiting<br />\nZahara de la Sierra, Ronda, and Setenil de las Bodegas. A journey defined by dramatic<br />\nlandscapes, timeless villages, and authentic regional character.</p>\n<h2>Why This Tour</h2>\n<p>• Private experience with flexible pacing<br />\n• Scenic routes through the Andalusian countryside<br />\n• Combination of iconic landmarks and hidden gems<br />\n• Ideal for photography and cultural immersion  </p>\n<h2>What You Will See</h2>\n<p>• Zahara de la Sierra<br />\n• Ronda and the Puente Nuevo<br />\n• Historic center of Ronda<br />\n• Setenil de las Bodegas  </p>\n<h2>Itinerary</h2>\n<p>Departing Seville in the morning, you explore Zahara de la Sierra before continuing<br />\nto Ronda for its historic center and dramatic gorge. The day concludes in Setenil<br />\nde las Bodegas, where homes are built into the rock.</p>\n<h2>Practical Information</h2>\n<p><strong>Duration:</strong> Full day (approximately 10–11 hours)<br />\n<strong>Type:</strong> Private day trip<br />\n<strong>Language:</strong> English (other languages on request)<br />\n<strong>Meeting point:</strong> Hotel pickup in Seville<br />\n<strong>Includes:</strong> Private transportation, licensed guide<br />\n<strong>Not included:</strong> Meals  </p>\n<h2>Good to Know</h2>\n<p>• Moderate walking involved<br />\n• Comfortable shoes recommended<br />\n• Scenic viewpoints throughout the day  </p>\n<h2>Why Choose a Private Tour</h2>\n<p>A private format allows you to slow down, enjoy the landscape, and experience these<br />\nvillages in a way that feels personal and unhurried.</p>\n<h2>About Your Guide</h2>\n<p>Your guide offers local insight and regional knowledge, connecting landscapes and<br />\nvillages through the stories that shaped Andalusia.</p>\n",
+      "seo": {
+        "title": "Luxury Day Trip from Seville to Ronda & White Villages (Private)",
+        "description": "A private luxury day trip from Seville through the heart of Andalusia, visiting Zahara de la Sierra, Ronda, and Setenil de las Bodegas. Travel in comfort with a licensed guide and discover dramatic landscapes, timeless white villages, and one of Spain’s most iconic historic towns at a relaxed, unhurried pace.",
+        "canonical": "https://sevilletoursco.com/tours/luxury-day-trip-from-seville-to-ronda-white-villages-private/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-16T18:22:10",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 9016,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-2-300x300.jpeg",
+            "alt": "seville to ronda day trip",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.19 (2)"
+          },
+          {
+            "id": 9020,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-4.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-4-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.15 (4)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.15 (4)"
+          },
+          {
+            "id": 9023,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.15 (1)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.15 (1)"
+          },
+          {
+            "id": 9021,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-3.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-3-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.15 (3)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.15 (3)"
+          },
+          {
+            "id": 9022,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.15-2-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.15 (2)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.15 (2)"
+          },
+          {
+            "id": 9015,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-3.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-3-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.19 (3)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.19 (3)"
+          },
+          {
+            "id": 4450,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/IMG-20210216-WA0024-e1613566086174.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/IMG-20210216-WA0024-300x300.jpg",
+            "alt": "seville to ronda day trip",
+            "name": ""
+          },
+          {
+            "id": 4405,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/IMG-20210216-WA0001-e1650626765548.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/IMG-20210216-WA0001-300x300.jpg",
+            "alt": "excursión de sevilla a ronda",
+            "name": "Puente Nuevo"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=4472&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "private-seville-tapas-tour": {
+      "sourceType": "product",
+      "slug": "private-seville-tapas-tour",
+      "uri": "/tours/private-seville-tapas-tour/",
+      "link": "https://sevilletoursco.com/tours/private-seville-tapas-tour/",
+      "title": "Private Seville Tapas Tour",
+      "excerptHtml": "<p>Private Seville Tapas Tour – A Taste of Local Life Experience Seville through its cuisine on this private Seville tapas tour, designed for travelers who want to discover the city’s food culture in an authentic and relaxed way. Led by an official licensed local guide, this private walking tour introduces you to traditional tapas bars [&hellip;]</p>\n",
+      "contentHtml": "<h3 data-start=\"717\" data-end=\"771\">Private Seville Tapas Tour – A Taste of Local Life</h3>\n<p data-start=\"773\" data-end=\"1144\">Experience Seville through its cuisine on this <strong data-start=\"820\" data-end=\"850\">private Seville tapas tour</strong>, designed for travelers who want to discover the city’s food culture in an authentic and relaxed way. Led by an official licensed local guide, this private walking tour introduces you to traditional tapas bars while explaining the customs, history, and social importance of tapas in Andalusia.</p>\n<p data-start=\"1146\" data-end=\"1325\">More than just a food tour, this experience offers insight into how locals eat, drink, and socialize — with tastings included at each stop and the flexibility of a private format.</p>\n<hr data-start=\"1327\" data-end=\"1330\" />\n<h3 data-start=\"1332\" data-end=\"1358\">Highlights of the Tour</h3>\n<ul data-start=\"1360\" data-end=\"1700\">\n<li data-start=\"1360\" data-end=\"1420\">\n<p data-start=\"1362\" data-end=\"1420\">Private tapas tour with an official licensed local guide</p>\n</li>\n<li data-start=\"1421\" data-end=\"1474\">\n<p data-start=\"1423\" data-end=\"1474\">Visit traditional tapas bars frequented by locals</p>\n</li>\n<li data-start=\"1475\" data-end=\"1526\">\n<p data-start=\"1477\" data-end=\"1526\">Enjoy <strong data-start=\"1483\" data-end=\"1524\">2 tapas and 2 drinks included per bar</strong></p>\n</li>\n<li data-start=\"1527\" data-end=\"1587\">\n<p data-start=\"1529\" data-end=\"1587\">Learn about Andalusian cuisine and local food traditions</p>\n</li>\n<li data-start=\"1588\" data-end=\"1643\">\n<p data-start=\"1590\" data-end=\"1643\">Discover Sevillian neighborhoods through gastronomy</p>\n</li>\n<li data-start=\"1644\" data-end=\"1700\">\n<p data-start=\"1646\" data-end=\"1700\">Personalized experience tailored to your preferences</p>\n</li>\n</ul>\n<hr data-start=\"1702\" data-end=\"1705\" />\n<h3 data-start=\"1707\" data-end=\"1725\">What to Expect</h3>\n<p data-start=\"1727\" data-end=\"2004\">Your private tapas tour begins in a central area of Seville and continues on foot through lively neighborhoods known for their food scene. At each stop, your guide will explain the origins of the dishes, how tapas culture developed, and how locals choose where and what to eat.</p>\n<p data-start=\"2006\" data-end=\"2199\">At every bar visited, you’ll enjoy <strong data-start=\"2041\" data-end=\"2080\">two tapas and two drinks per person</strong>, carefully selected to showcase classic Sevillian flavors. Drinks may include local wine, beer, soft drinks, or water.</p>\n<p data-start=\"2201\" data-end=\"2444\">The <strong data-start=\"2205\" data-end=\"2240\">number of bars visited may vary</strong>, depending on the pace of the group, time spent at each stop, and individual preferences. As this is a <strong data-start=\"2344\" data-end=\"2360\">private tour</strong>, the experience can be adapted to your interests, dietary requirements, and rhythm.</p>\n<hr data-start=\"2446\" data-end=\"2449\" />\n<h3 data-start=\"2451\" data-end=\"2476\">Who Is This Tour For?</h3>\n<ul data-start=\"2478\" data-end=\"2698\">\n<li data-start=\"2478\" data-end=\"2517\">\n<p data-start=\"2480\" data-end=\"2517\">Food lovers and first-time visitors</p>\n</li>\n<li data-start=\"2518\" data-end=\"2548\">\n<p data-start=\"2520\" data-end=\"2548\">Couples and private groups</p>\n</li>\n<li data-start=\"2549\" data-end=\"2598\">\n<p data-start=\"2551\" data-end=\"2598\">Travelers seeking authentic local experiences</p>\n</li>\n<li data-start=\"2599\" data-end=\"2647\">\n<p data-start=\"2601\" data-end=\"2647\">Guests interested in culture through cuisine</p>\n</li>\n<li data-start=\"2648\" data-end=\"2698\">\n<p data-start=\"2650\" data-end=\"2698\">Visitors who prefer a flexible, private format</p>\n</li>\n</ul>\n<h3 data-start=\"2705\" data-end=\"2730\"></h3>\n<hr data-start=\"3243\" data-end=\"3246\" />\n<h3 data-start=\"3248\" data-end=\"3295\">Why Choose a Private Tapas Tour in Seville?</h3>\n<p data-start=\"3297\" data-end=\"3576\">A private tapas tour allows you to experience Seville like a local, without rushing or following a fixed group schedule. With included tastings, personalized explanations, and insider recommendations, you’ll enjoy a deeper and more authentic connection to Sevillian food culture.</p>\n",
+      "seo": {
+        "title": "Private Seville Tapas Tour",
+        "description": "Private Seville Tapas Tour – A Taste of Local Life Experience Seville through its cuisine on this private Seville tapas tour, designed for travelers who want to discover the city’s food culture in an authentic and relaxed way. Led by an official licensed local guide, this private walking tour introduces you to traditional tapas bars [&hellip;]",
+        "canonical": "https://sevilletoursco.com/tours/private-seville-tapas-tour/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-15T12:47:18",
+      "commerce": {
+        "type": "external",
+        "price": {
+          "amountMinor": 6500,
+          "formatted": "65,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "booking": {
+          "label": "Book your tour",
+          "url": "https://fareharbor.com/embeds/book/sevilletoursco/items/577864/?full-items=yes&flow=1257181",
+          "provider": "fareharbor"
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 9163,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-6.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-6-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9175,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2026-01-15 at 13.15.18 (1)",
+            "name": "WhatsApp Image 2026-01-15 at 13.15.18 (1)"
+          },
+          {
+            "id": 9174,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-2-300x300.jpeg",
+            "alt": "WhatsApp Image 2026-01-15 at 13.15.18 (2)",
+            "name": "WhatsApp Image 2026-01-15 at 13.15.18 (2)"
+          },
+          {
+            "id": 9171,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-5.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-5-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9170,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-6.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.18-6-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9168,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-1-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9162,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-7.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-7-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9164,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-5.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-5-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9165,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-4.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-4-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          },
+          {
+            "id": 9166,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-3.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/02/WhatsApp-Image-2026-01-15-at-13.15.19-3-300x300.jpeg",
+            "alt": "private tapas tour in seville",
+            "name": "private tapas tour in seville"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=4233&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": true,
+        "isRequestOnly": false
+      }
+    },
+    "tour-juego-tronos-sevilla": {
+      "sourceType": "product",
+      "slug": "tour-juego-tronos-sevilla",
+      "uri": "/tours/tour-juego-tronos-sevilla/",
+      "link": "https://sevilletoursco.com/tours/tour-juego-tronos-sevilla/",
+      "title": "Tour Juego de Tronos en Sevilla",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Tour Juego de Tronos en Sevilla",
+        "canonical": "https://sevilletoursco.com/tours/tour-juego-tronos-sevilla/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2021-01-28T22:01:17",
+      "commerce": {
+        "type": "variable",
+        "price": {
+          "amountMinor": 37500,
+          "formatted": "375,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 3480,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/02/57ae0aa0db5ce92c168b66cf-960-540.png",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/02/57ae0aa0db5ce92c168b66cf-960-540-300x300.png",
+            "alt": "Juego de tronos en Sevilla",
+            "name": "Jamie Lannister"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=2433&per_page=10",
+        "isInStock": true,
+        "isPurchasable": true,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "game-of-thrones-seville-tour": {
+      "sourceType": "product",
+      "slug": "game-of-thrones-seville-tour",
+      "uri": "/tours/game-of-thrones-seville-tour/",
+      "link": "https://sevilletoursco.com/tours/game-of-thrones-seville-tour/",
+      "title": "Game of Thrones Seville Tour",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Game of Thrones Seville Tour",
+        "canonical": "https://sevilletoursco.com/tours/game-of-thrones-seville-tour/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2025-12-20T17:42:09",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 1574,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/02/57ae0aa0db5ce92c168b66cf-960-540.png",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/02/57ae0aa0db5ce92c168b66cf-960-540-300x300.png",
+            "alt": "Seville game of thrones",
+            "name": "Jamie Lannister"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=1581&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "tour-tapas-sevilla": {
+      "sourceType": "product",
+      "slug": "tour-tapas-sevilla",
+      "uri": "/tours/tour-tapas-sevilla/",
+      "link": "https://sevilletoursco.com/tours/tour-tapas-sevilla/",
+      "title": "Tour de tapas en Sevilla",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Tour de tapas en Sevilla",
+        "canonical": "https://sevilletoursco.com/tours/tour-tapas-sevilla/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2021-01-28T22:01:51",
+      "commerce": {
+        "type": "variable",
+        "price": {
+          "amountMinor": 6500,
+          "formatted": "65,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 3475,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/maddi-bazzocco-cVmNIJCa1XA-unsplash-scaled.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/maddi-bazzocco-cVmNIJCa1XA-unsplash-300x300.jpg",
+            "alt": "tapas en sevilla",
+            "name": "tour de tapas sevilla"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=2376&per_page=10",
+        "isInStock": true,
+        "isPurchasable": true,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "seville-tapas-tour": {
+      "sourceType": "product",
+      "slug": "seville-tapas-tour",
+      "uri": "/tours/seville-tapas-tour/",
+      "link": "https://sevilletoursco.com/tours/seville-tapas-tour/",
+      "title": "Seville Tapas tour",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Seville Tapas tour",
+        "canonical": "https://sevilletoursco.com/tours/seville-tapas-tour/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2021-03-10T18:25:01",
+      "commerce": {
+        "type": "variable",
+        "price": {
+          "amountMinor": 6500,
+          "formatted": "65,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 1445,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/maddi-bazzocco-cVmNIJCa1XA-unsplash-scaled.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/maddi-bazzocco-cVmNIJCa1XA-unsplash-300x300.jpg",
+            "alt": "tapas & history tour in seville",
+            "name": "tapas & history tour in seville"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=1460&per_page=10",
+        "isInStock": true,
+        "isPurchasable": true,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "tour-privado-en-sevilla": {
+      "sourceType": "product",
+      "slug": "tour-privado-en-sevilla",
+      "uri": "/tours/tour-privado-en-sevilla/",
+      "link": "https://sevilletoursco.com/tours/tour-privado-en-sevilla/",
+      "title": "Tour privado en Sevilla",
+      "excerptHtml": "",
+      "contentHtml": "",
+      "seo": {
+        "title": "Tour privado en Sevilla",
+        "canonical": "https://sevilletoursco.com/tours/tour-privado-en-sevilla/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2021-02-18T11:22:15",
+      "commerce": {
+        "type": "variable",
+        "price": {
+          "amountMinor": 18150,
+          "formatted": "181,50 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 3387,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/158240e85c069efcd7d9e3869c8f1f88a3ee5615ea3f875245c3d08f9f73d2b6-300x300.jpg",
+            "alt": "puerta del perdón",
+            "name": "puerta perdon"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=3706&per_page=10",
+        "isInStock": true,
+        "isPurchasable": true,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "seville-private-tour": {
+      "sourceType": "product",
+      "slug": "seville-private-tour",
+      "uri": "/tours/seville-private-tour/",
+      "link": "https://sevilletoursco.com/tours/seville-private-tour/",
+      "title": "Seville Private Tour",
+      "excerptHtml": "<p>Enjoy a private guided tour of Seville’s most iconic landmarks. Visit the Royal Alcázar, the Cathedral of Seville, and the Santa Cruz neighbourhood with an official guide. A fully personalized 3-hour experience tailored to your interests.</p>\n",
+      "contentHtml": "<h3 data-start=\"902\" data-end=\"960\">Seville Private Tour – Alcázar, Cathedral & Santa Cruz</h3>\n<p data-start=\"962\" data-end=\"1298\">Discover Seville at your own pace on this exclusive <strong data-start=\"1014\" data-end=\"1041\">private tour of Seville</strong>, designed for travelers seeking a personalized and in-depth experience. Accompanied by an official licensed guide, you’ll explore the city’s most important monuments and historic districts while enjoying the flexibility that only a private visit can offer.</p>\n<p data-start=\"1300\" data-end=\"1590\">This 3-hour private walking tour combines history, culture, and local insight, covering the Royal Alcázar of Seville, the Cathedral of Seville, and the charming Santa Cruz neighbourhood. The itinerary can be adapted to your interests, making it ideal for couples, families, or small groups.</p>\n<hr data-start=\"1592\" data-end=\"1595\" />\n<h3 data-start=\"1597\" data-end=\"1640\">Highlights of This Private Seville Tour</h3>\n<ul data-start=\"1642\" data-end=\"2015\">\n<li data-start=\"1642\" data-end=\"1697\">\n<p data-start=\"1644\" data-end=\"1697\">Private guided tour with an official licensed guide</p>\n</li>\n<li data-start=\"1698\" data-end=\"1765\">\n<p data-start=\"1700\" data-end=\"1765\">Visit the Royal Alcázar of Seville (UNESCO World Heritage Site)</p>\n</li>\n<li data-start=\"1766\" data-end=\"1845\">\n<p data-start=\"1768\" data-end=\"1845\">Explore the Cathedral of Seville, the largest Gothic cathedral in the world</p>\n</li>\n<li data-start=\"1846\" data-end=\"1900\">\n<p data-start=\"1848\" data-end=\"1900\">Walk through the historic Santa Cruz neighbourhood</p>\n</li>\n<li data-start=\"1901\" data-end=\"1957\">\n<p data-start=\"1903\" data-end=\"1957\">Fully personalized itinerary based on your interests</p>\n</li>\n<li data-start=\"1958\" data-end=\"2015\">\n<p data-start=\"1960\" data-end=\"2015\">Flexible pace and exclusive attention from your guide</p>\n</li>\n</ul>\n<hr data-start=\"2017\" data-end=\"2020\" />\n<h3 data-start=\"2022\" data-end=\"2040\">What to Expect</h3>\n<p data-start=\"2042\" data-end=\"2337\">Your private Seville tour begins at a central meeting point, where your guide will tailor the experience to your preferences. Inside the <strong data-start=\"2179\" data-end=\"2196\">Royal Alcázar</strong>, you’ll discover centuries of royal history, from Islamic origins to Christian kings, admiring its Mudéjar palaces, courtyards, and gardens.</p>\n<p data-start=\"2339\" data-end=\"2573\">Next, visit the <strong data-start=\"2355\" data-end=\"2379\">Cathedral of Seville</strong>, a monumental Gothic masterpiece built on the site of a former mosque. Learn about its artistic treasures, religious significance, and the tomb traditionally attributed to Christopher Columbus.</p>\n<p data-start=\"2575\" data-end=\"2829\">The tour concludes with a guided walk through the <strong data-start=\"2625\" data-end=\"2653\">Santa Cruz neighbourhood</strong>, Seville’s former Jewish quarter. Wander through narrow streets, hidden squares, and whitewashed houses while uncovering local legends and stories that bring the city to life.</p>\n<hr data-start=\"2831\" data-end=\"2834\" />\n<h3 data-start=\"2836\" data-end=\"2862\">Tailor-Made Experience</h3>\n<p data-start=\"2864\" data-end=\"3086\">This is a <strong data-start=\"2874\" data-end=\"2909\">fully customizable private tour</strong>. Your guide can adapt the route, depth of explanations, and focus areas according to your interests, whether you prefer history, architecture, local traditions, or photography.</p>\n<p data-start=\"3088\" data-end=\"3229\">Please note that <strong data-start=\"3105\" data-end=\"3142\">entrance tickets are not included</strong>, allowing you full flexibility to use existing tickets or choose preferred time slots.</p>\n<hr data-start=\"3546\" data-end=\"3549\" />\n<h3 data-start=\"3551\" data-end=\"3570\">Important Notes</h3>\n<ul data-start=\"3572\" data-end=\"3787\">\n<li data-start=\"3572\" data-end=\"3642\">\n<p data-start=\"3574\" data-end=\"3642\">Entrance tickets to the Alcázar and Cathedral are <strong data-start=\"3624\" data-end=\"3640\">not included</strong></p>\n</li>\n<li data-start=\"3643\" data-end=\"3695\">\n<p data-start=\"3645\" data-end=\"3695\">We strongly recommend booking tickets in advance</p>\n</li>\n<li data-start=\"3696\" data-end=\"3737\">\n<p data-start=\"3698\" data-end=\"3737\">Comfortable walking shoes are advised</p>\n</li>\n<li data-start=\"3738\" data-end=\"3787\">\n<p data-start=\"3740\" data-end=\"3787\">Modest dress is required inside the Cathedral</p>\n</li>\n<li data-start=\"3738\" data-end=\"3787\">ID needed for both monuments</li>\n</ul>\n<hr data-start=\"3789\" data-end=\"3792\" />\n<h3 data-start=\"3794\" data-end=\"3835\">Why Choose a Private Tour in Seville?</h3>\n<p data-start=\"3837\" data-end=\"4073\">A private tour offers flexibility, comfort, and a deeper connection to the city. With no fixed script or group schedule, you’ll enjoy Seville’s highlights at your own rhythm, guided by a local expert focused entirely on your experience.</p>\n",
+      "seo": {
+        "title": "Seville Private Tour",
+        "description": "Enjoy a private guided tour of Seville’s most iconic landmarks. Visit the Royal Alcázar, the Cathedral of Seville, and the Santa Cruz neighbourhood with an official guide. A fully personalized 3-hour experience tailored to your interests.",
+        "canonical": "https://sevilletoursco.com/tours/seville-private-tour/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-28T15:55:59",
+      "commerce": {
+        "type": "external",
+        "price": {
+          "amountMinor": 19500,
+          "formatted": "195,00 €",
+          "currencyCode": "EUR",
+          "currencySymbol": "€",
+          "vatLabel": "VAT Incl."
+        },
+        "booking": {
+          "label": "Book your tour",
+          "url": "https://fareharbor.com/embeds/book/sevilletoursco/items/595247/?full-items=yes&flow=1257181",
+          "provider": "fareharbor"
+        },
+        "reviews": {
+          "averageRating": 5,
+          "reviewCount": 1
+        },
+        "galleryImages": [
+          {
+            "id": 9126,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.21-1-e1768471096367.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.21-1-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9135,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.16.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.16-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9127,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.21.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.21-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9128,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.20-3-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.20-3-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9129,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.20-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.20-2-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9130,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.20.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.20-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9131,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.19.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.19-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9132,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.18-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.18-1-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9133,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.18.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.18-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          },
+          {
+            "id": 9134,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.16-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/WhatsApp-Image-2026-01-15-at-10.55.16-1-300x300.jpeg",
+            "alt": "seville private tour",
+            "name": "seville private tour"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=1259&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": true,
+        "isRequestOnly": false
+      }
+    },
+    "tour-privado-de-cordoba": {
+      "sourceType": "product",
+      "slug": "tour-privado-de-cordoba",
+      "uri": "/tours/tour-privado-de-cordoba/",
+      "link": "https://sevilletoursco.com/tours/tour-privado-de-cordoba/",
+      "title": "Tour privado de Córdoba",
+      "excerptHtml": "<p>Descubre la esencia andaluza con nuestro <strong>tour privado de cordoba</strong> desde Sevilla, una experiencia exclusiva y personalizada para conocer una de las ciudades más fascinantes de España. Viaja cómodamente con guía privado y sumérgete en la historia de Córdoba, antigua capital del Califato. Recorre la impresionante Mezquita-Catedral, pasea por las encantadoras calles de la Judería, admira el Puente Romano y déjate sorprender por los patios cordobeses llenos de color. El tour se adapta a tu ritmo e intereses, con tiempo libre para disfrutar de la gastronomía local y hacer fotos inolvidables. Ideal para parejas, familias o pequeños grupos que buscan comodidad, flexibilidad y una atención cercana. Vive Córdoba de una forma auténtica, sin prisas y con todo el encanto de un servicio privado desde Sevilla.</p>\n",
+      "contentHtml": "",
+      "seo": {
+        "title": "Tour privado de Córdoba",
+        "description": "Descubre la esencia andaluza con nuestro tour privado de cordoba desde Sevilla, una experiencia exclusiva y personalizada para conocer una de las ciudades más fascinantes de España. Viaja cómodamente con guía privado y sumérgete en la historia de Córdoba, antigua capital del Califato. Recorre la impresionante Mezquita-Catedral, pasea por las encantadoras calles de la Judería, admira el Puente Romano y déjate sorprender por los patios cordobeses llenos de color. El tour se adapta a tu ritmo e intereses, con tiempo libre para disfrutar de la gastronomía local y hacer fotos inolvidables. Ideal para parejas, familias o pequeños grupos que buscan comodidad, flexibilidad y una atención cercana. Vive Córdoba de una forma auténtica, sin prisas y con todo el encanto de un servicio privado desde Sevilla.",
+        "canonical": "https://sevilletoursco.com/tours/tour-privado-de-cordoba/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2025-12-20T17:50:41",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 3456,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20191229_155403-01-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20191229_155403-01-300x300.jpeg",
+            "alt": "Excursión de Sevilla a Córdoba",
+            "name": "columnas de la mezquita"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=3707&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "luxury-day-trip-from-seville-to-cordoba-private": {
+      "sourceType": "product",
+      "slug": "luxury-day-trip-from-seville-to-cordoba-private",
+      "uri": "/tours/luxury-day-trip-from-seville-to-cordoba-private/",
+      "link": "https://sevilletoursco.com/tours/luxury-day-trip-from-seville-to-cordoba-private/",
+      "title": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+      "excerptHtml": "<p>Travel in comfort on a private day trip from Seville to Córdoba. Enjoy an exclusive guided visit to the Great Mosque, stroll through the historic Jewish Quarter, and discover the city’s timeless elegance with a dedicated expert guide.</p>\n",
+      "contentHtml": "<h2>Overview</h2>\n<p>A refined private day trip from Seville to Córdoba, centered around the Great Mosque<br />\nand the city’s layered Roman, Islamic, Jewish, and Christian heritage. A journey into<br />\none of Spain’s most historically significant cities.</p>\n<h2>Why This Tour</h2>\n<p>• Private visit with an official licensed guide<br />\n• In-depth exploration of the Mosque–Cathedral<br />\n• Balanced itinerary with cultural and scenic highlights<br />\n• Designed for travelers seeking historical depth</p>\n<h2>What You Will See</h2>\n<p>• Great Mosque–Cathedral of Córdoba<br />\n• Roman Bridge<br />\n• Jewish Quarter<br />\n• Flower-filled alleyways and historic streets</p>\n<h2>Itinerary</h2>\n<p>After private pickup in Seville, you travel comfortably to Córdoba. The visit focuses<br />\non the Great Mosque, followed by a walking exploration of the historic center, with<br />\ntime to enjoy the atmosphere of the old Jewish Quarter.</p>\n<h2>Practical Information</h2>\n<p><strong>Duration:</strong> Full day (approximately 9–10 hours)<br />\n<strong>Type:</strong> Private day trip<br />\n<strong>Language:</strong> English (other languages on request)<br />\n<strong>Meeting point:</strong> Hotel pickup in Seville<br />\n<strong>Includes:</strong> Private transportation, licensed guide<br />\n<strong>Not included:</strong>  meals</p>\n<h2>Good to Know</h2>\n<p>• Modest dress recommended for the Mosque<br />\n• Easy walking with some uneven streets<br />\n• Ideal for history and architecture enthusiasts</p>\n<h2>Why Choose a Private Tour</h2>\n<p>Private access allows for deeper understanding, flexibility, and time to absorb the<br />\nextraordinary contrasts that define Córdoba’s past.</p>\n<h2>About Your Guide</h2>\n<p>Your guide brings Córdoba’s complex history to life through clear explanations and<br />\nengaging storytelling tailored to your interests.</p>\n",
+      "seo": {
+        "title": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+        "description": "Travel in comfort on a private day trip from Seville to Córdoba. Enjoy an exclusive guided visit to the Great Mosque, stroll through the historic Jewish Quarter, and discover the city’s timeless elegance with a dedicated expert guide.",
+        "canonical": "https://sevilletoursco.com/tours/luxury-day-trip-from-seville-to-cordoba-private/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2026-01-16T18:12:04",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 9018,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.19-300x300.jpeg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)"
+          },
+          {
+            "id": 935,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20181117_122045-01-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20181117_122045-01-300x300.jpeg",
+            "alt": "mosque gate",
+            "name": "mosque gate"
+          },
+          {
+            "id": 3455,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190627_125620-01-1-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190627_125620-01-1-300x300.jpeg",
+            "alt": "cordoba flores",
+            "name": "cof"
+          },
+          {
+            "id": 5707,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/07/IMG_20191229_154435-scaled-e1627227117768.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/07/IMG_20191229_154435-300x300.jpg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "mihrab"
+          },
+          {
+            "id": 9026,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.06-1.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.58.06-1-300x300.jpeg",
+            "alt": "WhatsApp Image 2025-12-18 at 11.58.06 (1)",
+            "name": "WhatsApp Image 2025-12-18 at 11.58.06 (1)"
+          },
+          {
+            "id": 9000,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-2.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-2-300x300.jpeg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)"
+          },
+          {
+            "id": 8999,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-3.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2022/04/WhatsApp-Image-2025-12-18-at-11.46.48-3-300x300.jpeg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)"
+          },
+          {
+            "id": 5709,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/07/IMG_20191229_171014-scaled-e1627227092807.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/07/IMG_20191229_171014-300x300.jpg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "roman bridge"
+          },
+          {
+            "id": 5703,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2021/07/IMG_20191031_141311-scaled-e1627227157426.jpg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2021/07/IMG_20191031_141311-300x300.jpg",
+            "alt": "private tour of andalucia",
+            "name": ""
+          },
+          {
+            "id": 1029,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190627_125620-01-1-scaled-e1765973170926.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190627_125620-01-1-300x300.jpeg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)"
+          },
+          {
+            "id": 1030,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20191229_155403-01-scaled-e1737916887354.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20191229_155403-01-300x300.jpeg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "Cathedral mosque of Cordoba"
+          },
+          {
+            "id": 3457,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20191229_170021-01-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20191229_170021-01-300x300.jpeg",
+            "alt": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)",
+            "name": "LUXURY DAY TRIP FROM SEVILLE TO CÓRDOBA (PRIVATE)"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=1159&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    },
+    "tour-privado-alhambra": {
+      "sourceType": "product",
+      "slug": "tour-privado-alhambra",
+      "uri": "/tours/tour-privado-alhambra/",
+      "link": "https://sevilletoursco.com/tours/tour-privado-alhambra/",
+      "title": "Tour Privado de la Alhambra",
+      "excerptHtml": "<p>Vive una experiencia inolvidable con nuestro <strong>tour privado de la alhambra</strong> desde Sevilla, diseñado para quienes desean descubrir uno de los monumentos más emblemáticos de España con total comodidad y atención personalizada. Viaja en transporte privado acompañado por un guía experto que te revelará la historia, el arte y las leyendas de la Alhambra de Granada. Recorre los majestuosos Palacios Nazaríes, el Generalife y la Alcazaba a tu propio ritmo, sin multitudes ni prisas. Este tour se adapta a tus intereses, permitiéndote disfrutar de cada detalle y de las impresionantes vistas de la ciudad. Además, tendrás tiempo libre para explorar Granada, saborear su gastronomía y pasear por sus calles llenas de encanto. Ideal para parejas, familias o pequeños grupos que buscan una visita exclusiva, flexible y enriquecedora desde Sevilla.</p>\n",
+      "contentHtml": "",
+      "seo": {
+        "title": "Tour Privado de la Alhambra",
+        "description": "Vive una experiencia inolvidable con nuestro tour privado de la alhambra desde Sevilla, diseñado para quienes desean descubrir uno de los monumentos más emblemáticos de España con total comodidad y atención personalizada. Viaja en transporte privado acompañado por un guía experto que te revelará la historia, el arte y las leyendas de la Alhambra de Granada. Recorre los majestuosos Palacios Nazaríes, el Generalife y la Alcazaba a tu propio ritmo, sin multitudes ni prisas. Este tour se adapta a tus intereses, permitiéndote disfrutar de cada detalle y de las impresionantes vistas de la ciudad. Además, tendrás tiempo libre para explorar Granada, saborear su gastronomía y pasear por sus calles llenas de encanto. Ideal para parejas, familias o pequeños grupos que buscan una visita exclusiva, flexible y enriquecedora desde Sevilla.",
+        "canonical": "https://sevilletoursco.com/tours/tour-privado-alhambra/",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+      },
+      "updatedAt": "2025-12-20T17:54:30",
+      "commerce": {
+        "type": "simple",
+        "reviews": {
+          "averageRating": 0,
+          "reviewCount": 0
+        },
+        "galleryImages": [
+          {
+            "id": 3460,
+            "url": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190528_194551-01-scaled.jpeg",
+            "thumbnailUrl": "https://sevilletoursco.com/wp-content/uploads/2020/01/IMG_20190528_194551-01-300x300.jpeg",
+            "alt": "Alhambra private tour",
+            "name": "partal"
+          }
+        ],
+        "relatedProductsUrl": "https://sevilletoursco.com/wp-json/wc/store/products?related=3712&per_page=10",
+        "isInStock": true,
+        "isPurchasable": false,
+        "isBookable": false,
+        "isRequestOnly": true
+      }
+    }
+  }
+}

@@ -1,20 +1,17 @@
-﻿import Image from "next/image";
-import Link from "next/link";
+﻿import Link from "next/link";
 import { TourGallery } from "@/components/wordpress-rest/TourGallery";
 import { PageReturnLinks } from "@/components/navigation/PageReturnLinks";
-import type { RelatedTourCard, TourPage } from "@/lib/wordpress-rest/types";
+import type { TourPage } from "@/lib/wordpress-rest/types";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy, type Locale } from "@/lib/i18n/site";
 
 type WordPressRestContentProps = {
   content: TourPage;
-  relatedProducts?: RelatedTourCard[];
   locale?: Locale;
 };
 
 export function WordPressRestContentView({
   content,
-  relatedProducts = [],
   locale = "en",
 }: WordPressRestContentProps) {
   const copy = siteCopy(locale);
@@ -137,53 +134,6 @@ export function WordPressRestContentView({
           )}
         </section>
 
-        {relatedProducts.length > 0 ? (
-          <section className="mt-6">
-            <h2 className="font-display text-2xl font-semibold tracking-[-0.03em] text-stone-950">
-              {copy.wordpress.interestedIn}
-            </h2>
-
-            <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {relatedProducts.map((product) => (
-                <Link
-                  key={product.slug}
-                  href={product.href}
-                  className="card-glow overflow-hidden rounded-[calc(var(--radius-card)+0.15rem)] border border-[color:var(--border-soft)] bg-[var(--surface-card)] transition hover:-translate-y-0.5"
-                >
-                  {product.imageUrl ? (
-                    <div className="relative h-48 w-full overflow-hidden bg-stone-200">
-                      <Image
-                        src={product.imageUrl}
-                        alt={product.imageAlt || product.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="h-48 bg-[linear-gradient(145deg,var(--brand-green-900),var(--brand-green-500))]" />
-                  )}
-
-                  <div className="p-5">
-                    <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-stone-950">
-                      {product.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
-                      {product.isBookable && product.price
-                        ? `${product.price.formatted} ${product.price.vatLabel}`
-                        : "Custom proposal"}
-                    </p>
-
-                    <span className="mt-4 inline-flex text-sm font-semibold text-[var(--brand-green-700)]">
-                      {copy.wordpress.viewTour}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ) : null}
       </article>
     </main>
   );

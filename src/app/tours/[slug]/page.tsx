@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { WordPressRestContentView } from "@/components/wordpress-rest/WordPressRestContent";
-import {
-  getContentByUri,
-  getRelatedProductsByUrl,
-} from "@/lib/wordpress-rest/client";
+import { RelatedProductsSection } from "@/components/wordpress-rest/RelatedProductsSection";
+import { getContentByUri } from "@/lib/wordpress-rest/client";
+import { getStaticTourSlugs } from "@/lib/wordpress-rest/tour-manifest";
 
 type TourPageProps = {
   params: Promise<{
@@ -12,7 +12,13 @@ type TourPageProps = {
   }>;
 };
 
-export const revalidate = 120;
+export const revalidate = 604800;
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const slugs = await getStaticTourSlugs();
+
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata({
   params,
@@ -79,16 +85,15 @@ export default async function TourPage({ params }: TourPageProps) {
     notFound();
   }
 
-  const relatedProducts = content.commerce?.relatedProductsUrl
-    ? (await getRelatedProductsByUrl(content.commerce.relatedProductsUrl))
-        .filter((product) => product.slug !== content.slug)
-        .slice(0, 3)
-    : [];
-
   return (
-    <WordPressRestContentView
-      content={content}
-      relatedProducts={relatedProducts}
-    />
+    <>
+      <WordPressRestContentView content={content} />
+      <Suspense fallback={null}>
+        <RelatedProductsSection
+          relatedProductsUrl={content.commerce?.relatedProductsUrl}
+          currentSlug={content.slug}
+        />
+      </Suspense>
+    </>
   );
 }

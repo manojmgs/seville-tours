@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "seo:manifest": "node scripts/generate-seo-manifest.mjs",
+    "build": "node scripts/generate-seo-manifest.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },

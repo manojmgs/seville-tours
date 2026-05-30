@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { WEEKLY_REVALIDATE_SECONDS } from "@/lib/wordpress-rest/cache";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sevilletoursco.com";
 const WORDPRESS_SITE_URL =
@@ -17,7 +18,7 @@ async function getWordPressProductUrls(): Promise<WordPressSitemapProduct[]> {
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 300,
+        revalidate: WEEKLY_REVALIDATE_SECONDS,
       },
     });
 

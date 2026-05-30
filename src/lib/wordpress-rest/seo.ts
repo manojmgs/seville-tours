@@ -90,25 +90,6 @@ export function extractSeoMetadataFromHtml(
 export async function getSeoMetadataByUrl(
   url: string,
 ): Promise<ExtractedSeoMetadata | undefined> {
-  try {
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        Accept: "text/html",
-      },
-      next: {
-        revalidate: 300,
-      },
-    });
-
-    if (!response.ok) {
-      return undefined;
-    }
-
-    const html = await response.text();
-
-    return extractSeoMetadataFromHtml(html);
-  } catch {
-    return undefined;
-  }
+  void url;
+  return undefined;
 }

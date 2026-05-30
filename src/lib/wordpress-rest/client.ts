@@ -1,4 +1,5 @@
-﻿import type {
+﻿import { cache } from "react";
+import type {
   RelatedTourCard,
   TourPage,
   WooCommerceStoreProduct,
@@ -13,7 +14,9 @@ import {
   normalizeRelatedTourCard,
   normalizeTourPage,
 } from "./normalize";
-import { getSeoMetadataByUrl } from "./seo";
+import { WEEKLY_REVALIDATE_SECONDS } from "./cache";
+import { getSeoManifestEntryBySlug } from "./seo-manifest";
+import { getTourManifestEntryBySlug } from "./tour-manifest";
 
 type FetchOptions = {
   revalidate?: number;
@@ -29,7 +32,7 @@ async function wordpressRestFetch<T>(
       Accept: "application/json",
     },
     next: {
-      revalidate: options.revalidate ?? 120,
+      revalidate: options.revalidate ?? WEEKLY_REVALIDATE_SECONDS,
     },
   });
 
@@ -42,9 +45,9 @@ async function wordpressRestFetch<T>(
   return response.json() as Promise<T>;
 }
 
-async function getWordPressProductBySlug(
+const getWordPressProductBySlug = cache(async (
   slug: string,
-): Promise<WordPressProduct | null> {
+): Promise<WordPressProduct | null> => {
   if (!slug) {
     return null;
   }
@@ -52,15 +55,15 @@ async function getWordPressProductBySlug(
   const url = buildWordPressProductUrl(slug);
 
   const products = await wordpressRestFetch<WordPressProduct[]>(url, {
-    revalidate: 120,
+    revalidate: WEEKLY_REVALIDATE_SECONDS,
   });
 
   return products[0] ?? null;
-}
+});
 
-async function getWooCommerceStoreProductBySlug(
+const getWooCommerceStoreProductBySlug = cache(async (
   slug: string,
-): Promise<WooCommerceStoreProduct | undefined> {
+): Promise<WooCommerceStoreProduct | undefined> => {
   if (!slug) {
     return undefined;
   }
@@ -69,17 +72,17 @@ async function getWooCommerceStoreProductBySlug(
 
   try {
     const products = await wordpressRestFetch<WooCommerceStoreProduct[]>(url, {
-      revalidate: 120,
+      revalidate: WEEKLY_REVALIDATE_SECONDS,
     });
 
     return products[0];
   } catch {
     return undefined;
   }
-}
+});
 
-async function enrichWithLiveSeo(content: TourPage): Promise<TourPage> {
-  const extractedSeo = await getSeoMetadataByUrl(content.link);
+async function enrichWithPrecomputedSeo(content: TourPage): Promise<TourPage> {
+  const extractedSeo = await getSeoManifestEntryBySlug(content.slug);
 
   if (!extractedSeo) {
     return content;
@@ -89,14 +92,20 @@ async function enrichWithLiveSeo(content: TourPage): Promise<TourPage> {
     ...content,
     seo: {
       ...content.seo,
-      title: extractedSeo.title ?? content.seo.title,
-      description: extractedSeo.description ?? content.seo.description,
-      canonical: extractedSeo.canonical ?? content.seo.canonical,
+      title: extractedSeo.title || content.seo.title,
+      description: extractedSeo.description || content.seo.description,
+      canonical: extractedSeo.canonical || content.seo.canonical,
     },
   };
 }
 
-export async function getProductBySlug(slug: string): Promise<TourPage | null> {
+export const getProductBySlug = cache(async (slug: string): Promise<TourPage | null> => {
+  const manifestContent = await getTourManifestEntryBySlug(slug);
+
+  if (manifestContent) {
+    return manifestContent;
+  }
+
   const wordpressProduct = await getWordPressProductBySlug(slug);
 
   if (!wordpressProduct) {
@@ -106,19 +115,19 @@ export async function getProductBySlug(slug: string): Promise<TourPage | null> {
   const commerceProduct = await getWooCommerceStoreProductBySlug(slug);
   const content = normalizeTourPage(wordpressProduct, commerceProduct);
 
-  return enrichWithLiveSeo(content);
-}
+  return enrichWithPrecomputedSeo(content);
+});
 
-export async function getRelatedProductsByUrl(
+export const getRelatedProductsByUrl = cache(async (
   url: string,
-): Promise<RelatedTourCard[]> {
+): Promise<RelatedTourCard[]> => {
   if (!url) {
     return [];
   }
 
   try {
     const products = await wordpressRestFetch<WooCommerceStoreProduct[]>(url, {
-      revalidate: 120,
+      revalidate: WEEKLY_REVALIDATE_SECONDS,
     });
 
     return products
@@ -127,9 +136,9 @@ export async function getRelatedProductsByUrl(
   } catch {
     return [];
   }
-}
+});
 
-export async function getContentByUri(uri: string): Promise<TourPage | null> {
+export const getContentByUri = cache(async (uri: string): Promise<TourPage | null> => {
   const slug = uriToSlug(uri);
 
   if (!slug) {
@@ -137,4 +146,4 @@ export async function getContentByUri(uri: string): Promise<TourPage | null> {
   }
 
   return getProductBySlug(slug);
-}
+});

@@ -171,6 +171,7 @@ export type WordPressRestContent = {
   contentHtml: string;
   featuredImage?: WordPressRestImage;
   seo: WordPressRestSeo;
+  updatedAt?: string;
 };
 
 export type TourPage = WordPressRestContent & {

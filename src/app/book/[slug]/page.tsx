@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageReturnLinks } from "@/components/navigation/PageReturnLinks";
 import { getContentByUri } from "@/lib/wordpress-rest/client";
+import { getStaticTourSlugs } from "@/lib/wordpress-rest/tour-manifest";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy } from "@/lib/i18n/site";
 import { getRequestLocale } from "@/lib/i18n/request-locale";
@@ -13,7 +14,13 @@ type BookingPageProps = {
   }>;
 };
 
-export const revalidate = 120;
+export const revalidate = 604800;
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const slugs = await getStaticTourSlugs();
+
+  return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata({
   params,

@@ -151,6 +151,7 @@ export function buildWordPressProductUrl(slug: string): string {
   const params = new URLSearchParams({
     slug,
     _embed: "1",
+    _fields: "id,slug,link,type,title,content,excerpt,featured_media,_embedded",
   });
 
   return `${WORDPRESS_REST_BASE_URL}/product?${params.toString()}`;
