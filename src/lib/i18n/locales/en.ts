@@ -1,0 +1,319 @@
+import type { SiteCopy } from "../types";
+
+export const enCopy: SiteCopy = {
+  shared: {
+    home: "Home",
+    back: "Back",
+    backToPrevious: "Back to previous",
+    backToTour: "Back to tour",
+    top: "Top",
+    tours: "Tours",
+    contact: "Contact",
+    planTrip: "Plan trip",
+    exploreTours: "Explore tours",
+    whatsappCarlos: "WhatsApp Carlos",
+    browse: "Browse",
+    requestLuxuryPlanning: "Request luxury planning",
+    requestLuxuryProposal: "Request a luxury proposal",
+    startLuxuryPlanning: "Start luxury planning",
+    requestAvailabilityPricing: "Request availability & pricing",
+    bookYourTour: "Book your tour",
+    openSecureBooking: "Open secure booking in a new tab",
+    returnToTourPage: "Return to tour page",
+    contactCarlos: "Contact Carlos",
+    chatWithCarlos: "Chat with Carlos on WhatsApp",
+    openWhatsAppWithCarlos: "Open WhatsApp with Carlos",
+    emailCarlos: "Email contact@sevilletoursco.com",
+    privateByDefault: "Private by default",
+    featuredTours: "Featured tours",
+    fromSeville: "From Seville",
+    luxuryByRequest: "Luxury by request",
+    submitForm: "Submit form",
+    startConversation: "Start the conversation",
+    whatToAskAbout: "What to ask about",
+    preferToKeepBrowsingFirst: "Prefer to keep browsing first?",
+    backToHomepage: "Back to homepage",
+    askAboutSpainPlanning: "Ask about Spain planning",
+    terms: "Terms",
+    requestDrafted: "Request drafted",
+    sending: "OPENING…",
+    viewTour: "View tour →",
+    viewDayTrip: "View day trip →",
+    customProposal: "Custom proposal",
+    description: "Description",
+    reviews: "Reviews",
+    externalReviews: "External review integrations will be added later.",
+    relatedHeading: "You may also be interested in",
+    selectLanguage: "Language",
+    contactCard: {
+      title: "Contact Carlos",
+      heading: {
+        planTrip: "Plan trip request",
+        giftVoucher: "Gift voucher request",
+        whatsapp: "WhatsApp Carlos",
+        default: "Private tours, luxury proposals, and thoughtful planning.",
+      },
+      intro:
+        "Carlos confirms details manually for private tours, luxury planning, WhatsApp enquiries, and request-only gift vouchers. This page keeps Phase 0 simple while preserving the real routes and contact path.",
+      currentEnquiry: "Current enquiry",
+      manualConfirmationTitle: "Manual confirmation",
+      manualConfirmationBody:
+        "Carlos reviews these details manually and confirms pricing, fulfilment, WhatsApp routing, or next steps personally. There is no fake checkout or fake booking state on this route.",
+      luxuryNotesTitle: "Luxury planning notes",
+      luxuryNotesBody:
+        "Ask about airport arrivals, hotel handoff, refined transport, restaurant timing, and how Seville can connect into a wider Spain route.",
+      summaryLabels: {
+        experience: "Experience",
+        duration: "Duration",
+        voucherType: "Voucher type",
+        amount: "Amount",
+        places: "Places",
+        interests: "Interests",
+        name: "Name",
+        contact: "Contact",
+        message: "Message",
+      },
+      buttons: {
+        whatsapp: "Chat with Carlos on WhatsApp",
+        openWhatsApp: "Open WhatsApp with Carlos",
+        email: "Email contact@sevilletoursco.com",
+      },
+      aside: [
+        "Private tours in Seville with a licensed historian guide.",
+        "Luxury day trips that need pricing and availability confirmed.",
+        "Gift voucher requests for a fixed amount or a specific tour.",
+        "Bespoke Andalucía or Spain planning that starts with a conversation.",
+      ],
+      browsePrompt: "Prefer to keep browsing first?",
+      browseButtons: {
+        homepage: "Back to homepage",
+        planning: "Ask about Spain planning",
+      },
+    },
+  },
+  home: {
+    hero: {
+      eyebrow: "Private tours in Seville and Andalucia",
+      badge: "Carlos · Licensed historian",
+      titleTop: "Seville & Andalucía,",
+      titleBottom: "always private.",
+      body:
+        "Private tours in Seville, day trips to Córdoba, Granada and Ronda - guided by Carlos, a licensed historian.",
+      planCardTitle: "A five-step brief for private or luxury travel.",
+      planCardItems: [
+        "Choose private tours or a fully bespoke luxury stay.",
+        "Add duration, places and interests in under a minute.",
+        "Send partial details to Carlos as soon as you have enough.",
+      ],
+      planCardNote:
+        "The top-right Plan trip button opens a premium bottom sheet on mobile and a centered modal on desktop.",
+      planCardCta: "Request luxury planning",
+    },
+    sections: {
+      toursHeading: "Private tours in Seville",
+      toursIntro:
+        "Rounded, mobile-first cards keep the booking paths clear while the visual language stays premium and calm.",
+      dayTripsHeading: "Private day trips from Seville",
+      dayTripsIntro:
+        "Some departures are fully bookable online. Others, especially luxury long-day itineraries, begin with an availability and pricing request.",
+      luxuryHeading: "A personal Andalucía plan shaped around your rhythm.",
+      luxuryIntro:
+        "Luxury means Carlos helps shape the day around transport, restaurants, shopping time, quiet breaks, cultural depth and flexible changes. Guests can begin with a private tour and then step into a fuller luxury plan once dates, pace and preferences are clear.",
+      luxuryItems: [
+        {
+          title: "Chauffeur rhythm",
+          body: "Flexible transport planning and time buffers for a quieter day.",
+        },
+        {
+          title: "Dining and shopping",
+          body: "Restaurant timing, premium stops and time to browse without rush.",
+        },
+        {
+          title: "Bespoke pacing",
+          body: "Carlos adapts the day to energy, interests and historical depth.",
+        },
+      ],
+      luxuryAccessTitle: "Luxury access",
+      luxuryAccessBody:
+        "Airport arrivals, hotel handoff, dining bridges, and Spain-wide pacing all start with one message to Carlos.",
+    },
+    footer: {
+      title: "Seville Tours",
+      body: "Private and luxury travel from Seville.",
+      cta: "Start with a message",
+    },
+    gift: {
+      eyebrow: "Give the gift of Andalucia",
+      titleTop: "Gift",
+      titleBottom: "experiences",
+      intro: "The perfect gift for someone who has everything — except this.",
+      privateMode: "✧ Private tours",
+      luxuryMode: "◆ Luxury escapes",
+      privateCardType: "✧ Private Experience",
+      luxuryCardType: "◆ Luxury Experience",
+      privateHint: "Perfect for: private Seville tour",
+      luxuryHint: "Perfect for: bespoke Andalucia escape",
+      privateRange: "Private range €5–€100",
+      luxuryRange: "Luxury range €100–€1000",
+      recipient: "Recipient name",
+      message: "Personal message",
+      messagePlaceholder: "Personal message (optional)",
+      whatsapp: "WhatsApp",
+      privateCta: "Buy gift card",
+      luxuryCta: "Gift a luxury escape",
+    },
+  },
+  planner: {
+    title: "Plan a trip",
+    heading: "Build a world-class trip plan before you ask for dates.",
+    intro:
+      "Use this planner to shape your route, set the pace, and decide when Seville should stay private or become part of a broader luxury itinerary across Andalucía.",
+    modes: {
+      private: "Private tours",
+      luxury: "Luxury planning",
+    },
+    highlightsPrivate: [
+      "Licensed historian-led pacing",
+      "Seville-first routing with easy day-trip extensions",
+      "A clean booking handoff when the tour is directly bookable",
+    ],
+    highlightsLuxury: [
+      "Airport arrivals, hotel handoff, and chauffeur rhythm",
+      "Dining bridges, premium pauses, and wider Spain planning",
+      "A single concierge-style message to Carlos with your full route",
+    ],
+    daysLabel: "How many days?",
+    destinationsLabel: "Destinations",
+    interestsLabel: "Interests",
+    groupLabel: "Who is traveling?",
+    modeLabels: {
+      private: "Private tour plan",
+      luxury: "Luxury escape",
+    },
+    summaryTitles: {
+      luxury: "A concierge-style summary that feels ready to send.",
+      private: "A clean summary that keeps the conversation focused.",
+    },
+    summaryLabels: {
+      days: "Days",
+      destinations: "Destinations",
+      interests: "Interests",
+      group: "Group",
+      note: "Planning note",
+    },
+    notes: {
+      luxury:
+        "Luxury mode adds arrival timing, hotel handoff, dining bridges, and a concierge-style reply path.",
+      private:
+        "Private mode keeps the route lean, historian-led, and easy to convert into a booking.",
+    },
+    ctas: {
+      luxury: "Start luxury planning",
+      private: "Send private plan",
+      talkToCarlos: "Talk to Carlos",
+    },
+    footer: {
+      luxury:
+        "This planner is designed to feel like a serious concierge handoff: clear, calm, and ready to convert into a custom proposal.",
+      private:
+        "Use this to keep the private planning route simple while still giving Carlos enough detail to answer well.",
+    },
+  },
+  inquiry: {
+    submitForm: "Submit form",
+    privateTitle: "Private tour request",
+    luxuryTitle: "Luxury planning request",
+    giftTitle: "Gift voucher request",
+    privateDescription:
+      "Use this form to send Carlos a clean private-tour brief with the route, dates, and any practical details.",
+    luxuryDescription:
+      "Use this form to send Carlos a concierge-style brief covering dates, party size, and the luxury details that matter most.",
+    giftDescription:
+      "Use this form to request a gift voucher amount, recipient, and a short message. The submission opens WhatsApp with a complete summary.",
+    privateHelper: "Useful for Seville tours, day trips, and custom trip planning.",
+    luxuryHelper:
+      "This is the right place for airport arrivals, hotel handoff, dining timing, and wider Spain pacing.",
+    giftHelper:
+      "Popular voucher values are €5, €50, €100, €200, €300, and custom amounts.",
+    labels: {
+      name: "Your name",
+      contact: "WhatsApp or email",
+      dates: "Dates or timing",
+      partySize: "Party size",
+      voucherAmount: "Voucher amount",
+      recipient: "Recipient",
+      delivery: "Delivery preference",
+      budget: "Budget or notes",
+      message: "Message to Carlos",
+    },
+    placeholders: {
+      name: "Carlos can address you by name",
+      contact: "Phone, WhatsApp, or email",
+      dates: "Arrival dates, preferred month, or flexibility",
+      partySize: "Couple, family of 4, group of 8",
+      voucherAmount: "50, 100, 250, custom...",
+      recipient: "Who is the voucher for?",
+      delivery: "WhatsApp, email, or printed",
+      budget: "Luxury concierge budget, or any important note",
+      message: "Tell Carlos what matters most...",
+    },
+    cta: {
+      private: "Send private request",
+      luxury: "Send luxury request",
+      gift: "Send gift voucher request",
+    },
+    footer:
+      "Submission opens WhatsApp with your full request. You can also keep the browser tab open and continue adjusting the plan.",
+  },
+  discover: {
+    eyebrow: "Discover Spain with a historian",
+    title: "Bespoke Andalucía and Spain planning that begins with Seville.",
+    intro:
+      "This Phase 0 page is a simple planning entry point for travellers who want Carlos to shape a broader route beyond a single tour. Think private Seville touring, connected day trips, pacing around cultural priorities, and a more personal rhythm across southern Spain.",
+    cards: [
+      {
+        title: "Private pacing",
+        body: "Build a route around your interests instead of adapting to a group timetable.",
+      },
+      {
+        title: "Historian-led context",
+        body: "Keep Seville, Granada, Córdoba, and other stops tied together by real historical narrative.",
+      },
+      {
+        title: "Tailored logistics",
+        body: "Start with a conversation about dates, transport, and how refined or relaxed the route should feel.",
+      },
+    ],
+    start: "Start the conversation",
+    startBody:
+      "Tell Carlos where you are staying, the places that matter most, and whether you need a fixed tour, a custom proposal, or a wider Spain itinerary.",
+    cta: "Start luxury planning",
+  },
+  book: {
+    requestRoute: "Request route",
+    luxuryRequestRoute: "Luxury request route",
+    requestAvailabilityPricing: "Request availability & pricing",
+    secureBooking: "Secure booking",
+    openInNewTabHint:
+      "If secure booking does not load inside the page, open it in a new tab and continue there.",
+    returnToTour: "Return to tour page",
+  },
+  wordpress: {
+    sevilleTours: "Seville Tours Co.",
+    customProposal: "Custom proposal",
+    bookYourTour: "Book your tour",
+    requestAvailabilityPricing: "Request availability & pricing",
+    description: "Description",
+    reviews: "Reviews",
+    externalReviews: "External review integrations will be added later.",
+    interestedIn: "You may also be interested in",
+    viewTour: "View tour →",
+  },
+  returnLinks: {
+    back: "Back",
+    home: "Home",
+    backToPrevious: "Back to previous",
+    backToTour: "Back to tour",
+  },
+  topButton: "Top",
+};

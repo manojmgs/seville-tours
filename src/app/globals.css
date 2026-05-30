@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3efe8;
+  --foreground: #13110f;
+  --surface-cream: #f6f4f0;
+  --surface-card: #fffdf9;
+  --surface-dark: #0d0c0a;
+  --surface-dark-soft: #151311;
+  --brand-green-900: #06503f;
+  --brand-green-700: #0d7a5c;
+  --brand-green-500: #18a878;
+  --brand-green-100: #e4f6ee;
+  --brand-gold-500: #b8903a;
+  --brand-gold-300: #d4af5a;
+  --brand-gold-100: #f0d48a;
+  --border-soft: #dfd8cd;
+  --text-muted: #5f5a54;
+  --text-muted-dark: rgba(240, 237, 232, 0.72);
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+  --shadow-soft: 0 24px 80px rgba(17, 17, 17, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-green-700) 22%, white);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-cormorant-display), Georgia, serif;
+}
+
+.page-shell {
+  position: relative;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at top, rgba(24, 168, 120, 0.08), transparent 38%),
+    linear-gradient(180deg, #f4f0e8 0%, #f8f5ef 40%, #f4f1ea 100%);
+}
+
+.luxury-panel {
+  background:
+    radial-gradient(circle at top right, rgba(184, 144, 58, 0.24), transparent 34%),
+    linear-gradient(145deg, #080705 0%, #14110d 40%, #0d0c0a 100%);
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(circle at 72% 16%, rgba(240, 212, 138, 0.18), transparent 20%),
+    repeating-linear-gradient(62deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 24px),
+    linear-gradient(165deg, #043328 0%, #0a6048 34%, #0f7a5c 64%, #145740 100%);
+}
+
+.hero-luxury {
+  background:
+    radial-gradient(circle at 72% 16%, rgba(240, 212, 138, 0.26), transparent 18%),
+    repeating-linear-gradient(62deg, rgba(184, 144, 58, 0.04) 0 1px, transparent 1px 24px),
+    linear-gradient(165deg, #080604 0%, #171109 34%, #0f0c08 64%, #080705 100%);
+}
+
+.card-glow {
+  box-shadow: var(--shadow-soft);
+}
