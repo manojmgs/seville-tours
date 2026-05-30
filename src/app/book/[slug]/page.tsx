@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import { PageReturnLinks } from "@/components/navigation/PageReturnLinks";
-import { getContentByUri } from "@/lib/wordpress-rest/client";
-import { getStaticTourSlugs } from "@/lib/wordpress-rest/tour-manifest";
+import {
+  getStaticTourSlugs,
+  getTourManifestEntryBySlug,
+} from "@/lib/wordpress-rest/tour-manifest";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy } from "@/lib/i18n/site";
 import { getRequestLocale } from "@/lib/i18n/request-locale";
@@ -15,6 +18,10 @@ type BookingPageProps = {
 };
 
 export const revalidate = 604800;
+
+const getBookingContentBySlug = cache(async (slug: string) => {
+  return getTourManifestEntryBySlug(slug);
+});
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   const slugs = await getStaticTourSlugs();
@@ -28,7 +35,7 @@ export async function generateMetadata({
   const locale = await getRequestLocale();
   const copy = siteCopy(locale);
   const { slug } = await params;
-  const content = await getContentByUri(`/tours/${slug}/`);
+  const content = await getBookingContentBySlug(slug);
 
   if (!content) {
     return {
@@ -63,7 +70,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
   const locale = await getRequestLocale();
   const copy = siteCopy(locale);
   const { slug } = await params;
-  const content = await getContentByUri(`/tours/${slug}/`);
+  const content = await getBookingContentBySlug(slug);
 
   if (!content) {
     notFound();
