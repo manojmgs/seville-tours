@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { WordPressRestContentView } from "@/components/wordpress-rest/WordPressRestContent";
 import { RelatedProductsSection } from "@/components/wordpress-rest/RelatedProductsSection";
-import { getContentByUri } from "@/lib/wordpress-rest/client";
-import { getStaticTourSlugs } from "@/lib/wordpress-rest/tour-manifest";
+import {
+  getDeterministicTourContentBySlug,
+  getStaticTourSlugs,
+} from "@/lib/wordpress-rest/tour-manifest";
 
 type TourPageProps = {
   params: Promise<{
@@ -24,7 +26,7 @@ export async function generateMetadata({
   params,
 }: TourPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const content = await getContentByUri(`/tours/${slug}/`);
+  const content = await getDeterministicTourContentBySlug(slug);
 
   if (!content) {
     return {
@@ -79,7 +81,7 @@ export async function generateMetadata({
 
 export default async function TourPage({ params }: TourPageProps) {
   const { slug } = await params;
-  const content = await getContentByUri(`/tours/${slug}/`);
+  const content = await getDeterministicTourContentBySlug(slug);
 
   if (!content) {
     notFound();

@@ -51,6 +51,18 @@ export const getTourManifestEntryBySlug = cache(
   },
 );
 
+export const getDeterministicTourContentBySlug = cache(
+  async (slug: string): Promise<TourPage | null> => {
+    if (!slug) {
+      return null;
+    }
+
+    const manifestEntry = await getTourManifestEntryBySlug(slug);
+
+    return manifestEntry ?? null;
+  },
+);
+
 export const getStaticTourSlugs = cache(
   async (limit = 50): Promise<string[]> => {
     const manifest = await loadTourManifest();
