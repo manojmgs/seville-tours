@@ -122,6 +122,17 @@ export const frCopy: SiteCopy = mergeCopy(enCopy, {
       luxuryAccessTitle: "Accès luxe",
       luxuryAccessBody:
         "Arrivées aéroport, accueil à l'hôtel, ponts gastronomiques et rythme à travers l'Espagne commencent par un message à Carlos.",
+      trustProof: {
+        eyebrow: "TRUSTED BY TRAVELLERS",
+        heading: "Avis de voyageurs. Inscrit en Andalousie.",
+        body: "Seville Tours Co. est présent sur des plateformes publiques de voyage et inscrit comme activité guidée officielle en Andalousie.",
+        cards: [
+          { source: "Google", rating: "5.0", reviews: "308 reviews", detail: "Agence de visites à Séville" },
+          { source: "Tripadvisor", rating: "5.0", reviews: "211 reviews", detail: "#30 sur 657 Tours & Activités à Séville" },
+          { source: "Viator", rating: "4.9", reviews: "43 reviews", detail: "41 avis cinq étoiles" },
+          { source: "Andalucía", detail: "Enregistrement officiel des activités guidées", registrationId: "AIAT/SE/00053-6" },
+        ],
+      },
     },
     footer: { title: "Seville Tours", body: "Voyages privés et de luxe depuis Séville.", cta: "Commencer par un message" },
     gift: {

@@ -128,6 +128,17 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
       luxuryAccessTitle: "Acceso de lujo",
       luxuryAccessBody:
         "Llegadas al aeropuerto, entrega en hotel, puentes gastronómicos y ritmos por toda España empiezan con un solo mensaje a Carlos.",
+      trustProof: {
+        eyebrow: "TRUSTED BY TRAVELLERS",
+        heading: "Reseñado por viajeros. Registrado en Andalucía.",
+        body: "Seville Tours Co. tiene reseñas en plataformas públicas de viaje y está inscrita como actividad guiada oficial en Andalucía.",
+        cards: [
+          { source: "Google", rating: "5.0", reviews: "308 reviews", detail: "Agencia de visitas turísticas en Sevilla" },
+          { source: "Tripadvisor", rating: "5.0", reviews: "211 reviews", detail: "#30 de 657 Tours y Actividades en Sevilla" },
+          { source: "Viator", rating: "4.9", reviews: "43 reviews", detail: "41 reseñas de cinco estrellas" },
+          { source: "Andalucía", detail: "Registro oficial de actividades guiadas", registrationId: "AIAT/SE/00053-6" },
+        ],
+      },
     },
     footer: {
       title: "Seville Tours",

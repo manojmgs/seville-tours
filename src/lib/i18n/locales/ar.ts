@@ -122,6 +122,17 @@ export const arCopy: SiteCopy = mergeCopy(enCopy, {
       luxuryAccessTitle: "وصول فاخر",
       luxuryAccessBody:
         "بدءًا من الوصول إلى المطار والاستقبال في الفندق والربط الغذائي وحتى الإيقاع عبر إسبانيا، يبدأ كل شيء برسالة واحدة إلى كارلوس.",
+      trustProof: {
+        eyebrow: "TRUSTED BY TRAVELLERS",
+        heading: "تقييمات من المسافرين. مسجل في الأندلس.",
+        body: "Seville Tours Co. لديها تقييمات على منصات السفر العامة ومسجلة كشركة أنشطة مرشدة رسمية في الأندلس.",
+        cards: [
+          { source: "Google", rating: "5.0", reviews: "308 reviews", detail: "وكالة جولات سياحية في إشبيلية" },
+          { source: "Tripadvisor", rating: "5.0", reviews: "211 reviews", detail: "#30 من 657 جولة وأنشطة في إشبيلية" },
+          { source: "Viator", rating: "4.9", reviews: "43 reviews", detail: "41 تقييمًا بخمس نجوم" },
+          { source: "Andalucía", detail: "تسجيل الأنشطة الإرشادية الرسمي", registrationId: "AIAT/SE/00053-6" },
+        ],
+      },
     },
     footer: { title: "Seville Tours", body: "سفر خاص وفاخر من إشبيلية.", cta: "ابدأ برسالة" },
     gift: {

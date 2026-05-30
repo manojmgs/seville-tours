@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { buildContactInquiryUrl, buildWhatsAppUrl } from "@/lib/wordpress-rest/urls";
 import { HomeScrollLink } from "./HomeScrollLink";
 import { LanguageDropdown } from "./LanguageDropdown";
-import { type Locale } from "@/lib/i18n/site";
+import { siteCopy, type Locale } from "@/lib/i18n/site";
 
 type HomeExperienceSwitcherProps = {
   locale?: Locale;
@@ -70,11 +70,17 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
 
   const current = experienceContent[mode];
 
+  const localized = siteCopy(locale);
+  const trustCards = localized.home.sections.trustProof?.cards ?? [];
+  const googleCard = trustCards.find((c) => c.source === "Google");
+  const andaluciaCard = trustCards.find((c) => c.source === "Andalucía");
+  const luxuryMicro = andaluciaCard ? `${andaluciaCard.registrationId ?? ""}` : "";
+
   return (
     <div className="relative z-40 transition-colors duration-500 ease-in-out motion-reduce:transition-none">
       {/* Experience Selector Row */}
       <div className={`relative z-50 border-b border-white/5 transition-colors duration-500 backdrop-blur-xl ${isLuxury ? "bg-[rgba(7,6,5,0.85)]" : "bg-[rgba(6,59,49,0.88)]"}`}>
-        <div className="mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex items-center justify-between gap-4 px-4 py-2 md:py-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 shrink-0">
             <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#C6D4CC] pl-1">EXPERIENCE</span>
             <div className={`inline-flex items-center rounded-[20px] p-[3px] border transition-colors duration-500 ${isLuxury ? "bg-[rgba(255,255,255,0.03)] border-[rgba(184,144,58,0.12)]" : "bg-[rgba(255,255,255,0.02)] border-white/6"}`}>
@@ -109,17 +115,39 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
       </div>
 
       {/* Hero Section */}
-      <section id="home-hero" className={`relative flex flex-col justify-end min-h-[480px] sm:min-h-[620px] overflow-hidden transition-colors duration-500 pb-6 sm:pb-14 ${isLuxury ? "hero-luxury" : "hero-mesh"} motion-reduce:transition-none`}>
-        <div className={`relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-4 sm:mt-6 transition-all duration-400 transform ${isTransitioning ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"} motion-reduce:transition-none`}>
-          <div className="max-w-[420px]">
-            <div className={`inline-flex items-center gap-2 rounded-[20px] px-3.5 py-1.5 mb-5 transition-colors duration-400 ${
-              isLuxury ? "bg-[rgba(184,144,58,0.18)] border border-[rgba(184,144,58,0.25)]" : "bg-[#0F6E56]/90 border border-[#0F6E56]"
-            }`}>
-              <div className={`w-[5px] h-[5px] rounded-full opacity-80 transition-colors duration-400 ${isLuxury ? "bg-[var(--brand-gold-300)]" : "bg-white"}`} />
-              <span className={`text-[10px] font-medium tracking-[0.05em] uppercase transition-colors duration-400 ${isLuxury ? "text-[#D4AF5A]" : "text-white"}`}>
-                {current.eyebrow}
-              </span>
-            </div>
+      <section id="home-hero" className={`relative overflow-hidden transition-colors duration-500 pb-6 sm:pb-14 ${isLuxury ? "hero-luxury" : "hero-mesh"} motion-reduce:transition-none`}>
+        <div className={`relative z-10 w-full mx-auto max-w-[1220px] px-4 sm:px-6 lg:px-8 mt-2 sm:mt-4 transition-all duration-400 transform ${isTransitioning ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"} motion-reduce:transition-none`}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_420px] gap-x-12 items-start min-h-[480px] sm:min-h-[620px] py-8 md:py-12">
+            <div className="max-w-[620px]">
+              <div className={`flex flex-wrap items-center gap-2 rounded-[20px] px-3.5 py-1.5 mb-5 transition-colors duration-400 ${
+                isLuxury ? "bg-[rgba(184,144,58,0.18)] border border-[rgba(184,144,58,0.25)]" : "bg-[#0F6E56]/90 border border-[#0F6E56]"
+              }`}>
+                <div className={`w-[5px] h-[5px] rounded-full opacity-80 transition-colors duration-400 ${isLuxury ? "bg-[var(--brand-gold-300)]" : "bg-white"}`} />
+                <span className={`text-[10px] font-medium tracking-[0.05em] uppercase transition-colors duration-400 ${isLuxury ? "text-[#D4AF5A]" : "text-white"}`}>
+                  {current.eyebrow}
+                </span>
+
+                {/* Micro trust badge */}
+                <div className="ml-1">
+                  {!isLuxury ? (
+                    googleCard && (
+                      <HomeScrollLink
+                        targetId="trust-proof-heading"
+                        className="inline-flex items-center rounded-full px-2 py-0.5 text-xs tracking-wide font-medium text-[var(--surface-dark)] bg-[rgba(255,253,249,0.94)]/90 border border-[color:rgba(6,80,63,0.06)]"
+                      >
+                        <span className="text-[var(--brand-gold-300)] mr-1 text-sm font-medium">{googleCard.rating}</span>
+                        <span className="text-xs">{googleCard.source} · {googleCard.reviews}</span>
+                      </HomeScrollLink>
+                    )
+                  ) : (
+                    luxuryMicro && (
+                      <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium tracking-wide text-[var(--brand-gold-100)] bg-[rgba(255,255,255,0.02)] border border-[color:rgba(184,144,58,0.10)]">
+                        {luxuryMicro}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
 
             <h1 className={`mb-3.5 text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.05] transition-colors duration-400 ${
               isLuxury ? "font-display italic font-medium tracking-[0.01em] text-[#F0EDE8]" : "font-sans font-bold tracking-tight text-white/95"
@@ -138,7 +166,7 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
               {!isLuxury ? (
                 <HomeScrollLink
                   targetId="tours"
-                  className="flex-[5.5] flex items-center justify-center gap-1.5 rounded-[12px] bg-[linear-gradient(180deg,#063b31,#0d6f55,#06503f)] px-4 py-[13px] text-[13px] font-bold tracking-[0.02em] text-white shadow-[0_6px_18px_rgba(6,80,63,0.22)] transition hover:brightness-105"
+                  className="flex-[5.5] flex items-center justify-center gap-1.5 rounded-[12px] bg-[var(--brand-gold-300)] border border-[var(--brand-gold-300)] px-4 py-[13px] text-[13px] font-bold tracking-[0.02em] text-[#0D2418] shadow-[0_6px_24px_rgba(184,144,58,0.18)] transition hover:brightness-105"
                 >
                   {current.primaryCta}
                 </HomeScrollLink>
@@ -164,7 +192,7 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
                   href={current.secondaryHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-[4.5] flex items-center justify-center gap-1.5 rounded-[12px] px-4 py-[13px] text-[13px] font-bold transition bg-transparent border border-white/20 text-white hover:bg-white/5"
+                  className="flex-[4.5] flex items-center justify-center gap-1.5 rounded-[12px] min-h-[44px] px-4 py-[13px] text-[13px] font-bold tracking-[0.02em] transition bg-[rgba(255,255,255,0.06)] border border-[rgba(246,244,240,0.35)] text-[#f6f4f0] hover:bg-[rgba(255,255,255,0.12)]"
                 >
                   {current.secondaryCta}
                 </a>
@@ -187,32 +215,33 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+            </div>
 
-        {/* Desktop right-side panel to balance hero */}
-        <div className="hidden md:block absolute right-8 top-12 z-20">
-          <div className={`w-[360px] rounded-3xl p-6 backdrop-blur-sm border transition-colors duration-400 ${isLuxury ? "bg-[rgba(2,2,2,0.56)] border-[rgba(184,144,58,0.12)] text-white" : "bg-[rgba(255,255,255,0.06)] border-[rgba(6,80,63,0.08)] text-[#E9F3EE]"}`}>
-            <h3 className={`mb-3 text-lg font-semibold ${isLuxury ? "text-[var(--brand-gold-100)]" : "text-[var(--brand-green-100)]"}`}>
-              {isLuxury ? "Bespoke proposal" : "Seville base, Andalucía day trips"}
-            </h3>
-            <ul className="grid gap-2">
-              {isLuxury ? (
-                <>
-                  <li className="text-sm font-medium">Arrival support</li>
-                  <li className="text-sm font-medium">Chauffeur options</li>
-                  <li className="text-sm font-medium">Dining planning</li>
-                  <li className="text-sm font-medium">Flexible itinerary</li>
-                </>
-              ) : (
-                <>
-                  <li className="text-sm font-medium">Alcázar & Cathedral</li>
-                  <li className="text-sm font-medium">Granada · Córdoba · Ronda</li>
-                  <li className="text-sm font-medium">Private pace</li>
-                  <li className="text-sm font-medium">Licensed historian</li>
-                </>
-              )}
-            </ul>
+            {/* Right panel */}
+            <aside className="hidden md:block">
+              <div className={`w-full rounded-3xl p-6 backdrop-blur-sm border transition-colors duration-400 ${isLuxury ? "bg-[rgba(2,2,2,0.56)] border-[rgba(184,144,58,0.12)] text-white" : "bg-[rgba(255,255,255,0.06)] border-[rgba(6,80,63,0.08)] text-[#E9F3EE]"}`}>
+                <h3 className={`mb-3 text-lg font-semibold ${isLuxury ? "text-[var(--brand-gold-100)]" : "text-[var(--brand-green-100)]"}`}>
+                  {isLuxury ? "Bespoke proposal" : "Seville base, Andalucía day trips"}
+                </h3>
+                <ul className="grid gap-3">
+                  {isLuxury ? (
+                    <>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.85)]/90" /> <span className="text-sm font-medium">Arrival support</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.6)]" /> <span className="text-sm font-medium">Chauffeur options</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.5)]" /> <span className="text-sm font-medium">Dining planning</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.4)]" /> <span className="text-sm font-medium">Flexible itinerary</span></li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/90" /> <span className="text-sm font-medium">Alcázar & Cathedral</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/80" /> <span className="text-sm font-medium">Granada · Córdoba · Ronda</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/70" /> <span className="text-sm font-medium">Private pace</span></li>
+                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/60" /> <span className="text-sm font-medium">Licensed historian</span></li>
+                    </>
+                  )}
+                </ul>
+              </div>
+            </aside>
           </div>
         </div>
       </section>

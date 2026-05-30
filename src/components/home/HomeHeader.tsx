@@ -16,8 +16,8 @@ export function HomeHeader({ locale = "en" }: HomeHeaderProps) {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-[color:rgba(0,0,0,0.16)] bg-[linear-gradient(180deg,rgba(6,59,49,0.92),rgba(10,12,10,0.86))] text-white backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-50 border-b border-[color:rgba(0,0,0,0.12)] bg-[linear-gradient(180deg,rgba(6,59,49,0.92),rgba(10,12,10,0.86))] text-white backdrop-blur-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 lg:px-8">
           <Link
             href="/"
             className="font-display text-[1.2rem] font-semibold tracking-[-0.03em] sm:text-[1.35rem]"

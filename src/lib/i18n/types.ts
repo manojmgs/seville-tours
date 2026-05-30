@@ -117,6 +117,12 @@ export type SiteCopy = {
       luxuryItems: Array<{ title: string; body: string }>;
       luxuryAccessTitle: string;
       luxuryAccessBody: string;
+      trustProof: {
+        eyebrow: string;
+        heading: string;
+        body: string;
+        cards: Array<{ source: string; rating?: string; reviews?: string; detail: string; registrationId?: string }>;
+      };
     };
     footer: {
       title: string;

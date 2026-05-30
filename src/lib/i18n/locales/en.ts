@@ -136,6 +136,17 @@ export const enCopy: SiteCopy = {
       luxuryAccessTitle: "Luxury access",
       luxuryAccessBody:
         "Airport arrivals, hotel handoff, dining bridges, and Spain-wide pacing all start with one message to Carlos.",
+      trustProof: {
+        eyebrow: "TRUSTED BY TRAVELLERS",
+        heading: "Reviewed by travellers. Registered in Andalucía.",
+        body: "Seville Tours Co. is reviewed on public travel platforms and listed as an official guided activities company in Andalucía.",
+        cards: [
+          { source: "Google", rating: "5.0", reviews: "308 reviews", detail: "Sightseeing tour agency in Seville" },
+          { source: "Tripadvisor", rating: "5.0", reviews: "211 reviews", detail: "#30 of 657 Tours & Activities in Seville" },
+          { source: "Viator", rating: "4.9", reviews: "43 reviews", detail: "41 five-star reviews" },
+          { source: "Andalucía", detail: "Official guided activities registration", registrationId: "AIAT/SE/00053-6" },
+        ],
+      },
     },
     footer: {
       title: "Seville Tours",

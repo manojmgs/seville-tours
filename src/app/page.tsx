@@ -5,6 +5,7 @@ import { GiftVoucherConfigurator } from "@/components/home/GiftVoucherConfigurat
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { HomeExperienceSwitcher } from "@/components/home/HomeExperienceSwitcher";
 import { HomeStickyCta } from "@/components/home/HomeStickyCta";
+import { HomeTrustProof } from "@/components/home/HomeTrustProof";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy } from "@/lib/i18n/site";
 import { getRequestLocale } from "@/lib/i18n/request-locale";
@@ -130,7 +131,7 @@ export default async function HomePage() {
 
       <HomeExperienceSwitcher locale={locale} />
 
-      <section id="tours" className="bg-[var(--surface-card)] py-10 [content-visibility:auto] [contain-intrinsic-size:1px_980px]">
+      <section id="tours" className="bg-[var(--surface-card)] pt-12 sm:pt-16 pb-10 mt-6 sm:mt-8 [content-visibility:auto] [contain-intrinsic-size:1px_980px] rounded-t-2xl">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--brand-green-700)]">
             {copy.shared.featuredTours}
@@ -181,6 +182,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomeTrustProof locale={locale} />
 
       <section id="day-trips" className="py-10 [content-visibility:auto] [contain-intrinsic-size:1px_860px]">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
