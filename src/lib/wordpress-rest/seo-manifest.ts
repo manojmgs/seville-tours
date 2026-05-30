@@ -62,6 +62,21 @@ export const getSeoManifestEntryBySlug = cache(
   },
 );
 
+export const getSeoManifestEntries = cache(async (): Promise<WordPressSeoManifestEntry[]> => {
+  const manifest = await loadSeoManifest();
+
+  if (!manifest) {
+    return [];
+  }
+
+  return Object.values(manifest.entries).sort((left, right) => {
+    const leftTime = left.updatedAt ? Date.parse(left.updatedAt) : 0;
+    const rightTime = right.updatedAt ? Date.parse(right.updatedAt) : 0;
+
+    return rightTime - leftTime;
+  });
+});
+
 export const getStaticTourSlugs = cache(
   async (limit = STATIC_TOUR_PARAMS_LIMIT): Promise<string[]> => {
     const manifest = await loadSeoManifest();

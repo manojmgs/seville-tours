@@ -5,6 +5,38 @@ import type { TourPage } from "@/lib/wordpress-rest/types";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy, type Locale } from "@/lib/i18n/site";
 
+function buildTourStructuredData(content: TourPage) {
+  const canonicalUrl = content.seo.canonical;
+  const images = [
+    content.featuredImage?.url,
+    ...(content.commerce?.galleryImages?.map((image) => image.url) ?? []),
+  ].filter((value): value is string => Boolean(value));
+  const price = content.commerce?.price;
+  const bookingUrl = content.commerce?.booking?.url;
+
+  const structuredData: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: content.title,
+    description: content.seo.description ?? content.title,
+    url: canonicalUrl,
+    image: images.length > 0 ? images : undefined,
+  };
+
+  if (content.commerce?.isBookable && price && bookingUrl) {
+    structuredData.offers = {
+      "@type": "Offer",
+      url: bookingUrl,
+      price: price.amountMinor / 100,
+      priceCurrency: price.currencyCode,
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+    };
+  }
+
+  return structuredData;
+}
+
 type WordPressRestContentProps = {
   content: TourPage;
   locale?: Locale;
@@ -32,6 +64,12 @@ export function WordPressRestContentView({
 
   return (
     <main className="page-shell min-h-screen text-[var(--foreground)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildTourStructuredData(content)),
+        }}
+      />
       <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <PageReturnLinks backLabel="Back to previous" />
 
