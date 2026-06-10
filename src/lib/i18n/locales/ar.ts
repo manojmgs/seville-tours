@@ -10,6 +10,7 @@ export const arCopy: SiteCopy = mergeCopy(enCopy, {
     backToTour: "العودة إلى الجولة",
     top: "أعلى",
     contact: "تواصل",
+    giftCard: "بطاقة هدية",
     planTrip: "خطط الرحلة",
     exploreTours: "استكشف الجولات",
     whatsappCarlos: "واتساب كارلوس",

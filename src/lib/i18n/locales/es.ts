@@ -10,6 +10,7 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
     backToTour: "Volver al tour",
     top: "Arriba",
     contact: "Contacto",
+    giftCard: "Tarjeta regalo",
     planTrip: "Planificar viaje",
     exploreTours: "Explorar tours",
     whatsappCarlos: "WhatsApp con Carlos",

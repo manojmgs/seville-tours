@@ -25,21 +25,38 @@ export function HomeHeader({ locale = "en" }: HomeHeaderProps) {
             Seville <span className="text-[var(--brand-gold-100)]">Tours</span>
           </Link>
 
-          <div className="flex items-center gap-3">
-            <nav className="hidden items-center gap-4 text-sm font-semibold text-white/72 sm:flex">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Desktop nav */}
+            <nav className="hidden items-center gap-1 text-sm font-semibold text-white/72 sm:flex">
               <HomeScrollLink
                 targetId="tours"
-                className="transition hover:text-white"
+                className="rounded-full px-3 py-1.5 transition hover:bg-white/8 hover:text-white"
               >
                 {copy.shared.tours}
               </HomeScrollLink>
+              <HomeScrollLink
+                targetId="gift-cards"
+                className="flex items-center gap-1.5 rounded-full px-3 py-1.5 transition hover:bg-white/8 hover:text-white"
+              >
+                <span aria-hidden="true" className="text-[var(--brand-gold-300)]">✦</span>
+                {copy.shared.giftCard}
+              </HomeScrollLink>
               <Link
                 href={`/${locale}/contact-seville-tours-co/`}
-                className="transition hover:text-white"
+                className="rounded-full px-3 py-1.5 transition hover:bg-white/8 hover:text-white"
               >
                 {copy.shared.contactCarlos}
               </Link>
             </nav>
+
+            {/* Mobile gift icon — visible below sm */}
+            <HomeScrollLink
+              targetId="gift-cards"
+              aria-label={copy.shared.giftCard}
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[color:rgba(184,144,58,0.35)] text-[var(--brand-gold-100)] transition hover:bg-white/8 active:scale-95 sm:hidden"
+            >
+              <span className="text-base leading-none" aria-hidden="true">✦</span>
+            </HomeScrollLink>
 
             <button
               type="button"

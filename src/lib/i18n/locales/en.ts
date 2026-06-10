@@ -9,6 +9,7 @@ export const enCopy: SiteCopy = {
     top: "Top",
     tours: "Tours",
     contact: "Contact",
+    giftCard: "Gift card",
     planTrip: "Plan trip",
     exploreTours: "Explore tours",
     whatsappCarlos: "WhatsApp Carlos",

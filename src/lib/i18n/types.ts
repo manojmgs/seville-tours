@@ -21,6 +21,7 @@ export type SiteCopy = {
     top: string;
     tours: string;
     contact: string;
+    giftCard: string;
     planTrip: string;
     exploreTours: string;
     whatsappCarlos: string;
