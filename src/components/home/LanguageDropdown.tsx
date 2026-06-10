@@ -53,9 +53,17 @@ export function LanguageDropdown({ currentLocale }: LanguageDropdownProps) {
       return;
     }
 
-    /* eslint-disable-next-line react-hooks/immutability */
     document.cookie = `st-locale=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
-    window.location.reload();
+
+    // Replace the current locale segment in the URL path
+    const segments = window.location.pathname.split("/");
+    // pathname = /en/tours/... → segments = ['', 'en', 'tours', ...]
+    if (segments.length > 1 && (supportedLocales as readonly string[]).includes(segments[1])) {
+      segments[1] = nextLocale;
+    } else {
+      segments.splice(1, 0, nextLocale);
+    }
+    window.location.href = segments.join("/");
   }
 
   return (

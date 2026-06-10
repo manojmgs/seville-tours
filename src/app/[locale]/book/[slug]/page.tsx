@@ -7,69 +7,83 @@ import {
   getStaticTourSlugs,
 } from "@/lib/wordpress-rest/tour-manifest";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
-import { siteCopy } from "@/lib/i18n/site";
-import { getRequestLocale } from "@/lib/i18n/request-locale";
+import { siteCopy, normalizeLocale, supportedLocales } from "@/lib/i18n/site";
+import { getTourTranslation, applyTourTranslation } from "@/lib/i18n/tour-translations";
+import type { Locale } from "@/lib/i18n/types";
 
 type BookingPageProps = {
   params: Promise<{
+    locale: string;
     slug: string;
   }>;
 };
 
 export const revalidate = 604800;
 
-export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+export async function generateStaticParams(): Promise<Array<{ locale: string; slug: string }>> {
   const slugs = await getStaticTourSlugs();
-
-  return slugs.map((slug) => ({ slug }));
+  return supportedLocales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug })),
+  );
 }
 
-export async function generateMetadata({
-  params,
-}: BookingPageProps): Promise<Metadata> {
-  const locale = await getRequestLocale();
+export async function generateMetadata({ params }: BookingPageProps): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale = normalizeLocale(rawLocale) as Locale | undefined;
+  if (!locale) return {};
+
   const copy = siteCopy(locale);
-  const { slug } = await params;
   const content = await getDeterministicTourContentBySlug(slug);
 
   if (!content) {
     return {
-      title: `Booking not found | Seville Tours Co.`,
-      robots: {
-        index: false,
-        follow: false,
-      },
+      title: "Booking not found | Seville Tours Co.",
+      robots: { index: false, follow: false },
     };
   }
 
+  const translation = getTourTranslation(slug, locale);
+  const page = applyTourTranslation(content, translation);
   const isBookable = content.commerce?.isBookable ?? false;
+
+  const ogLocaleByLocale: Record<Locale, string> = {
+    en: "en_US",
+    es: "es_ES",
+    fr: "fr_FR",
+    ar: "ar_EG",
+  };
 
   return {
     title: isBookable
-      ? `${copy.shared.bookYourTour} ${content.title} | Seville Tours Co.`
-      : `${copy.shared.requestAvailabilityPricing} ${content.title} | Seville Tours Co.`,
-    description: content.seo.description,
-    robots: {
-      index: false,
-      follow: true,
-    },
+      ? `${copy.shared.bookYourTour} ${page.title} | Seville Tours Co.`
+      : `${copy.shared.requestAvailabilityPricing} ${page.title} | Seville Tours Co.`,
+    description: page.seo.description,
+    robots: { index: false, follow: true },
     openGraph: {
-      title: content.title,
-      description: content.seo.description,
-      locale: locale === "ar" ? "ar_EG" : locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : "en_US",
+      title: page.title,
+      description: page.seo.description,
+      locale: ogLocaleByLocale[locale],
     },
   };
 }
 
 export default async function BookingPage({ params }: BookingPageProps) {
-  const locale = await getRequestLocale();
+  const { locale: rawLocale, slug } = await params;
+  const locale = normalizeLocale(rawLocale) as Locale | undefined;
+
+  if (!locale || !supportedLocales.includes(locale)) {
+    notFound();
+  }
+
   const copy = siteCopy(locale);
-  const { slug } = await params;
   const content = await getDeterministicTourContentBySlug(slug);
 
   if (!content) {
     notFound();
   }
+
+  const translation = getTourTranslation(slug, locale);
+  const page = applyTourTranslation(content, translation);
 
   const bookingUrl = content.commerce?.booking?.url;
   const isBookable = content.commerce?.isBookable ?? false;
@@ -95,12 +109,12 @@ export default async function BookingPage({ params }: BookingPageProps) {
           </h1>
 
           <h2 className="mt-4 text-xl font-semibold text-[var(--brand-gold-100)]">
-            {content.title}
+            {page.title}
           </h2>
 
           <div
             className="mt-5 max-w-3xl text-base leading-8 text-[var(--text-muted-dark)]"
-            dangerouslySetInnerHTML={{ __html: content.excerptHtml }}
+            dangerouslySetInnerHTML={{ __html: page.excerptHtml }}
           />
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -111,7 +125,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
               {isLuxuryRequestFlow ? copy.shared.startLuxuryPlanning : copy.shared.contactCarlos}
             </Link>
             <Link
-              href={`/tours/${content.slug}/`}
+              href={`/${locale}/tours/${content.slug}/`}
               className="inline-flex min-h-11 items-center justify-center rounded-[1.1rem] border border-[color:rgba(184,144,58,0.28)] px-6 py-3 text-sm font-semibold text-[var(--brand-gold-100)] transition hover:bg-white/8"
             >
               {copy.shared.returnToTourPage}
@@ -133,7 +147,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
           </p>
 
           <h1 className="font-display text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-            Book {content.title}
+            Book {page.title}
           </h1>
 
           {content.commerce?.price ? (
@@ -146,7 +160,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
 
         <div className="card-glow mt-6 overflow-hidden rounded-[calc(var(--radius-card)+0.25rem)] bg-[var(--surface-card)] shadow-sm ring-1 ring-[color:var(--border-soft)]">
           <iframe
-            title={`Book ${content.title}`}
+            title={`Book ${page.title}`}
             src={bookingUrl}
             className="min-h-[760px] w-full border-0 md:min-h-[820px] lg:min-h-[900px]"
             loading="lazy"

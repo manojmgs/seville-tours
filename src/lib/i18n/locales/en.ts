@@ -39,6 +39,7 @@ export const enCopy: SiteCopy = {
     sending: "OPENING…",
     viewTour: "View tour →",
     viewDayTrip: "View day trip →",
+    privateRoute: "Private route",
     customProposal: "Custom proposal",
     description: "Description",
     reviews: "Reviews",
@@ -108,6 +109,26 @@ export const enCopy: SiteCopy = {
       planCardNote:
         "The top-right Plan trip button opens a premium bottom sheet on mobile and a centered modal on desktop.",
       planCardCta: "Request luxury planning",
+      luxuryEyebrow: "Bespoke Andalucía planning",
+      luxuryTitleTop: "Andalucía,",
+      luxuryTitleBottom: "arranged around you.",
+      luxuryBody: "Private drivers, curated dining, flexible pacing and bespoke day trips shaped around your rhythm.",
+      privateTrust: [
+        { title: "Official guide", body: "Licensed historian" },
+        { title: "Private pace", body: "No crowded groups" },
+        { title: "Day trips", body: "Granada · Córdoba · Ronda" },
+        { title: "4.9 reviews", body: "Guest proof" },
+      ],
+      luxuryTrust: [
+        { title: "Arrival support", body: "Airport · hotel · station" },
+        { title: "Chauffeur options", body: "Mercedes on request" },
+        { title: "Dining planning", body: "Local tables · rooftop evenings" },
+        { title: "Flexible itinerary", body: "Built around your rhythm" },
+      ],
+      privateAsideTitle: "Seville base, Andalucía day trips",
+      privateAsideItems: ["Alcázar & Cathedral", "Granada · Córdoba · Ronda", "Private pace", "Licensed historian"],
+      luxuryAsideTitle: "Bespoke proposal",
+      luxuryAsideItems: ["Arrival support", "Chauffeur options", "Dining planning", "Flexible itinerary"],
     },
     sections: {
       toursHeading: "Private tours in Seville",
@@ -153,6 +174,17 @@ export const enCopy: SiteCopy = {
       body: "Private and luxury travel from Seville.",
       cta: "Start with a message",
     },
+    featuredCards: [
+      { title: "Seville Alcazar Guided Tour", label: "Most popular", description: "Skip the line and explore the Royal Alcázar with an official licensed guide." },
+      { title: "Cathedral of Seville Guided Tour", label: "Classic", description: "Discover the Cathedral, Giralda and the historic heart of Seville." },
+      { title: "Highlights of Seville Tour", label: "First day", description: "A private orientation walk through the essential stories and corners of Seville." },
+      { title: "Private Seville Tapas Tour", label: "Food & history", description: "Taste Seville with a local historical lens and relaxed private pacing." },
+    ],
+    dayTripCards: [
+      { title: "Granada & the Alhambra", description: "A private day trip from Seville to Granada and the Alhambra." },
+      { title: "Córdoba Private Day Trip", description: "Visit Córdoba and the Mezquita from Seville with private guidance." },
+      { title: "Ronda & White Villages", description: "Explore Ronda and the white villages as a private day trip from Seville." },
+    ],
     gift: {
       eyebrow: "Give the gift of Andalucia",
       titleTop: "Gift",

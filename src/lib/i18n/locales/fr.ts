@@ -36,6 +36,7 @@ export const frCopy: SiteCopy = mergeCopy(enCopy, {
     sending: "OUVERTURE…",
     viewTour: "Voir le tour →",
     viewDayTrip: "Voir l'excursion →",
+    privateRoute: "Circuit privé",
     customProposal: "Proposition sur mesure",
     reviews: "Avis",
     relatedHeading: "Vous pourriez aussi aimer",
@@ -103,6 +104,26 @@ export const frCopy: SiteCopy = mergeCopy(enCopy, {
       planCardNote:
         "Le bouton Planifier le voyage ouvre un panneau premium sur mobile et une modale centrée sur ordinateur.",
       planCardCta: "Demander une planification luxe",
+      luxuryEyebrow: "Planification Andalousie sur mesure",
+      luxuryTitleTop: "Andalousie,",
+      luxuryTitleBottom: "façonnée autour de vous.",
+      luxuryBody: "Chauffeurs privés, gastronomie sélectionnée, rythme flexible et excursions sur mesure.",
+      privateTrust: [
+        { title: "Guide officiel", body: "Historien diplômé" },
+        { title: "Rythme privé", body: "Sans groupes bondés" },
+        { title: "Excursions d'une journée", body: "Grenade · Cordoue · Ronda" },
+        { title: "Avis 4,9", body: "Apprécié des voyageurs" },
+      ],
+      luxuryTrust: [
+        { title: "Accueil à l'aéroport", body: "Aéroport · hôtel · gare" },
+        { title: "Chauffeur disponible", body: "Mercedes sur demande" },
+        { title: "Planification restauration", body: "Tables locales · soirées rooftop" },
+        { title: "Itinéraire flexible", body: "Adapté à votre rythme" },
+      ],
+      privateAsideTitle: "Séville, excursions en Andalousie",
+      privateAsideItems: ["Alcázar & Cathédrale", "Grenade · Cordoue · Ronda", "Rythme privé", "Historien diplômé"],
+      luxuryAsideTitle: "Proposition sur mesure",
+      luxuryAsideItems: ["Accueil aéroport", "Options chauffeur", "Planification restauration", "Itinéraire flexible"],
     },
     sections: {
       toursHeading: "Tours privés à Séville",
@@ -135,6 +156,17 @@ export const frCopy: SiteCopy = mergeCopy(enCopy, {
       },
     },
     footer: { title: "Seville Tours", body: "Voyages privés et de luxe depuis Séville.", cta: "Commencer par un message" },
+    featuredCards: [
+      { title: "Visite guidée de l'Alcázar de Séville", label: "Le plus populaire", description: "Évitez la file et explorez le Real Alcázar avec un historien guide officiel." },
+      { title: "Visite guidée de la Cathédrale de Séville", label: "Classique", description: "Découvrez la Cathédrale, la Giralda et le cœur historique de Séville." },
+      { title: "Tour des Monuments Phares de Séville", label: "Premier jour", description: "Une promenade privée d'orientation à travers les histoires et ruelles essentielles de Séville." },
+      { title: "Tour privé des Tapas de Séville", label: "Gastronomie & histoire", description: "Savourez Séville avec une perspective historique locale et un rythme privé détendu." },
+    ],
+    dayTripCards: [
+      { title: "Grenade & l'Alhambra", description: "Une excursion privée depuis Séville vers Grenade et l'Alhambra." },
+      { title: "Excursion privée à Cordoue", description: "Visitez Cordoue et la Mezquita depuis Séville avec un guide privé." },
+      { title: "Ronda & les Villages Blancs", description: "Explorez Ronda et les villages blancs lors d'une excursion privée depuis Séville." },
+    ],
     gift: {
       eyebrow: "Offrez l'Andalousie",
       titleTop: "Expériences",

@@ -71,7 +71,7 @@ export function WordPressRestContentView({
         }}
       />
       <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <PageReturnLinks backLabel="Back to previous" />
+        <PageReturnLinks locale={locale} backLabel={copy.returnLinks.backToPrevious} />
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
           <section className="min-w-0">

@@ -33,48 +33,38 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
     }, 400);
   };
 
-  const experienceContent = {
-    private: {
-      eyebrow: "Carlos · Licensed historian",
-      titleTop: "Seville & Andalucía,",
-      titleBottom: "always private.",
-      body: "Private tours in Seville, day trips to Córdoba, Granada and Ronda — guided by Carlos, a licensed historian.",
-      primaryCta: "Explore tours",
-      primaryHref: "#tours",
-      secondaryCta: "WhatsApp Carlos",
-      secondaryHref: buildWhatsAppUrl("Hello Carlos, I would like to ask about a private tour in Seville."),
-      trust: [
-        { title: "Official guide", body: "Licensed historian" },
-        { title: "Private pace", body: "No crowded groups" },
-        { title: "Day trips", body: "Granada · Córdoba · Ronda" },
-        { title: "4.9 reviews", body: "Guest proof" },
-      ],
-    },
-    luxury: {
-      eyebrow: "Bespoke Andalucía planning",
-      titleTop: "Andalucía,",
-      titleBottom: "arranged around you.",
-      body: "Private drivers, curated dining, flexible pacing and bespoke day trips shaped around your rhythm.",
-      primaryCta: "Request proposal",
-      primaryHref: buildContactInquiryUrl({ interest: "luxury" }),
-      secondaryCta: "WhatsApp Carlos",
-      secondaryHref: buildWhatsAppUrl("Hello Carlos, I would like to ask about luxury planning in Seville."),
-      trust: [
-        { title: "Arrival support", body: "Airport · hotel · station" },
-        { title: "Chauffeur options", body: "Mercedes on request" },
-        { title: "Dining planning", body: "Local tables · rooftop evenings" },
-        { title: "Flexible itinerary", body: "Built around your rhythm" },
-      ],
-    }
-  };
-
-  const current = experienceContent[mode];
-
   const localized = siteCopy(locale);
   const trustCards = localized.home.sections.trustProof?.cards ?? [];
   const googleCard = trustCards.find((c) => c.source === "Google");
   const andaluciaCard = trustCards.find((c) => c.source === "Andalucía");
   const luxuryMicro = andaluciaCard ? `${andaluciaCard.registrationId ?? ""}` : "";
+
+  const experienceContent = {
+    private: {
+      eyebrow: localized.home.hero.badge,
+      titleTop: localized.home.hero.titleTop,
+      titleBottom: localized.home.hero.titleBottom,
+      body: localized.home.hero.body,
+      primaryCta: localized.shared.exploreTours,
+      primaryHref: "#tours",
+      secondaryCta: localized.shared.whatsappCarlos,
+      secondaryHref: buildWhatsAppUrl("Hello Carlos, I would like to ask about a private tour in Seville."),
+      trust: localized.home.hero.privateTrust,
+    },
+    luxury: {
+      eyebrow: localized.home.hero.luxuryEyebrow,
+      titleTop: localized.home.hero.luxuryTitleTop,
+      titleBottom: localized.home.hero.luxuryTitleBottom,
+      body: localized.home.hero.luxuryBody,
+      primaryCta: localized.shared.requestLuxuryProposal,
+      primaryHref: buildContactInquiryUrl({ interest: "luxury" }),
+      secondaryCta: localized.shared.whatsappCarlos,
+      secondaryHref: buildWhatsAppUrl("Hello Carlos, I would like to ask about luxury planning in Seville."),
+      trust: localized.home.hero.luxuryTrust,
+    },
+  };
+
+  const current = experienceContent[mode];
 
   return (
     <div className="relative z-40 transition-colors duration-500 ease-in-out motion-reduce:transition-none">
@@ -221,24 +211,20 @@ export function HomeExperienceSwitcher({ locale = "en" }: HomeExperienceSwitcher
             <aside className="hidden md:block">
               <div className={`w-full rounded-3xl p-6 backdrop-blur-sm border transition-colors duration-400 ${isLuxury ? "bg-[rgba(2,2,2,0.56)] border-[rgba(184,144,58,0.12)] text-white" : "bg-[rgba(255,255,255,0.06)] border-[rgba(6,80,63,0.08)] text-[#E9F3EE]"}`}>
                 <h3 className={`mb-3 text-lg font-semibold ${isLuxury ? "text-[var(--brand-gold-100)]" : "text-[var(--brand-green-100)]"}`}>
-                  {isLuxury ? "Bespoke proposal" : "Seville base, Andalucía day trips"}
+                  {isLuxury ? localized.home.hero.luxuryAsideTitle : localized.home.hero.privateAsideTitle}
                 </h3>
                 <ul className="grid gap-3">
-                  {isLuxury ? (
-                    <>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.85)]/90 ring-1 ring-white/18" /> <span className="text-sm font-medium">Arrival support</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.6)] ring-1 ring-white/12" /> <span className="text-sm font-medium">Chauffeur options</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.5)] ring-1 ring-white/12" /> <span className="text-sm font-medium">Dining planning</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[rgba(184,144,58,0.4)] ring-1 ring-white/12" /> <span className="text-sm font-medium">Flexible itinerary</span></li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/90 ring-1 ring-white/20" /> <span className="text-sm font-medium">Alcázar & Cathedral</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/80 ring-1 ring-white/20" /> <span className="text-sm font-medium">Granada · Córdoba · Ronda</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-700)]/70 ring-1 ring-white/20" /> <span className="text-sm font-medium">Private pace</span></li>
-                      <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full bg-[var(--brand-green-500)]/60 ring-1 ring-white/20" /> <span className="text-sm font-medium">Licensed historian</span></li>
-                    </>
-                  )}
+                  {(isLuxury ? localized.home.hero.luxuryAsideItems : localized.home.hero.privateAsideItems).map((item, i) => {
+                    const dotCn = isLuxury
+                      ? ["bg-[rgba(184,144,58,0.85)]/90 ring-1 ring-white/18", "bg-[rgba(184,144,58,0.6)] ring-1 ring-white/12", "bg-[rgba(184,144,58,0.5)] ring-1 ring-white/12", "bg-[rgba(184,144,58,0.4)] ring-1 ring-white/12"][i]
+                      : ["bg-[var(--brand-green-700)]/90 ring-1 ring-white/20", "bg-[var(--brand-green-500)]/80 ring-1 ring-white/20", "bg-[var(--brand-green-700)]/70 ring-1 ring-white/20", "bg-[var(--brand-green-500)]/60 ring-1 ring-white/20"][i];
+                    return (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className={`mt-1 inline-block h-2 w-2 rounded-full ${dotCn}`} />
+                        <span className="text-sm font-medium">{item}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </aside>

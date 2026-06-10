@@ -40,6 +40,7 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
     sending: "ABRIENDO…",
     viewTour: "Ver tour →",
     viewDayTrip: "Ver excursión →",
+    privateRoute: "Ruta privada",
     customProposal: "Propuesta a medida",
     description: "Descripción",
     reviews: "Reseñas",
@@ -109,6 +110,26 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
       planCardNote:
         "El botón Planificar viaje arriba a la derecha abre una hoja inferior premium en móvil y un modal centrado en escritorio.",
       planCardCta: "Solicitar planificación de lujo",
+      luxuryEyebrow: "Planificación personalizada de Andalucía",
+      luxuryTitleTop: "Andalucía,",
+      luxuryTitleBottom: "diseñada a tu medida.",
+      luxuryBody: "Chóferes privados, restaurantes seleccionados, ritmo flexible y excursiones a medida diseñadas a tu ritmo.",
+      privateTrust: [
+        { title: "Guía oficial", body: "Historiador con licencia" },
+        { title: "Ritmo privado", body: "Sin grupos masificados" },
+        { title: "Excursiones de día", body: "Granada · Córdoba · Ronda" },
+        { title: "4.9 reseñas", body: "Valorado por viajeros" },
+      ],
+      luxuryTrust: [
+        { title: "Bienvenida en aeropuerto", body: "Aeropuerto · hotel · estación" },
+        { title: "Chófer disponible", body: "Mercedes a petición" },
+        { title: "Planificación gastronómica", body: "Mesas locales · noches en azoteas" },
+        { title: "Itinerario flexible", body: "Diseñado a tu ritmo" },
+      ],
+      privateAsideTitle: "Sevilla como base, excursiones por Andalucía",
+      privateAsideItems: ["Alcázar y Catedral", "Granada · Córdoba · Ronda", "Ritmo privado", "Historiador con licencia"],
+      luxuryAsideTitle: "Propuesta a medida",
+      luxuryAsideItems: ["Bienvenida en aeropuerto", "Opciones de chófer", "Planificación gastronómica", "Itinerario flexible"],
     },
     sections: {
       toursHeading: "Tours privados en Sevilla",
@@ -145,6 +166,17 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
       body: "Viajes privados y de lujo desde Sevilla.",
       cta: "Empezar con un mensaje",
     },
+    featuredCards: [
+      { title: "Visita Guiada al Alcázar de Sevilla", label: "Más popular", description: "Salta las colas y explora el Real Alcázar con un guía historiador oficial." },
+      { title: "Visita Guiada a la Catedral de Sevilla", label: "Clásica", description: "Descubre la Catedral, la Giralda y el corazón histórico de Sevilla." },
+      { title: "Tour Principales Monumentos de Sevilla", label: "Primer día", description: "Un paseo privado de orientación por las historias esenciales y los rincones de Sevilla." },
+      { title: "Tour Privado de Tapas en Sevilla", label: "Gastronomía e historia", description: "Descubre Sevilla con una perspectiva histórica local y un ritmo privado y relajado." },
+    ],
+    dayTripCards: [
+      { title: "Granada y la Alhambra", description: "Una excursión privada desde Sevilla a Granada y la Alhambra." },
+      { title: "Excursión Privada a Córdoba", description: "Visita Córdoba y la Mezquita desde Sevilla con guía privado." },
+      { title: "Ronda y los Pueblos Blancos", description: "Explora Ronda y los pueblos blancos en una excursión privada desde Sevilla." },
+    ],
     gift: {
       eyebrow: "Regala Andalucía",
       titleTop: "Experiencias",

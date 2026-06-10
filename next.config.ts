@@ -13,13 +13,21 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Phase 0 rule: keep URLs 1:1. Add redirects only after SEO review.
-      // Example:
-      // {
-      //   source: '/old-url/',
-      //   destination: '/new-url/',
-      //   permanent: true,
-      // },
+      // Locale migration: redirect bare paths to /en/ equivalents (permanent 301).
+      // These preserve SEO equity for any external links that indexed the old bare URLs.
+      { source: "/", destination: "/en/", permanent: true },
+      { source: "/tours/:slug*", destination: "/en/tours/:slug*", permanent: true },
+      { source: "/book/:slug*", destination: "/en/book/:slug*", permanent: true },
+      {
+        source: "/contact-seville-tours-co/:path*",
+        destination: "/en/contact-seville-tours-co/:path*",
+        permanent: true,
+      },
+      {
+        source: "/discover-spain-with-a-historian/:path*",
+        destination: "/en/discover-spain-with-a-historian/:path*",
+        permanent: true,
+      },
     ];
   },
 };

@@ -51,6 +51,7 @@ export type SiteCopy = {
     sending: string;
     viewTour: string;
     viewDayTrip: string;
+    privateRoute: string;
     customProposal: string;
     description: string;
     reviews: string;
@@ -106,6 +107,16 @@ export type SiteCopy = {
       planCardItems: string[];
       planCardNote: string;
       planCardCta: string;
+      luxuryEyebrow: string;
+      luxuryTitleTop: string;
+      luxuryTitleBottom: string;
+      luxuryBody: string;
+      privateTrust: Array<{ title: string; body: string }>;
+      luxuryTrust: Array<{ title: string; body: string }>;
+      privateAsideTitle: string;
+      privateAsideItems: string[];
+      luxuryAsideTitle: string;
+      luxuryAsideItems: string[];
     };
     sections: {
       toursHeading: string;
@@ -129,6 +140,8 @@ export type SiteCopy = {
       body: string;
       cta: string;
     };
+    featuredCards: Array<{ title: string; label: string; description: string }>;
+    dayTripCards: Array<{ title: string; description: string }>;
     gift: {
       eyebrow: string;
       titleTop: string;

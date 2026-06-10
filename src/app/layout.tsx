@@ -1,31 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cormorant_Garamond, Noto_Sans_Arabic } from "next/font/google";
-import { ScrollToTopButton } from "@/components/layout/ScrollToTopButton";
-import { localeDirection } from "@/lib/i18n/site";
-import { getRequestLocale } from "@/lib/i18n/request-locale";
-import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-  variable: "--font-cormorant-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const notoSansArabic = Noto_Sans_Arabic({
-  variable: "--font-noto-arabic",
-  subsets: ["arabic"],
-  weight: ["400", "500", "700"],
-});
+/**
+ * Root layout — intentionally minimal.
+ *
+ * All navigable routes live under src/app/[locale]/ which provides the full
+ * <html lang dir> shell with locale-aware fonts and direction.
+ * Bare-path routes (e.g. /tours/:slug) are 301-redirected to /en/... via
+ * next.config.ts and never render.
+ *
+ * This layout only holds global Metadata (metadataBase, default title template,
+ * OpenGraph/Twitter card defaults) which Next.js merges with per-page metadata.
+ *
+ * See: https://nextjs.org/docs/app/guides/internationalization
+ */
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sevilletoursco.com"),
@@ -42,28 +29,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getRequestLocale();
-  const isArabic = locale === "ar";
-
-  return (
-    <html
-      lang={locale}
-      dir={localeDirection(locale)}
-      data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} ${cormorantGaramond.variable} ${notoSansArabic.variable} h-full antialiased`}
-    >
-      <body
-        className="min-h-full flex flex-col"
-        style={isArabic ? { fontFamily: "var(--font-noto-arabic), var(--font-geist-sans), Arial, Helvetica, sans-serif" } : undefined}
-      >
-        {children}
-        <ScrollToTopButton locale={locale} />
-      </body>
-    </html>
-  );
+  // <html> and <body> are rendered by src/app/[locale]/layout.tsx so that
+  // lang, dir, and Arabic font can be set per-locale without nested html tags.
+  return children;
 }
+
