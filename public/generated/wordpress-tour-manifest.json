@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-30T20:31:58.317Z",
+  "generatedAt": "2026-06-10T20:09:31.683Z",
   "source": "https://sevilletoursco.com",
   "entries": {
     "cathedral-of-seville-guided-tour": {
@@ -16,12 +16,12 @@
         "canonical": "https://sevilletoursco.com/tours/cathedral-of-seville-guided-tour/",
         "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
       },
-      "updatedAt": "2026-01-18T22:32:05",
+      "updatedAt": "2026-06-10T19:29:53",
       "commerce": {
         "type": "external",
         "price": {
-          "amountMinor": 3500,
-          "formatted": "35,00 €",
+          "amountMinor": 4000,
+          "formatted": "40,00 €",
           "currencyCode": "EUR",
           "currencySymbol": "€",
           "vatLabel": "VAT Incl."
@@ -128,12 +128,12 @@
         "canonical": "https://sevilletoursco.com/tours/seville-alcazar-guided-tour/",
         "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
       },
-      "updatedAt": "2026-04-08T06:47:41",
+      "updatedAt": "2026-06-10T19:27:15",
       "commerce": {
         "type": "external",
         "price": {
-          "amountMinor": 3900,
-          "formatted": "39,00 €",
+          "amountMinor": 5000,
+          "formatted": "50,00 €",
           "currencyCode": "EUR",
           "currencySymbol": "€",
           "vatLabel": "VAT Incl."
