@@ -84,7 +84,7 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
       aside: [
         "Tours privados en Sevilla con guía historiador con licencia.",
         "Excursiones de lujo que necesitan confirmar precio y disponibilidad.",
-        "Solicitudes de tarjeta regalo por importe fijo o tour concreto.",
+        "Las tarjetas regalo se compran de forma segura en ParaUsted.",
         "Planificación a medida de Andalucía o España que empieza con una conversación.",
       ],
       browsePrompt: "¿Prefieres seguir navegando primero?",
@@ -194,7 +194,7 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
         { title: "Tarjeta regalo flexible de Sevilla", price: "€65" },
       ],
       flexibleTitle: "Valor flexible de regalo",
-      flexibleDescription: "Elige un valor flexible de tarjeta regalo para cualquier tour.",
+      flexibleDescription: "Elige un valor flexible de tarjeta regalo para tours compatibles.",
       luxuryTitle: "Regalo de lujo y privado",
       luxuryDescription: "Inicia tu regalo de lujo en ParaUsted; la planificación privada se coordina con Seville Tours Co. después de la compra.",
       paraustedCta: "Comprar tarjeta regalo",
@@ -258,7 +258,7 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
     luxuryDescription:
       "Usa este formulario para enviar a Carlos un resumen estilo concierge con las fechas, el tamaño del grupo y los detalles de lujo que más importan.",
     giftDescription:
-      "Usa este formulario para solicitar un importe de tarjeta regalo, el destinatario y un mensaje breve. El envío abre WhatsApp con un resumen completo.",
+      "Las compras de tarjetas regalo se completan de forma segura en ParaUsted. Explora las opciones de tarjeta regalo, elige un importe y completa la compra en la página de comercio de ParaUsted.",
     privateHelper: "Útil para tours por Sevilla, excursiones de un día y planificación a medida.",
     luxuryHelper:
       "Es el lugar adecuado para llegadas al aeropuerto, entrega en hotel, tiempos de cena y planificación amplia por España.",

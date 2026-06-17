@@ -83,7 +83,7 @@ export const enCopy: SiteCopy = {
       aside: [
         "Private tours in Seville with a licensed historian guide.",
         "Luxury day trips that need pricing and availability confirmed.",
-        "Gift voucher requests for a fixed amount or a specific tour.",
+        "Gift vouchers are purchased securely on ParaUsted.",
         "Bespoke Andalucía or Spain planning that starts with a conversation.",
       ],
       browsePrompt: "Prefer to keep browsing first?",
@@ -202,7 +202,7 @@ export const enCopy: SiteCopy = {
         { title: "Flexible Seville Tour Gift Card", price: "€65" },
       ],
       flexibleTitle: "Flexible gift value",
-      flexibleDescription: "Pick a flexible gift-card value to put towards any tour.",
+      flexibleDescription: "Pick a flexible gift-card value to put towards supported tours.",
       luxuryTitle: "Luxury & private gift",
       luxuryDescription: "Start your luxury gift on ParaUsted; private planning is coordinated with Seville Tours Co. after purchase.",
       paraustedCta: "Buy a gift card",
@@ -276,7 +276,7 @@ export const enCopy: SiteCopy = {
     luxuryDescription:
       "Use this form to send Carlos a concierge-style brief covering dates, party size, and the luxury details that matter most.",
     giftDescription:
-      "Use this form to request a gift voucher amount, recipient, and a short message. The submission opens WhatsApp with a complete summary.",
+      "Gift card purchases are completed securely on ParaUsted. Browse gift card options, choose a value, and complete your purchase on the ParaUsted merchant page.",
     privateHelper: "Useful for Seville tours, day trips, and custom trip planning.",
     luxuryHelper:
       "This is the right place for airport arrivals, hotel handoff, dining timing, and wider Spain pacing.",

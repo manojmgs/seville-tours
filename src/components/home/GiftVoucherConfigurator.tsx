@@ -29,7 +29,7 @@ export function GiftVoucherConfigurator({ locale = "en" }: { locale?: Locale }) 
                   <div className="relative flex items-start justify-between gap-4">
                     <div>
                       <p className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-white/70">
-                        AndaluciaExpert
+                        Seville Tours Co.
                       </p>
                       <p className="mt-2 text-sm font-semibold text-white/90">
                         {gift.previewType}

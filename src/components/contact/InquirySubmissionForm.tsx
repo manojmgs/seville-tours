@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { buildWhatsAppUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy, type Locale } from "@/lib/i18n/site";
 
-type InquiryMode = "luxury" | "gift-voucher" | "general";
+type InquiryMode = "luxury" | "general";
 
 type InquirySubmissionFormProps = {
   mode: InquiryMode;
@@ -18,12 +18,6 @@ function buildInitialMessage(
   tourName?: string,
   interestName?: string,
 ): string {
-  if (mode === "gift-voucher") {
-    return tourName
-      ? `I would like a gift voucher for ${tourName}.`
-      : "I would like to request a gift voucher.";
-  }
-
   if (mode === "luxury") {
     if (tourName && interestName) {
       return `I would like luxury planning for ${tourName}.`;
@@ -54,20 +48,8 @@ export function InquirySubmissionForm({
   const [partySize, setPartySize] = useState("");
   const [budget, setBudget] = useState("");
   const [message, setMessage] = useState(buildInitialMessage(mode, tourName, interestName));
-  const [voucherAmount, setVoucherAmount] = useState("");
-  const [recipient, setRecipient] = useState("");
-  const [delivery, setDelivery] = useState(copy.inquiry.placeholders.delivery);
 
   const modeCopy = useMemo(() => {
-    if (mode === "gift-voucher") {
-      return {
-        title: copy.inquiry.giftTitle,
-        description: copy.inquiry.giftDescription,
-        cta: copy.inquiry.cta.gift,
-        helper: copy.inquiry.giftHelper,
-      };
-    }
-
     if (mode === "luxury") {
       return {
         title: copy.inquiry.luxuryTitle,
@@ -118,18 +100,6 @@ export function InquirySubmissionForm({
 
     if (budget.trim()) {
       parts.push(`${copy.inquiry.labels.budget}: ${budget.trim()}`);
-    }
-
-    if (mode === "gift-voucher") {
-      if (voucherAmount.trim()) {
-        parts.push(`${copy.inquiry.labels.voucherAmount}: €${voucherAmount.trim()}`);
-      }
-
-      if (recipient.trim()) {
-        parts.push(`${copy.inquiry.labels.recipient}: ${recipient.trim()}`);
-      }
-
-      parts.push(`${copy.inquiry.labels.delivery}: ${delivery}`);
     }
 
     if (message.trim()) {
@@ -211,57 +181,17 @@ export function InquirySubmissionForm({
           />
         </label>
 
-        {mode === "gift-voucher" ? (
-          <>
-            <label className="block">
-              <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
-                {copy.inquiry.labels.voucherAmount}
-              </span>
-              <input
-                className="input"
-                value={voucherAmount}
-                onChange={(event) => setVoucherAmount(event.target.value)}
-                placeholder={copy.inquiry.placeholders.voucherAmount}
-              />
-            </label>
-
-            <label className="block">
-              <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
-                {copy.inquiry.labels.recipient}
-              </span>
-              <input
-                className="input"
-                value={recipient}
-                onChange={(event) => setRecipient(event.target.value)}
-                placeholder={copy.inquiry.placeholders.recipient}
-              />
-            </label>
-
-            <label className="block lg:col-span-2">
-              <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
-                {copy.inquiry.labels.delivery}
-              </span>
-              <input
-                className="input"
-                value={delivery}
-                onChange={(event) => setDelivery(event.target.value)}
-                placeholder={copy.inquiry.placeholders.delivery}
-              />
-            </label>
-          </>
-        ) : (
-          <label className="block lg:col-span-2">
-            <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
-              {copy.inquiry.labels.budget}
-            </span>
-            <input
-              className="input"
-              value={budget}
-              onChange={(event) => setBudget(event.target.value)}
-              placeholder={copy.inquiry.placeholders.budget}
-            />
-          </label>
-        )}
+        <label className="block lg:col-span-2">
+          <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
+            {copy.inquiry.labels.budget}
+          </span>
+          <input
+            className="input"
+            value={budget}
+            onChange={(event) => setBudget(event.target.value)}
+            placeholder={copy.inquiry.placeholders.budget}
+          />
+        </label>
 
         <label className="block lg:col-span-2">
           <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">

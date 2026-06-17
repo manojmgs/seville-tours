@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { InquirySubmissionForm } from "@/components/contact/InquirySubmissionForm";
 import { PageReturnLinks } from "@/components/navigation/PageReturnLinks";
 import { buildContactInquiryUrl, buildWhatsAppUrl } from "@/lib/wordpress-rest/urls";
+import { buildParaUstedMerchantUrl } from "@/lib/parausted/merchant-url";
 import { siteCopy, normalizeLocale, supportedLocales } from "@/lib/i18n/site";
 import type { Locale } from "@/lib/i18n/types";
 
@@ -102,6 +103,11 @@ export default async function ContactPage({ params, searchParams }: ContactPageP
     places, interests, name, contact, message,
   } = await searchParams;
 
+  // Gift purchases live entirely on ParaUsted; never route gift intent through WhatsApp.
+  if (interest === "gift-voucher") {
+    redirect(buildParaUstedMerchantUrl(locale));
+  }
+
   const formattedTourName = formatTourName(tour);
   const formattedInterest = formatInterest(interest);
   const formattedVoucherType = formatVoucherType(type);
@@ -112,11 +118,7 @@ export default async function ContactPage({ params, searchParams }: ContactPageP
   const isGiftVoucherInterest = interest === "gift-voucher";
   const isPlanTripInterest = interest === "plan-trip";
   const isWhatsappInterest = interest === "whatsapp";
-  const submissionMode = isLuxuryInterest
-    ? "luxury"
-    : isGiftVoucherInterest
-      ? "gift-voucher"
-      : "general";
+  const submissionMode = isLuxuryInterest ? "luxury" : "general";
   const whatsappHref = buildWhatsAppUrl(
     formattedTourName && formattedInterest
       ? `Hello Carlos, I would like to ask about a ${formattedInterest.toLowerCase()} for ${formattedTourName}.`
@@ -162,7 +164,7 @@ export default async function ContactPage({ params, searchParams }: ContactPageP
             </div>
           ) : null}
 
-          {(isPlanTripInterest || isGiftVoucherInterest || isWhatsappInterest) && (
+          {(isPlanTripInterest || isWhatsappInterest) && (
             <div className="mt-4 rounded-[1.25rem] border border-[color:rgba(184,144,58,0.18)] bg-[rgba(184,144,58,0.08)] p-4 text-sm leading-7 text-[var(--foreground)]">
               <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[color:var(--brand-gold-500)]">
                 {copy.shared.contactCard.manualConfirmationTitle}
@@ -296,12 +298,31 @@ export default async function ContactPage({ params, searchParams }: ContactPageP
             </a>
           </div>
 
-          <InquirySubmissionForm
-            mode={submissionMode}
-            tourName={formattedTourName}
-            interestName={formattedInterest}
-            locale={locale}
-          />
+          {isGiftVoucherInterest ? (
+            <section className="mt-8 rounded-[calc(var(--radius-card)+0.5rem)] border border-[color:rgba(6,80,63,0.12)] bg-[var(--surface-card)] p-6 text-[var(--foreground)] shadow-[0_24px_80px_rgba(17,17,17,0.08)] sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--brand-green-700)]">
+                {copy.home.gift.eyebrow}
+              </p>
+              <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--text-muted)]">
+                {copy.home.gift.terms}
+              </p>
+              <a
+                href={buildParaUstedMerchantUrl(locale)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex min-h-11 items-center justify-center rounded-[1.1rem] bg-[var(--brand-green-700)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--brand-green-900)]"
+              >
+                {copy.home.gift.paraustedCta}
+              </a>
+            </section>
+          ) : (
+            <InquirySubmissionForm
+              mode={submissionMode}
+              tourName={formattedTourName}
+              interestName={formattedInterest}
+              locale={locale}
+            />
+          )}
         </article>
 
         <aside className="luxury-panel rounded-[calc(var(--radius-card)+0.25rem)] border border-[color:rgba(184,144,58,0.2)] p-6 text-white">
