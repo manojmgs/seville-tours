@@ -206,6 +206,12 @@ export const enCopy: SiteCopy = {
       luxuryTitle: "Luxury & private gift",
       luxuryDescription: "Start your luxury gift on ParaUsted; private planning is coordinated with Seville Tours Co. after purchase.",
       paraustedCta: "Buy a gift card",
+      redemptionTitle: "How redemption works",
+      redemptionSteps: [
+        "Buy the gift card securely on ParaUsted and receive a voucher code.",
+        "Send us the code with your preferred tour and dates.",
+        "Seville Tours Co. confirms your exact date and time and reserves your place.",
+      ],
       terms:
         "Gift-card purchases are completed securely on ParaUsted, where voucher terms, validity, refund handling, and redemption details are shown before purchase. Luxury and private gift details are coordinated with Seville Tours Co. after purchase.",
     },

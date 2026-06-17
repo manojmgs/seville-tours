@@ -188,6 +188,12 @@ export const frCopy: SiteCopy = mergeCopy(enCopy, {
       luxuryTitle: "Cadeau de luxe et privé",
       luxuryDescription: "Commencez votre cadeau de luxe sur ParaUsted ; l'organisation privée est coordonnée avec Seville Tours Co. après l'achat.",
       paraustedCta: "Acheter une carte cadeau",
+      redemptionTitle: "Comment utiliser le bon",
+      redemptionSteps: [
+        "Achetez la carte cadeau en toute sécurité sur ParaUsted et recevez un code de bon.",
+        "Envoyez-nous le code avec le tour et les dates de votre choix.",
+        "Seville Tours Co. confirme votre date et votre heure exactes et réserve votre place.",
+      ],
       terms:
         "Les achats de cartes cadeaux sont effectués en toute sécurité sur ParaUsted, où les conditions du bon, la validité, la gestion des remboursements et les détails d'utilisation sont affichés avant l'achat. Les détails des cadeaux de luxe et privés sont coordonnés avec Seville Tours Co. après l'achat.",
     },

@@ -114,6 +114,25 @@ export function GiftVoucherConfigurator({ locale = "en" }: { locale?: Locale }) 
                   </a>
                 </div>
 
+                <div className="rounded-[1.25rem] border border-[color:rgba(6,80,63,0.16)] bg-white px-4 py-4">
+                  <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--brand-green-700)]">
+                    {gift.redemptionTitle}
+                  </p>
+                  <ol className="mt-3 grid gap-2">
+                    {gift.redemptionSteps.map((step, index) => (
+                      <li
+                        key={step}
+                        className="flex gap-3 text-sm leading-6 text-[var(--text-muted)]"
+                      >
+                        <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[var(--surface-cream)] text-xs font-bold text-[var(--brand-green-700)]">
+                          {index + 1}
+                        </span>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
                 <div className="rounded-[1.25rem] border border-[color:rgba(184,144,58,0.16)] bg-white px-4 py-4 text-sm leading-7 text-[var(--text-muted)]">
                   {gift.terms}
                 </div>

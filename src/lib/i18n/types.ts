@@ -159,6 +159,8 @@ export type SiteCopy = {
       luxuryTitle: string;
       luxuryDescription: string;
       paraustedCta: string;
+      redemptionTitle: string;
+      redemptionSteps: string[];
       terms: string;
     };
   };

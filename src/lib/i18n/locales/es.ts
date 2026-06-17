@@ -198,6 +198,12 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
       luxuryTitle: "Regalo de lujo y privado",
       luxuryDescription: "Inicia tu regalo de lujo en ParaUsted; la planificación privada se coordina con Seville Tours Co. después de la compra.",
       paraustedCta: "Comprar tarjeta regalo",
+      redemptionTitle: "Cómo se canjea",
+      redemptionSteps: [
+        "Compra la tarjeta regalo de forma segura en ParaUsted y recibe un código de bono.",
+        "Envíanos el código con el tour y las fechas que prefieras.",
+        "Seville Tours Co. confirma tu fecha y hora exactas y reserva tu plaza.",
+      ],
       terms:
         "Las compras de tarjetas regalo se completan de forma segura en ParaUsted, donde se muestran las condiciones del bono, la validez, la gestión de reembolsos y los detalles de canje antes de la compra. Los detalles de los regalos de lujo y privados se coordinan con Seville Tours Co. después de la compra.",
     },
