@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { WordPressRestContentView } from "@/components/wordpress-rest/WordPressRestContent";
 import { RelatedProductsSection } from "@/components/wordpress-rest/RelatedProductsSection";
+import { TourAvailabilityHint } from "@/components/booking/TourAvailabilityHint";
 import {
   getDeterministicTourContentBySlug,
   getStaticTourSlugs,
@@ -111,6 +112,12 @@ export default async function TourPage({ params }: TourPageProps) {
   return (
     <>
       <WordPressRestContentView content={page} locale={locale} />
+      <Suspense fallback={null}>
+        <TourAvailabilityHint
+          bookingUrl={content.commerce?.booking?.url}
+          locale={locale}
+        />
+      </Suspense>
       <Suspense fallback={null}>
         <RelatedProductsSection
           relatedProductsUrl={content.commerce?.relatedProductsUrl}

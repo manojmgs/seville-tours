@@ -317,6 +317,11 @@ export const esCopy: SiteCopy = mergeCopy(enCopy, {
     openInNewTabHint:
       "Si la reserva segura no carga dentro de la página, ábrela en una pestaña nueva y continúa allí.",
     returnToTour: "Volver al tour",
+    availability: {
+      title: "Próxima disponibilidad",
+      note: "Fechas orientativas: tu fecha y hora exactas se confirman con Seville Tours Co. después de la compra.",
+      nextDatesLabel: "Próximas fechas disponibles",
+    },
   },
   wordpress: {
     sevilleTours: "Seville Tours Co.",

@@ -261,6 +261,11 @@ export type SiteCopy = {
     secureBooking: string;
     openInNewTabHint: string;
     returnToTour: string;
+    availability: {
+      title: string;
+      note: string;
+      nextDatesLabel: string;
+    };
   };
   wordpress: {
     sevilleTours: string;

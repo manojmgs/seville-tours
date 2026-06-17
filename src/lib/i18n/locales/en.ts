@@ -344,6 +344,11 @@ export const enCopy: SiteCopy = {
     openInNewTabHint:
       "If secure booking does not load inside the page, open it in a new tab and continue there.",
     returnToTour: "Return to tour page",
+    availability: {
+      title: "Upcoming availability",
+      note: "Indicative dates — your exact date and time are confirmed with Seville Tours Co. after purchase.",
+      nextDatesLabel: "Next available dates",
+    },
   },
   wordpress: {
     sevilleTours: "Seville Tours Co.",
