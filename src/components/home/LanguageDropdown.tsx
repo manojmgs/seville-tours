@@ -10,6 +10,23 @@ const localeLabels: Record<Locale, string> = {
   ar: "AR",
 };
 
+/** Persists the chosen locale for one year so future visits restore the preference. */
+function persistLocalePreference(nextLocale: Locale) {
+  document.cookie = `st-locale=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
+}
+
+/** Navigates to the same path with its locale segment swapped to `nextLocale`. */
+function navigateToLocale(nextLocale: Locale) {
+  // pathname = /en/tours/... → segments = ['', 'en', 'tours', ...]
+  const segments = window.location.pathname.split("/");
+  if (segments.length > 1 && (supportedLocales as readonly string[]).includes(segments[1])) {
+    segments[1] = nextLocale;
+  } else {
+    segments.splice(1, 0, nextLocale);
+  }
+  window.location.assign(segments.join("/"));
+}
+
 type LanguageDropdownProps = {
   currentLocale: Locale;
 };
@@ -53,17 +70,8 @@ export function LanguageDropdown({ currentLocale }: LanguageDropdownProps) {
       return;
     }
 
-    document.cookie = `st-locale=${nextLocale}; path=/; max-age=31536000; samesite=lax`;
-
-    // Replace the current locale segment in the URL path
-    const segments = window.location.pathname.split("/");
-    // pathname = /en/tours/... → segments = ['', 'en', 'tours', ...]
-    if (segments.length > 1 && (supportedLocales as readonly string[]).includes(segments[1])) {
-      segments[1] = nextLocale;
-    } else {
-      segments.splice(1, 0, nextLocale);
-    }
-    window.location.href = segments.join("/");
+    persistLocalePreference(nextLocale);
+    navigateToLocale(nextLocale);
   }
 
   return (

@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageReturnLinks } from "@/components/navigation/PageReturnLinks";
+import { BookingExperience } from "@/components/booking/BookingExperience";
 import {
   getDeterministicTourContentBySlug,
   getStaticTourSlugs,
 } from "@/lib/wordpress-rest/tour-manifest";
-import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
+import { buildContactInquiryUrl, WHATSAPP_NUMBER } from "@/lib/wordpress-rest/urls";
+import { buildParaUstedMerchantUrl } from "@/lib/parausted/merchant-url";
+import { extractFareHarborItemId } from "@/lib/fareharbor/booking";
 import { siteCopy, normalizeLocale, supportedLocales } from "@/lib/i18n/site";
 import { getTourTranslation, applyTourTranslation } from "@/lib/i18n/tour-translations";
 import type { Locale } from "@/lib/i18n/types";
@@ -17,6 +20,9 @@ type BookingPageProps = {
     slug: string;
   }>;
 };
+
+/** Tours that use the interactive live booking experience (FareHarbor-backed). */
+const EXPERIENCE_ENABLED_SLUGS = new Set<string>(["seville-alcazar-guided-tour"]);
 
 export const revalidate = 604800;
 
@@ -88,6 +94,9 @@ export default async function BookingPage({ params }: BookingPageProps) {
   const bookingUrl = content.commerce?.booking?.url;
   const isBookable = content.commerce?.isBookable ?? false;
   const isLuxuryRequestFlow = content.slug.startsWith("luxury-day-trip-");
+  const experienceItemId = EXPERIENCE_ENABLED_SLUGS.has(content.slug)
+    ? extractFareHarborItemId(bookingUrl)
+    : null;
   const contactHref = buildContactInquiryUrl(
     isLuxuryRequestFlow
       ? { tour: content.slug, interest: "luxury" }
@@ -158,28 +167,38 @@ export default async function BookingPage({ params }: BookingPageProps) {
           ) : null}
         </div>
 
-        <div className="card-glow mt-6 overflow-hidden rounded-[calc(var(--radius-card)+0.25rem)] bg-[var(--surface-card)] shadow-sm ring-1 ring-[color:var(--border-soft)]">
-          <iframe
-            title={`Book ${page.title}`}
-            src={bookingUrl}
-            className="min-h-[760px] w-full border-0 md:min-h-[820px] lg:min-h-[900px]"
-            loading="lazy"
+        {experienceItemId ? (
+          <BookingExperience
+            itemId={experienceItemId}
+            locale={locale}
+            tourName={page.title}
+            paraustedUrl={buildParaUstedMerchantUrl(locale)}
+            whatsappNumber={WHATSAPP_NUMBER}
           />
-        </div>
+        ) : (
+          <>
+            <div className="card-glow mt-6 overflow-hidden rounded-[calc(var(--radius-card)+0.25rem)] bg-[var(--surface-card)] shadow-sm ring-1 ring-[color:var(--border-soft)]">
+              <iframe
+                title={`Book ${page.title}`}
+                src={bookingUrl}
+                className="min-h-[760px] w-full border-0 md:min-h-[820px] lg:min-h-[900px]"
+                loading="lazy"
+              />
+            </div>
 
-        <div className="mt-4 flex flex-col gap-3 rounded-[1.25rem] border border-[color:var(--border-soft)] bg-white/70 p-4 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            {copy.book.openInNewTabHint}
-          </p>
-          <a
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--brand-green-700)] px-5 py-3 font-semibold text-white transition hover:bg-[var(--brand-green-900)]"
-          >
-            {copy.shared.openSecureBooking}
-          </a>
-        </div>
+            <div className="mt-4 flex flex-col gap-3 rounded-[1.25rem] border border-[color:var(--border-soft)] bg-white/70 p-4 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
+              <p>{copy.book.openInNewTabHint}</p>
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--brand-green-700)] px-5 py-3 font-semibold text-white transition hover:bg-[var(--brand-green-900)]"
+              >
+                {copy.shared.openSecureBooking}
+              </a>
+            </div>
+          </>
+        )}
       </section>
     </main>
   );
