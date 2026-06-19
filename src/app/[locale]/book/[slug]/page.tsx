@@ -8,7 +8,11 @@ import {
   getStaticTourSlugs,
 } from "@/lib/wordpress-rest/tour-manifest";
 import { buildContactInquiryUrl, WHATSAPP_NUMBER } from "@/lib/wordpress-rest/urls";
-import { buildParaUstedMerchantUrl } from "@/lib/parausted/merchant-url";
+import { PARAUSTED_ALCAZAR_FIXED_GIFT_CARD } from "@/lib/parausted/gift-cards";
+import {
+  buildParaUstedGiftCardProductUrl,
+  buildParaUstedMerchantUrl,
+} from "@/lib/parausted/merchant-url";
 import { extractFareHarborItemId } from "@/lib/fareharbor/booking";
 import { siteCopy, normalizeLocale, supportedLocales } from "@/lib/i18n/site";
 import { getTourTranslation, applyTourTranslation } from "@/lib/i18n/tour-translations";
@@ -97,6 +101,9 @@ export default async function BookingPage({ params }: BookingPageProps) {
   const experienceItemId = EXPERIENCE_ENABLED_SLUGS.has(content.slug)
     ? extractFareHarborItemId(bookingUrl)
     : null;
+  const paraustedUrl = content.slug === "seville-alcazar-guided-tour"
+    ? buildParaUstedGiftCardProductUrl(locale, PARAUSTED_ALCAZAR_FIXED_GIFT_CARD.giftCardId)
+    : buildParaUstedMerchantUrl(locale);
   const contactHref = buildContactInquiryUrl(
     isLuxuryRequestFlow
       ? { tour: content.slug, interest: "luxury" }
@@ -172,7 +179,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
             itemId={experienceItemId}
             locale={locale}
             tourName={page.title}
-            paraustedUrl={buildParaUstedMerchantUrl(locale)}
+            paraustedUrl={paraustedUrl}
             whatsappNumber={WHATSAPP_NUMBER}
           />
         ) : (
