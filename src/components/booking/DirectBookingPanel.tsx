@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { SiteCopy } from "@/lib/i18n/types";
+import type { ParaUstedRedemptionErrorKey } from "@/lib/parausted/partner-redeem";
 import { directPaymentDetails } from "@/lib/payments/direct-payment-details";
 
 type DirectCopy = SiteCopy["book"]["experience"]["direct"];
@@ -15,8 +16,38 @@ export type DirectGuest = {
 
 type PaymentMethod = "bizum" | "cash" | "bank" | "gift";
 
-/** UI state for the ParaUsted gift-card verification scaffold. */
-type GiftStatus = "idle" | "checking" | "invalid" | "pending" | "verified" | "unavailable";
+/** UI state for the ParaUsted gift-card redemption. */
+type GiftState =
+  | { kind: "idle" }
+  | { kind: "checking" }
+  | {
+      kind: "redeemed";
+      maskedCode: string;
+      amountCents: number;
+      balanceAfterCents: number;
+    }
+  | { kind: "error"; error: ParaUstedRedemptionErrorKey };
+
+type RedeemResponse =
+  | {
+      ok: true;
+      maskedCode: string;
+      amountCents: number;
+      balanceBeforeCents: number;
+      balanceAfterCents: number;
+      redemptionId: string;
+    }
+  | { ok: false; error: ParaUstedRedemptionErrorKey };
+
+const eurFormatter = new Intl.NumberFormat("es-ES", {
+  style: "currency",
+  currency: "EUR",
+});
+
+/** Formats integer cents to a EUR string at the UI boundary only. */
+function formatEur(amountCents: number): string {
+  return eurFormatter.format(amountCents / 100);
+}
 
 type DirectBookingPanelProps = {
   copy: DirectCopy;
@@ -55,7 +86,7 @@ export function DirectBookingPanel({
   const [notes, setNotes] = useState("");
   const [proof, setProof] = useState("");
   const [giftCode, setGiftCode] = useState("");
-  const [giftStatus, setGiftStatus] = useState<GiftStatus>("idle");
+  const [giftState, setGiftState] = useState<GiftState>({ kind: "idle" });
 
   const paymentOptions = useMemo(
     () =>
@@ -68,48 +99,50 @@ export function DirectBookingPanel({
     [copy],
   );
 
-  // ParaUsted verification skeleton: validates the code shape server-side.
-  // In V1 it never auto-redeems; Carlos confirms manually (status "pending").
-  async function verifyGift() {
+  // ParaUsted server-to-server redemption: the route handler holds the partner
+  // token; this only sends the code and renders the masked, EUR-formatted result.
+  //
+  // Non-PII reconciliation context only (tour + date/time). This lands in the
+  // append-only ParaUsted redemption ledger and audit trail, so it must never
+  // include guest names, contact details, or the free-text `notes` field.
+  function buildRedemptionContext(): string {
+    return ["Seville Tours", tourName, dateLabel, timeLabel]
+      .map((part) => part.trim())
+      .filter((part) => part.length > 0)
+      .join(" · ")
+      .slice(0, 500);
+  }
+
+  async function redeemGift() {
     const code = giftCode.trim();
     if (code.length === 0) return;
-    setGiftStatus("checking");
+    setGiftState({ kind: "checking" });
     try {
       const response = await fetch("/api/parausted/redeem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code }),
+        body: JSON.stringify({ code, notes: buildRedemptionContext() }),
       });
-      if (!response.ok) {
-        setGiftStatus("unavailable");
-        return;
+      const result = (await response.json()) as RedeemResponse;
+      if (result.ok) {
+        setGiftState({
+          kind: "redeemed",
+          maskedCode: result.maskedCode,
+          amountCents: result.amountCents,
+          balanceAfterCents: result.balanceAfterCents,
+        });
+      } else {
+        setGiftState({ kind: "error", error: result.error });
       }
-      const result = (await response.json()) as { status: string };
-      if (result.status === "invalid_format") setGiftStatus("invalid");
-      else if (result.status === "verified") setGiftStatus("verified");
-      else if (result.status === "pending") setGiftStatus("pending");
-      else setGiftStatus("unavailable");
     } catch {
-      setGiftStatus("unavailable");
+      setGiftState({ kind: "error", error: "unknown" });
     }
   }
 
-  const giftStatusMessage = useMemo(() => {
-    switch (giftStatus) {
-      case "checking":
-        return copy.giftChecking;
-      case "pending":
-        return copy.giftPending;
-      case "invalid":
-        return copy.giftInvalid;
-      case "unavailable":
-        return copy.giftUnavailable;
-      case "verified":
-        return copy.giftVerified;
-      default:
-        return "";
-    }
-  }, [giftStatus, copy]);
+  const giftErrorMessage = useMemo(() => {
+    if (giftState.kind !== "error") return "";
+    return copy.giftRedeemErrors[giftState.error];
+  }, [giftState, copy]);
 
   const isValid = useMemo(() => {
     if (!leadContact.trim()) return false;
@@ -240,7 +273,7 @@ export function DirectBookingPanel({
               value={giftCode}
               onChange={(event) => {
                 setGiftCode(event.target.value);
-                setGiftStatus("idle");
+                setGiftState({ kind: "idle" });
               }}
               placeholder={copy.giftCodePlaceholder}
               autoComplete="off"
@@ -249,21 +282,36 @@ export function DirectBookingPanel({
           </label>
           <button
             type="button"
-            onClick={verifyGift}
-            disabled={giftCode.trim().length === 0 || giftStatus === "checking"}
+            onClick={redeemGift}
+            disabled={giftCode.trim().length === 0 || giftState.kind === "checking"}
             className="mt-2 inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--brand-green-700)] px-4 text-sm font-semibold text-[var(--brand-green-700)] transition hover:bg-[var(--brand-green-100)] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {giftStatus === "checking" ? copy.giftChecking : copy.giftRedeem}
+            {giftState.kind === "checking" ? copy.giftChecking : copy.giftRedeem}
           </button>
-          {giftStatusMessage ? (
-            <p
-              className={`mt-2 text-xs font-semibold ${
-                giftStatus === "invalid" || giftStatus === "unavailable"
-                  ? "text-[var(--brand-gold-500)]"
-                  : "text-[var(--brand-green-700)]"
-              }`}
-            >
-              {giftStatusMessage}
+          {giftState.kind === "redeemed" ? (
+            <div className="mt-3 rounded-[0.8rem] border border-[var(--brand-green-700)] bg-[var(--brand-green-100)] p-3 text-xs text-[var(--brand-green-700)]">
+              <p className="text-sm font-extrabold">{copy.giftRedeemedHeading}</p>
+              <dl className="mt-2 space-y-1">
+                <div className="flex items-center justify-between gap-3">
+                  <dt className="text-[var(--text-muted)]">{copy.giftCodeMaskedLabel}</dt>
+                  <dd className="font-semibold tabular-nums">{giftState.maskedCode}</dd>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <dt className="text-[var(--text-muted)]">{copy.giftAmountLabel}</dt>
+                  <dd className="font-semibold tabular-nums">{formatEur(giftState.amountCents)}</dd>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <dt className="text-[var(--text-muted)]">{copy.giftBalanceLabel}</dt>
+                  <dd className="font-semibold tabular-nums">
+                    {formatEur(giftState.balanceAfterCents)}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          ) : null}
+          {giftErrorMessage ? (
+            <p className="mt-2 text-xs font-semibold text-[var(--brand-gold-500)]">
+              {giftErrorMessage}
             </p>
           ) : null}
           <p className="mt-2 text-xs leading-5 text-[var(--text-muted)]">{copy.giftNote}</p>

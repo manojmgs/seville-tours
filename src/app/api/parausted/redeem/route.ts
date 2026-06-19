@@ -1,33 +1,48 @@
 import { NextResponse } from "next/server";
-import { verifyGiftCard } from "@/lib/parausted/redeem";
+
+import { redeemParaUstedVoucher } from "@/lib/parausted/partner-redeem";
 
 /**
- * Gift-card redemption skeleton endpoint (ParaUsted-owned in V1).
+ * ParaUsted voucher redemption (server-to-server).
  *
- * POST /api/parausted/redeem  body: { "code": "GIFT-1234" }
+ * POST /api/parausted/redeem  body: { "code": "PU-XXXX-XXXX-XXXX", "notes"?: "..." }
  *
- * LOCKED V1 boundary: this never transmits the code to ParaUsted, never persists
- * it, and never confirms redemption. It validates shape and returns a "pending"
- * status so Carlos applies the voucher manually. The response shape mirrors the
- * future ParaUsted V2 verification API for a drop-in upgrade later.
+ * The ParaUsted partner bearer token is read server-side only; it is never sent to
+ * the browser. Returns the typed redemption result; the client maps `error` keys to
+ * localized copy and formats EUR from integer cents.
  */
+
+export const runtime = "nodejs";
+
+const MAX_NOTES_LENGTH = 500;
 
 export async function POST(request: Request): Promise<NextResponse> {
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "invalid_request" },
+      { status: 400, headers: { "Cache-Control": "no-store" } },
+    );
   }
 
-  const code = typeof (body as { code?: unknown })?.code === "string" ? (body as { code: string }).code : "";
-  if (!code.trim()) {
-    return NextResponse.json({ error: "Missing code" }, { status: 400 });
+  const rawCode = (body as { code?: unknown })?.code;
+  if (typeof rawCode !== "string" || rawCode.trim().length === 0) {
+    return NextResponse.json(
+      { ok: false, error: "invalid_code" },
+      { status: 400, headers: { "Cache-Control": "no-store" } },
+    );
   }
 
-  const result = await verifyGiftCard(code);
+  const rawNotes = (body as { notes?: unknown })?.notes;
+  const notes =
+    typeof rawNotes === "string" ? rawNotes.slice(0, MAX_NOTES_LENGTH) : undefined;
+
+  const result = await redeemParaUstedVoucher(rawCode, notes);
 
   return NextResponse.json(result, {
+    status: result.ok ? 200 : 422,
     headers: { "Cache-Control": "no-store" },
   });
 }

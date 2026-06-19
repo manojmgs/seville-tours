@@ -338,6 +338,25 @@ export type SiteCopy = {
         giftUnavailable: string;
         giftVerified: string;
         giftNote: string;
+        giftRedeemedHeading: string;
+        giftAmountLabel: string;
+        giftBalanceLabel: string;
+        giftCodeMaskedLabel: string;
+        giftRedeemErrors: {
+          unauthorized: string;
+          forbidden: string;
+          rate_limited: string;
+          invalid_code: string;
+          invalid_request: string;
+          not_found: string;
+          already_redeemed: string;
+          expired: string;
+          voided: string;
+          exchanged: string;
+          not_redeemable: string;
+          already_processed: string;
+          unknown: string;
+        };
       };
     };
   };
