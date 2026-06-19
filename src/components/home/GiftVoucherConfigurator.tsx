@@ -1,10 +1,15 @@
-import { buildParaUstedMerchantUrl } from "@/lib/parausted/merchant-url";
+import { PARAUSTED_ALCAZAR_FIXED_GIFT_CARD } from "@/lib/parausted/gift-cards";
+import {
+  buildParaUstedGiftCardProductUrl,
+  buildParaUstedMerchantUrl,
+} from "@/lib/parausted/merchant-url";
 import { siteCopy, type Locale } from "@/lib/i18n/site";
 
 export function GiftVoucherConfigurator({ locale = "en" }: { locale?: Locale }) {
   const copy = siteCopy(locale);
   const gift = copy.home.gift;
   const merchantUrl = buildParaUstedMerchantUrl(locale);
+  const alcazarGiftCardUrl = buildParaUstedGiftCardProductUrl(locale, PARAUSTED_ALCAZAR_FIXED_GIFT_CARD.giftCardId);
 
   return (
     <section id="gift-cards" className="bg-[var(--surface-card)] py-12 [content-visibility:auto] [contain-intrinsic-size:1px_900px]">
@@ -71,7 +76,7 @@ export function GiftVoucherConfigurator({ locale = "en" }: { locale?: Locale }) 
                     ))}
                   </ul>
                   <a
-                    href={merchantUrl}
+                    href={alcazarGiftCardUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[1.1rem] bg-[var(--brand-green-700)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-[var(--brand-green-900)]"
