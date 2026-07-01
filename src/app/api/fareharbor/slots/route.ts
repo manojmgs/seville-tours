@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getDateSlots } from "@/lib/fareharbor/booking";
+import { getBookingEngine } from "@/lib/booking-engine";
 
 /**
  * Read-only proxy for the time slots of a single chosen date.
@@ -23,7 +23,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     return NextResponse.json({ error: "Invalid itemId or date" }, { status: 400 });
   }
 
-  const slots = await getDateSlots(itemId, date);
+  const slots = await getBookingEngine().getDateSlots(itemId, date);
 
   if (!slots) {
     return NextResponse.json({ error: "No slots" }, { status: 404 });

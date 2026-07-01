@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Locale } from "@/lib/i18n/types";
-import { formatMonthLabel, weekdayInitials } from "@/lib/fareharbor/format";
+import { formatMonthLabel, weekdayInitials } from "@/lib/booking-engine/format";
 
 type BookingCalendarProps = {
   /** Selectable ISO dates ("YYYY-MM-DD"), Madrid tz. */

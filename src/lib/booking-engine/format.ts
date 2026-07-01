@@ -1,5 +1,13 @@
 import type { Locale } from "@/lib/i18n/types";
 
+/**
+ * Presentation helpers for the booking surface.
+ *
+ * Pure, locale-aware formatting for money, slot times, and calendar labels. Kept in
+ * the engine so the booking UI has a single home for both data and its display
+ * formatting, independent of any specific provider.
+ */
+
 /** Maps an app locale to a BCP-47 tag for Intl formatting. */
 export const INTL_LOCALE_TAG: Record<Locale, string> = {
   en: "en-GB",
@@ -52,7 +60,7 @@ export function formatMonthLabel(year: number, month: number, locale: Locale): s
 
 /**
  * Localized single-letter weekday headers, Monday-first to match the booking
- * calendar grid (FareHarbor weeks start on Monday).
+ * calendar grid (provider weeks start on Monday).
  */
 export function weekdayInitials(locale: Locale): string[] {
   const formatter = new Intl.DateTimeFormat(INTL_LOCALE_TAG[locale], {
@@ -64,4 +72,3 @@ export function weekdayInitials(locale: Locale): string[] {
     formatter.format(new Date(`2026-06-0${index + 1}T12:00:00`)).slice(0, 2),
   );
 }
-

@@ -9,6 +9,8 @@ import { HomeTrustProof } from "@/components/home/HomeTrustProof";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy } from "@/lib/i18n/site";
 import { getRequestLocale } from "@/lib/i18n/request-locale";
+import { isFeatureEnabled } from "@/lib/feature-flags";
+import { getMarcoTours } from "@/lib/marco/tours";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -124,10 +126,12 @@ const dayTrips = [
 export default async function HomePage() {
   const locale = await getRequestLocale();
   const copy = siteCopy(locale);
+  const conciergePlanTrip = await isFeatureEnabled("whatsapp_concierge_plan_trip");
+  const marcoTours = conciergePlanTrip ? await getMarcoTours(locale) : [];
 
   return (
     <main className="page-shell min-h-screen pb-28 text-[var(--foreground)] sm:pb-0">
-      <HomeHeader locale={locale} />
+      <HomeHeader locale={locale} conciergePlanTrip={conciergePlanTrip} marcoTours={marcoTours} />
 
       <HomeExperienceSwitcher locale={locale} />
 

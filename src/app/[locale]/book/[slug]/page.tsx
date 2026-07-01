@@ -13,7 +13,7 @@ import {
   buildParaUstedGiftCardProductUrl,
   buildParaUstedMerchantUrl,
 } from "@/lib/parausted/merchant-url";
-import { extractFareHarborItemId } from "@/lib/fareharbor/booking";
+import { getBookingEngine } from "@/lib/booking-engine";
 import { siteCopy, normalizeLocale, supportedLocales } from "@/lib/i18n/site";
 import { getTourTranslation, applyTourTranslation } from "@/lib/i18n/tour-translations";
 import type { Locale } from "@/lib/i18n/types";
@@ -99,7 +99,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
   const isBookable = content.commerce?.isBookable ?? false;
   const isLuxuryRequestFlow = content.slug.startsWith("luxury-day-trip-");
   const experienceItemId = EXPERIENCE_ENABLED_SLUGS.has(content.slug)
-    ? extractFareHarborItemId(bookingUrl)
+    ? getBookingEngine().extractItemId(bookingUrl)
     : null;
   const paraustedUrl = content.slug === "seville-alcazar-guided-tour"
     ? buildParaUstedGiftCardProductUrl(locale, PARAUSTED_ALCAZAR_FIXED_GIFT_CARD.giftCardId)

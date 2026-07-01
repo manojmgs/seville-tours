@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getBookingExperience } from "@/lib/fareharbor/booking";
+import { getBookingEngine } from "@/lib/booking-engine";
 
 /**
  * Read-only proxy for FareHarbor live availability + public price previews.
@@ -20,7 +20,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     return NextResponse.json({ error: "Invalid itemId" }, { status: 400 });
   }
 
-  const experience = await getBookingExperience(itemId);
+  const experience = await getBookingEngine().getBookingExperience(itemId);
 
   if (!experience) {
     return NextResponse.json({ error: "No availability" }, { status: 404 });

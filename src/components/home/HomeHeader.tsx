@@ -4,13 +4,23 @@ import Link from "next/link";
 import { useState } from "react";
 import { HomeScrollLink } from "./HomeScrollLink";
 import { PlanTripModal } from "./PlanTripModal";
+import { MarcoChat } from "@/components/marco-chat";
+import type { MarcoTour } from "@/components/marco-chat/types";
 import { siteCopy, type Locale } from "@/lib/i18n/site";
 
 type HomeHeaderProps = {
   locale?: Locale;
+  /** When true, open the Marco advisor from Plan-Trip instead of the legacy modal. */
+  conciergePlanTrip?: boolean;
+  /** Tours Marco recommends; resolved at build time and only used when the flag is on. */
+  marcoTours?: MarcoTour[];
 };
 
-export function HomeHeader({ locale = "en" }: HomeHeaderProps) {
+export function HomeHeader({
+  locale = "en",
+  conciergePlanTrip = false,
+  marcoTours = [],
+}: HomeHeaderProps) {
   const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
   const copy = siteCopy(locale);
 
@@ -70,7 +80,16 @@ export function HomeHeader({ locale = "en" }: HomeHeaderProps) {
       </header>
 
       {isPlanTripOpen ? (
-        <PlanTripModal locale={locale} open onClose={() => setIsPlanTripOpen(false)} />
+        conciergePlanTrip ? (
+          <MarcoChat
+            open
+            onClose={() => setIsPlanTripOpen(false)}
+            tours={marcoTours}
+            locale={locale}
+          />
+        ) : (
+          <PlanTripModal locale={locale} open onClose={() => setIsPlanTripOpen(false)} />
+        )
       ) : null}
     </>
   );

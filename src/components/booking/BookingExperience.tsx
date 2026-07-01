@@ -1,19 +1,19 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { siteCopy } from "@/lib/i18n/site";
 import type { Locale } from "@/lib/i18n/types";
 import type {
   BookingDate,
   BookingExperience as BookingExperienceData,
   SlotLiveCapacity,
-} from "@/lib/fareharbor/types";
+} from "@/lib/booking-engine";
 import {
   durationMinutes,
   formatBookingDate,
   formatMoneyCents,
   slotTime,
-} from "@/lib/fareharbor/format";
+} from "@/lib/booking-engine/format";
 import { BookingCalendar } from "./BookingCalendar";
 import { DirectBookingPanel, type DirectGuest } from "./DirectBookingPanel";
 
@@ -51,6 +51,8 @@ export function BookingExperience({
   const [panelOpen, setPanelOpen] = useState(false);
   const [liveCapacity, setLiveCapacity] = useState<SlotLiveCapacity | null>(null);
   const [resolvedSlotId, setResolvedSlotId] = useState<number | null>(null);
+  // Once the guest picks a date explicitly, stop auto-advancing away from it.
+  const dateChosenByGuest = useRef(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -74,9 +76,18 @@ export function BookingExperience({
           experience.customerTypes.find((type) => /adult/i.test(type.label)) ??
           experience.customerTypes[0];
 
+        const firstDate = experience.bookableDates[0];
+        const initial =
+          experience.initial && experience.initial.date === firstDate
+            ? experience.initial
+            : null;
+
         setData(experience);
-        setSelectedDate(experience.bookableDates[0]);
+        setSelectedDate(firstDate);
         setCounts(defaultType ? { [defaultType.rateId]: 1 } : {});
+        // Seed the first date's slots so the calendar shows times immediately.
+        setSlotsData(initial);
+        setSelectedSlotId(initial?.slots[0]?.availabilityId ?? null);
         setStatus("ready");
       } catch {
         if (!controller.signal.aborted) setStatus("empty");
@@ -91,6 +102,9 @@ export function BookingExperience({
   // State only updates after the request resolves to avoid cascading renders.
   useEffect(() => {
     if (selectedDate === null) return;
+    // Skip when this date's slots are already loaded (e.g. the server-seeded first
+    // date), so the initial paint needs no extra round-trip.
+    if (slotsData?.date === selectedDate) return;
 
     const controller = new AbortController();
     const date = selectedDate;
@@ -105,6 +119,17 @@ export function BookingExperience({
           ? ((await response.json()) as BookingDate)
           : { date, slots: [] };
         if (controller.signal.aborted) return;
+        // FareHarbor's month calendar can flag a day as bookable while its
+        // date-list has no live slots (sold out or past cutoff). For the initial
+        // default only, skip forward to the next date that actually has times so
+        // the guest never lands on a dead-end "no times" screen.
+        if (next.slots.length === 0 && !dateChosenByGuest.current) {
+          const nextDate = data?.bookableDates.find((candidate) => candidate > date);
+          if (nextDate) {
+            setSelectedDate(nextDate);
+            return;
+          }
+        }
         setSlotsData(next);
         setSelectedSlotId(next.slots[0]?.availabilityId ?? null);
         setPanelOpen(false);
@@ -117,7 +142,7 @@ export function BookingExperience({
 
     void loadSlots();
     return () => controller.abort();
-  }, [itemId, selectedDate]);
+  }, [itemId, selectedDate, slotsData?.date, data?.bookableDates]);
 
   // Fetch real-time capacity for the selected slot (fresh, never cached).
   // All state updates happen after the request resolves to avoid cascading renders.
@@ -192,6 +217,7 @@ export function BookingExperience({
   const canBook = Boolean(selectedSlot) && totalGuests > 0 && !isSoldOut;
 
   const handleSelectDate = useCallback((date: string) => {
+    dateChosenByGuest.current = true;
     setSelectedDate(date);
     setSelectedSlotId(null);
     setPanelOpen(false);
@@ -413,6 +439,7 @@ export function BookingExperience({
             totalLabel={`${copy.estimatedTotal}: ${formatMoneyCents(totalCents, data.currency, locale)}`}
             whatsappNumber={whatsappNumber}
             requiresId={requiresId}
+            locale={locale}
             onBack={() => setPanelOpen(false)}
           />
         ) : null}

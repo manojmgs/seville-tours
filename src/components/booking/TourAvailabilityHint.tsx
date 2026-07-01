@@ -1,4 +1,4 @@
-import { getTourAvailabilityHint } from "@/lib/fareharbor/availability";
+import { getBookingEngine } from "@/lib/booking-engine";
 import { siteCopy, type Locale } from "@/lib/i18n/site";
 
 type TourAvailabilityHintProps = {
@@ -21,7 +21,7 @@ const DATE_LOCALE_TAG: Record<Locale, string> = {
  * upcoming dates are available.
  */
 export async function TourAvailabilityHint({ bookingUrl, locale }: TourAvailabilityHintProps) {
-  const dates = await getTourAvailabilityHint(bookingUrl);
+  const dates = await getBookingEngine().getAvailabilityHint(bookingUrl, 6);
 
   if (dates.length === 0) {
     return null;

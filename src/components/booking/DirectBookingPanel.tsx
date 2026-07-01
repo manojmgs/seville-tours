@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { SiteCopy } from "@/lib/i18n/types";
+import type { SiteCopy, Locale } from "@/lib/i18n/types";
 import type { ParaUstedRedemptionErrorKey } from "@/lib/parausted/partner-redeem";
 import { directPaymentDetails } from "@/lib/payments/direct-payment-details";
 
@@ -58,6 +58,7 @@ type DirectBookingPanelProps = {
   totalLabel: string;
   whatsappNumber: string;
   requiresId: boolean;
+  locale: Locale;
   onBack: () => void;
 };
 
@@ -76,6 +77,7 @@ export function DirectBookingPanel({
   totalLabel,
   whatsappNumber,
   requiresId,
+  locale,
   onBack,
 }: DirectBookingPanelProps) {
   const [payment, setPayment] = useState<PaymentMethod>("bizum");
@@ -184,6 +186,31 @@ export function DirectBookingPanel({
     }
     if (proof.trim()) lines.push(`${copy.proofLabel}: ${proof.trim()}`);
     if (notes.trim()) lines.push(`${copy.notes}: ${notes.trim()}`);
+
+    // Notify the operator by email in parallel (fire-and-forget). WhatsApp stays the
+    // guaranteed hand-off, so email failure must never block the guest.
+    void fetch("/api/direct-booking", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tourName,
+        dateLabel,
+        timeLabel,
+        paymentMethod: payment,
+        guests: guests.map((guest) => ({
+          label: guest.label,
+          name: (names[guest.id] ?? "").trim(),
+          idNumber: requiresId ? (ids[guest.id] ?? "").trim() || undefined : undefined,
+        })),
+        totalLabel,
+        leadName: leadName.trim() || undefined,
+        leadContact: leadContact.trim(),
+        giftCode: payment === "gift" ? giftCode.trim() || undefined : undefined,
+        paymentProof: proof.trim() || undefined,
+        notes: notes.trim() || undefined,
+        locale,
+      }),
+    }).catch(() => {});
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
     window.open(url, "_blank", "noopener,noreferrer");

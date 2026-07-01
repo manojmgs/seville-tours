@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSlotLiveCapacity } from "@/lib/fareharbor/booking";
+import { getBookingEngine } from "@/lib/booking-engine";
 
 /**
  * Read-only proxy for FareHarbor real-time slot capacity.
@@ -23,7 +23,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     return NextResponse.json({ error: "Invalid id" }, { status: 400 });
   }
 
-  const capacity = await getSlotLiveCapacity(itemId, Number(availabilityId));
+  const capacity = await getBookingEngine().getSlotLiveCapacity(itemId, Number(availabilityId));
 
   if (!capacity) {
     return NextResponse.json({ error: "Unavailable" }, { status: 404 });

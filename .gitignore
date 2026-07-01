@@ -24,6 +24,11 @@
 .DS_Store
 *.pem
 
+# captured evidence (HAR/text) — may contain session UUIDs, CSRF tokens, PII, payment telemetry
+*.har
+sevilletour*.txt
+sevilletours*.txt
+
 # debug
 npm-debug.log*
 yarn-debug.log*

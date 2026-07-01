@@ -10,6 +10,8 @@ import { HomeTrustProof } from "@/components/home/HomeTrustProof";
 import { buildContactInquiryUrl } from "@/lib/wordpress-rest/urls";
 import { siteCopy, normalizeLocale, supportedLocales } from "@/lib/i18n/site";
 import type { Locale } from "@/lib/i18n/types";
+import { isFeatureEnabled } from "@/lib/feature-flags";
+import { getMarcoTours } from "@/lib/marco/tours";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sevilletoursco.com";
 
@@ -121,10 +123,12 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const featuredTours = featuredToursStatic.map((s, i) => ({ ...s, ...copy.home.featuredCards[i] }));
   const dayTrips = dayTripsStatic.map((s, i) => ({ ...s, ...copy.home.dayTripCards[i] }));
+  const conciergePlanTrip = await isFeatureEnabled("whatsapp_concierge_plan_trip");
+  const marcoTours = conciergePlanTrip ? await getMarcoTours(locale) : [];
 
   return (
     <main className="page-shell min-h-screen pb-28 text-[var(--foreground)] sm:pb-0">
-      <HomeHeader locale={locale} />
+      <HomeHeader locale={locale} conciergePlanTrip={conciergePlanTrip} marcoTours={marcoTours} />
 
       <HomeExperienceSwitcher locale={locale} />
 
