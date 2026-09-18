@@ -1,0 +1,2856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seville Tours Co · Andalucía Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────── */
+:root{
+  /* Private palette */
+  --g1:#085041;--g2:#0F6E56;--g3:#1D9E75;--g4:#5DCAA5;--g5:#E1F5EE;
+  --cream:#F5F3EF;
+  /* Shared */
+  --dark:#111111;--mid:#3A3A3A;--soft:#888;--border:#E0DDD7;--white:#fff;
+  --gold:#B8903A;--gold2:#D4AF5A;--gold3:#F0D48A;--gold-dim:rgba(184,144,58,.18);
+  /* Luxury palette */
+  --lux-bg:#0D0D0D;--lux-surface:#161616;--lux-card:#1C1C1C;
+  --lux-border:rgba(184,144,58,.22);--lux-border2:rgba(184,144,58,.08);
+  --lux-text:#F0EDE8;--lux-sub:rgba(240,237,232,.4);--lux-soft:rgba(240,237,232,.22);
+  /* Fonts */
+  --display:'Cormorant Garamond',serif;
+  --lux-display:'Playfair Display',Georgia,serif;
+  --body:'DM Sans',sans-serif;
+  /* Mode flag */
+  --mode:private;
+}
+
+/* ─── LUXURY MODE OVERRIDES ─────────────────── */
+body.luxury{
+  --bg:var(--lux-bg);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:#1A1A1A;
+  display:flex;
+  justify-content:center;
+  min-height:100vh;
+}
+
+/* ─── PHONE SHELL ─────────────────────────────── */
+.phone{
+  width:100%;max-width:390px;min-height:100vh;
+  background:var(--cream);
+  position:relative;overflow-x:hidden;
+  transition:background .5s ease;
+}
+body.luxury .phone{background:var(--lux-bg)}
+
+/* ─── STATUS BAR ──────────────────────────────── */
+.status{
+  padding:10px 18px 8px;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background .4s;
+}
+body:not(.luxury) .status{background:var(--dark)}
+body.luxury .status{background:#000}
+.status-time{color:#fff;font-size:13px;font-weight:500}
+.status-addr{color:rgba(255,255,255,.45);font-size:11px}
+.status-signal{color:#fff;font-size:11px;font-weight:500}
+body.luxury .status-addr{color:var(--gold);font-size:10px;letter-spacing:.06em}
+
+/* ─── NAV ──────────────────────────────────────── */
+.nav{
+  border-bottom:1px solid var(--border);
+  padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:50;
+  transition:background .4s,border-color .4s;
+}
+body:not(.luxury) .nav{background:var(--cream)}
+body.luxury .nav{
+  background:rgba(13,13,13,.96);
+  backdrop-filter:blur(20px);
+  border-color:var(--lux-border2);
+}
+.nav-logo{font-family:var(--display);font-size:17px;font-weight:500;letter-spacing:.01em;transition:color .4s}
+body:not(.luxury) .nav-logo{color:var(--dark)}
+body.luxury .nav-logo{color:var(--lux-text)}
+.nav-logo span{transition:color .4s}
+body:not(.luxury) .nav-logo span{color:var(--g2)}
+body.luxury .nav-logo span{color:var(--gold)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.nav-links{display:flex;gap:14px}
+.nav-link{font-size:12px;font-weight:400;cursor:pointer;text-decoration:none;transition:color .4s}
+body:not(.luxury) .nav-link{color:var(--mid)}
+body.luxury .nav-link{color:var(--lux-sub)}
+.nav-book{
+  font-size:11px;font-weight:500;
+  padding:7px 14px;border-radius:20px;border:none;cursor:pointer;
+  letter-spacing:.02em;transition:all .4s;
+}
+body:not(.luxury) .nav-book{background:var(--g2);color:#fff}
+body.luxury .nav-book{
+  background:transparent;color:var(--gold);
+  border:1px solid var(--gold);
+}
+
+/* ─── MODE TOGGLE BAR ──────────────────────────── */
+.mode-bar{
+  padding:8px 16px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid var(--border);
+  transition:background .4s,border-color .4s;
+}
+body:not(.luxury) .mode-bar{background:var(--white)}
+body.luxury .mode-bar{background:var(--lux-surface);border-color:var(--lux-border2)}
+.mode-lbl{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .4s}
+body:not(.luxury) .mode-lbl{color:var(--soft)}
+body.luxury .mode-lbl{color:var(--lux-sub)}
+.mode-toggle{
+  display:flex;
+  border-radius:20px;padding:3px;
+  width:fit-content;
+  transition:background .4s,border-color .4s;
+}
+body:not(.luxury) .mode-toggle{background:var(--cream);border:1px solid var(--border)}
+body.luxury .mode-toggle{background:rgba(255,255,255,.05);border:1px solid var(--lux-border)}
+.mbtn{
+  padding:6px 14px;border-radius:16px;
+  font-size:10px;font-weight:500;
+  border:none;cursor:pointer;
+  background:transparent;
+  transition:all .3s;
+}
+body:not(.luxury) .mbtn{color:var(--soft)}
+body.luxury .mbtn{color:var(--lux-sub)}
+.mbtn.on-prv{background:var(--g2);color:#fff;box-shadow:0 2px 8px rgba(15,110,86,.25)}
+.mbtn.on-lux{
+  background:var(--dark);color:var(--gold);
+  border:1px solid var(--gold);
+  box-shadow:0 2px 12px rgba(184,144,58,.2);
+}
+body.luxury .mbtn.on-lux{background:rgba(184,144,58,.12);color:var(--gold3)}
+.mode-tag{
+  margin-left:auto;font-size:8px;padding:3px 9px;border-radius:6px;
+  font-weight:500;letter-spacing:.04em;transition:all .4s;
+}
+body:not(.luxury) .mode-tag{background:var(--g5);color:var(--g2)}
+body.luxury .mode-tag{background:var(--gold-dim);color:var(--gold2)}
+
+/* ─── LANG ROW ─────────────────────────────────── */
+.lang-row{
+  padding:6px 14px;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--border);
+  position:relative;transition:background .4s,border-color .4s;
+}
+body:not(.luxury) .lang-row{background:var(--cream)}
+body.luxury .lang-row{background:var(--lux-bg);border-color:var(--lux-border2)}
+.lang-icon{font-size:14px;transition:color .4s}
+body:not(.luxury) .lang-icon{color:var(--g2)}
+body.luxury .lang-icon{color:var(--gold)}
+.lang-dd-wrap{position:relative}
+.lang-dd-btn{
+  display:flex;align-items:center;gap:5px;
+  font-size:11px;border-radius:8px;padding:5px 10px;
+  cursor:pointer;font-family:var(--body);font-weight:400;
+  transition:all .3s;
+}
+body:not(.luxury) .lang-dd-btn{color:var(--mid);background:var(--white);border:.5px solid var(--border)}
+body.luxury .lang-dd-btn{color:var(--lux-sub);background:rgba(255,255,255,.04);border:.5px solid var(--lux-border)}
+.lang-dd-btn svg{transition:transform .2s}
+.lang-dd-btn.open svg{transform:rotate(180deg)}
+.lang-dd{
+  position:absolute;top:calc(100% + 6px);left:0;
+  border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);
+  overflow:hidden;z-index:100;min-width:160px;display:none;
+  transition:background .4s;
+}
+body:not(.luxury) .lang-dd{background:#fff;border:1px solid var(--border)}
+body.luxury .lang-dd{background:var(--lux-card);border:1px solid var(--lux-border)}
+.lang-dd.open{display:block}
+.lang-dd-item{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 12px;font-size:11px;cursor:pointer;transition:background .15s;
+}
+body:not(.luxury) .lang-dd-item{color:var(--dark)}
+body.luxury .lang-dd-item{color:var(--lux-text)}
+body:not(.luxury) .lang-dd-item:hover{background:var(--g5)}
+body.luxury .lang-dd-item:hover{background:rgba(184,144,58,.08)}
+body:not(.luxury) .lang-dd-item.active{background:var(--g5);color:var(--g2);font-weight:500}
+body.luxury .lang-dd-item.active{background:var(--gold-dim);color:var(--gold);font-weight:500}
+.lang-dd-item .flag{font-size:14px}
+.lang-dd-sep{height:.5px;margin:0 10px;transition:background .4s}
+body:not(.luxury) .lang-dd-sep{background:var(--border)}
+body.luxury .lang-dd-sep{background:var(--lux-border2)}
+.geo-detected{
+  display:flex;align-items:center;gap:4px;
+  font-size:9px;margin-left:auto;
+  padding:3px 7px;border-radius:5px;transition:all .4s;
+}
+body:not(.luxury) .geo-detected{color:var(--g2);background:var(--g5)}
+body.luxury .geo-detected{color:var(--gold);background:var(--gold-dim)}
+
+/* ─── HERO ──────────────────────────────────────── */
+.hero{
+  padding:32px 18px 28px;
+  position:relative;overflow:hidden;
+  min-height:440px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  transition:background .5s;
+}
+body:not(.luxury) .hero{background:var(--dark)}
+body.luxury .hero{background:var(--lux-bg)}
+.hero-geo{
+  position:absolute;inset:0;
+  transition:opacity .5s;
+}
+body:not(.luxury) .hero-geo{
+  background-image:
+    repeating-linear-gradient(60deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 0,transparent 50%),
+    repeating-linear-gradient(-60deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 0,transparent 50%);
+  background-size:36px 36px;
+}
+body.luxury .hero-geo{
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184,144,58,.07) 0%, transparent 70%),
+    repeating-linear-gradient(60deg,rgba(184,144,58,.018) 0,rgba(184,144,58,.018) 1px,transparent 0,transparent 50%),
+    repeating-linear-gradient(-60deg,rgba(184,144,58,.018) 0,rgba(184,144,58,.018) 1px,transparent 0,transparent 50%);
+  background-size:100% 100%, 36px 36px, 36px 36px;
+}
+/* Luxury gold accent line */
+.hero-gold-line{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .5s .2s;
+}
+body.luxury .hero-gold-line{opacity:1}
+
+.hero-content{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:20px;padding:5px 12px;margin-bottom:18px;
+  transition:all .4s;
+}
+body:not(.luxury) .hero-badge{background:var(--g2)}
+body.luxury .hero-badge{
+  background:var(--gold-dim);
+  border:1px solid rgba(184,144,58,.3);
+}
+.hero-badge-dot{width:5px;height:5px;border-radius:50%;opacity:.8;transition:background .4s}
+body:not(.luxury) .hero-badge-dot{background:#fff}
+body.luxury .hero-badge-dot{background:var(--gold)}
+.hero-badge span{font-size:10px;letter-spacing:.05em;font-weight:400;transition:color .4s}
+body:not(.luxury) .hero-badge span{color:#fff}
+body.luxury .hero-badge span{color:var(--gold2)}
+
+.hero h1{
+  font-family:var(--display);
+  font-size:34px;font-weight:300;
+  line-height:1.1;letter-spacing:-.01em;
+  margin-bottom:12px;transition:color .4s;
+}
+body:not(.luxury) .hero h1{color:#fff;font-family:var(--body);font-size:28px;font-weight:500;letter-spacing:-.02em}
+body.luxury .hero h1{font-family:var(--lux-display)!important;font-size:36px;font-weight:400;letter-spacing:.01em;font-style:italic}
+body.luxury .hero h1{color:var(--lux-text);font-style:italic}
+
+.hero-p{
+  font-size:13px;line-height:1.65;margin-bottom:22px;
+  font-weight:300;max-width:290px;transition:color .4s;
+}
+body:not(.luxury) .hero-p{color:rgba(255,255,255,.55)}
+body.luxury .hero-p{color:var(--lux-sub);font-size:12px;letter-spacing:.01em}
+
+.hero-btns{display:flex;gap:8px;margin-bottom:22px}
+.btn-explore{
+  flex:1;font-size:12px;font-weight:500;
+  padding:13px 16px;border-radius:10px;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  letter-spacing:.02em;transition:all .4s;
+}
+body:not(.luxury) .btn-explore{background:var(--g2);color:#fff}
+body.luxury .btn-explore{
+  background:var(--gold);color:#0D0D0D;
+  box-shadow:0 4px 20px rgba(184,144,58,.3);
+}
+.btn-chat{
+  font-size:12px;font-weight:500;
+  padding:13px 16px;border-radius:10px;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:all .4s;
+}
+body:not(.luxury) .btn-chat{background:#25D366;color:#fff}
+body.luxury .btn-chat{
+  background:transparent;color:var(--gold);
+  border:1px solid rgba(184,144,58,.4);
+}
+
+.hero-amenities{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:4px;
+}
+.hero-am{
+  display:flex;align-items:center;gap:7px;
+  border-radius:8px;padding:7px 10px;
+  transition:all .4s;
+}
+body:not(.luxury) .hero-am{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+}
+body.luxury .hero-am{
+  background:rgba(184,144,58,.06);
+  border:1px solid rgba(184,144,58,.12);
+}
+.hero-am-ic{font-size:14px}
+.hero-am-text{font-size:9px;line-height:1.4;transition:color .4s}
+body:not(.luxury) .hero-am-text{color:rgba(255,255,255,.55)}
+body.luxury .hero-am-text{color:var(--lux-sub)}
+.hero-am-text strong{display:block;font-weight:500;transition:color .4s}
+body:not(.luxury) .hero-am-text strong{color:rgba(255,255,255,.85)}
+body.luxury .hero-am-text strong{color:var(--gold2)}
+
+/* ─── TRUST BAR ────────────────────────────────── */
+.trust-bar{
+  border-bottom:1px solid var(--border);
+  padding:10px 14px;
+  display:flex;gap:8px;overflow-x:auto;
+  transition:background .4s,border-color .4s;
+}
+body:not(.luxury) .trust-bar{background:#fff}
+body.luxury .trust-bar{background:var(--lux-surface);border-color:var(--lux-border2)}
+.trust-bar::-webkit-scrollbar{display:none}
+.tpill{
+  display:flex;align-items:center;gap:5px;
+  border-radius:14px;padding:5px 11px;flex-shrink:0;
+  transition:all .4s;
+}
+body:not(.luxury) .tpill{background:var(--g5);border:.5px solid rgba(15,110,86,.1)}
+body.luxury .tpill{background:var(--gold-dim);border:.5px solid rgba(184,144,58,.2)}
+.tpill span{font-size:9px;font-weight:500;transition:color .4s}
+body:not(.luxury) .tpill span{color:var(--g1)}
+body.luxury .tpill span{color:var(--gold2)}
+.tpill-stars{font-size:10px;letter-spacing:1px;color:var(--gold)}
+
+/* ─── SECTIONS ──────────────────────────────────── */
+.section{padding:32px 16px}
+.sec-white{transition:background .4s}
+body:not(.luxury) .sec-white{background:#fff}
+body.luxury .sec-white{background:var(--lux-surface)}
+.sec-cream{transition:background .4s}
+body:not(.luxury) .sec-cream{background:var(--cream)}
+body.luxury .sec-cream{background:var(--lux-bg)}
+.sec-dark{background:var(--dark);transition:background .4s}
+body.luxury .sec-dark{background:#000}
+.sec-green{background:var(--g2);transition:background .4s}
+body.luxury .sec-green{
+  background:var(--lux-bg);
+  border-top:1px solid var(--lux-border);
+  border-bottom:1px solid var(--lux-border);
+  position:relative;
+}
+body.luxury .sec-green::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+body.luxury .sec-green::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.slabel{
+  font-size:9px;font-weight:500;color:var(--g3);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;
+  transition:color .4s;
+}
+body.luxury .slabel{color:var(--gold)!important}
+.slabel-w{color:rgba(255,255,255,.4)}
+body.luxury .slabel-w{color:var(--gold)!important}
+.stitle{
+  font-family:var(--display);font-size:32px;font-weight:300;
+  color:var(--dark);line-height:1.1;letter-spacing:-.01em;margin-bottom:6px;
+  transition:color .4s,font-family .4s;
+}
+body.luxury .stitle{color:var(--lux-text)!important;font-family:var(--lux-display)!important;font-weight:400;letter-spacing:.01em}
+.stitle em{font-style:italic;transition:color .4s}
+body:not(.luxury) .stitle em{color:var(--g2)}
+body.luxury .stitle em{color:var(--gold)}
+.stitle-w{color:#fff}
+.stitle-w em{color:rgba(255,255,255,.5)}
+body.luxury .stitle-w{color:var(--lux-text)!important;font-family:var(--lux-display)!important}
+body.luxury .stitle-w em{color:var(--gold)!important}
+.ssub{
+  font-size:11px;line-height:1.65;margin-bottom:22px;font-weight:300;
+  transition:color .4s;
+}
+body:not(.luxury) .ssub{color:var(--soft)}
+body.luxury .ssub{color:var(--lux-sub)!important}
+.ssub-w{color:rgba(255,255,255,.5)}
+body.luxury .ssub-w{color:var(--lux-sub)!important}
+
+/* ─── EXP TOGGLE ────────────────────────────────── */
+.exp-toggle{
+  display:flex;border-radius:20px;padding:3px;
+  width:fit-content;margin-bottom:20px;
+  transition:all .4s;
+}
+body:not(.luxury) .exp-toggle{background:var(--cream);border:1px solid var(--border)}
+body.luxury .exp-toggle{background:rgba(255,255,255,.04);border:1px solid var(--lux-border)}
+.etbtn{
+  padding:7px 16px;border-radius:16px;
+  font-size:11px;font-weight:500;border:none;cursor:pointer;
+  background:transparent;transition:all .22s;
+}
+body:not(.luxury) .etbtn{color:var(--soft)}
+body.luxury .etbtn{color:var(--lux-sub)}
+.etbtn.on{background:var(--g2);color:#fff;box-shadow:0 2px 8px rgba(15,110,86,.25)}
+.etbtn.on-lux{
+  background:var(--gold-dim);color:var(--gold);
+  border:1px solid rgba(184,144,58,.3);
+}
+body.luxury .etbtn.on-lux{background:rgba(184,144,58,.15);color:var(--gold3)}
+
+/* ─── TOUR CARDS ────────────────────────────────── */
+.tour-list{display:flex;flex-direction:column;gap:12px}
+.tcard{
+  border-radius:14px;overflow:hidden;
+  transition:all .4s;
+}
+body:not(.luxury) .tcard{background:#fff;border:1px solid var(--border)}
+body.luxury .tcard{background:var(--lux-card);border:1px solid var(--lux-border2)}
+.tcard-img{
+  height:185px;position:relative;
+  display:flex;align-items:flex-end;padding:12px;overflow:hidden;
+  transition:background .4s;
+}
+body:not(.luxury) .tcard-img{background:linear-gradient(140deg,var(--g1) 0%,var(--g3) 100%)}
+body.luxury .tcard-img{background:linear-gradient(140deg,#0A0A0A 0%,#1A1410 100%)}
+.tcard-geo{
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 0,transparent 50%);
+  background-size:14px 14px;
+  transition:opacity .4s;
+}
+body.luxury .tcard-geo{
+  background-image:repeating-linear-gradient(45deg,rgba(184,144,58,.04) 0,rgba(184,144,58,.04) 1px,transparent 0,transparent 50%);
+}
+.tcard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)}
+.tcard-badge{
+  position:absolute;top:10px;left:10px;
+  color:#fff;font-size:8px;font-weight:500;
+  padding:3px 8px;border-radius:6px;z-index:2;letter-spacing:.04em;
+  transition:all .4s;
+}
+body:not(.luxury) .tcard-badge{background:var(--gold)}
+body.luxury .tcard-badge{background:var(--gold);color:#0D0D0D}
+.tcard-dur{
+  position:absolute;top:10px;right:10px;
+  color:#fff;font-size:9px;padding:3px 8px;border-radius:6px;z-index:2;
+  transition:all .4s;
+}
+body:not(.luxury) .tcard-dur{background:rgba(0,0,0,.4);backdrop-filter:blur(6px);border:.5px solid rgba(255,255,255,.12)}
+body.luxury .tcard-dur{background:rgba(184,144,58,.15);border:.5px solid rgba(184,144,58,.3);color:var(--gold2)}
+.tcard-title{
+  position:relative;z-index:2;
+  font-family:var(--display);font-size:20px;font-weight:400;color:#fff;line-height:1.15;
+}
+body.luxury .tcard-title{color:var(--lux-text);font-family:var(--lux-display)!important;font-size:19px;font-style:italic}
+.tcard-body{padding:13px 14px}
+.tcard-desc{
+  font-size:11px;line-height:1.6;margin-bottom:10px;font-weight:300;
+  transition:color .4s;
+}
+body:not(.luxury) .tcard-desc{color:var(--soft)}
+body.luxury .tcard-desc{color:var(--lux-sub)}
+.tcard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:11px}
+.tcard-tag{
+  font-size:8px;padding:3px 7px;border-radius:5px;font-weight:500;
+  transition:all .4s;
+}
+body:not(.luxury) .tcard-tag{background:var(--g5);color:var(--g1);border:.5px solid rgba(15,110,86,.1)}
+body.luxury .tcard-tag{background:var(--gold-dim);color:var(--gold2);border:.5px solid rgba(184,144,58,.2)}
+.tcard-foot{display:flex;align-items:center;justify-content:space-between}
+.tcard-price{font-family:var(--display);font-size:24px;font-weight:400;transition:color .4s}
+body:not(.luxury) .tcard-price{color:var(--dark)}
+body.luxury .tcard-price{color:var(--lux-text)}
+.tcard-price sup{font-size:12px;font-family:var(--body);color:var(--soft);vertical-align:super}
+.tcard-price sub{font-size:9px;font-family:var(--body);color:var(--soft)}
+.tcard-stars{font-size:9px;color:var(--soft);margin-bottom:2px}
+body.luxury .tcard-stars{color:var(--lux-soft)}
+
+/* Luxury inquiry-only label */
+.lux-inquiry{
+  font-family:var(--display);font-size:13px;font-style:italic;
+  color:var(--gold);letter-spacing:.02em;
+}
+.lux-inquiry-sub{font-size:8px;color:var(--lux-sub);margin-top:1px}
+
+.btn-book{
+  color:#fff;font-size:10px;font-weight:500;
+  padding:9px 14px;border-radius:16px;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:4px;transition:all .4s;
+}
+body:not(.luxury) .btn-book{background:var(--g2)}
+body.luxury .btn-book{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.btn-book-lux{
+  background:transparent!important;
+  border:1px solid var(--gold)!important;
+  color:var(--gold)!important;
+}
+
+/* ─── LUXURY SERVICE STRIP ──────────────────────── */
+.lux-strip{
+  display:none;
+  margin:0 0 20px;
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--lux-border);
+}
+body.luxury .lux-strip{display:block}
+.lux-strip-head{
+  background:linear-gradient(90deg,rgba(184,144,58,.12),rgba(184,144,58,.04));
+  padding:10px 14px;border-bottom:1px solid var(--lux-border2);
+}
+.lux-strip-head p{font-size:9px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.lux-strip-head span{font-family:var(--display);font-size:13px;color:var(--lux-text);font-style:italic;display:block;margin-top:1px}
+.lux-services{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.lux-svc{
+  padding:10px 12px;
+  border-right:1px solid var(--lux-border2);
+  border-bottom:1px solid var(--lux-border2);
+  display:flex;align-items:flex-start;gap:8px;
+}
+.lux-svc:nth-child(even){border-right:none}
+.lux-svc:nth-last-child(-n+2){border-bottom:none}
+.lux-svc-ic{font-size:16px;flex-shrink:0;margin-top:1px}
+.lux-svc-name{font-size:10px;font-weight:500;color:var(--gold2);margin-bottom:1px}
+.lux-svc-desc{font-size:8px;color:var(--lux-sub);line-height:1.45}
+
+/* ─── PLAN SECTION ──────────────────────────────── */
+.plan-card{
+  border-radius:14px;padding:14px;transition:all .4s;
+}
+body:not(.luxury) .plan-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15)}
+body.luxury .plan-card{background:rgba(184,144,58,.05);border:1px solid rgba(184,144,58,.15)}
+.pw-q{font-size:10px;font-weight:500;margin-bottom:7px;transition:color .4s}
+body:not(.luxury) .pw-q{color:rgba(255,255,255,.6)}
+body.luxury .pw-q{color:var(--gold2)}
+.pw-days{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pw-dbtn{
+  width:30px;height:30px;border-radius:50%;
+  font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .4s;
+}
+body:not(.luxury) .pw-dbtn{border:.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff}
+body.luxury .pw-dbtn{border:.5px solid rgba(184,144,58,.3);background:rgba(184,144,58,.08);color:var(--gold)}
+.pw-dval{font-family:var(--display);font-size:28px;min-width:28px;text-align:center;transition:color .4s}
+body:not(.luxury) .pw-dval{color:#fff}
+body.luxury .pw-dval{color:var(--lux-text)}
+.pw-dhint{font-size:9px;line-height:1.5;transition:color .4s}
+body:not(.luxury) .pw-dhint{color:rgba(255,255,255,.4)}
+body.luxury .pw-dhint{color:var(--lux-sub)}
+.pw-pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.pw-pill{
+  padding:5px 10px;border-radius:12px;font-size:9px;
+  cursor:pointer;user-select:none;transition:all .18s;
+}
+body:not(.luxury) .pw-pill{border:.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.7);background:rgba(255,255,255,.05)}
+body.luxury .pw-pill{border:.5px solid rgba(184,144,58,.25);color:var(--lux-sub);background:rgba(184,144,58,.04)}
+body:not(.luxury) .pw-pill.on{background:#fff;color:var(--g2);border-color:#fff;font-weight:500}
+body.luxury .pw-pill.on{background:var(--gold-dim);color:var(--gold2);border-color:rgba(184,144,58,.4);font-weight:500}
+.btn-plan{
+  width:100%;font-size:11px;font-weight:500;
+  padding:12px;border-radius:20px;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:5px;transition:all .4s;
+}
+body:not(.luxury) .btn-plan{background:#fff;color:var(--g2)}
+body.luxury .btn-plan{background:var(--gold);color:#0D0D0D;box-shadow:0 4px 16px rgba(184,144,58,.25)}
+
+/* ─── DEST GRID ─────────────────────────────────── */
+.dest-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dcard{
+  border-radius:12px;overflow:hidden;position:relative;
+  min-height:100px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:10px;cursor:pointer;transition:all .4s;
+}
+.dcard-geo{
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 0,transparent 50%);
+  background-size:12px 12px;
+}
+body.luxury .dcard-geo{
+  background-image:repeating-linear-gradient(45deg,rgba(184,144,58,.04) 0,rgba(184,144,58,.04) 1px,transparent 0,transparent 50%);
+}
+.dcard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)}
+.dcard-wide{grid-column:1/-1;min-height:110px}
+.dcard-name{position:relative;z-index:1;font-family:var(--display);font-size:17px;font-weight:400;color:#fff}
+.dcard-sub{position:relative;z-index:1;font-size:8px;color:rgba(255,255,255,.55);margin-top:1px}
+.dcard-light{border:.5px solid var(--border)!important;transition:all .4s}
+body:not(.luxury) .dcard-light{background:var(--g5)!important}
+body:not(.luxury) .dcard-light .dcard-name{color:var(--g1)}
+body:not(.luxury) .dcard-light .dcard-sub{color:var(--g2)}
+body.luxury .dcard-light{background:var(--lux-card)!important;border-color:var(--lux-border)!important}
+body.luxury .dcard-light .dcard-name{color:var(--gold2)}
+body.luxury .dcard-light .dcard-sub{color:var(--lux-sub)}
+
+/* Private dest cards */
+body:not(.luxury) .dcard-sev{background:linear-gradient(135deg,#071F17,var(--g1))}
+body:not(.luxury) .dcard-gra{background:linear-gradient(135deg,var(--g1),var(--g2))}
+body:not(.luxury) .dcard-cor{background:linear-gradient(135deg,#0A3D2D,var(--g3))}
+body:not(.luxury) .dcard-ron{background:linear-gradient(135deg,var(--g2),var(--g4))}
+/* Luxury dest cards */
+body.luxury .dcard-sev{background:linear-gradient(135deg,#0A0806,#1A1410)}
+body.luxury .dcard-gra{background:linear-gradient(135deg,#100C07,#1C1610)}
+body.luxury .dcard-cor{background:linear-gradient(135deg,#080806,#141208)}
+body.luxury .dcard-ron{background:linear-gradient(135deg,#0C0A06,#18130A)}
+body.luxury .dcard-sev::after,body.luxury .dcard-gra::after,
+body.luxury .dcard-cor::after,body.luxury .dcard-ron::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(184,144,58,.08) 0%, transparent 70%);
+}
+
+/* ─── CARLOS ────────────────────────────────────── */
+.carlos-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.carlos-av{
+  width:64px;height:64px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:26px;color:#fff;flex-shrink:0;
+  transition:all .4s;
+}
+body:not(.luxury) .carlos-av{background:linear-gradient(135deg,var(--g2),var(--g4));border:1.5px solid rgba(255,255,255,.1)}
+body.luxury .carlos-av{
+  background:linear-gradient(135deg,#1A1208,#2A1E10);
+  border:1px solid rgba(184,144,58,.35);
+  box-shadow:0 0 20px rgba(184,144,58,.1);
+}
+.carlos-name{font-family:var(--display);font-size:22px;font-weight:400;margin-bottom:1px;transition:color .4s}
+body:not(.luxury) .carlos-name{color:#fff}
+body.luxury .carlos-name{color:var(--lux-text)}
+.carlos-role{font-size:9px;margin-bottom:6px;transition:color .4s}
+body:not(.luxury) .carlos-role{color:rgba(255,255,255,.35)}
+body.luxury .carlos-role{color:var(--gold)}
+.carlos-bio{font-size:11px;line-height:1.65;font-weight:300;transition:color .4s}
+body:not(.luxury) .carlos-bio{color:rgba(255,255,255,.45)}
+body.luxury .carlos-bio{color:var(--lux-sub)}
+.carlos-creds{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.ccred{
+  font-size:8px;padding:3px 9px;border-radius:8px;transition:all .4s;
+}
+body:not(.luxury) .ccred{border:.5px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+body.luxury .ccred{border:.5px solid rgba(184,144,58,.2);color:var(--gold2)}
+
+/* ─── REVIEWS ────────────────────────────────────── */
+.rcard{
+  border-radius:12px;padding:14px;margin-bottom:9px;transition:all .4s;
+}
+body:not(.luxury) .rcard{background:#fff;border:1px solid var(--border)}
+body.luxury .rcard{background:var(--lux-card);border:1px solid var(--lux-border2)}
+.rcard-quote{
+  font-family:var(--display);font-size:14px;font-style:italic;font-weight:300;
+  line-height:1.55;margin-bottom:9px;transition:color .4s;
+}
+body:not(.luxury) .rcard-quote{color:var(--dark)}
+body.luxury .rcard-quote{color:var(--lux-text)}
+.rcard-foot{display:flex;justify-content:space-between;align-items:flex-end}
+.rcard-name{font-size:10px;font-weight:500;transition:color .4s}
+body:not(.luxury) .rcard-name{color:var(--dark)}
+body.luxury .rcard-name{color:var(--lux-text)}
+.rcard-loc{font-size:8px;color:var(--soft);margin-top:1px}
+body.luxury .rcard-loc{color:var(--lux-sub)}
+.rcard-badge{
+  font-size:8px;padding:3px 7px;border-radius:6px;font-weight:500;white-space:nowrap;transition:all .4s;
+}
+body:not(.luxury) .rcard-badge{background:var(--g5);color:var(--g2)}
+body.luxury .rcard-badge{background:var(--gold-dim);color:var(--gold2)}
+
+/* ─── GUIDES ─────────────────────────────────────── */
+.gcard{
+  display:flex;border-radius:11px;overflow:hidden;margin-bottom:7px;transition:all .4s;
+}
+body:not(.luxury) .gcard{background:#fff;border:1px solid var(--border)}
+body.luxury .gcard{background:var(--lux-card);border:1px solid var(--lux-border2)}
+.gcard-img{
+  width:64px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .4s;
+}
+body:not(.luxury) .gcard-img{background:linear-gradient(140deg,var(--g1),var(--g3))}
+body.luxury .gcard-img{background:linear-gradient(140deg,#100C06,#1E1608)}
+.gcard-body{padding:10px 11px}
+.gcard-title{font-size:11px;font-weight:500;line-height:1.3;margin-bottom:2px;transition:color .4s}
+body:not(.luxury) .gcard-title{color:var(--dark)}
+body.luxury .gcard-title{color:var(--lux-text)}
+.gcard-meta{font-size:8px;transition:color .4s}
+body:not(.luxury) .gcard-meta{color:var(--soft)}
+body.luxury .gcard-meta{color:var(--lux-sub)}
+.seo-chip{
+  display:inline-block;margin-top:4px;font-size:7px;padding:2px 5px;border-radius:4px;font-weight:500;transition:all .4s;
+}
+body:not(.luxury) .seo-chip{color:#185FA5;background:#E6F1FB}
+body.luxury .seo-chip{color:var(--gold2);background:var(--gold-dim)}
+
+/* ─── WA STRIP ──────────────────────────────────── */
+.wa-strip{
+  padding:16px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;transition:all .4s;
+}
+body:not(.luxury) .wa-strip{background:#064E46}
+body.luxury .wa-strip{
+  background:var(--lux-surface);
+  border-top:1px solid var(--lux-border);
+  border-bottom:1px solid var(--lux-border);
+}
+.wa-strip h3{font-size:11px;font-weight:500;margin-bottom:1px;transition:color .4s}
+body:not(.luxury) .wa-strip h3{color:#fff}
+body.luxury .wa-strip h3{color:var(--lux-text)}
+.wa-strip p{font-size:9px;transition:color .4s}
+body:not(.luxury) .wa-strip p{color:rgba(255,255,255,.45)}
+body.luxury .wa-strip p{color:var(--lux-sub)}
+.btn-wa-s{
+  font-size:10px;font-weight:500;padding:9px 12px;border-radius:18px;
+  border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;
+  display:flex;align-items:center;gap:4px;transition:all .4s;
+}
+body:not(.luxury) .btn-wa-s{background:#25D366;color:#fff}
+body.luxury .btn-wa-s{background:var(--gold);color:#0D0D0D;box-shadow:0 2px 12px rgba(184,144,58,.25)}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+.footer{padding:26px 18px 100px;transition:background .4s}
+body:not(.luxury) .footer{background:var(--dark)}
+body.luxury .footer{background:#000}
+.footer-brand{font-family:var(--display);font-size:17px;margin-bottom:3px;transition:color .4s}
+body:not(.luxury) .footer-brand{color:#fff}
+body.luxury .footer-brand{color:var(--lux-text)}
+.footer-brand span{transition:color .4s}
+body:not(.luxury) .footer-brand span{color:var(--g3)}
+body.luxury .footer-brand span{color:var(--gold)}
+.footer-addr{font-size:9px;line-height:1.6;margin-bottom:14px;transition:color .4s}
+body:not(.luxury) .footer-addr{color:rgba(255,255,255,.22)}
+body.luxury .footer-addr{color:var(--lux-soft)}
+.footer-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.footer-links a{font-size:9px;text-decoration:none;transition:color .4s}
+body:not(.luxury) .footer-links a{color:rgba(255,255,255,.28)}
+body.luxury .footer-links a{color:var(--lux-sub)}
+.footer-gold-line{
+  height:1px;margin-bottom:14px;
+  background:linear-gradient(90deg,transparent,rgba(184,144,58,.3),transparent);
+  transition:opacity .4s;
+}
+body:not(.luxury) .footer-gold-line{opacity:0}
+body.luxury .footer-gold-line{opacity:1}
+.footer-copy{font-size:8px;padding-top:10px;border-top:1px solid transparent;transition:all .4s}
+body:not(.luxury) .footer-copy{color:rgba(255,255,255,.15);border-color:rgba(255,255,255,.06)}
+body.luxury .footer-copy{color:var(--lux-soft);border-color:var(--lux-border2)}
+
+/* ─── STICKY BAR ────────────────────────────────── */
+.sticky{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:390px;
+  backdrop-filter:blur(16px);
+  padding:9px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:80;transition:all .4s;
+}
+body:not(.luxury) .sticky{
+  background:rgba(245,243,239,.96);
+  border-top:1px solid var(--border);
+}
+body.luxury .sticky{
+  background:rgba(13,13,13,.95);
+  border-top:1px solid rgba(184,144,58,.2);
+}
+.sticky-txt p{font-size:11px;font-weight:500;transition:color .4s}
+body:not(.luxury) .sticky-txt p{color:var(--dark)}
+body.luxury .sticky-txt p{color:var(--lux-text)}
+.sticky-txt span{font-size:9px;transition:color .4s}
+body:not(.luxury) .sticky-txt span{color:var(--soft)}
+body.luxury .sticky-txt span{color:var(--gold)}
+.sticky-btns{display:flex;gap:6px}
+.swa{
+  color:#fff;font-size:10px;padding:8px 9px;border-radius:14px;
+  border:none;cursor:pointer;display:flex;align-items:center;transition:all .4s;
+}
+body:not(.luxury) .swa{background:#25D366}
+body.luxury .swa{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+.sbook{
+  font-size:10px;font-weight:500;padding:8px 13px;border-radius:14px;
+  border:none;cursor:pointer;transition:all .4s;
+}
+body:not(.luxury) .sbook{background:var(--g2);color:#fff}
+body.luxury .sbook{
+  background:var(--gold);color:#0D0D0D;
+  box-shadow:0 2px 10px rgba(184,144,58,.3);
+}
+
+/* ─── BOOKING MODAL ─────────────────────────────── */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center}
+.overlay.open{display:flex}
+.sheet{
+  border-radius:22px 22px 0 0;
+  width:100%;max-width:390px;max-height:88vh;overflow-y:auto;padding:13px 16px 28px;
+  transition:background .4s;
+}
+body:not(.luxury) .sheet{background:var(--cream)}
+body.luxury .sheet{background:var(--lux-surface);border-top:1px solid var(--lux-border)}
+.sh-handle{width:34px;height:3px;border-radius:2px;margin:0 auto 12px;transition:background .4s}
+body:not(.luxury) .sh-handle{background:var(--border)}
+body.luxury .sh-handle{background:rgba(184,144,58,.3)}
+.sh-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.sh-title{font-family:var(--display);font-size:20px;font-weight:400;transition:color .4s}
+body:not(.luxury) .sh-title{color:var(--dark)}
+body.luxury .sh-title{color:var(--lux-text)}
+.sh-close{
+  width:27px;height:27px;border-radius:50%;border:none;cursor:pointer;
+  font-size:11px;display:flex;align-items:center;justify-content:center;transition:all .4s;
+}
+body:not(.luxury) .sh-close{background:var(--g5);color:var(--g2)}
+body.luxury .sh-close{background:var(--gold-dim);color:var(--gold)}
+.secure{
+  border-radius:9px;padding:8px 10px;margin-bottom:12px;
+  display:flex;align-items:center;gap:7px;transition:all .4s;
+}
+body:not(.luxury) .secure{background:var(--g5);border:.5px solid rgba(15,110,86,.12)}
+body.luxury .secure{background:var(--gold-dim);border:.5px solid rgba(184,144,58,.2)}
+.secure p{font-size:9px;font-weight:500;transition:color .4s}
+body:not(.luxury) .secure p{color:var(--g1)}
+body.luxury .secure p{color:var(--gold2)}
+.secure span{font-size:8px;transition:color .4s}
+body:not(.luxury) .secure span{color:var(--soft)}
+body.luxury .secure span{color:var(--lux-sub)}
+.cal-month{font-size:11px;font-weight:500;text-align:center;margin-bottom:5px;transition:color .4s}
+body:not(.luxury) .cal-month{color:var(--dark)}
+body.luxury .cal-month{color:var(--lux-text)}
+.cal-dlbls{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px}
+.cal-dlbl{font-size:8px;color:var(--soft);text-align:center}
+body.luxury .cal-dlbl{color:var(--lux-soft)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:13px}
+.cal-c{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:9px;border-radius:7px;cursor:pointer;transition:all .15s}
+body:not(.luxury) .cal-c{color:var(--mid)}
+body.luxury .cal-c{color:var(--lux-sub)}
+body:not(.luxury) .cal-c.av{background:var(--g5);color:var(--g1);font-weight:500}
+body.luxury .cal-c.av{background:var(--gold-dim);color:var(--gold2);font-weight:500}
+body:not(.luxury) .cal-c.sel{background:var(--g2);color:#fff;font-weight:500}
+body.luxury .cal-c.sel{background:var(--gold);color:#0D0D0D;font-weight:500}
+.cal-c.past{color:var(--border)}
+.guests-row{display:flex;gap:14px;margin-bottom:13px}
+.g-block{flex:1}
+.g-lbl{font-size:9px;margin-bottom:5px;transition:color .4s}
+body:not(.luxury) .g-lbl{color:var(--soft)}
+body.luxury .g-lbl{color:var(--lux-sub)}
+.g-ctrl{display:flex;align-items:center;gap:9px}
+.g-btn{
+  width:29px;height:29px;border-radius:50%;border:.5px solid var(--border);
+  background:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .4s;
+}
+body.luxury .g-btn{background:var(--lux-card);border-color:var(--lux-border);color:var(--gold)}
+.g-val{font-family:var(--display);font-size:19px;min-width:18px;text-align:center;transition:color .4s}
+body:not(.luxury) .g-val{color:var(--dark)}
+body.luxury .g-val{color:var(--lux-text)}
+.total-lbl{font-size:9px;margin-bottom:3px;transition:color .4s}
+body:not(.luxury) .total-lbl{color:var(--soft)}
+body.luxury .total-lbl{color:var(--lux-sub)}
+.total-val{font-family:var(--display);font-size:26px;transition:color .4s}
+body:not(.luxury) .total-val{color:var(--dark)}
+body.luxury .total-val{color:var(--gold)}
+.btn-confirm{
+  width:100%;font-size:12px;font-weight:500;padding:13px;border-radius:20px;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:5px;transition:all .4s;
+}
+body:not(.luxury) .btn-confirm{background:var(--g2);color:#fff}
+body.luxury .btn-confirm{background:var(--gold);color:#0D0D0D;box-shadow:0 4px 16px rgba(184,144,58,.3)}
+.book-note{font-size:8px;color:var(--soft);text-align:center;margin-top:7px}
+body.luxury .book-note{color:var(--lux-sub)}
+
+/* ─── PLAN MODAL ─────────────────────────────────── */
+.pm-ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.65);backdrop-filter:blur(5px);display:none;align-items:flex-end;justify-content:center}
+.pm-ov.open{display:flex}
+.pm-sh{
+  border-radius:22px 22px 0 0;width:100%;max-width:390px;
+  max-height:92vh;overflow-y:auto;padding:13px 16px 22px;transition:background .4s;
+}
+body:not(.luxury) .pm-sh{background:#fff}
+body.luxury .pm-sh{background:var(--lux-surface);border-top:1px solid var(--lux-border)}
+.pm-prog{height:2px;border-radius:1px;margin-bottom:13px;transition:background .4s}
+body:not(.luxury) .pm-prog{background:var(--border)}
+body.luxury .pm-prog{background:rgba(184,144,58,.15)}
+.pm-fill{height:2px;border-radius:1px;transition:width .3s,background .4s}
+body:not(.luxury) .pm-fill{background:var(--g2)}
+body.luxury .pm-fill{background:var(--gold)}
+.pm-slbl{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;transition:color .4s}
+body:not(.luxury) .pm-slbl{color:var(--g2)}
+body.luxury .pm-slbl{color:var(--gold)}
+.pm-q{font-family:var(--display);font-size:22px;font-weight:300;margin-bottom:11px;line-height:1.2;transition:color .4s}
+body.luxury .pm-q{font-family:var(--lux-display)!important;font-weight:400;font-style:italic}
+body:not(.luxury) .pm-q{color:var(--dark)}
+body.luxury .pm-q{color:var(--lux-text)}
+.pm-hint{font-size:9px;margin-bottom:8px;transition:color .4s}
+body:not(.luxury) .pm-hint{color:var(--soft)}
+body.luxury .pm-hint{color:var(--lux-sub)}
+.pm-pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.pm-pill{
+  padding:6px 11px;border-radius:14px;font-size:10px;cursor:pointer;
+  user-select:none;transition:all .18s;
+}
+body:not(.luxury) .pm-pill{border:.5px solid var(--border);color:var(--dark);background:#fff}
+body.luxury .pm-pill{border:.5px solid var(--lux-border);color:var(--lux-sub);background:var(--lux-card)}
+body:not(.luxury) .pm-pill.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+body.luxury .pm-pill.on{background:var(--gold-dim);color:var(--gold2);border-color:rgba(184,144,58,.4)}
+.pm-tier-row{display:flex;gap:7px;margin-bottom:12px}
+.pm-tier{
+  flex:1;border-radius:11px;padding:12px 9px;text-align:center;
+  cursor:pointer;transition:all .18s;
+}
+body:not(.luxury) .pm-tier{border:.5px solid var(--border);background:#fff}
+body.luxury .pm-tier{border:.5px solid var(--lux-border2);background:var(--lux-card)}
+body:not(.luxury) .pm-tier.on{border-color:var(--g2);border-width:1.5px;background:var(--g5)}
+body:not(.luxury) .pm-tier.on-lux{border-color:var(--dark);border-width:1.5px;background:#F2F2EF}
+body.luxury .pm-tier.on{border-color:var(--gold);background:rgba(184,144,58,.06)}
+body.luxury .pm-tier.on-lux{border-color:var(--gold);background:rgba(184,144,58,.1);box-shadow:0 0 16px rgba(184,144,58,.1)}
+.pm-tier-ic{font-size:20px;margin-bottom:4px}
+.pm-tier-name{font-size:11px;font-weight:500;transition:color .4s}
+body:not(.luxury) .pm-tier-name{color:var(--dark)}
+body.luxury .pm-tier-name{color:var(--lux-text)}
+.pm-tier-desc{font-size:8px;margin-top:1px;transition:color .4s}
+body:not(.luxury) .pm-tier-desc{color:var(--soft)}
+body.luxury .pm-tier-desc{color:var(--lux-sub)}
+.pm-days-row{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.pm-dbtn{
+  width:34px;height:34px;border-radius:50%;font-size:17px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .4s;
+}
+body:not(.luxury) .pm-dbtn{border:.5px solid var(--border);background:#fff;color:var(--dark)}
+body.luxury .pm-dbtn{border:.5px solid var(--lux-border);background:var(--lux-card);color:var(--gold)}
+.pm-dval{font-family:var(--display);font-size:32px;min-width:36px;text-align:center;transition:color .4s}
+body:not(.luxury) .pm-dval{color:var(--dark)}
+body.luxury .pm-dval{color:var(--lux-text)}
+.pm-dhint{font-size:9px;line-height:1.5;transition:color .4s}
+body:not(.luxury) .pm-dhint{color:var(--soft)}
+body.luxury .pm-dhint{color:var(--lux-sub)}
+.pm-city-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:11px}
+.pm-city{
+  border-radius:9px;padding:9px;cursor:pointer;position:relative;transition:all .18s;
+}
+body:not(.luxury) .pm-city{border:.5px solid var(--border);background:#fff}
+body.luxury .pm-city{border:.5px solid var(--lux-border2);background:var(--lux-card)}
+body:not(.luxury) .pm-city.on{border-color:var(--g2);border-width:1.5px;background:var(--g5)}
+body.luxury .pm-city.on{border-color:var(--gold);background:rgba(184,144,58,.07)}
+.pm-city-name{font-size:11px;font-weight:500;transition:color .4s}
+body:not(.luxury) .pm-city-name{color:var(--dark)}
+body.luxury .pm-city-name{color:var(--lux-text)}
+.pm-city-sub{font-size:8px;margin-top:1px;transition:color .4s}
+body:not(.luxury) .pm-city-sub{color:var(--soft)}
+body.luxury .pm-city-sub{color:var(--lux-sub)}
+.pm-city-tick{
+  position:absolute;top:6px;right:6px;
+  width:14px;height:14px;border-radius:50%;
+  display:none;align-items:center;justify-content:center;font-size:7px;color:#fff;transition:background .4s;
+}
+body:not(.luxury) .pm-city-tick{background:var(--g2)}
+body.luxury .pm-city-tick{background:var(--gold);color:#0D0D0D}
+.pm-city.on .pm-city-tick{display:flex}
+.pm-summary{border-radius:9px;padding:11px;margin-bottom:11px;transition:all .4s}
+body:not(.luxury) .pm-summary{background:var(--g5);border:.5px solid rgba(15,110,86,.1)}
+body.luxury .pm-summary{background:var(--gold-dim);border:.5px solid rgba(184,144,58,.2)}
+.pm-sum-title{font-size:10px;font-weight:500;margin-bottom:6px;transition:color .4s}
+body:not(.luxury) .pm-sum-title{color:var(--dark)}
+body.luxury .pm-sum-title{color:var(--gold2)}
+.pm-sum-row{display:flex;justify-content:space-between;margin-bottom:3px}
+.pm-sum-row span{font-size:9px;transition:color .4s}
+body:not(.luxury) .pm-sum-row span{color:var(--soft)}
+body.luxury .pm-sum-row span{color:var(--lux-sub)}
+.pm-sum-row strong{font-size:9px;font-weight:500;transition:color .4s}
+body:not(.luxury) .pm-sum-row strong{color:var(--dark)}
+body.luxury .pm-sum-row strong{color:var(--gold2)}
+.pm-result{border-radius:12px;overflow:hidden;margin-bottom:9px;transition:border-color .4s}
+body:not(.luxury) .pm-result{border:1px solid var(--border)}
+body.luxury .pm-result{border:1px solid var(--lux-border)}
+.pm-rhead{padding:11px 13px}
+.pm-rhead h4{font-family:var(--display);font-size:18px;font-weight:300;color:#fff;line-height:1.15}
+body.luxury .pm-rhead h4{color:var(--lux-text)}
+.pm-rhead p{font-size:8px;color:rgba(255,255,255,.55);margin-top:2px}
+body.luxury .pm-rhead p{color:var(--gold2)}
+.pm-rbody{padding:11px 13px;transition:background .4s}
+body.luxury .pm-rbody{background:var(--lux-card)}
+.pm-day{display:flex;gap:9px;margin-bottom:9px;align-items:flex-start}
+.pm-day-num{min-width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:500;color:#fff;flex-shrink:0;margin-top:1px}
+body.luxury .pm-day-num{color:#0D0D0D}
+.pm-day-main{font-size:10px;line-height:1.45;transition:color .4s}
+body:not(.luxury) .pm-day-main{color:var(--dark)}
+body.luxury .pm-day-main{color:var(--lux-text)}
+.pm-day-tip{font-size:8px;margin-top:2px;font-style:italic;transition:color .4s}
+body:not(.luxury) .pm-day-tip{color:var(--soft)}
+body.luxury .pm-day-tip{color:var(--lux-sub)}
+.pm-rcta{display:flex;gap:6px;padding:9px 13px;border-top:1px solid var(--border);transition:border-color .4s,background .4s}
+body.luxury .pm-rcta{border-color:var(--lux-border2);background:var(--lux-card)}
+.pm-book-btn{flex:1;color:#fff;font-size:10px;font-weight:500;padding:9px;border-radius:13px;border:none;cursor:pointer;text-align:center;transition:all .4s}
+body.luxury .pm-book-btn{color:#0D0D0D!important}
+.pm-wa-btn{
+  border-radius:13px;cursor:pointer;display:flex;align-items:center;gap:4px;
+  font-size:10px;padding:9px 10px;transition:all .4s;
+}
+body:not(.luxury) .pm-wa-btn{background:#fff;border:.5px solid var(--border);color:var(--dark)}
+body.luxury .pm-wa-btn{background:var(--lux-card);border:.5px solid var(--lux-border);color:var(--lux-sub)}
+.pm-nav{display:flex;justify-content:space-between;align-items:center;margin-top:11px}
+.pm-back{font-size:10px;background:none;border:none;cursor:pointer;padding:4px 0;transition:color .4s}
+body:not(.luxury) .pm-back{color:var(--soft)}
+body.luxury .pm-back{color:var(--lux-sub)}
+.pm-next{
+  font-size:10px;font-weight:500;padding:9px 20px;border-radius:14px;border:none;cursor:pointer;transition:all .4s;
+}
+body:not(.luxury) .pm-next{background:var(--g2);color:#fff}
+body.luxury .pm-next{background:var(--gold);color:#0D0D0D}
+.pm-next:disabled{opacity:.3;cursor:default}
+.pm-note{font-size:9px;line-height:1.55;margin-top:5px;transition:color .4s}
+body:not(.luxury) .pm-note{color:var(--soft)}
+body.luxury .pm-note{color:var(--lux-sub)}
+
+/* ─── GEO TOAST ─────────────────────────────────── */
+.geo-toast{
+  position:fixed;top:60px;left:50%;transform:translateX(-50%);
+  color:#fff;font-size:10px;padding:9px 14px;border-radius:20px;
+  display:flex;align-items:center;gap:6px;z-index:300;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+  animation:slideDown .4s ease, fadeOut .4s ease 3s forwards;
+  white-space:nowrap;transition:background .4s;
+}
+body:not(.luxury) .geo-toast{background:var(--dark)}
+body.luxury .geo-toast{background:rgba(184,144,58,.9);color:#0D0D0D}
+@keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0;pointer-events:none}}
+.geo-dot{width:7px;height:7px;border-radius:50%;transition:background .4s}
+body:not(.luxury) .geo-dot{background:var(--g3)}
+body.luxury .geo-dot{background:#0D0D0D}
+
+/* ─── ANIMATIONS ─────────────────────────────────── */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+
+/* ─── GIFT CARD SECTION ─────────────────────────── */
+.gc-toggle{
+  display:flex;border-radius:20px;padding:3px;
+  width:100%;margin-bottom:22px;
+  transition:background .4s,border-color .4s;
+}
+body:not(.luxury) .gc-toggle{background:var(--cream);border:1px solid var(--border)}
+body.luxury .gc-toggle{background:rgba(255,255,255,.04);border:1px solid var(--lux-border)}
+.gc-tbtn{
+  flex:1;padding:8px 10px;border-radius:16px;
+  font-size:11px;font-weight:500;border:none;cursor:pointer;
+  background:transparent;transition:all .25s;
+}
+body:not(.luxury) .gc-tbtn{color:var(--soft)}
+body.luxury .gc-tbtn{color:var(--lux-sub)}
+.gc-tbtn-on{background:var(--g2)!important;color:#fff!important;box-shadow:0 2px 8px rgba(15,110,86,.25)}
+body.luxury .gc-tbtn-on{
+  background:transparent!important;color:var(--gold)!important;
+  border:1px solid var(--gold)!important;
+  letter-spacing:.06em;font-family:var(--lux-display)!important;font-size:12px!important;
+}
+
+/* ─── PRIVATE CARD — clean emerald ──────────────── */
+.gc-card{
+  border-radius:16px;overflow:hidden;position:relative;
+  margin-bottom:18px;min-height:190px;
+  aspect-ratio:1.586/1;
+}
+.gc-card-prv{
+  background:linear-gradient(135deg,#064535 0%,#0B6B50 40%,#1A9E72 80%,#0D7A5A 100%);
+  box-shadow:0 12px 40px rgba(8,80,65,.4),0 2px 8px rgba(0,0,0,.3);
+}
+.gc-card-inner{
+  position:relative;z-index:2;
+  padding:20px 20px 18px;
+  height:100%;display:flex;flex-direction:column;justify-content:space-between;
+}
+.gc-card-header{display:flex;justify-content:space-between;align-items:flex-start}
+.gc-card-logo{
+  font-family:var(--display);font-size:14px;font-weight:500;
+  color:rgba(255,255,255,.92);letter-spacing:.04em;
+}
+.gc-logo-lux{
+  font-family:var(--lux-display)!important;font-size:13px;letter-spacing:.12em;
+  color:var(--gold2);text-transform:uppercase;
+}
+.gc-card-type{
+  font-size:7px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.08);
+  padding:3px 9px;border-radius:4px;border:.5px solid rgba(255,255,255,.12);
+}
+.gc-type-lux{
+  color:var(--gold);background:rgba(184,144,58,.12);border-color:rgba(184,144,58,.3);
+  font-family:var(--lux-display)!important;letter-spacing:.16em;
+}
+
+.gc-card-mid{display:flex;flex-direction:column;gap:2px}
+.gc-card-lbl{
+  font-size:7px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:0;
+}
+.gc-lbl-lux{color:rgba(184,144,58,.6)!important;letter-spacing:.2em}
+.gc-card-amount{
+  font-family:var(--display);font-size:46px;font-weight:300;
+  color:#fff;line-height:1;letter-spacing:-.02em;
+  transition:all .15s ease;
+}
+.gc-amount-lux{
+  font-family:var(--lux-display)!important;
+  color:transparent;
+  background:linear-gradient(135deg,var(--gold3) 0%,var(--gold) 40%,var(--gold2) 70%,var(--gold3) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  font-size:44px;font-weight:400;letter-spacing:-.01em;
+}
+.gc-card-sub{
+  font-size:9px;color:rgba(255,255,255,.42);
+  font-style:italic;font-family:var(--display);
+}
+.gc-sub-lux{color:rgba(184,144,58,.55)!important;font-family:var(--lux-display)!important}
+
+.gc-card-footer{display:flex;justify-content:space-between;align-items:flex-end}
+.gc-card-name{
+  font-size:12px;font-weight:500;color:rgba(255,255,255,.85);
+  letter-spacing:.04em;text-transform:uppercase;font-size:9px;
+}
+.gc-name-lux{
+  color:var(--gold2)!important;font-family:var(--lux-display)!important;
+  font-size:11px;font-style:italic;text-transform:none;letter-spacing:.02em;
+}
+.gc-card-code{
+  font-size:9px;letter-spacing:.16em;font-weight:600;
+  color:rgba(255,255,255,.25);font-family:monospace;
+}
+.gc-code-lux{color:rgba(184,144,58,.4)!important}
+
+/* ─── LUXURY CARD — Amex Platinum metal ─────────── */
+.gc-card-lux{
+  background:
+    linear-gradient(160deg,
+      #1C1610 0%,
+      #2A1F0D 18%,
+      #1A1208 35%,
+      #251C0A 50%,
+      #1C1308 65%,
+      #2E2010 80%,
+      #1A1208 100%
+    );
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.7),
+    0 4px 16px rgba(0,0,0,.5),
+    inset 0 1px 0 rgba(184,144,58,.4),
+    inset 0 -1px 0 rgba(184,144,58,.15);
+  border:1px solid rgba(184,144,58,.35);
+}
+/* Metal texture overlay */
+.gc-card-lux::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(
+      105deg,
+      transparent 0px,
+      rgba(184,144,58,.025) 1px,
+      transparent 2px,
+      transparent 8px
+    );
+  z-index:1;pointer-events:none;border-radius:16px;
+}
+
+/* Shine sweep */
+.gc-shine{
+  position:absolute;inset:0;
+  background:linear-gradient(105deg,
+    transparent 20%,
+    rgba(255,255,255,.06) 35%,
+    rgba(255,255,255,.12) 50%,
+    rgba(255,255,255,.06) 65%,
+    transparent 80%
+  );
+  background-size:300% 100%;
+  animation:shine 4s ease-in-out infinite;
+  z-index:3;pointer-events:none;
+}
+.gc-shine-lux{
+  background:linear-gradient(105deg,
+    transparent 15%,
+    rgba(184,144,58,.04) 28%,
+    rgba(240,212,138,.18) 45%,
+    rgba(212,175,90,.22) 50%,
+    rgba(240,212,138,.18) 55%,
+    rgba(184,144,58,.04) 68%,
+    transparent 82%
+  );
+  background-size:300% 100%;
+  animation:shine-gold 5s ease-in-out infinite;
+}
+@keyframes shine{
+  0%{background-position:200% 0}
+  60%{background-position:200% 0}
+  100%{background-position:-100% 0}
+}
+@keyframes shine-gold{
+  0%{background-position:200% 0}
+  50%{background-position:200% 0}
+  100%{background-position:-100% 0}
+}
+
+/* Gold embossed corner mark */
+.gc-glow{
+  position:absolute;inset:0;border-radius:16px;pointer-events:none;z-index:4;
+  box-shadow:
+    inset 0 0 0 1px rgba(184,144,58,.28),
+    inset 1px 1px 0 rgba(240,212,138,.15),
+    inset -1px -1px 0 rgba(100,70,20,.3);
+}
+/* Bottom-right Amex-style emblem */
+.gc-card-lux .gc-card-inner::after{
+  content:'◆';
+  position:absolute;bottom:18px;right:20px;
+  font-size:28px;
+  color:transparent;
+  background:linear-gradient(135deg,var(--gold3),var(--gold),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;
+  opacity:.7;z-index:5;
+  text-shadow:none;
+}
+
+/* ─── SLIDER ─────────────────────────────────────── */
+.gc-slider-wrap{margin-bottom:16px}
+.gc-slider-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.gc-range-lbl{font-size:9px;font-weight:500;flex-shrink:0;transition:color .4s;min-width:28px}
+body:not(.luxury) .gc-range-lbl{color:var(--soft)}
+body.luxury .gc-range-lbl{color:var(--lux-sub)}
+.gc-slider{
+  flex:1;height:3px;border-radius:2px;
+  -webkit-appearance:none;cursor:pointer;outline:none;
+  transition:background .3s;
+}
+.gc-slider-prv{
+  background:linear-gradient(to right,var(--g2) 0%,var(--g2) 30%,var(--border) 30%,var(--border) 100%);
+}
+.gc-slider-lux{
+  background:linear-gradient(to right,var(--gold) 0%,var(--gold) 12%,rgba(184,144,58,.2) 12%,rgba(184,144,58,.2) 100%);
+}
+.gc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;cursor:pointer;transition:all .2s;
+}
+.gc-slider-prv::-webkit-slider-thumb{
+  background:var(--g2);border:2.5px solid #fff;
+  box-shadow:0 2px 8px rgba(15,110,86,.4);
+}
+.gc-slider-lux::-webkit-slider-thumb{
+  background:linear-gradient(135deg,var(--gold3),var(--gold));
+  border:2px solid #1A1208;
+  box-shadow:0 2px 12px rgba(184,144,58,.6);
+}
+
+/* ─── PRESETS ────────────────────────────────────── */
+.gc-presets{display:flex;gap:6px;flex-wrap:wrap}
+.gc-preset{
+  padding:5px 12px;border-radius:10px;font-size:10px;font-weight:500;
+  cursor:pointer;transition:all .2s;
+}
+body:not(.luxury) .gc-preset{background:var(--g5);color:var(--g1);border:.5px solid rgba(15,110,86,.12)}
+body:not(.luxury) .gc-preset:hover{background:var(--g2);color:#fff}
+body.luxury .gc-preset{background:transparent;color:var(--lux-sub);border:.5px solid var(--lux-border)}
+.gc-preset-lux{
+  background:var(--gold-dim)!important;color:var(--gold2)!important;
+  border-color:rgba(184,144,58,.25)!important;
+  font-family:var(--lux-display)!important;letter-spacing:.04em;
+}
+body.luxury .gc-preset-lux:hover{background:rgba(184,144,58,.2)!important;color:var(--gold3)!important}
+
+/* ─── PERSONALISE INPUTS ─────────────────────────── */
+.gc-personalise{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.gc-input{
+  width:100%;padding:11px 13px;border-radius:10px;
+  font-size:11px;font-family:var(--body);outline:none;transition:all .3s;
+}
+body:not(.luxury) .gc-input{
+  background:#fff;border:1px solid var(--border);color:var(--dark);
+}
+body:not(.luxury) .gc-input:focus{border-color:var(--g2);box-shadow:0 0 0 3px rgba(15,110,86,.08)}
+body.luxury .gc-input{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--lux-border2);color:var(--lux-text);
+}
+body.luxury .gc-input:focus{
+  border-color:rgba(184,144,58,.5);
+  box-shadow:0 0 0 3px rgba(184,144,58,.07);
+  background:rgba(184,144,58,.03);
+}
+.gc-input::placeholder{color:var(--soft)}
+body.luxury .gc-input::placeholder{color:var(--lux-soft)}
+body.luxury .gc-input-lux{
+  font-family:var(--lux-display)!important;font-size:12px;letter-spacing:.02em;
+}
+
+/* ─── BUY BUTTON ─────────────────────────────────── */
+.gc-buy-btn{
+  width:100%;font-size:12px;font-weight:500;padding:14px;
+  border-radius:20px;border:none;cursor:pointer;
+  letter-spacing:.03em;margin-bottom:10px;transition:all .3s;
+}
+.gc-buy-prv{
+  background:var(--g2);color:#fff;
+  box-shadow:0 4px 16px rgba(15,110,86,.25);
+}
+.gc-buy-prv:hover{background:var(--g1);box-shadow:0 6px 20px rgba(15,110,86,.35)}
+.gc-buy-lux{
+  background:linear-gradient(135deg,#B8903A 0%,#D4AF5A 40%,#F0D48A 60%,#D4AF5A 80%,#B8903A 100%);
+  color:#0D0D0D;
+  font-family:var(--lux-display)!important;font-size:14px;letter-spacing:.1em;
+  text-transform:uppercase;
+  box-shadow:0 4px 24px rgba(184,144,58,.4),0 1px 0 rgba(255,255,255,.2) inset;
+  border:1px solid rgba(184,144,58,.3);
+}
+.gc-buy-lux:hover{
+  background:linear-gradient(135deg,#C8A040 0%,#E4BF6A 40%,#FFF09A 60%,#E4BF6A 80%,#C8A040 100%);
+  box-shadow:0 6px 30px rgba(184,144,58,.55);
+}
+
+/* ─── T&C ────────────────────────────────────────── */
+.gc-tnc{
+  font-size:8px;line-height:1.7;text-align:center;
+  padding:9px 10px;border-radius:8px;transition:all .4s;
+}
+body:not(.luxury) .gc-tnc{
+  color:var(--soft);background:var(--g5);border:.5px solid rgba(15,110,86,.08)
+}
+body.luxury .gc-tnc{
+  color:var(--lux-soft);
+  background:rgba(184,144,58,.03);
+  border:.5px solid rgba(184,144,58,.1);
+  font-family:var(--lux-display);letter-spacing:.02em;
+}
+.gc-tnc-lux{border-color:rgba(184,144,58,.12)!important}
+
+/* ─── MODE TRANSITION ────────────────────────────── */
+*{transition-property:background,color,border-color,box-shadow,opacity;transition-duration:.4s;transition-timing-function:ease}
+.hero h1,.stitle,.pm-q,.sh-title,.tcard-title,.footer-brand{transition-duration:.5s}
+
+/* ════════════════════════════════════════════════════
+   LUXURY MODE — TOTAL GREEN ELIMINATION
+   Every selector that could show green is overridden.
+   Dubai-grade. No exceptions.
+   ════════════════════════════════════════════════════ */
+
+/* ── Body & phone background ── */
+body.luxury .phone { background: #0A0A0A; }
+
+/* ── Status bar ── */
+body.luxury .status { background: #000; }
+
+/* ── Nav ── */
+body.luxury .nav {
+  background: rgba(8,8,8,.97);
+  border-color: rgba(184,144,58,.15);
+}
+body.luxury .nav-logo { font-family: var(--lux-display); letter-spacing: .08em; }
+body.luxury .nav-logo span { color: var(--gold); }
+body.luxury .nav-book {
+  background: transparent; color: var(--gold);
+  border: 1px solid rgba(184,144,58,.5);
+  font-family: var(--lux-display); letter-spacing: .06em;
+}
+
+/* ── Mode bar ── */
+body.luxury .mode-bar { background: #0A0A0A; border-color: rgba(184,144,58,.12); }
+body.luxury .mode-lbl { color: rgba(184,144,58,.4); letter-spacing: .12em; }
+body.luxury .mode-toggle { background: rgba(255,255,255,.03); border-color: rgba(184,144,58,.2); }
+body.luxury .mode-tag { background: rgba(184,144,58,.1); color: var(--gold); border: .5px solid rgba(184,144,58,.25); }
+
+/* ── Lang row ── */
+body.luxury .lang-row { background: #0A0A0A; border-color: rgba(184,144,58,.1); }
+body.luxury .lang-icon { color: var(--gold); }
+body.luxury .lang-dd-btn { background: rgba(255,255,255,.03); border-color: rgba(184,144,58,.2); color: var(--lux-sub); }
+body.luxury .geo-detected { background: rgba(184,144,58,.08); color: var(--gold); border: .5px solid rgba(184,144,58,.2); }
+
+/* ── Hero ── */
+body.luxury .hero { background: #0A0A0A; }
+body.luxury .hero h1 {
+  font-family: var(--lux-display) !important;
+  font-style: italic; font-weight: 500;
+  font-size: 34px; letter-spacing: -.01em;
+  color: var(--lux-text);
+}
+body.luxury .hero-badge {
+  background: rgba(184,144,58,.08);
+  border: 1px solid rgba(184,144,58,.25);
+}
+body.luxury .hero-badge span { color: var(--gold2); }
+body.luxury .hero-badge-dot { background: var(--gold); }
+body.luxury .btn-explore {
+  background: var(--gold);
+  color: #0A0A0A;
+  font-family: var(--lux-display);
+  letter-spacing: .06em;
+}
+body.luxury .btn-chat {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(184,144,58,.4);
+}
+body.luxury .hero-am {
+  background: rgba(184,144,58,.05);
+  border-color: rgba(184,144,58,.12);
+}
+body.luxury .hero-am-text strong { color: var(--gold2); }
+body.luxury .hero-am-text span { color: var(--lux-sub); }
+
+/* ── Trust bar ── */
+body.luxury .trust-bar { background: #0A0A0A; border-color: rgba(184,144,58,.1); }
+body.luxury .tpill { background: rgba(184,144,58,.06); border-color: rgba(184,144,58,.15); }
+body.luxury .tpill span { color: var(--gold2); }
+
+/* ── Section backgrounds — ALL dark ── */
+body.luxury .sec-cream { background: #0A0A0A; }
+body.luxury .sec-white { background: #0F0F0F; }
+body.luxury .sec-dark  { background: #000; }
+body.luxury .sec-green {
+  background: #0A0A0A !important;
+  border-top: 1px solid rgba(184,144,58,.18) !important;
+  border-bottom: 1px solid rgba(184,144,58,.18) !important;
+}
+body.luxury .sec-green::before {
+  background: linear-gradient(90deg, transparent, rgba(184,144,58,.3), transparent) !important;
+}
+body.luxury .sec-green::after {
+  background: linear-gradient(90deg, transparent, rgba(184,144,58,.3), transparent) !important;
+}
+
+/* ── Section labels ── */
+body.luxury .slabel,
+body.luxury .slabel-w { color: var(--gold) !important; font-family: var(--lux-display); letter-spacing: .18em; font-style: italic; }
+
+/* ── Section titles ── */
+body.luxury .stitle,
+body.luxury .stitle-w { color: var(--lux-text) !important; font-family: var(--lux-display) !important; font-weight: 500; }
+body.luxury .stitle em,
+body.luxury .stitle-w em { color: var(--gold) !important; font-style: italic; }
+
+/* ── Section subtitles ── */
+body.luxury .ssub,
+body.luxury .ssub-w { color: var(--lux-sub) !important; }
+
+/* ── Tour section toggle ── */
+body.luxury .exp-toggle { background: rgba(255,255,255,.03); border-color: rgba(184,144,58,.2); }
+body.luxury .etbtn { color: var(--lux-sub); }
+body.luxury .etbtn.on {
+  background: rgba(184,144,58,.12);
+  color: var(--gold);
+  border: 1px solid rgba(184,144,58,.3);
+  box-shadow: none;
+}
+body.luxury .etbtn.on-lux {
+  background: var(--gold);
+  color: #0A0A0A;
+  font-family: var(--lux-display);
+  letter-spacing: .04em;
+}
+
+/* ── Tour cards ── */
+body.luxury .tcard { background: #141414; border-color: rgba(184,144,58,.12); }
+body.luxury .tcard-img { background: linear-gradient(140deg, #0A0806 0%, #1E1510 100%) !important; }
+body.luxury .tcard-geo { background-image: repeating-linear-gradient(45deg, rgba(184,144,58,.03) 0, rgba(184,144,58,.03) 1px, transparent 0, transparent 50%) !important; }
+body.luxury .tcard-badge { background: var(--gold); color: #0A0A0A; }
+body.luxury .tcard-dur { background: rgba(184,144,58,.12); border-color: rgba(184,144,58,.25); color: var(--gold2); }
+body.luxury .tcard-title { font-family: var(--lux-display) !important; font-style: italic; color: var(--lux-text); }
+body.luxury .tcard-desc { color: var(--lux-sub); }
+body.luxury .tcard-tag { background: rgba(184,144,58,.08); color: var(--gold2); border-color: rgba(184,144,58,.18); }
+body.luxury .tcard-price { color: var(--lux-text); }
+body.luxury .tcard-stars { color: var(--lux-soft); }
+body.luxury .btn-book { background: transparent; border: 1px solid rgba(184,144,58,.4); color: var(--gold); }
+body.luxury .btn-book:hover { background: rgba(184,144,58,.1); }
+body.luxury .lux-inquiry { color: var(--gold); font-family: var(--lux-display); font-style: italic; }
+body.luxury .lux-inquiry-sub { color: var(--lux-sub); }
+
+/* ── Luxury service strip ── */
+body.luxury .lux-strip { border-color: rgba(184,144,58,.18); background: #0F0F0F; }
+body.luxury .lux-strip-head { background: linear-gradient(90deg, rgba(184,144,58,.08), transparent); border-color: rgba(184,144,58,.12); }
+body.luxury .lux-strip-head p { color: var(--gold); font-family: var(--lux-display); letter-spacing: .14em; font-style: italic; }
+body.luxury .lux-strip-head span { font-family: var(--lux-display); color: var(--lux-text); font-style: italic; }
+body.luxury .lux-svc { border-color: rgba(184,144,58,.08); }
+body.luxury .lux-svc-name { color: var(--gold2); font-family: var(--lux-display); }
+body.luxury .lux-svc-desc { color: var(--lux-sub); }
+
+/* ── Plan widget (green section) ── */
+body.luxury .plan-card {
+  background: rgba(184,144,58,.04);
+  border: 1px solid rgba(184,144,58,.18);
+}
+body.luxury .pw-q { color: var(--gold2); font-family: var(--lux-display); font-style: italic; }
+body.luxury .pw-dbtn { background: rgba(184,144,58,.08); border-color: rgba(184,144,58,.25); color: var(--gold); }
+body.luxury .pw-dval { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .pw-dhint { color: var(--lux-sub); }
+body.luxury .pw-pill { background: rgba(184,144,58,.05); border-color: rgba(184,144,58,.2); color: var(--lux-sub); }
+body.luxury .pw-pill.on { background: rgba(184,144,58,.15); color: var(--gold2); border-color: rgba(184,144,58,.4); }
+body.luxury .btn-plan {
+  background: var(--gold);
+  color: #0A0A0A;
+  font-family: var(--lux-display);
+  letter-spacing: .08em;
+  font-size: 13px;
+}
+
+/* ── Destination cards ── */
+body.luxury .dcard-sev { background: linear-gradient(135deg, #0A0705, #18120A) !important; }
+body.luxury .dcard-gra { background: linear-gradient(135deg, #0D0906, #1C1510) !important; }
+body.luxury .dcard-cor { background: linear-gradient(135deg, #090806, #141008) !important; }
+body.luxury .dcard-ron { background: linear-gradient(135deg, #0C0907, #1A1309) !important; }
+body.luxury .dcard-geo { background-image: repeating-linear-gradient(45deg, rgba(184,144,58,.03) 0, rgba(184,144,58,.03) 1px, transparent 0, transparent 50%) !important; }
+body.luxury .dcard-light { background: #141414 !important; border-color: rgba(184,144,58,.2) !important; }
+body.luxury .dcard-light .dcard-name { color: var(--gold2); }
+body.luxury .dcard-light .dcard-sub { color: var(--lux-sub); }
+
+/* ── Carlos ── */
+body.luxury .carlos-av { border-color: rgba(184,144,58,.3); box-shadow: 0 0 24px rgba(184,144,58,.08); }
+body.luxury .carlos-name { font-family: var(--lux-display); color: var(--lux-text); }
+body.luxury .carlos-role { color: var(--gold); font-family: var(--lux-display); font-style: italic; }
+body.luxury .carlos-bio { color: var(--lux-sub); }
+body.luxury .ccred { color: var(--gold2); border-color: rgba(184,144,58,.2); }
+
+/* ── Reviews ── */
+body.luxury .rcard { background: #141414; border-color: rgba(184,144,58,.1); }
+body.luxury .rcard-quote { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .rcard-name { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .rcard-loc { color: var(--lux-sub); }
+body.luxury .rcard-badge { background: rgba(184,144,58,.1); color: var(--gold2); }
+
+/* ── Guides ── */
+body.luxury .gcard { background: #141414; border-color: rgba(184,144,58,.1); }
+body.luxury .gcard-img { background: linear-gradient(140deg, #0A0806, #1E1510) !important; }
+body.luxury .gcard-title { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .gcard-meta { color: var(--lux-sub); }
+body.luxury .seo-chip { background: rgba(184,144,58,.08); color: var(--gold2); }
+
+/* ── WA strip ── */
+body.luxury .wa-strip { background: #0A0A0A; border-top: 1px solid rgba(184,144,58,.15); border-bottom: 1px solid rgba(184,144,58,.15); }
+body.luxury .wa-strip h3 { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .wa-strip p { color: var(--lux-sub); }
+body.luxury .btn-wa-s { background: var(--gold); color: #0A0A0A; }
+
+/* ── Footer ── */
+body.luxury .footer { background: #000; }
+body.luxury .footer-brand { font-family: var(--lux-display); color: var(--lux-text); }
+body.luxury .footer-brand span { color: var(--gold); }
+body.luxury .footer-addr { color: rgba(240,237,232,.2); }
+body.luxury .footer-links a { color: rgba(240,237,232,.25); }
+body.luxury .footer-copy { color: rgba(240,237,232,.12); border-color: rgba(184,144,58,.1); }
+
+/* ── Sticky bar ── */
+body.luxury .sticky { background: rgba(8,8,8,.97); border-top-color: rgba(184,144,58,.18); }
+body.luxury .sticky-txt p { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .sticky-txt span { color: var(--gold); }
+body.luxury .swa { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); color: var(--lux-sub); }
+body.luxury .sbook { background: var(--gold); color: #0A0A0A; font-family: var(--lux-display); letter-spacing: .06em; }
+
+/* ── Booking modal ── */
+body.luxury .sheet { background: #111; border-top-color: rgba(184,144,58,.25); }
+body.luxury .sh-handle { background: rgba(184,144,58,.25); }
+body.luxury .sh-title { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .sh-close { background: rgba(184,144,58,.1); color: var(--gold); }
+body.luxury .secure { background: rgba(184,144,58,.07); border-color: rgba(184,144,58,.2); }
+body.luxury .secure p { color: var(--gold2); }
+body.luxury .secure span { color: var(--lux-sub); }
+body.luxury .cal-month { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .cal-dlbl { color: var(--lux-soft); }
+body.luxury .cal-c { color: var(--lux-sub); }
+body.luxury .cal-c.av { background: rgba(184,144,58,.1); color: var(--gold2); }
+body.luxury .cal-c.sel { background: var(--gold); color: #0A0A0A; }
+body.luxury .g-lbl { color: var(--lux-sub); }
+body.luxury .g-btn { background: #1A1A1A; border-color: rgba(184,144,58,.2); color: var(--gold); }
+body.luxury .g-val { color: var(--lux-text); }
+body.luxury .total-lbl { color: var(--lux-sub); }
+body.luxury .total-val { color: var(--gold); font-family: var(--lux-display); }
+body.luxury .btn-confirm { background: var(--gold); color: #0A0A0A; font-family: var(--lux-display); letter-spacing: .06em; }
+body.luxury .book-note { color: var(--lux-soft); }
+
+/* ── Plan modal ── */
+body.luxury .pm-sh { background: #111; border-top-color: rgba(184,144,58,.25); }
+body.luxury .pm-prog { background: rgba(184,144,58,.12); }
+body.luxury .pm-fill { background: var(--gold); }
+body.luxury .pm-slbl { color: var(--gold); font-family: var(--lux-display); letter-spacing: .14em; }
+body.luxury .pm-q { font-family: var(--lux-display) !important; color: var(--lux-text); font-style: italic; }
+body.luxury .pm-hint { color: var(--lux-sub); }
+body.luxury .pm-pill { background: #1A1A1A; border-color: rgba(184,144,58,.15); color: var(--lux-sub); }
+body.luxury .pm-pill.on { background: rgba(184,144,58,.14); color: var(--gold2); border-color: rgba(184,144,58,.4); }
+body.luxury .pm-tier { background: #1A1A1A; border-color: rgba(184,144,58,.15); }
+body.luxury .pm-tier.on, body.luxury .pm-tier.on-lux { border-color: var(--gold); background: rgba(184,144,58,.08); box-shadow: 0 0 16px rgba(184,144,58,.1); }
+body.luxury .pm-tier-name { color: var(--lux-text); }
+body.luxury .pm-tier-desc { color: var(--lux-sub); }
+body.luxury .pm-dbtn { background: #1A1A1A; border-color: rgba(184,144,58,.2); color: var(--gold); }
+body.luxury .pm-dval { color: var(--lux-text); font-family: var(--lux-display); }
+body.luxury .pm-dhint { color: var(--lux-sub); }
+body.luxury .pm-city { background: #1A1A1A; border-color: rgba(184,144,58,.15); }
+body.luxury .pm-city.on { border-color: var(--gold); background: rgba(184,144,58,.07); }
+body.luxury .pm-city-name { color: var(--lux-text); }
+body.luxury .pm-city-sub { color: var(--lux-sub); }
+body.luxury .pm-city-tick { background: var(--gold); color: #0A0A0A; }
+body.luxury .pm-summary { background: rgba(184,144,58,.07); border-color: rgba(184,144,58,.2); }
+body.luxury .pm-sum-title { color: var(--gold2); }
+body.luxury .pm-sum-row span { color: var(--lux-sub); }
+body.luxury .pm-sum-row strong { color: var(--gold2); }
+body.luxury .pm-result { border-color: rgba(184,144,58,.2); }
+body.luxury .pm-rbody { background: #161616; }
+body.luxury .pm-day-main { color: var(--lux-text); }
+body.luxury .pm-day-tip { color: var(--lux-sub); }
+body.luxury .pm-rcta { background: #161616; border-color: rgba(184,144,58,.1); }
+body.luxury .pm-wa-btn { background: #1A1A1A; border-color: rgba(184,144,58,.2); color: var(--lux-sub); }
+body.luxury .pm-back { color: var(--lux-sub); }
+body.luxury .pm-next { background: var(--gold); color: #0A0A0A; font-family: var(--lux-display); letter-spacing: .06em; }
+body.luxury .pm-note { color: var(--lux-sub); }
+
+/* ── Gift cards in luxury mode ── */
+body.luxury .gc-toggle { background: rgba(255,255,255,.02); border-color: rgba(184,144,58,.2); }
+body.luxury .gc-tbtn { color: var(--lux-sub); }
+body.luxury .gc-slider-wrap { }
+body.luxury .gc-range-lbl { color: var(--lux-sub); }
+body.luxury .gc-preset { background: transparent; color: var(--lux-sub); border-color: rgba(184,144,58,.2); }
+body.luxury .gc-preset-lux { background: rgba(184,144,58,.08) !important; color: var(--gold2) !important; border-color: rgba(184,144,58,.25) !important; }
+body.luxury .gc-input { background: rgba(255,255,255,.03); border-color: rgba(184,144,58,.15); color: var(--lux-text); }
+body.luxury .gc-input:focus { border-color: rgba(184,144,58,.4); box-shadow: 0 0 0 3px rgba(184,144,58,.07); }
+body.luxury .gc-tnc { color: var(--lux-soft); background: rgba(184,144,58,.03); border-color: rgba(184,144,58,.1); font-family: var(--lux-display); letter-spacing: .02em; }
+
+/* ── Geo toast in luxury ── */
+body.luxury .geo-toast { background: rgba(184,144,58,.9); color: #0A0A0A; }
+body.luxury .geo-dot { background: #0A0A0A; }
+
+</style>
+</head>
+<body>
+
+<div class="phone">
+
+  <!-- STATUS BAR -->
+  <div class="status">
+    <span class="status-time">9:41</span>
+    <span class="status-addr" id="status-addr">andaluciaexpert.com</span>
+    <span class="status-signal">5G ●●●</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="nav-logo">Andalucia<span>Expert</span></div>
+    <div class="nav-r">
+      <div class="nav-links">
+        <a class="nav-link" onclick="scroll2('tours')">Tours</a>
+        <a class="nav-link" onclick="scroll2('guides')">Guides</a>
+      </div>
+      <button class="nav-book" onclick="openPlan()">Plan trip</button>
+    </div>
+  </nav>
+
+  <!-- MODE TOGGLE BAR -->
+  <div class="mode-bar">
+    <span class="mode-lbl">Experience</span>
+    <div class="mode-toggle">
+      <button class="mbtn on-prv" id="mbtn-p" onclick="setMode('private')">✦ Private</button>
+      <button class="mbtn" id="mbtn-l" onclick="setMode('luxury')">◆ Luxury</button>
+    </div>
+    <div class="mode-tag" id="mode-tag">Expert-led</div>
+  </div>
+
+  <!-- LANG ROW -->
+  <div class="lang-row">
+    <span class="lang-icon">⇄</span>
+    <div class="lang-dd-wrap">
+      <button class="lang-dd-btn" id="lang-dd-btn" onclick="toggleDD()">
+        <span id="lang-flag">🇬🇧</span>
+        <span id="lang-txt">EN</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="lang-dd" id="lang-dd">
+        <div class="lang-dd-item active" onclick="setLang('EN','🇬🇧',this)"><span class="flag">🇬🇧</span>English<span style="margin-left:auto;font-size:8px">✓</span></div>
+        <div class="lang-dd-sep"></div>
+        <div class="lang-dd-item" onclick="setLang('ES','🇪🇸',this)"><span class="flag">🇪🇸</span>Español</div>
+        <div class="lang-dd-item" onclick="setLang('DE','🇩🇪',this)"><span class="flag">🇩🇪</span>Deutsch</div>
+        <div class="lang-dd-item" onclick="setLang('FR','🇫🇷',this)"><span class="flag">🇫🇷</span>Français</div>
+        <div class="lang-dd-item" onclick="setLang('PT','🇧🇷',this)"><span class="flag">🇧🇷</span>Português</div>
+      </div>
+    </div>
+    <div class="geo-detected" id="geo-badge">📍 Detected: UK → EN</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-geo"></div>
+    <div class="hero-gold-line"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span id="hero-badge-txt">Licensed historian · Seville since 2004</span>
+      </div>
+      <h1 id="hero-h1">Seville &amp; Andalucía<br>like you've<br>never seen it</h1>
+      <p class="hero-p" id="hero-p">Private expert-led tours with Carlos — historian, guide, local for 20 years</p>
+      <div class="hero-btns">
+        <button class="btn-explore" onclick="scroll2('tours')" id="hero-btn1">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.3-6.4 2.1 2-6.3z"/></svg>
+          <span id="hero-btn1-txt">Explore tours</span>
+        </button>
+        <button class="btn-chat" onclick="wa()" id="hero-btn2">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.14 1.535 5.874L0 24l6.302-1.513A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.032-1.386l-.361-.214-3.741.981.998-3.648-.235-.374A9.787 9.787 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          <span id="hero-btn2-txt">Chat with Carlos</span>
+        </button>
+      </div>
+      <!-- Amenity chips — shown in both modes, content swaps -->
+      <div class="hero-amenities" id="hero-amenities">
+        <div class="hero-am"><span class="hero-am-ic">🚗</span><div class="hero-am-text"><strong id="am1-title">Private transport</strong><span id="am1-sub">Airport · hotel · sites</span></div></div>
+        <div class="hero-am"><span class="hero-am-ic" id="am2-ic">🏛</span><div class="hero-am-text"><strong id="am2-title">Skip all lines</strong><span id="am2-sub">Pre-booked access</span></div></div>
+        <div class="hero-am"><span class="hero-am-ic" id="am3-ic">👨‍🎓</span><div class="hero-am-text"><strong id="am3-title">Expert guide</strong><span id="am3-sub">Licensed historian</span></div></div>
+        <div class="hero-am"><span class="hero-am-ic" id="am4-ic">⭐</span><div class="hero-am-text"><strong id="am4-title">4.9 Google</strong><span id="am4-sub">312 five-star reviews</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" id="trust-bar">
+    <div class="tpill"><span class="tpill-stars">★★★★★</span><span>Google 4.9</span></div>
+    <div class="tpill"><span>🏛 Official guide</span></div>
+    <div class="tpill"><span>👥 2,400+ guests</span></div>
+    <div class="tpill"><span>🛡 Fully insured</span></div>
+    <div class="tpill"><span>🌍 EN · ES · FR · DE</span></div>
+  </div>
+
+  <!-- TOURS -->
+  <div class="section sec-cream fade" id="tours">
+    <div class="slabel">Signature experiences</div>
+    <div class="stitle">Private tours &amp;<br><em>luxury escapes</em></div>
+    <p class="ssub">No groups. No rushing. Just you, Carlos, and 2,000 years of history.</p>
+    <div class="exp-toggle">
+      <button class="etbtn on" id="btn-p" onclick="setTier('private')">✦ Private</button>
+      <button class="etbtn" id="btn-l" onclick="setTier('luxury')">◆ Luxury</button>
+    </div>
+    <!-- Luxury service strip (hidden in private mode) -->
+    <div class="lux-strip" id="lux-strip">
+      <div class="lux-strip-head">
+        <p>Every luxury experience includes</p>
+        <span>The Four Seasons standard — in Andalucía</span>
+      </div>
+      <div class="lux-services">
+        <div class="lux-svc">
+          <span class="lux-svc-ic">🚙</span>
+          <div>
+            <div class="lux-svc-name">Airport transfer</div>
+            <div class="lux-svc-desc">Mercedes E-Class or V-Class. Meet & greet, name board, flight tracked.</div>
+          </div>
+        </div>
+        <div class="lux-svc">
+          <span class="lux-svc-ic">🕊</span>
+          <div>
+            <div class="lux-svc-name">Before-hours access</div>
+            <div class="lux-svc-desc">Alcazar, Alhambra & Mezquita before public entry. You own the space.</div>
+          </div>
+        </div>
+        <div class="lux-svc">
+          <span class="lux-svc-ic">🥂</span>
+          <div>
+            <div class="lux-svc-name">Curated dining</div>
+            <div class="lux-svc-desc">Reservations at chef's table. Private dining rooms. Carlos-selected menus.</div>
+          </div>
+        </div>
+        <div class="lux-svc">
+          <span class="lux-svc-ic">🏨</span>
+          <div>
+            <div class="lux-svc-name">Hotel concierge</div>
+            <div class="lux-svc-desc">We liaise with Hospes, Mercer, Alfonso XIII. Pre-arrival requests handled.</div>
+          </div>
+        </div>
+        <div class="lux-svc">
+          <span class="lux-svc-ic">🎭</span>
+          <div>
+            <div class="lux-svc-name">Private flamenco</div>
+            <div class="lux-svc-desc">Intimate tablao, not a tourist show. 6 guests max. Post-performance meet.</div>
+          </div>
+        </div>
+        <div class="lux-svc">
+          <span class="lux-svc-ic">🧳</span>
+          <div>
+            <div class="lux-svc-name">Full concierge</div>
+            <div class="lux-svc-desc">24h WhatsApp. Every detail arranged. Nothing left to chance.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tour-list" id="tour-list"></div>
+  </div>
+
+  <!-- PLAN SECTION -->
+  <div class="section sec-green fade">
+    <div class="slabel slabel-w">Your journey</div>
+    <div class="stitle stitle-w">Plan my<br><em>Andalucía trip</em></div>
+    <p class="ssub ssub-w">Tell us what you love — we build your perfect itinerary in minutes.</p>
+    <div class="plan-card">
+      <div class="pw-q">How many days?</div>
+      <div class="pw-days">
+        <div class="pw-dbtn" onclick="hwD(-1)">−</div>
+        <div class="pw-dval" id="hw-d">3</div>
+        <div class="pw-dbtn" onclick="hwD(1)">+</div>
+        <div class="pw-dhint" id="hw-h">Seville + one great day trip</div>
+      </div>
+      <div class="pw-q">Main interests?</div>
+      <div class="pw-pills">
+        <div class="pw-pill" onclick="this.classList.toggle('on')">History</div>
+        <div class="pw-pill" onclick="this.classList.toggle('on')">Architecture</div>
+        <div class="pw-pill" onclick="this.classList.toggle('on')">Food &amp; tapas</div>
+        <div class="pw-pill" onclick="this.classList.toggle('on')">Flamenco</div>
+        <div class="pw-pill" onclick="this.classList.toggle('on')">Hidden gems</div>
+        <div class="pw-pill" onclick="this.classList.toggle('on')">Art</div>
+      </div>
+      <button class="btn-plan" onclick="openPlan()">✦ Build my full itinerary →</button>
+    </div>
+  </div>
+
+  <!-- DESTINATIONS -->
+  <div class="section sec-white fade">
+    <div class="slabel">Explore the region</div>
+    <div class="stitle">All of <em>Andalucía</em></div>
+    <p class="ssub">Every city. Every hidden corner. One trusted expert.</p>
+    <div class="dest-grid">
+      <div class="dcard dcard-wide dcard-sev">
+        <div class="dcard-geo"></div><div class="dcard-grad"></div>
+        <div class="dcard-name">Seville</div>
+        <div class="dcard-sub">Alcazar · Cathedral · Barrio Santa Cruz · Triana</div>
+      </div>
+      <div class="dcard dcard-gra">
+        <div class="dcard-geo"></div><div class="dcard-grad"></div>
+        <div class="dcard-name">Granada</div><div class="dcard-sub">Alhambra · Albaicín</div>
+      </div>
+      <div class="dcard dcard-cor">
+        <div class="dcard-geo"></div><div class="dcard-grad"></div>
+        <div class="dcard-name">Córdoba</div><div class="dcard-sub">Mezquita · Patios</div>
+      </div>
+      <div class="dcard dcard-ron">
+        <div class="dcard-geo"></div><div class="dcard-grad"></div>
+        <div class="dcard-name">Ronda</div><div class="dcard-sub">Gorge · White town · Winery</div>
+      </div>
+      <div class="dcard dcard-light">
+        <div class="dcard-name">+ More</div>
+        <div class="dcard-sub">Cádiz · Jerez · Úbeda · Baeza</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARLOS -->
+  <div class="section sec-dark fade">
+    <div class="slabel slabel-w">Your guide</div>
+    <div class="carlos-row">
+      <div class="carlos-av">C</div>
+      <div>
+        <div class="carlos-name">Carlos</div>
+        <div class="carlos-role">Licensed historian &amp; official guide since 2004</div>
+      </div>
+    </div>
+    <div class="carlos-bio">Art historian, archaeologist, storyteller. The person behind every 5-star review. 20 years uncovering the hidden Andalucía that most visitors never see — the stories, the secret gardens, the layers beneath the layers.</div>
+    <div class="carlos-creds">
+      <div class="ccred">🏛 Junta de Andalucía licence</div>
+      <div class="ccred">🎓 Art history &amp; archaeology</div>
+      <div class="ccred">🌍 EN · ES · FR</div>
+      <div class="ccred">★ 4.9 · 312 reviews</div>
+      <div class="ccred">🚗 Private licensed driver</div>
+      <div class="ccred">📱 24h WhatsApp</div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="section sec-cream fade">
+    <div class="slabel">What guests say</div>
+    <div class="stitle">Every review<br>tells <em>a story</em></div>
+    <div class="rcard">
+      <div class="rcard-quote">"Carlos arranged everything — airport pickup in a beautiful Mercedes, early Alcazar access before anyone arrived, then a dinner reservation I could never have made myself. The definition of effortless luxury."</div>
+      <div class="rcard-foot">
+        <div><div class="rcard-name">Lord &amp; Lady Ashbourne</div><div class="rcard-loc">London, United Kingdom · Luxury escape</div></div>
+        <div class="rcard-badge">★ 5 stars</div>
+      </div>
+    </div>
+    <div class="rcard">
+      <div class="rcard-quote">"Carlos brought the Alcazar to life in a way no guidebook ever could. The stories, the hidden gardens, the moments other tourists simply didn't have. Absolutely unmissable."</div>
+      <div class="rcard-foot">
+        <div><div class="rcard-name">Sarah M.</div><div class="rcard-loc">London, United Kingdom</div></div>
+        <div class="rcard-badge">★ Google · 5 stars</div>
+      </div>
+    </div>
+    <div class="rcard">
+      <div class="rcard-quote">"We arrived by AVE from Madrid, Carlos met us at Santa Justa, drove us to the hotel, and we never had to think again. As a history professor I expected to know most of it — Carlos surprised me on every corner."</div>
+      <div class="rcard-foot">
+        <div><div class="rcard-name">Prof. Michael R.</div><div class="rcard-loc">Edinburgh, Scotland</div></div>
+        <div class="rcard-badge">★ Google · 5 stars</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUIDES -->
+  <div class="section sec-white fade" id="guides">
+    <div class="slabel">Insider knowledge</div>
+    <div class="stitle">Travel guides by<br><em>a real historian</em></div>
+    <div class="gcard">
+      <div class="gcard-img">🗺</div>
+      <div class="gcard-body">
+        <div class="gcard-title">3 days in Seville — the perfect itinerary</div>
+        <div class="gcard-meta">Day by day from a local historian</div>
+        <div class="seo-chip">Targets: "Seville itinerary 3 days"</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-img">🚆</div>
+      <div class="gcard-body">
+        <div class="gcard-title">Best day trips from Seville in 2026</div>
+        <div class="gcard-meta">Granada, Córdoba, Ronda — when and how</div>
+        <div class="seo-chip">Targets: "day trips from Seville"</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-img">🚗</div>
+      <div class="gcard-body">
+        <div class="gcard-title">Airport to Seville — your best options</div>
+        <div class="gcard-meta">SVQ transfers, AVE train, private car comparison</div>
+        <div class="seo-chip">Targets: "Seville airport transfer luxury"</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <div class="gcard-img">🏰</div>
+      <div class="gcard-body">
+        <div class="gcard-title">Alcazar vs Cathedral — which to prioritise</div>
+        <div class="gcard-meta">The question every visitor asks</div>
+        <div class="seo-chip">Targets: "Seville Alcazar or Cathedral first"</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- GIFT CARDS -->
+  <div class="section sec-cream fade" id="gift-cards">
+    <div class="slabel">Give the gift of Andalucia</div>
+    <div class="stitle">Gift<br><em>experiences</em></div>
+    <p class="ssub">The perfect gift for someone who has everything — except this.</p>
+
+    <div class="gc-toggle">
+      <button class="gc-tbtn gc-tbtn-on" id="gc-prv-btn" onclick="gcSetMode('private')">&#10022; Private tours</button>
+      <button class="gc-tbtn" id="gc-lux-btn" onclick="gcSetMode('luxury')">&#9670; Luxury escapes</button>
+    </div>
+
+    <!-- PRIVATE GIFT CARD -->
+    <div id="gc-private-panel">
+      <div class="gc-card gc-card-prv">
+        <div class="gc-card-inner">
+          <div class="gc-card-header">
+            <div class="gc-card-logo">AndaluciaExpert</div>
+            <div class="gc-card-type">&#10022; Private Experience</div>
+          </div>
+          <div class="gc-card-mid">
+            <div class="gc-card-lbl">Gift value</div>
+            <div class="gc-card-amount" id="prv-amount">&#8364;35</div>
+            <div class="gc-card-sub" id="prv-hint">Perfect for: Royal Alcazar private tour</div>
+          </div>
+          <div class="gc-card-footer">
+            <div><div class="gc-card-lbl">For</div><div class="gc-card-name" id="prv-name-display">Your recipient</div></div>
+            <div class="gc-card-code">GC-PRV-••••</div>
+          </div>
+        </div>
+        <div class="gc-shine"></div>
+      </div>
+
+      <div class="gc-slider-wrap">
+        <div class="gc-slider-row">
+          <span class="gc-range-lbl">&#8364;5</span>
+          <input type="range" class="gc-slider gc-slider-prv" id="prv-slider" min="5" max="100" step="5" value="35" oninput="gcUpdatePrv(this.value)">
+          <span class="gc-range-lbl">&#8364;100</span>
+        </div>
+        <div class="gc-presets">
+          <div class="gc-preset" onclick="gcSetPrv(35)">&#8364;35</div>
+          <div class="gc-preset" onclick="gcSetPrv(50)">&#8364;50</div>
+          <div class="gc-preset" onclick="gcSetPrv(75)">&#8364;75</div>
+          <div class="gc-preset" onclick="gcSetPrv(95)">&#8364;95</div>
+        </div>
+      </div>
+
+      <div class="gc-personalise">
+        <input class="gc-input" id="prv-recipient" type="text" placeholder="Recipient name" maxlength="40" oninput="document.getElementById('prv-name-display').textContent=this.value||'Your recipient'">
+        <input class="gc-input" id="prv-message" type="text" placeholder="Personal message (optional)" maxlength="80">
+      </div>
+
+      <button class="gc-buy-btn gc-buy-prv" onclick="gcBuy('private')">
+        &#10022; Buy gift card &middot; <span id="prv-btn-price">&#8364;35</span>
+      </button>
+      <div class="gc-tnc">
+        Direct bookings only &middot; Not redeemable for cash &middot; Cannot be combined with other discounts unless approved &middot; No expiry &middot; Non-refundable once issued except where required by law.
+      </div>
+    </div>
+
+    <!-- LUXURY GIFT CARD -->
+    <div id="gc-luxury-panel" style="display:none">
+
+      <!-- SVG Moorish gift card -->
+      <div class="gc-card gc-card-lux" style="border-radius:16px;overflow:hidden;position:relative;aspect-ratio:1.586/1;margin-bottom:18px;border:1px solid rgba(184,144,58,.35);box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(240,212,138,.2);">
+        <svg viewBox="0 0 390 246" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="cardBg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#130E06"/>
+              <stop offset="30%" stop-color="#1E1508"/>
+              <stop offset="60%" stop-color="#160F05"/>
+              <stop offset="100%" stop-color="#241A0A"/>
+            </linearGradient>
+            <linearGradient id="goldLine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(184,144,58,0)"/>
+              <stop offset="30%" stop-color="rgba(240,212,138,0.7)"/>
+              <stop offset="70%" stop-color="rgba(240,212,138,0.7)"/>
+              <stop offset="100%" stop-color="rgba(184,144,58,0)"/>
+            </linearGradient>
+            <linearGradient id="goldText" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F0D48A"/>
+              <stop offset="50%" stop-color="#B8903A"/>
+              <stop offset="100%" stop-color="#D4AF5A"/>
+            </linearGradient>
+            <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="rgba(240,212,138,0)"/>
+              <stop offset="45%" stop-color="rgba(240,212,138,0.04)"/>
+              <stop offset="50%" stop-color="rgba(240,212,138,0.12)"/>
+              <stop offset="55%" stop-color="rgba(240,212,138,0.04)"/>
+              <stop offset="100%" stop-color="rgba(240,212,138,0)"/>
+            </linearGradient>
+            <!-- Metal brush lines -->
+            <pattern id="brushLines" x="0" y="0" width="6" height="1" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+              <line x1="0" y1="0.5" x2="6" y2="0.5" stroke="rgba(184,144,58,0.025)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+
+          <!-- Base dark gold metal -->
+          <rect width="390" height="246" fill="url(#cardBg)"/>
+          <!-- Brush texture -->
+          <rect width="390" height="246" fill="url(#brushLines)"/>
+          <!-- Shimmer -->
+          <rect width="390" height="246" fill="url(#shimmer)"/>
+
+          <!-- TOP GOLD HAIRLINE -->
+          <line x1="0" y1="1" x2="390" y2="1" stroke="url(#goldLine)" stroke-width="1"/>
+          <!-- BOTTOM GOLD HAIRLINE -->
+          <line x1="0" y1="245" x2="390" y2="245" stroke="url(#goldLine)" stroke-width="1"/>
+
+          <!-- ═══ LEFT MOORISH ARCH PANEL ════════════════════ -->
+          <!-- Outer frame vertical lines -->
+          <line x1="18" y1="14" x2="18" y2="232" stroke="rgba(184,144,58,0.35)" stroke-width="0.5"/>
+          <line x1="28" y1="14" x2="28" y2="232" stroke="rgba(184,144,58,0.15)" stroke-width="0.3"/>
+
+          <!-- Horseshoe arch (Moorish style) - left panel -->
+          <path d="M 23 60 Q 23 30 38 22 Q 53 14 68 22 Q 83 30 83 60 L 83 100 Q 83 108 76 108 L 20 108 Q 13 108 13 100 Z"
+                fill="none" stroke="rgba(184,144,58,0.3)" stroke-width="0.8"/>
+          <!-- Inner arch -->
+          <path d="M 27 62 Q 27 36 40 28 Q 53 20 66 28 Q 79 36 79 62 L 79 100 Q 79 104 75 104 L 21 104 Q 17 104 17 100 Z"
+                fill="none" stroke="rgba(184,144,58,0.18)" stroke-width="0.5"/>
+          <!-- Arch keystone diamond -->
+          <polygon points="53,16 58,22 53,28 48,22" fill="rgba(184,144,58,0.25)" stroke="rgba(240,212,138,0.4)" stroke-width="0.5"/>
+
+          <!-- Star pattern below arch -->
+          <!-- 8-point star geometric (Moorish zellige) -->
+          <g transform="translate(53,135)" opacity="0.22">
+            <polygon points="0,-14 3.7,-3.7 14,0 3.7,3.7 0,14 -3.7,3.7 -14,0 -3.7,-3.7" fill="none" stroke="#D4AF5A" stroke-width="0.7"/>
+            <polygon points="0,-10 2.6,-2.6 10,0 2.6,2.6 0,10 -2.6,2.6 -10,0 -2.6,-2.6" fill="none" stroke="#D4AF5A" stroke-width="0.5"/>
+            <polygon points="0,-14 10,-10 14,0 10,10 0,14 -10,10 -14,0 -10,-10" fill="none" stroke="#D4AF5A" stroke-width="0.4"/>
+            <circle r="2.5" fill="rgba(184,144,58,0.4)"/>
+          </g>
+
+          <!-- Small repeating geometric band left side -->
+          <g opacity="0.18" stroke="#C8A040" stroke-width="0.5" fill="none">
+            <rect x="16" y="155" width="8" height="8" transform="rotate(45,20,159)"/>
+            <rect x="16" y="173" width="8" height="8" transform="rotate(45,20,177)"/>
+            <rect x="16" y="191" width="8" height="8" transform="rotate(45,20,195)"/>
+            <rect x="16" y="209" width="8" height="8" transform="rotate(45,20,213)"/>
+          </g>
+
+          <!-- ═══ RIGHT MOORISH PANEL ════════════════════════ -->
+          <line x1="372" y1="14" x2="372" y2="232" stroke="rgba(184,144,58,0.35)" stroke-width="0.5"/>
+          <line x1="362" y1="14" x2="362" y2="232" stroke="rgba(184,144,58,0.15)" stroke-width="0.3"/>
+
+          <!-- Right arch -->
+          <path d="M 367 60 Q 367 30 352 22 Q 337 14 322 22 Q 307 30 307 60 L 307 100 Q 307 108 314 108 L 370 108 Q 377 108 377 100 Z"
+                fill="none" stroke="rgba(184,144,58,0.3)" stroke-width="0.8"/>
+          <path d="M 363 62 Q 363 36 350 28 Q 337 20 324 28 Q 311 36 311 62 L 311 100 Q 311 104 315 104 L 369 104 Q 373 104 373 100 Z"
+                fill="none" stroke="rgba(184,144,58,0.18)" stroke-width="0.5"/>
+          <polygon points="337,16 342,22 337,28 332,22" fill="rgba(184,144,58,0.25)" stroke="rgba(240,212,138,0.4)" stroke-width="0.5"/>
+
+          <!-- Right star -->
+          <g transform="translate(337,135)" opacity="0.22">
+            <polygon points="0,-14 3.7,-3.7 14,0 3.7,3.7 0,14 -3.7,3.7 -14,0 -3.7,-3.7" fill="none" stroke="#D4AF5A" stroke-width="0.7"/>
+            <polygon points="0,-10 2.6,-2.6 10,0 2.6,2.6 0,10 -2.6,2.6 -10,0 -2.6,-2.6" fill="none" stroke="#D4AF5A" stroke-width="0.5"/>
+            <polygon points="0,-14 10,-10 14,0 10,10 0,14 -10,10 -14,0 -10,-10" fill="none" stroke="#D4AF5A" stroke-width="0.4"/>
+            <circle r="2.5" fill="rgba(184,144,58,0.4)"/>
+          </g>
+
+          <!-- Right side diamonds -->
+          <g opacity="0.18" stroke="#C8A040" stroke-width="0.5" fill="none">
+            <rect x="366" y="155" width="8" height="8" transform="rotate(45,370,159)"/>
+            <rect x="366" y="173" width="8" height="8" transform="rotate(45,370,177)"/>
+            <rect x="366" y="191" width="8" height="8" transform="rotate(45,370,195)"/>
+            <rect x="366" y="209" width="8" height="8" transform="rotate(45,370,213)"/>
+          </g>
+
+          <!-- ═══ TOP CENTRE ORNAMENT ════════════════════════ -->
+          <!-- Central top arch motif -->
+          <path d="M 155 14 Q 195 8 235 14" fill="none" stroke="rgba(184,144,58,0.4)" stroke-width="0.8"/>
+          <!-- Centre diamond cluster -->
+          <g transform="translate(195,14)" opacity="0.5">
+            <polygon points="0,-5 4,0 0,5 -4,0" fill="none" stroke="#D4AF5A" stroke-width="0.8"/>
+            <polygon points="0,-3 2,0 0,3 -2,0" fill="rgba(240,212,138,0.6)"/>
+          </g>
+
+          <!-- ═══ HORIZONTAL DIVIDER BANDS ══════════════════ -->
+          <!-- Top content divider -->
+          <line x1="95" y1="38" x2="295" y2="38" stroke="rgba(184,144,58,0.2)" stroke-width="0.5"/>
+          <!-- Main divider -->
+          <line x1="95" y1="160" x2="295" y2="160" stroke="rgba(184,144,58,0.25)" stroke-width="0.5"/>
+
+          <!-- Small ornament on divider -->
+          <g transform="translate(195,160)" opacity="0.45">
+            <line x1="-30" y1="0" x2="-8" y2="0" stroke="#C8A040" stroke-width="0.5"/>
+            <polygon points="0,-4 4,0 0,4 -4,0" fill="none" stroke="#D4AF5A" stroke-width="0.8"/>
+            <line x1="8" y1="0" x2="30" y2="0" stroke="#C8A040" stroke-width="0.5"/>
+          </g>
+
+          <!-- ═══ COMPANY NAME ════════════════════════════════ -->
+          <text x="195" y="32" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                font-size="10" letter-spacing="4" fill="rgba(184,144,58,0.55)"
+                font-weight="400" font-style="italic">ANDALUCÍA EXPERT</text>
+
+          <!-- ═══ LUXURY COLLECTION LABEL ═══════════════════ -->
+          <text x="195" y="56" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                font-size="6.5" letter-spacing="5" fill="rgba(184,144,58,0.38)"
+                font-weight="400">LUXURY COLLECTION</text>
+
+          <!-- ═══ CENTRE GIFT VALUE (dynamic via foreignObject) ══ -->
+          <!-- Gift value label -->
+          <text x="195" y="100" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                font-size="7" letter-spacing="4" fill="rgba(184,144,58,0.45)"
+                font-weight="400">GIFT VALUE</text>
+
+          <!-- Amount — rendered via foreignObject for dynamic JS update -->
+          <foreignObject x="95" y="105" width="200" height="60">
+            <div xmlns="http://www.w3.org/1999/xhtml" id="lux-amount"
+                 style="text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:46px;font-weight:400;font-style:italic;background:linear-gradient(135deg,#F0D48A,#B8903A,#D4AF5A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;padding-top:4px;">
+              €500
+            </div>
+          </foreignObject>
+
+          <!-- Hint text -->
+          <foreignObject x="95" y="148" width="200" height="20">
+            <div xmlns="http://www.w3.org/1999/xhtml" id="lux-hint"
+                 style="text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:8px;font-style:italic;color:rgba(184,144,58,0.55);white-space:nowrap;overflow:hidden;">
+              Perfect for: Exclusive Alcazar dawn experience
+            </div>
+          </foreignObject>
+
+          <!-- ═══ BOTTOM ROW ═════════════════════════════════ -->
+          <!-- For label + name -->
+          <text x="103" y="180" font-family="Playfair Display, Georgia, serif"
+                font-size="6" letter-spacing="3" fill="rgba(184,144,58,0.35)">FOR</text>
+          <foreignObject x="98" y="182" width="160" height="18">
+            <div xmlns="http://www.w3.org/1999/xhtml" id="lux-name-display"
+                 style="font-family:'Playfair Display',Georgia,serif;font-size:11px;font-style:italic;color:rgba(240,212,138,0.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+              Your recipient
+            </div>
+          </foreignObject>
+
+          <!-- Code -->
+          <text x="287" y="196" text-anchor="end" font-family="'Courier New', monospace"
+                font-size="7.5" letter-spacing="2" fill="rgba(184,144,58,0.3)">GC-LUX-••••</text>
+
+          <!-- ═══ BOTTOM CENTRE ORNAMENT ════════════════════ -->
+          <g transform="translate(195,222)" opacity="0.35">
+            <line x1="-40" y1="0" x2="-12" y2="0" stroke="#C8A040" stroke-width="0.4"/>
+            <polygon points="0,-5 5,0 0,5 -5,0" fill="none" stroke="#D4AF5A" stroke-width="0.7"/>
+            <polygon points="0,-3 3,0 0,3 -3,0" fill="rgba(184,144,58,0.5)"/>
+            <line x1="12" y1="0" x2="40" y2="0" stroke="#C8A040" stroke-width="0.4"/>
+          </g>
+
+          <!-- ═══ CORNER ORNAMENTS ═══════════════════════════ -->
+          <!-- TL -->
+          <g transform="translate(14,14)" opacity="0.35" stroke="#C8A040" stroke-width="0.5" fill="none">
+            <line x1="0" y1="0" x2="12" y2="0"/><line x1="0" y1="0" x2="0" y2="12"/>
+            <circle cx="0" cy="0" r="2.5"/>
+          </g>
+          <!-- TR -->
+          <g transform="translate(376,14)" opacity="0.35" stroke="#C8A040" stroke-width="0.5" fill="none">
+            <line x1="0" y1="0" x2="-12" y2="0"/><line x1="0" y1="0" x2="0" y2="12"/>
+            <circle cx="0" cy="0" r="2.5"/>
+          </g>
+          <!-- BL -->
+          <g transform="translate(14,232)" opacity="0.35" stroke="#C8A040" stroke-width="0.5" fill="none">
+            <line x1="0" y1="0" x2="12" y2="0"/><line x1="0" y1="0" x2="0" y2="-12"/>
+            <circle cx="0" cy="0" r="2.5"/>
+          </g>
+          <!-- BR -->
+          <g transform="translate(376,232)" opacity="0.35" stroke="#C8A040" stroke-width="0.5" fill="none">
+            <line x1="0" y1="0" x2="-12" y2="0"/><line x1="0" y1="0" x2="0" y2="-12"/>
+            <circle cx="0" cy="0" r="2.5"/>
+          </g>
+
+          <!-- Final shine sweep overlay -->
+          <rect width="390" height="246" fill="url(#shimmer)" opacity="0.6"/>
+        </svg>
+
+        <!-- Animated shimmer overlay -->
+        <div class="gc-shine gc-shine-lux"></div>
+        <div class="gc-glow"></div>
+      </div>
+
+      <div class="gc-slider-wrap">
+        <div class="gc-slider-row">
+          <span class="gc-range-lbl">&#8364;100</span>
+          <input type="range" class="gc-slider gc-slider-lux" id="lux-slider" min="100" max="4000" step="100" value="500" oninput="gcUpdateLux(this.value)">
+          <span class="gc-range-lbl">&#8364;4,000</span>
+        </div>
+        <div class="gc-presets">
+          <div class="gc-preset gc-preset-lux" onclick="gcSetLux(250)">&#8364;250</div>
+          <div class="gc-preset gc-preset-lux" onclick="gcSetLux(500)">&#8364;500</div>
+          <div class="gc-preset gc-preset-lux" onclick="gcSetLux(1000)">&#8364;1,000</div>
+          <div class="gc-preset gc-preset-lux" onclick="gcSetLux(2000)">&#8364;2,000</div>
+        </div>
+      </div>
+
+      <div class="gc-personalise gc-personalise-lux">
+        <input class="gc-input gc-input-lux" id="lux-recipient" type="text" placeholder="Recipient name" maxlength="40" oninput="document.getElementById('lux-name-display').textContent=this.value||'Your recipient'">
+        <input class="gc-input gc-input-lux" id="lux-message" type="text" placeholder="Personal message (optional)" maxlength="80">
+      </div>
+
+      <button class="gc-buy-btn gc-buy-lux" onclick="gcBuy('luxury')">
+        &#9670; Gift a luxury escape &middot; <span id="lux-btn-price">&#8364;500</span>
+      </button>
+      <div class="gc-tnc gc-tnc-lux">
+        Direct bookings only &middot; Not redeemable for cash &middot; Cannot be combined with other discounts unless approved &middot; No expiry &middot; Non-refundable once issued except where required by law.
+      </div>
+    </div>
+  </div>
+
+  <!-- WA STRIP -->
+  <div class="wa-strip">
+    <div>
+      <h3 id="wa-h">Have a question?</h3>
+      <p id="wa-p">Carlos replies personally — within 2 hours</p>
+    </div>
+    <button class="btn-wa-s" onclick="wa()">
+      <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.14 1.535 5.874L0 24l6.302-1.513A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.032-1.386l-.361-.214-3.741.981.998-3.648-.235-.374A9.787 9.787 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      <span id="wa-btn-txt">Chat now</span>
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-gold-line"></div>
+    <div class="footer-brand">Seville Tours Co · <span>Andalucía Expert</span></div>
+    <div class="footer-addr">Seville, Andalucía, Spain<br>Licensed official guide · Junta de Andalucía · Since 2004</div>
+    <div class="footer-links">
+      <a href="#">Tours</a><a href="#">Destinations</a>
+      <a href="#">Travel guides</a><a href="#">About Carlos</a>
+      <a href="#">Privacy</a><a href="#">Sitemap</a>
+    </div>
+    <div class="footer-copy">© 2026 Seville Tours Co · Andalucía Expert. All rights reserved.</div>
+  </div>
+
+  <!-- STICKY BAR -->
+  <div class="sticky" id="sticky">
+    <div class="sticky-txt">
+      <p id="sticky-p">Ready to explore Seville?</p>
+      <span id="sticky-s">Private tours from €35 · Available today</span>
+    </div>
+    <div class="sticky-btns">
+      <button class="swa" onclick="wa()">
+        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.14 1.535 5.874L0 24l6.302-1.513A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.032-1.386l-.361-.214-3.741.981.998-3.648-.235-.374A9.787 9.787 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      </button>
+      <button class="sbook" id="sticky-book" onclick="openBook('Royal Alcazar Private Tour',39)">Book now</button>
+    </div>
+  </div>
+
+</div><!-- /phone -->
+
+<!-- BOOKING MODAL -->
+<div class="overlay" id="book-ov" onclick="if(event.target===this)closeBook()">
+  <div class="sheet">
+    <div class="sh-handle"></div>
+    <div class="sh-head">
+      <div class="sh-title" id="book-title">Book your tour</div>
+      <button class="sh-close" onclick="closeBook()">✕</button>
+    </div>
+    <div class="secure">
+      <span style="font-size:16px">🔒</span>
+      <div><p>Secure booking · Powered by FareHarbour</p><span>Payment protected · Free cancellation 48h</span></div>
+    </div>
+    <div class="cal-month">June 2026</div>
+    <div class="cal-dlbls" id="cal-lbls"></div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div class="guests-row">
+      <div class="g-block">
+        <div class="g-lbl">Adults</div>
+        <div class="g-ctrl">
+          <div class="g-btn" onclick="chG(-1)">−</div>
+          <div class="g-val" id="g-num">2</div>
+          <div class="g-btn" onclick="chG(1)">+</div>
+        </div>
+      </div>
+      <div class="g-block">
+        <div class="total-lbl">Total</div>
+        <div class="total-val" id="g-total">€78</div>
+      </div>
+    </div>
+    <button class="btn-confirm" onclick="confirmBook()">✦ Confirm booking</button>
+    <div class="book-note">No payment taken yet · You'll review on next step</div>
+  </div>
+</div>
+
+<!-- PLAN MODAL -->
+<div class="pm-ov" id="pm-ov" onclick="if(event.target===this)closePlan()">
+  <div class="pm-sh">
+    <div class="sh-handle"></div>
+    <div class="pm-prog"><div class="pm-fill" id="pm-fill" style="width:16%"></div></div>
+    <div id="pm-body"></div>
+    <div class="pm-nav">
+      <button class="pm-back" id="pm-back" onclick="pmBack()">← Back</button>
+      <button class="pm-next" id="pm-next" onclick="pmNext()">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- GEO TOAST -->
+<div class="geo-toast" id="geo-toast" style="display:none">
+  <div class="geo-dot"></div>
+  <span id="geo-toast-txt">UK detected → showing English</span>
+</div>
+
+<script>
+// ─── STATE ─────────────────────────────────────────
+var mode='private';   // global site mode: 'private' | 'luxury'
+var tier='private';   // tour tab: 'private' | 'luxury'
+var gNum=2, bPrice=39, selDate=null;
+var hwDays=3;
+
+// ─── TOUR DATA ──────────────────────────────────────
+var TP={
+  private:[
+    {
+      t:'Royal Alcazar private tour',
+      d:'Discover the UNESCO palace with Carlos — Mudejar halls, secret gardens, and stories most visitors never hear. No group, no rush, just you and 900 years of history.',
+      dur:'2.5 hrs',p:39,badge:'Most popular',
+      tags:['Private','Skip line','History']
+    },
+    {
+      t:'Cathedral & Giralda expert tour',
+      d:"Seville\u2019s immense Gothic cathedral holds Columbus\u2019s tomb. Carlos unlocks every secret layer of thousand-year history \u2014 the mosque beneath, the Renaissance additions, the view from above.",
+      dur:'2 hrs',p:35,badge:'',
+      tags:['Private','Architecture','Views']
+    },
+    {
+      t:'Full Seville private day',
+      d:'Roman walls to flamenco quarter — a complete immersion in Seville with a licensed historian as your companion all day. Airport or hotel pickup included.',
+      dur:'Full day',p:95,badge:'Best value',
+      tags:['Private','Full day','All highlights','Pickup']
+    }
+  ],
+  luxury:[
+    {
+      t:'Exclusive Alcazar — before opening',
+      d:'Private early access before the public arrives. You, Carlos, and the palace in complete silence. Chilled cava on arrival. Mercedes transfer from your hotel included.',
+      dur:'3 hrs',p:0,badge:'Exclusive access',
+      tags:['Luxury','Before opening','Mercedes','Champagne']
+    },
+    {
+      t:'Bespoke Andalucía escape',
+      d:'Two days, two cities, one historian. Private driver throughout, skip-all-lines everywhere, curated restaurant reservations, and 48h of Carlos\u2019s undivided expertise.',
+      dur:'2 days',p:0,badge:'Signature',
+      tags:['Luxury','2 days','Private driver','Curated dining']
+    },
+    {
+      t:'Private flamenco & history evening',
+      d:'Intimate flamenco in a private tablao — 6 guests maximum, not a tourist show. Post-performance meet with the artists. Tapas dinner in hidden bars of Santa Cruz.',
+      dur:'Evening',p:0,badge:'',
+      tags:['Luxury','Flamenco','Private dining','Santa Cruz']
+    }
+  ]
+};
+
+// ─── MODE SWITCH ────────────────────────────────────
+function setMode(m){
+  mode=m;
+  var isL=m==='luxury';
+  document.body.classList.toggle('luxury',isL);
+
+  // Toggle buttons
+  document.getElementById('mbtn-p').className='mbtn'+(m==='private'?' on-prv':'');
+  document.getElementById('mbtn-l').className='mbtn'+(m==='luxury'?' on-lux':'');
+  document.getElementById('mode-tag').textContent=isL?'◆ White-glove':'✦ Expert-led';
+
+  // Hero content swap
+  document.getElementById('hero-h1').innerHTML=isL?
+    'Andalucía,<br><em>without</em><br>compromise' :
+    'Seville &amp; Andalucía<br>like you\'ve<br>never seen it';
+  document.getElementById('hero-p').textContent=isL?
+    'Bespoke private escapes. Before-hours access. Mercedes transfers. Curated dining. Nothing left to chance.' :
+    'Private expert-led tours with Carlos — historian, guide, local for 20 years.';
+  document.getElementById('hero-badge-txt').textContent=isL?
+    'White-glove · Inquiry only · WhatsApp' :
+    'Licensed historian · Seville since 2004';
+  document.getElementById('hero-btn1-txt').textContent=isL?'View experiences':'Explore tours';
+  document.getElementById('hero-btn2-txt').textContent=isL?'Request proposal':'Chat with Carlos';
+
+  // Luxury amenity chips
+  if(isL){
+    document.getElementById('am1-title').textContent='Mercedes transfer';
+    document.getElementById('am1-sub').textContent='Airport, hotel & SVQ/AVE';
+    document.getElementById('am2-ic').textContent='🕊';
+    document.getElementById('am2-title').textContent='Before-hours access';
+    document.getElementById('am2-sub').textContent='Alcazar, Alhambra, Mezquita';
+    document.getElementById('am3-ic').textContent='🍽';
+    document.getElementById('am3-title').textContent='Chef\'s table dining';
+    document.getElementById('am3-sub').textContent='Carlos-curated reservations';
+    document.getElementById('am4-ic').textContent='🤫';
+    document.getElementById('am4-title').textContent='Inquiry only';
+    document.getElementById('am4-sub').textContent='No prices. WhatsApp first.';
+  } else {
+    document.getElementById('am1-title').textContent='Private transport';
+    document.getElementById('am1-sub').textContent='Airport · hotel · sites';
+    document.getElementById('am2-ic').textContent='🏛';
+    document.getElementById('am2-title').textContent='Skip all lines';
+    document.getElementById('am2-sub').textContent='Pre-booked access';
+    document.getElementById('am3-ic').textContent='👨‍🎓';
+    document.getElementById('am3-title').textContent='Expert guide';
+    document.getElementById('am3-sub').textContent='Licensed historian';
+    document.getElementById('am4-ic').textContent='⭐';
+    document.getElementById('am4-title').textContent='4.9 Google';
+    document.getElementById('am4-sub').textContent='312 five-star reviews';
+  }
+
+  // Sticky bar
+  document.getElementById('sticky-p').textContent=isL?'Your bespoke Andalucía awaits':'Ready to explore Seville?';
+  document.getElementById('sticky-s').textContent=isL?'Inquiry only · WhatsApp Carlos':'Private tours from €35 · Available today';
+  document.getElementById('sticky-book').textContent=isL?'◆ Enquire':'Book now';
+
+  // WA strip
+  document.getElementById('wa-h').textContent=isL?'Request a bespoke proposal':'Have a question?';
+  document.getElementById('wa-p').textContent=isL?'Carlos responds within 30 minutes — 7 days':'Carlos replies personally — within 2 hours';
+  document.getElementById('wa-btn-txt').textContent=isL?'Request proposal':'Chat now';
+
+  // Auto-switch tour tab to match mode
+  if(isL){setTier('luxury');}
+  else{setTier('private');}
+}
+
+// ─── TIER (tour tab) ────────────────────────────────
+function setTier(t){
+  tier=t;
+  var isL=t==='luxury';
+  document.getElementById('btn-p').className='etbtn'+(t==='private'?' on':'');
+  document.getElementById('btn-l').className='etbtn'+(t==='luxury'?' on-lux':'');
+  document.getElementById('lux-strip').style.display=isL?'block':'none';
+  renderTours();
+}
+
+// ─── TOUR RENDER ────────────────────────────────────
+function renderTours(){
+  var tours=TP[tier];
+  var isL=tier==='luxury';
+  var globalLux=mode==='luxury';
+  var h='';
+  tours.forEach(function(t){
+    var tags='';
+    t.tags.forEach(function(tg){tags+='<div class="tcard-tag">'+tg+'</div>';});
+    h+='<div class="tcard">';
+    h+='<div class="tcard-img">';
+    h+='<div class="tcard-geo"></div><div class="tcard-grad"></div>';
+    if(t.badge)h+='<div class="tcard-badge">'+t.badge+'</div>';
+    h+='<div class="tcard-dur">⏱ '+t.dur+'</div>';
+    h+='<div class="tcard-title">'+t.t+'</div>';
+    h+='</div><div class="tcard-body">';
+    h+='<div class="tcard-desc">'+t.d+'</div>';
+    h+='<div class="tcard-tags">'+tags+'</div>';
+    h+='<div class="tcard-foot">';
+    if(isL){
+      h+='<div>';
+      h+='<div class="tcard-stars">★★★★★ 4.9 · White-glove</div>';
+      h+='<div class="lux-inquiry">Inquiry only</div>';
+      h+='<div class="lux-inquiry-sub">No price listed · WhatsApp for proposal</div>';
+      h+='</div>';
+      h+='<button class="btn-book btn-book-lux" onclick="wa()">◆ Request</button>';
+    } else {
+      var rev=80+Math.floor(Math.random()*200);
+      h+='<div>';
+      h+='<div class="tcard-stars">★★★★★ 4.9 · '+rev+' reviews</div>';
+      h+='<div class="tcard-price"><sup>€</sup>'+t.p+'<sub> /pp</sub></div>';
+      h+='</div>';
+      h+='<button class="btn-book" onclick="openBook(\''+t.t.replace(/'/g,"\\'")+'\','+t.p+')">✦ Book</button>';
+    }
+    h+='</div></div></div>';
+  });
+  document.getElementById('tour-list').innerHTML=h;
+}
+
+// ─── GEO ────────────────────────────────────────────
+function simulateGeo(){
+  var toast=document.getElementById('geo-toast');
+  document.getElementById('geo-toast-txt').textContent='UK detected → showing English';
+  toast.style.display='flex';
+  setTimeout(function(){toast.style.display='none';},3600);
+  document.getElementById('geo-badge').textContent='📍 Detected: UK → EN';
+}
+
+// ─── LANG DROPDOWN ──────────────────────────────────
+function toggleDD(){
+  var btn=document.getElementById('lang-dd-btn');
+  var dd=document.getElementById('lang-dd');
+  btn.classList.toggle('open');
+  dd.classList.toggle('open');
+}
+function setLang(code,flag,el){
+  document.getElementById('lang-flag').textContent=flag;
+  document.getElementById('lang-txt').textContent=code;
+  document.querySelectorAll('.lang-dd-item').forEach(function(i){
+    i.classList.remove('active');
+    var s=i.querySelector('span[style]');
+    if(s)s.remove();
+  });
+  el.classList.add('active');
+  var chk=document.createElement('span');
+  chk.style.cssText='margin-left:auto;font-size:8px';
+  chk.textContent='✓';
+  el.appendChild(chk);
+  toggleDD();
+  document.getElementById('geo-badge').textContent='🌐 Language: '+code;
+}
+document.addEventListener('click',function(e){
+  var wrap=document.querySelector('.lang-dd-wrap');
+  if(wrap&&!wrap.contains(e.target)){
+    document.getElementById('lang-dd-btn').classList.remove('open');
+    document.getElementById('lang-dd').classList.remove('open');
+  }
+});
+
+// ─── BOOKING MODAL ───────────────────────────────────
+function openBook(title,price){
+  bPrice=price||39;gNum=2;selDate=null;
+  document.getElementById('book-title').textContent=title;
+  updTotal();buildCal();
+  document.getElementById('book-ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeBook(){document.getElementById('book-ov').classList.remove('open');document.body.style.overflow='';}
+function chG(d){gNum=Math.max(1,Math.min(12,gNum+d));document.getElementById('g-num').textContent=gNum;updTotal();}
+function updTotal(){document.getElementById('g-total').textContent='€'+(bPrice*gNum);}
+function buildCal(){
+  var dlbls=['M','T','W','T','F','S','S'];
+  var lh='';dlbls.forEach(function(d){lh+='<div class="cal-dlbl">'+d+'</div>';});
+  document.getElementById('cal-lbls').innerHTML=lh;
+  var av=[3,4,6,9,10,11,13,16,17,18,20,23,24,25,27];
+  var h='<div></div>';
+  for(var d=1;d<=30;d++){
+    var cls='cal-c';
+    if(av.indexOf(d)>=0)cls+=' av';
+    else if(d<3)cls+=' past';
+    if(d===selDate)cls='cal-c sel';
+    h+='<div class="'+cls+'" data-d="'+d+'" onclick="selD('+d+')">'+d+'</div>';
+  }
+  document.getElementById('cal-grid').innerHTML=h;
+}
+function selD(d){
+  selDate=d;
+  document.querySelectorAll('.cal-c').forEach(function(c){
+    var cd=parseInt(c.getAttribute('data-d'));
+    c.className='cal-c';
+    var av=[3,4,6,9,10,11,13,16,17,18,20,23,24,25,27];
+    if(cd===d)c.className='cal-c sel';
+    else if(av.indexOf(cd)>=0)c.className='cal-c av';
+    else if(cd<3)c.className='cal-c past';
+  });
+}
+function confirmBook(){
+  var btn=event.currentTarget;
+  btn.textContent='✓ Proceeding to secure checkout…';
+  setTimeout(function(){closeBook();btn.textContent='✦ Confirm booking';},2000);
+}
+
+// ─── WA ──────────────────────────────────────────────
+function wa(){
+  var msg=mode==='luxury'?
+    'Opens WhatsApp with Carlos\nwa.me/34600000000\n\nLuxury proposal request':
+    'Opens WhatsApp with Carlos\nwa.me/34600000000';
+  alert(msg);
+}
+
+// ─── PLAN MODAL ──────────────────────────────────────
+var PM={step:0,tier:'',days:3,cities:[],interests:[],group:''};
+var PM_TOTAL=6;
+var CITIES=[
+  {id:'seville',n:'Seville',s:'Alcazar · Cathedral · Barrio'},
+  {id:'granada',n:'Granada',s:'Alhambra · Albaicín'},
+  {id:'cordoba',n:'Córdoba',s:'Mezquita · Patios'},
+  {id:'ronda',n:'Ronda',s:'Gorge · White town'},
+  {id:'cadiz',n:'Cádiz',s:'Beaches · Old city'},
+  {id:'jerez',n:'Jerez',s:'Flamenco · Sherry'}
+];
+var INTS=['History','Architecture','Food & tapas','Flamenco','Art','Hidden gems','Wine','Photography'];
+var GROUPS=['Solo','Couple','Family','Small group','Corporate'];
+var DHNTS=['Seville highlights','Seville + one day trip','Seville + one day trip','Seville + Granada or Córdoba','Seville + Granada or Córdoba','Full Andalucía circuit','Full Andalucía circuit','Deep immersion'];
+
+function openPlan(){
+  PM={step:0,tier:mode==='luxury'?'luxury':'',days:3,cities:[],interests:[],group:''};
+  document.getElementById('pm-ov').classList.add('open');
+  document.body.style.overflow='hidden';
+  renderPM();
+}
+function closePlan(){document.getElementById('pm-ov').classList.remove('open');document.body.style.overflow='';}
+
+function renderPM(){
+  document.getElementById('pm-fill').style.width=Math.round((PM.step+1)/PM_TOTAL*100)+'%';
+  var isLux=mode==='luxury';
+  document.getElementById('pm-back').style.visibility=PM.step===0?'hidden':'visible';
+  document.getElementById('pm-next').textContent=PM.step===PM_TOTAL-1?'Start over →':'Continue →';
+  document.getElementById('pm-next').disabled=!pmCan();
+  var LBLS=['Experience','Duration','Cities','Interests','Group','Itinerary'];
+  var h='<div class="pm-slbl">Step '+(PM.step+1)+' of '+PM_TOTAL+' · '+LBLS[PM.step]+'</div>';
+
+  if(PM.step===0){
+    h+='<div class="pm-q">What kind of experience?</div>';
+    h+='<div class="pm-tier-row">';
+    h+='<div class="pm-tier'+(PM.tier==='private'?' on':'')+'" onclick="pmTier(\'private\')">';
+    h+='<div class="pm-tier-ic">✦</div><div class="pm-tier-name">Private tours</div><div class="pm-tier-desc">Authentic · personal · priced</div></div>';
+    h+='<div class="pm-tier'+(PM.tier==='luxury'?' on-lux':'')+'" onclick="pmTier(\'luxury\')">';
+    h+='<div class="pm-tier-ic">◆</div><div class="pm-tier-name">Luxury</div><div class="pm-tier-desc">Bespoke · inquiry only</div></div>';
+    h+='</div>';
+    if(PM.tier==='luxury')h+='<div style="background:var(--gold-dim);border-radius:8px;padding:9px 10px;font-size:9px;color:var(--gold2);line-height:1.6;border:.5px solid rgba(184,144,58,.2)">◆ Includes Mercedes airport transfer, before-hours access, curated dining & dedicated concierge. We send a bespoke proposal via WhatsApp — no price list, every experience custom-built.</div>';
+  }
+
+  if(PM.step===1){
+    h+='<div class="pm-q">How many days?</div>';
+    h+='<div class="pm-days-row"><div class="pm-dbtn" onclick="pmD(-1)">−</div>';
+    h+='<div class="pm-dval">'+PM.days+'</div>';
+    h+='<div class="pm-dbtn" onclick="pmD(1)">+</div>';
+    h+='<div class="pm-dhint">'+PM.days+(PM.days===1?' day':' days')+'<br>'+DHNTS[Math.min(PM.days-1,DHNTS.length-1)]+'</div></div>';
+    h+='<div class="pm-pills">';
+    [{l:'1 day',v:1},{l:'Weekend',v:2},{l:'3–4 days',v:3},{l:'5–7 days',v:5},{l:'10+ days',v:10}].forEach(function(p){h+='<div class="pm-pill'+(PM.days===p.v?' on':'')+'" onclick="pmSetD('+p.v+')">'+p.l+'</div>';});
+    h+='</div>';
+  }
+
+  if(PM.step===2){
+    h+='<div class="pm-q">Which cities?</div>';
+    h+='<div class="pm-hint">Select all that interest you</div>';
+    h+='<div class="pm-city-grid">';
+    CITIES.forEach(function(c){var sel=PM.cities.indexOf(c.id)>=0;h+='<div class="pm-city'+(sel?' on':'')+'" onclick="pmCity(\''+c.id+'\')"><div class="pm-city-name">'+c.n+'</div><div class="pm-city-sub">'+c.s+'</div><div class="pm-city-tick">✓</div></div>';});
+    h+='</div>';
+    if(PM.cities.length>0)h+='<div style="font-size:9px;margin-top:4px">'+(PM.cities.length===1?'Perfect deep dive · Carlos will show you layers most miss':PM.cities.length===2?'Ideal circuit · we optimise the route':PM.cities.length+'  cities · we plan the perfect sequence')+'</div>';
+  }
+
+  if(PM.step===3){
+    h+='<div class="pm-q">What matters most?</div>';
+    h+='<div class="pm-pills">';
+    INTS.forEach(function(i){h+='<div class="pm-pill'+(PM.interests.indexOf(i)>=0?' on':'')+'" onclick="pmInt(\''+i.replace(/'/g,"\\'")+'\')">'+i+'</div>';});
+    h+='</div>';
+  }
+
+  if(PM.step===4){
+    h+='<div class="pm-q">Who is travelling?</div>';
+    h+='<div class="pm-pills">';
+    GROUPS.forEach(function(g){h+='<div class="pm-pill'+(PM.group===g?' on':'')+'" onclick="pmGroup(\''+g+'\')">'+g+'</div>';});
+    h+='</div>';
+    h+='<div class="pm-summary"><div class="pm-sum-title">Your choices so far</div>';
+    var cn=PM.cities.map(function(c){return c.charAt(0).toUpperCase()+c.slice(1);});
+    h+='<div class="pm-sum-row"><span>Experience</span><strong>'+(PM.tier||'—')+'</strong></div>';
+    h+='<div class="pm-sum-row"><span>Days</span><strong>'+PM.days+' days</strong></div>';
+    h+='<div class="pm-sum-row"><span>Cities</span><strong>'+(cn.join(', ')||'—')+'</strong></div>';
+    h+='<div class="pm-sum-row"><span>Interests</span><strong>'+(PM.interests.slice(0,2).join(', ')||'—')+(PM.interests.length>2?' +'+(PM.interests.length-2):'')+'</strong></div>';
+    h+='</div>';
+  }
+
+  if(PM.step===5){
+    var it=pmBuild();
+    var isL=PM.tier==='luxury';
+    var hbg=isL?'linear-gradient(135deg,var(--lux-bg),#1A1208)':'var(--g2)';
+    h+='<div class="pm-result"><div class="pm-rhead" style="background:'+hbg+(isL?';border-bottom:1px solid var(--lux-border)':'')+'"><h4>'+it.title+'</h4><p>'+it.sub+'</p></div>';
+    h+='<div class="pm-rbody">';
+    it.days.forEach(function(d,i){
+      var nbg=isL?'var(--gold)':'var(--g2)';
+      h+='<div class="pm-day"><div class="pm-day-num" style="background:'+nbg+'">'+(i+1)+'</div><div><div class="pm-day-main">'+d.m+'</div><div class="pm-day-tip">'+d.t+'</div></div></div>';
+    });
+    h+='</div><div class="pm-rcta">';
+    if(isL){
+      h+='<button class="pm-book-btn" style="background:var(--gold)" onclick="wa()">◆ Request bespoke proposal</button>';
+    } else {
+      h+='<button class="pm-book-btn" style="background:var(--g2)" onclick="closePlan();openBook(\'Your Andalucía Tour\',39)">✦ Book first tour</button>';
+    }
+    h+='<button class="pm-wa-btn" onclick="wa()"><svg width="11" height="11" fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.14 1.535 5.874L0 24l6.302-1.513A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.032-1.386l-.361-.214-3.741.981.998-3.648-.235-.374A9.787 9.787 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg> Carlos</button>';
+    h+='</div></div>';
+    h+='<div class="pm-note">'+( isL?'Carlos builds every luxury proposal personally. You\'ll receive a full detailed proposal via WhatsApp within 2 hours.':'Carlos personalises every detail — tap Carlos to chat directly.')+'</div>';
+  }
+
+  document.getElementById('pm-body').innerHTML=h;
+}
+
+function pmCan(){if(PM.step===0)return PM.tier!=='';if(PM.step===2)return PM.cities.length>0;return true;}
+function pmTier(t){PM.tier=t;renderPM();}
+function pmD(d){PM.days=Math.max(1,Math.min(14,PM.days+d));renderPM();}
+function pmSetD(v){PM.days=v;renderPM();}
+function pmCity(id){var i=PM.cities.indexOf(id);if(i>=0)PM.cities.splice(i,1);else PM.cities.push(id);renderPM();}
+function pmInt(v){var i=PM.interests.indexOf(v);if(i>=0)PM.interests.splice(i,1);else PM.interests.push(v);renderPM();}
+function pmGroup(v){PM.group=v;renderPM();}
+function pmNext(){if(PM.step===PM_TOTAL-1){PM={step:0,tier:'',days:3,cities:[],interests:[],group:''};}else{PM.step++;}renderPM();}
+function pmBack(){if(PM.step>0){PM.step--;renderPM();}}
+
+function pmBuild(){
+  var hasSev=PM.cities.indexOf('seville')>=0||PM.cities.length===0;
+  var hasGra=PM.cities.indexOf('granada')>=0;
+  var hasCor=PM.cities.indexOf('cordoba')>=0;
+  var hasRon=PM.cities.indexOf('ronda')>=0;
+  var hasCad=PM.cities.indexOf('cadiz')>=0;
+  var isL=PM.tier==='luxury';
+  var days=[];
+  if(hasSev)days.push({
+    m:isL?'Royal Alcazar — private early access before opening. Cathedral at golden hour. Champagne breakfast in the gardens.':'Royal Alcazar private tour. Cathedral & Giralda at sunset.',
+    t:isL?'Mercedes pickup from your hotel. Carlos is your personal host all day.':'Carlos reveals gardens tourists never find'
+  });
+  if(PM.days>1&&hasSev)days.push({
+    m:isL?'Barrio Santa Cruz — private dawn walk before tourists arrive. Metropol Parasol at sunrise. Private flamenco, intimate tablao.':'Barrio Santa Cruz morning · Metropol Parasol · local tapas crawl',
+    t:isL?'Private rooftop dinner in Triana, table reserved under your name':'The tapas bars only Sevillanos know'
+  });
+  if(hasCor)days.push({
+    m:isL?'Córdoba — Mezquita before public hours, Jewish quarter, hidden patios. Private lunch with local family.':'Day trip to Córdoba — Mezquita, Jewish Quarter, patios',
+    t:isL?'45 min by private car. No train queues, no schedule constraints.':'45 min from Seville by AVE'
+  });
+  if(hasGra)days.push({
+    m:isL?'Granada — Alhambra private access at dawn, Generalife, riad dinner in Albaicín.':'Day trip to Granada — Alhambra with Carlos',
+    t:isL?'Carlos arranges exclusive time-slot. You have the Nasrid Palaces in near-silence.':'Carlos arranges skip-line tickets'
+  });
+  if(hasRon)days.push({
+    m:isL?'Ronda — dramatic gorge, old town, private winery lunch, sherry tasting.':'Ronda — dramatic gorge, old town, local winery',
+    t:isL?'Private car throughout. One of the most spectacular drives in Spain.':'One of Andalucía\'s most spectacular settings'
+  });
+  if(hasCad)days.push({
+    m:isL?'Cádiz — oldest city in Europe. Private sunset at the cathedral rooftop. Seafood dinner at a family restaurant off-menu.':'Cádiz — old city, markets, Atlantic beaches',
+    t:isL?'Carlos\'s family connection secures the restaurant — not bookable publicly.':'90 min from Seville, perfect overnight'
+  });
+  while(days.length<Math.min(PM.days,5))days.push({
+    m:isL?'Bespoke half-day curated for your interests':'Custom half-day designed by Carlos',
+    t:isL?'Tell Carlos what moves you — he will build something you\'ll remember forever.':'Tell Carlos what you love — he will surprise you'
+  });
+  return{
+    title:isL?'Your bespoke '+PM.days+'-day Andalucía escape':'Your '+PM.days+'-day Andalucía itinerary',
+    sub:isL?'Curated · White-glove · Inquiry only':'Expert-led · Private · Flexible',
+    days:days.slice(0,Math.min(PM.days,5))
+  };
+}
+
+// ─── HERO DAYS COUNTER ────────────────────────────────
+var hints=['Seville highlights','Seville + one great day trip','Seville + one great day trip','Seville + Granada or Córdoba','Seville + Granada or Córdoba','Full Andalucía circuit','Full Andalucía circuit','Deep cultural immersion'];
+function hwD(d){
+  hwDays=Math.max(1,Math.min(14,hwDays+d));
+  document.getElementById('hw-d').textContent=hwDays;
+  document.getElementById('hw-h').textContent=hints[Math.min(hwDays-1,hints.length-1)];
+}
+
+// ─── SCROLL ──────────────────────────────────────────
+function scroll2(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+
+// ─── SCROLL REVEALS ───────────────────────────────────
+var obs=new IntersectionObserver(function(en){
+  en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:.06});
+document.querySelectorAll('.fade').forEach(function(el){obs.observe(el);});
+
+
+// ─── GIFT CARD LOGIC ─────────────────────────────
+var PRV_HINTS = {
+  5:  'Perfect for: a souvenir memory',
+  10: 'Perfect for: a walking tour add-on',
+  15: 'Perfect for: travel guide bundle',
+  20: 'Perfect for: a cathedral visit',
+  25: 'Perfect for: a half-day tour',
+  30: 'Perfect for: Cathedral & Giralda tour',
+  35: 'Perfect for: Royal Alcazar private tour',
+  40: 'Perfect for: Alcazar + cathedral combo',
+  45: 'Perfect for: Barrio Santa Cruz immersion',
+  50: 'Perfect for: a private half-day experience',
+  55: 'Perfect for: Seville highlights morning',
+  60: 'Perfect for: private tapas & history evening',
+  65: 'Perfect for: Triana & flamenco quarter tour',
+  70: 'Perfect for: private full morning + lunch',
+  75: 'Perfect for: Seville private day tour',
+  80: 'Perfect for: Seville + one museum deep-dive',
+  85: 'Perfect for: a tailored private experience',
+  90: 'Perfect for: private full-day Seville',
+  95: 'Perfect for: full Seville + day-trip planning',
+  100:'Perfect for: full private Seville day with pickup'
+};
+var LUX_HINTS = {
+  100: 'Contribution toward a bespoke experience',
+  200: 'Perfect for: a private walking experience',
+  300: 'Perfect for: exclusive Alhambra access',
+  400: 'Perfect for: private flamenco evening',
+  500: 'Perfect for: exclusive Alcazar dawn experience',
+  600: 'Perfect for: half-day luxury Seville escape',
+  700: 'Perfect for: Seville private luxury full day',
+  800: 'Perfect for: Seville + Córdoba luxury circuit',
+  900: 'Perfect for: Seville + Granada luxury escape',
+  1000:'Perfect for: two-city luxury overnight escape',
+  1200:'Perfect for: full Andalucia luxury day experience',
+  1500:'Perfect for: Seville + Granada + Ronda circuit',
+  2000:'Perfect for: two-day luxury Andalucia escape',
+  2500:'Perfect for: three-day bespoke Andalucia escape',
+  3000:'Perfect for: four-day full Andalucia luxury tour',
+  3500:'Perfect for: a week-long curated Andalucia escape',
+  4000:'Perfect for: the ultimate Andalucia luxury journey'
+};
+function gcHintLux(v){
+  var keys=Object.keys(LUX_HINTS).map(Number).sort(function(a,b){return a-b;});
+  var best=keys[0];
+  for(var i=0;i<keys.length;i++){if(keys[i]<=v)best=keys[i];}
+  return LUX_HINTS[best];
+}
+function gcUpdatePrv(v){
+  v=parseInt(v);
+  document.getElementById('prv-amount').textContent='\u20ac'+v;
+  document.getElementById('prv-btn-price').textContent='\u20ac'+v;
+  document.getElementById('prv-hint').textContent=PRV_HINTS[v]||'Perfect for: a private Andalucia experience';
+  var slider=document.getElementById('prv-slider');
+  var pct=((v-5)/(100-5)*100).toFixed(1);
+  slider.style.background='linear-gradient(to right,var(--g2) 0%,var(--g2) '+pct+'%,var(--border) '+pct+'%,var(--border) 100%)';
+  slider.value=v;
+}
+function gcSetPrv(v){document.getElementById('prv-slider').value=v;gcUpdatePrv(v);}
+function gcUpdateLux(v){
+  v=parseInt(v);
+  document.getElementById('lux-amount').textContent='\u20ac'+v.toLocaleString();
+  document.getElementById('lux-btn-price').textContent='\u20ac'+v.toLocaleString();
+  document.getElementById('lux-hint').textContent=gcHintLux(v);
+  var slider=document.getElementById('lux-slider');
+  var pct=((v-100)/(4000-100)*100).toFixed(1);
+  slider.style.background='linear-gradient(to right,var(--gold) 0%,var(--gold) '+pct+'%,rgba(184,144,58,.18) '+pct+'%,rgba(184,144,58,.18) 100%)';
+  slider.value=v;
+}
+function gcSetLux(v){document.getElementById('lux-slider').value=v;gcUpdateLux(v);}
+function gcSetMode(m){
+  var isLux=m==='luxury';
+  document.getElementById('gc-private-panel').style.display=isLux?'none':'block';
+  document.getElementById('gc-luxury-panel').style.display=isLux?'block':'none';
+  document.getElementById('gc-prv-btn').className='gc-tbtn'+(isLux?'':' gc-tbtn-on');
+  document.getElementById('gc-lux-btn').className='gc-tbtn'+(isLux?' gc-tbtn-on':'');
+}
+function gcBuy(t){
+  if(t==='luxury'){
+    var v=document.getElementById('lux-slider').value;
+    var r=document.getElementById('lux-recipient').value||'Your recipient';
+    var msg=document.getElementById('lux-message').value;
+    alert('Luxury gift card: \u20ac'+parseInt(v).toLocaleString()+'\nFor: '+r+(msg?'\nMessage: '+msg:'')+'\n\nOpens secure checkout via WhatsApp or payment gateway.');
+  } else {
+    var v2=document.getElementById('prv-slider').value;
+    var r2=document.getElementById('prv-recipient').value||'Your recipient';
+    var msg2=document.getElementById('prv-message').value;
+    alert('Private gift card: \u20ac'+v2+'\nFor: '+r2+(msg2?'\nMessage: '+msg2:'')+'\n\nOpens secure checkout.');
+  }
+}
+// Init slider fills
+gcUpdatePrv(35);
+gcUpdateLux(500);
+
+// ─── INIT ─────────────────────────────────────────────
+renderTours();
+buildCal();
+setTimeout(simulateGeo,900);
+</script>
+</body>
+</html>

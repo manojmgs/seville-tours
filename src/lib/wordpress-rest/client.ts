@@ -1,0 +1,149 @@
+﻿import { cache } from "react";
+import type {
+  RelatedTourCard,
+  TourPage,
+  WooCommerceStoreProduct,
+  WordPressProduct,
+} from "./types";
+import {
+  buildWooCommerceStoreProductUrl,
+  buildWordPressProductUrl,
+  uriToSlug,
+} from "./urls";
+import {
+  normalizeRelatedTourCard,
+  normalizeTourPage,
+} from "./normalize";
+import { WEEKLY_REVALIDATE_SECONDS } from "./cache";
+import { getSeoManifestEntryBySlug } from "./seo-manifest";
+import { getTourManifestEntryBySlug } from "./tour-manifest";
+
+type FetchOptions = {
+  revalidate?: number;
+};
+
+async function wordpressRestFetch<T>(
+  url: string,
+  options: FetchOptions = {},
+): Promise<T> {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+    next: {
+      revalidate: options.revalidate ?? WEEKLY_REVALIDATE_SECONDS,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(
+      `WordPress REST request failed: ${response.status} ${response.statusText} for ${url}`,
+    );
+  }
+
+  return response.json() as Promise<T>;
+}
+
+const getWordPressProductBySlug = cache(async (
+  slug: string,
+): Promise<WordPressProduct | null> => {
+  if (!slug) {
+    return null;
+  }
+
+  const url = buildWordPressProductUrl(slug);
+
+  const products = await wordpressRestFetch<WordPressProduct[]>(url, {
+    revalidate: WEEKLY_REVALIDATE_SECONDS,
+  });
+
+  return products[0] ?? null;
+});
+
+const getWooCommerceStoreProductBySlug = cache(async (
+  slug: string,
+): Promise<WooCommerceStoreProduct | undefined> => {
+  if (!slug) {
+    return undefined;
+  }
+
+  const url = buildWooCommerceStoreProductUrl(slug);
+
+  try {
+    const products = await wordpressRestFetch<WooCommerceStoreProduct[]>(url, {
+      revalidate: WEEKLY_REVALIDATE_SECONDS,
+    });
+
+    return products[0];
+  } catch {
+    return undefined;
+  }
+});
+
+async function enrichWithPrecomputedSeo(content: TourPage): Promise<TourPage> {
+  const extractedSeo = await getSeoManifestEntryBySlug(content.slug);
+
+  if (!extractedSeo) {
+    return content;
+  }
+
+  return {
+    ...content,
+    seo: {
+      ...content.seo,
+      title: extractedSeo.title || content.seo.title,
+      description: extractedSeo.description || content.seo.description,
+      canonical: extractedSeo.canonical || content.seo.canonical,
+    },
+  };
+}
+
+export const getProductBySlug = cache(async (slug: string): Promise<TourPage | null> => {
+  const manifestContent = await getTourManifestEntryBySlug(slug);
+
+  if (manifestContent) {
+    return manifestContent;
+  }
+
+  const wordpressProduct = await getWordPressProductBySlug(slug);
+
+  if (!wordpressProduct) {
+    return null;
+  }
+
+  const commerceProduct = await getWooCommerceStoreProductBySlug(slug);
+  const content = normalizeTourPage(wordpressProduct, commerceProduct);
+
+  return enrichWithPrecomputedSeo(content);
+});
+
+export const getRelatedProductsByUrl = cache(async (
+  url: string,
+): Promise<RelatedTourCard[]> => {
+  if (!url) {
+    return [];
+  }
+
+  try {
+    const products = await wordpressRestFetch<WooCommerceStoreProduct[]>(url, {
+      revalidate: WEEKLY_REVALIDATE_SECONDS,
+    });
+
+    return products
+      .map((product) => normalizeRelatedTourCard(product))
+      .filter((product): product is RelatedTourCard => Boolean(product));
+  } catch {
+    return [];
+  }
+});
+
+export const getContentByUri = cache(async (uri: string): Promise<TourPage | null> => {
+  const slug = uriToSlug(uri);
+
+  if (!slug) {
+    return null;
+  }
+
+  return getProductBySlug(slug);
+});

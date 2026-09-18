@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Seville Tours Co · Private & Luxury Andalucía Expert</title>
+<meta name="description" content="Seville-first private and luxury tours. Book with calendar, plan trips, gift cards, referrals."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ═══ TOKENS ═══ */
+:root{
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --g1:#06503f;--g2:#0d7a5c;--g3:#18a878;--g4:#5dcaa5;--g5:#e4f6ee;
+  --cream:#f6f4f0;--white:#fff;--dark:#111;--mid:#444;--soft:#999;--border:#e2dfd9;
+  --gold:#b8903a;--gold2:#d4af5a;--gold3:#f0d48a;--gold-dim:rgba(184,144,58,.15);
+  --lbg:#0b0b0b;--ls:#141414;--lc:#1a1a1a;--lb:rgba(184,144,58,.18);--lb2:rgba(184,144,58,.07);
+  --lt:#f0ede8;--lsub:rgba(240,237,232,.6);--lsoft:rgba(240,237,232,.2);
+  --radius:16px;--radius-sm:10px;--maxw:420px;
+  --red:#e53e3e;--green:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:#f0eeea;min-height:100vh;color:var(--dark)}
+body.lux{background:#111;color:var(--lt)}
+
+/* ═══ RESPONSIVE SHELL ═══ */
+.shell{width:100%;max-width:var(--maxw);margin:0 auto;min-height:100vh;background:var(--cream);position:relative;overflow-x:hidden;box-shadow:0 0 60px rgba(0,0,0,.08);transition:background .4s}
+body.lux .shell{background:var(--lbg);box-shadow:0 0 60px rgba(0,0,0,.5)}
+@media(min-width:768px){:root{--maxw:480px}body{display:flex;justify-content:center;padding:20px 0}.shell{border-radius:24px}}
+@media(min-width:1024px){:root{--maxw:440px}body{padding:30px 0}}
+
+/* ═══ BUTTONS ═══ */
+.btn{border:none;cursor:pointer;font-family:var(--sans);font-weight:700;letter-spacing:.02em;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-xs{padding:6px 10px;border-radius:999px;font-size:9px}
+.btn-sm{padding:8px 14px;border-radius:999px;font-size:10px}
+.btn-md{padding:12px 18px;border-radius:var(--radius-sm);font-size:12px}
+.btn-lg{padding:14px 20px;border-radius:var(--radius);font-size:13px;width:100%}
+.btn-fill{background:var(--g2);color:#fff}
+body.lux .btn-fill{background:var(--gold);color:#0d0d0d}
+.btn-ghost{background:transparent;color:var(--mid);border:1px solid var(--border)}
+body.lux .btn-ghost{color:var(--gold2);border-color:rgba(184,144,58,.3)}
+.btn-gold{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-danger{background:var(--red);color:#fff}
+.hidden{display:none!important}
+
+/* ═══ FORM ═══ */
+.input{width:100%;padding:11px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--border);font-family:var(--sans);font-size:12px;background:var(--white);color:var(--dark);transition:border-color .2s;outline:none}
+body.lux .input{background:var(--lc);border-color:rgba(184,144,58,.15);color:var(--lt)}
+.input:focus{border-color:var(--g2)}
+body.lux .input:focus{border-color:var(--gold)}
+textarea.input{resize:vertical;min-height:80px}
+.label{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;display:block}
+body.lux .label{color:var(--gold2)}
+.chip{padding:7px 11px;border-radius:999px;font-size:10px;font-weight:700;background:var(--white);color:var(--mid);border:1.5px solid var(--border);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+body.lux .chip{background:rgba(255,255,255,.04);border-color:rgba(184,144,58,.2);color:var(--lsub)}
+.chip.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+body.lux .chip.on{background:rgba(184,144,58,.18);color:var(--gold3);border-color:var(--gold)}
+
+/* ═══ NAV ═══ */
+.nav{position:sticky;top:0;z-index:60;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;background:rgba(246,244,240,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all .4s}
+body.lux .nav{background:rgba(11,11,11,.95);border-color:var(--lb2)}
+.nav-logo{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:-.02em;cursor:pointer}
+.nav-logo em{font-style:normal;color:var(--g2)}
+body.lux .nav-logo{color:var(--lt)}
+body.lux .nav-logo em{color:var(--gold)}
+.nav-r{display:flex;gap:6px;align-items:center}
+.nav-link{font-size:11px;color:var(--mid);font-weight:600;cursor:pointer;padding:4px 2px}
+body.lux .nav-link{color:var(--lsub)}
+.nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--g2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;cursor:pointer;border:2px solid var(--white)}
+body.lux .nav-avatar{background:var(--gold);color:#0d0d0d;border-color:var(--lbg)}
+
+/* ═══ MODE BAR ═══ */
+.mode-bar{display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--white);border-bottom:1px solid var(--border);transition:all .4s}
+body.lux .mode-bar{background:var(--ls);border-color:var(--lb2)}
+.mode-label{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+body.lux .mode-label{color:var(--lsub)}
+.tog{display:flex;gap:3px;padding:3px;border-radius:999px;background:var(--cream);border:1px solid var(--border)}
+body.lux .tog{background:rgba(255,255,255,.03);border-color:var(--lb)}
+.tog-btn{padding:7px 16px;border-radius:999px;font-size:11px;font-weight:700;background:transparent;color:var(--soft);border:none;cursor:pointer;transition:all .25s}
+.tog-btn.ap{background:var(--g2);color:#fff;box-shadow:0 2px 10px rgba(13,122,92,.22)}
+.tog-btn.al{background:rgba(184,144,58,.14);color:var(--gold3);border:1px solid rgba(184,144,58,.35);box-shadow:0 2px 14px rgba(184,144,58,.12)}
+.mode-tag{margin-left:auto;padding:4px 10px;border-radius:999px;font-size:8px;font-weight:800;letter-spacing:.06em;background:var(--g5);color:var(--g1)}
+body.lux .mode-tag{background:var(--gold-dim);color:var(--gold2)}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 18px 24px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;transition:opacity .5s}
+.hero-bg.prv{background:linear-gradient(168deg,#04332a 0%,#0a5e46 30%,#0f7a5c 60%,#145a42 100%)}
+.hero-bg.luxbg{background:linear-gradient(168deg,#080604 0%,#1a1308 35%,#100c06 65%,#0a0806 100%);opacity:0}
+body.lux .hero-bg.prv{opacity:0}
+body.lux .hero-bg.luxbg{opacity:1}
+.hero::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 60% 40% at 65% 18%,rgba(255,210,120,.18),transparent),repeating-linear-gradient(62deg,rgba(255,255,255,.02) 0 1px,transparent 1px 22px),repeating-linear-gradient(-62deg,rgba(255,255,255,.015) 0 1px,transparent 1px 22px)}
+body.lux .hero::before{background:radial-gradient(ellipse 55% 40% at 65% 15%,rgba(184,144,58,.28),transparent),repeating-linear-gradient(62deg,rgba(184,144,58,.03) 0 1px,transparent 1px 22px)}
+.hero::after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(0,0,0,.78) 5%,rgba(0,0,0,.2) 42%,rgba(0,0,0,.06) 100%)}
+.hero-gold{position:absolute;top:0;left:0;right:0;height:2px;z-index:3;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .5s .2s}
+body.lux .hero-gold{opacity:1}
+.hc{position:relative;z-index:4;color:#fff}
+.h-badge{display:inline-flex;gap:6px;align-items:center;padding:6px 14px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+body.lux .h-badge{background:var(--gold-dim);border-color:rgba(184,144,58,.3);color:var(--gold2)}
+.hc h1{font-family:var(--serif);font-size:34px;line-height:1.04;font-weight:500;margin-bottom:10px;letter-spacing:-.02em}
+body:not(.lux) .hc h1{font-family:var(--sans);font-size:28px;font-weight:800;letter-spacing:-.03em}
+body.lux .hc h1 em{color:var(--gold2);font-style:italic}
+.hc>p{font-size:13px;line-height:1.6;max-width:310px;color:rgba(255,255,255,.78);margin-bottom:16px}
+body.lux .hc>p{color:var(--lsub)}
+.h-actions{display:flex;gap:8px;margin-bottom:16px}
+.h-amen{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.h-am{padding:8px 10px;border-radius:var(--radius-sm);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10)}
+body.lux .h-am{background:rgba(184,144,58,.05);border-color:rgba(184,144,58,.12)}
+.h-am strong{display:block;font-size:10px;color:#fff;margin-bottom:1px}
+body.lux .h-am strong{color:var(--gold2)}
+.h-am span{font-size:9px;color:rgba(255,255,255,.6);line-height:1.3}
+body.lux .h-am span{color:var(--lsub)}
+
+/* ═══ TRUST BAR — FIXED ═══ */
+.trust-bar{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:var(--white);border-bottom:1px solid var(--border);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.trust-bar::-webkit-scrollbar{display:none}
+body.lux .trust-bar{background:var(--ls);border-color:var(--lb2)}
+.trust-pill{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:999px;font-size:10px;font-weight:700;white-space:nowrap;background:var(--g5);color:var(--g1);border:1px solid rgba(15,110,86,.12)}
+body.lux .trust-pill{background:var(--gold-dim);color:var(--gold2);border-color:rgba(184,144,58,.2)}
+.trust-pill .stars{color:var(--gold);font-size:11px;letter-spacing:1px}
+
+/* ═══ SECTIONS ═══ */
+.sec{padding:28px 16px}
+.sec-w{background:var(--white);transition:background .4s}
+body.lux .sec-w{background:var(--ls)}
+.sec-c{background:var(--cream);transition:background .4s}
+body.lux .sec-c{background:var(--lbg)}
+.sec-d{background:var(--dark);color:#fff;transition:background .4s}
+body.lux .sec-d{background:#000}
+.ey{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--g3);margin-bottom:5px}
+body.lux .ey{color:var(--gold)}
+.tt{font-family:var(--serif);font-size:28px;line-height:1.08;font-weight:500;color:var(--dark);margin-bottom:5px}
+body.lux .tt{color:var(--lt)}
+.tt em{color:var(--g2);font-style:italic}
+body.lux .tt em{color:var(--gold)}
+.ss{font-size:12px;line-height:1.6;color:var(--soft);margin-bottom:18px}
+body.lux .ss{color:var(--lsub)}
+
+/* ═══ TOUR CARDS ═══ */
+.tabs{display:flex;gap:4px;margin-bottom:16px;padding:3px;border-radius:999px;background:var(--cream);border:1px solid var(--border);width:max-content}
+body.lux .tabs{background:rgba(255,255,255,.03);border-color:var(--lb)}
+.tab{padding:7px 15px;border-radius:999px;font-size:11px;font-weight:700;background:transparent;color:var(--soft);border:none;cursor:pointer;transition:all .22s}
+.tab.ap{background:var(--g2);color:#fff}
+.tab.al{background:rgba(184,144,58,.14);color:var(--gold3);border:1px solid rgba(184,144,58,.3)}
+.cl{display:flex;flex-direction:column;gap:12px}
+.tc{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--white);transition:all .4s}
+body.lux .tc{background:var(--lc);border-color:var(--lb2)}
+.tc-img{height:160px;position:relative;overflow:hidden}
+.tc-img-bg{position:absolute;inset:0}
+.tc-img-bg.prv{background:linear-gradient(140deg,var(--g1),var(--g3))}
+.tc-img-bg.luxbg{background:linear-gradient(140deg,#0c0906,#221a0e)}
+.tc-img::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 75% 20%,rgba(255,210,120,.24),transparent 18%),linear-gradient(to top,rgba(0,0,0,.55),transparent 50%),repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 1px,transparent 1px 14px)}
+body.lux .tc-img::before{background:radial-gradient(circle at 75% 20%,rgba(184,144,58,.32),transparent 18%),linear-gradient(to top,rgba(0,0,0,.6),transparent 50%)}
+.tc-badge{position:absolute;left:10px;top:10px;z-index:2;font-size:8px;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--gold);color:#111;letter-spacing:.03em}
+.tc-dur{position:absolute;right:10px;top:10px;z-index:2;font-size:9px;font-weight:600;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);color:#fff;border:1px solid rgba(255,255,255,.12)}
+body.lux .tc-dur{background:rgba(184,144,58,.14);color:var(--gold2);border-color:rgba(184,144,58,.28)}
+.tc-img h3{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;font-family:var(--serif);font-size:20px;font-weight:500;color:#fff;line-height:1.1}
+.tc-body{padding:12px 14px}
+.tc-desc{font-size:11px;line-height:1.6;color:var(--soft);margin-bottom:8px}
+body.lux .tc-desc{color:var(--lsub)}
+.tc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.tc-tag{padding:3px 8px;border-radius:999px;font-size:8px;font-weight:700;background:var(--g5);color:var(--g1);border:1px solid rgba(15,110,86,.1)}
+body.lux .tc-tag{background:var(--gold-dim);color:var(--gold2);border-color:rgba(184,144,58,.18)}
+.tc-foot{display:flex;justify-content:space-between;align-items:center}
+.tc-price{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--dark)}
+body.lux .tc-price{color:var(--lt)}
+.tc-price small{font-family:var(--sans);font-size:10px;color:var(--soft)}
+.lux-inq{font-family:var(--serif);font-size:13px;color:var(--gold);font-style:italic}
+.lux-inq small{display:block;font-family:var(--sans);font-size:8px;color:var(--lsub);font-style:normal}
+.lux-strip{display:none;border:1px solid var(--lb);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
+body.lux .lux-strip{display:block}
+.lux-strip-head{background:linear-gradient(90deg,rgba(184,144,58,.1),rgba(184,144,58,.03));padding:10px 14px;border-bottom:1px solid var(--lb2)}
+.lux-strip-head p{font-size:9px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.lux-strip-head span{font-family:var(--serif);font-size:13px;color:var(--lt);font-style:italic;display:block;margin-top:2px}
+.lux-grid{display:grid;grid-template-columns:1fr 1fr}
+.lux-svc{padding:10px 12px;border-right:1px solid var(--lb2);border-bottom:1px solid var(--lb2);display:flex;gap:7px;align-items:flex-start}
+.lux-svc:nth-child(even){border-right:none}
+.lux-svc:nth-last-child(-n+2){border-bottom:none}
+.lux-svc h4{font-size:10px;font-weight:700;color:var(--gold2);margin-bottom:1px}
+.lux-svc p{font-size:8px;color:var(--lsub);line-height:1.4}
+
+/* ═══ HORIZONTAL SCROLLS ═══ */
+.hscroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hscroll::-webkit-scrollbar{display:none}
+.season-card{flex:0 0 80%;border-radius:var(--radius);overflow:hidden;position:relative;min-height:185px;display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
+.season-card::before{content:'';position:absolute;inset:0}
+.sc-spring::before{background:linear-gradient(160deg,#1a4d3a,#2d8a62)}
+.sc-summer::before{background:linear-gradient(160deg,#5a3e1a,#c4862e)}
+.sc-autumn::before{background:linear-gradient(160deg,#3d2210,#8a4e1c)}
+.sc-winter::before{background:linear-gradient(160deg,#1a2540,#3a5a80)}
+body.lux .sc-spring::before{background:linear-gradient(160deg,#0a1a10,#1a3520)}
+body.lux .sc-summer::before{background:linear-gradient(160deg,#1a1408,#2a1e10)}
+body.lux .sc-autumn::before{background:linear-gradient(160deg,#180e06,#2a1808)}
+body.lux .sc-winter::before{background:linear-gradient(160deg,#0a1020,#1a2a40)}
+.season-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent 55%);z-index:1}
+.season-card *{position:relative;z-index:2;color:#fff}
+.season-card h3{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:2px}
+.season-card .s-months{font-size:10px;opacity:.6;font-weight:700;margin-bottom:4px}
+.season-card .s-hook{font-size:11px;font-weight:700;margin-bottom:3px}
+.season-card .s-text{font-size:9px;line-height:1.5;opacity:.7}
+.hotel-card{flex:0 0 82%;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--white)}
+body.lux .hotel-card{background:var(--lc);border-color:var(--lb2)}
+.hc-img{height:130px;position:relative;overflow:hidden}
+.hc-img::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.45),transparent 50%)}
+.hc-img-bg{position:absolute;inset:0}
+.hci-a{background:linear-gradient(140deg,#3a2a14,#7a5a2a)}
+.hci-m{background:linear-gradient(140deg,#1a3a3a,#2a6a5a)}
+.hci-h{background:linear-gradient(140deg,#2a1a1a,#5a3a2a)}
+.hci-p{background:linear-gradient(140deg,#1a1a2a,#3a3a5a)}
+body.lux .hci-a{background:linear-gradient(140deg,#1a1408,#2a1e10)}
+body.lux .hci-m{background:linear-gradient(140deg,#0a1a14,#142a20)}
+body.lux .hci-h{background:linear-gradient(140deg,#140a0a,#2a1a14)}
+body.lux .hci-p{background:linear-gradient(140deg,#0a0a14,#1a1a2a)}
+.hc-img::after{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 70% 25%,rgba(255,200,100,.16),transparent 18%),repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 1px,transparent 1px 12px)}
+body.lux .hc-img::after{background:radial-gradient(circle at 70% 25%,rgba(184,144,58,.22),transparent 18%)}
+.hc-stars{position:absolute;bottom:8px;left:10px;z-index:2;font-size:10px;color:var(--gold);letter-spacing:2px}
+.hc-body{padding:12px}
+.hc-body h3{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--dark);margin-bottom:2px}
+body.lux .hc-body h3{color:var(--lt)}
+.hc-style{font-size:9px;font-weight:700;color:var(--g2);margin-bottom:6px}
+body.lux .hc-style{color:var(--gold2)}
+.hc-body p{font-size:10px;line-height:1.5;color:var(--soft)}
+body.lux .hc-body p{color:var(--lsub)}
+.hc-carlos{margin-top:6px;padding:7px 10px;border-radius:var(--radius-sm);background:var(--g5);font-size:9px;line-height:1.45;color:var(--g1);font-style:italic;border:1px solid rgba(15,110,86,.08)}
+body.lux .hc-carlos{background:var(--gold-dim);color:var(--gold2);border-color:rgba(184,144,58,.12)}
+
+/* ═══ DINING ═══ */
+.dc{border-radius:var(--radius);padding:12px;border:1px solid var(--border);background:var(--white);display:flex;gap:10px;align-items:flex-start;transition:all .4s}
+body.lux .dc{background:var(--lc);border-color:var(--lb2)}
+.dc-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.dc-icon.mic{background:linear-gradient(135deg,#f0d48a,#b8903a)}
+.dc-icon.roof{background:linear-gradient(135deg,#ff9a6c,#e85d2c)}
+.dc-icon.tapas{background:linear-gradient(135deg,#5dcaa5,#0d7a5c)}
+.dc-icon.sherry{background:linear-gradient(135deg,#d4af5a,#8a6420)}
+body.lux .dc-icon.mic{background:linear-gradient(135deg,rgba(240,212,138,.2),rgba(184,144,58,.3))}
+body.lux .dc-icon.roof{background:linear-gradient(135deg,rgba(255,154,108,.12),rgba(232,93,44,.2))}
+body.lux .dc-icon.tapas{background:linear-gradient(135deg,rgba(93,202,165,.12),rgba(13,122,92,.2))}
+body.lux .dc-icon.sherry{background:linear-gradient(135deg,rgba(212,175,90,.12),rgba(138,100,32,.2))}
+.dc h4{font-size:12px;font-weight:700;color:var(--dark);margin-bottom:1px}
+body.lux .dc h4{color:var(--lt)}
+.dc .dc-type{font-size:9px;font-weight:700;color:var(--g2);margin-bottom:3px}
+body.lux .dc .dc-type{color:var(--gold2)}
+.dc p{font-size:10px;line-height:1.5;color:var(--soft)}
+body.lux .dc p{color:var(--lsub)}
+
+/* ═══ MAP ═══ */
+.map-card{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--white)}
+body.lux .map-card{background:var(--lc);border-color:var(--lb2)}
+.map-stage{position:relative;height:220px;background:linear-gradient(180deg,#ede6d4,#e0d9c4);overflow:hidden}
+body.lux .map-stage{background:linear-gradient(180deg,#1a1508,#120e08)}
+.map-stage::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 8% 82%,rgba(0,80,140,.3),transparent 12%),repeating-linear-gradient(90deg,rgba(0,0,0,.03) 0 1px,transparent 1px 30px),repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0 1px,transparent 1px 30px)}
+body.lux .map-stage::before{background:radial-gradient(circle at 8% 82%,rgba(9,57,97,.4),transparent 12%),repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 1px,transparent 1px 30px)}
+.route-line{position:absolute;height:2px;background:var(--g2);transform-origin:left center}
+body.lux .route-line{background:var(--gold)}
+.pin{position:absolute;display:flex;flex-direction:column;align-items:center;gap:3px;transform:translate(-50%,-50%);cursor:pointer;z-index:2}
+.pin-dot{width:12px;height:12px;border-radius:50%;background:var(--g2);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+body.lux .pin-dot{background:var(--gold);border-color:var(--lbg)}
+.pin-home .pin-dot{width:16px;height:16px}
+.pin span{font-size:9px;font-weight:800;background:rgba(255,255,255,.9);padding:2px 7px;border-radius:999px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+body.lux .pin span{background:rgba(13,13,13,.9);color:var(--gold2);border:1px solid rgba(184,144,58,.2)}
+.map-info{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mi{padding:8px;border-radius:var(--radius-sm);background:var(--g5);font-size:9px;line-height:1.45;color:var(--g1);border:1px solid rgba(15,110,86,.08)}
+body.lux .mi{background:var(--gold-dim);color:var(--gold2);border-color:rgba(184,144,58,.12)}
+.mi strong{display:block;margin-bottom:2px}
+
+/* ═══ REVIEWS ═══ */
+.rv{border-radius:var(--radius);padding:14px;border:1px solid var(--border);background:var(--white);margin-bottom:10px}
+body.lux .rv{background:var(--lc);border-color:var(--lb2)}
+.rv-q{font-size:11px;line-height:1.6;color:var(--mid);font-style:italic;margin-bottom:8px}
+body.lux .rv-q{color:var(--lt)}
+.rv-foot{display:flex;justify-content:space-between;align-items:flex-end}
+.rv-name{font-size:10px;font-weight:700;color:var(--dark)}
+body.lux .rv-name{color:var(--gold2)}
+.rv-loc{font-size:8px;color:var(--soft)}
+body.lux .rv-loc{color:var(--lsub)}
+.rv-badge{font-size:8px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--cream);color:var(--g1)}
+body.lux .rv-badge{background:var(--gold-dim);color:var(--gold2)}
+
+/* ═══ FAQ ═══ */
+details.fq{border-radius:var(--radius);padding:12px 14px;border:1px solid var(--border);background:var(--white);margin-bottom:6px;transition:border-color .2s}
+body.lux details.fq{background:var(--lc);border-color:var(--lb2)}
+details.fq[open]{border-color:var(--g2)}
+body.lux details.fq[open]{border-color:var(--gold)}
+details.fq summary{list-style:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--dark);display:flex;justify-content:space-between;align-items:center;gap:8px}
+details.fq summary::-webkit-details-marker{display:none}
+body.lux details.fq summary{color:var(--lt)}
+details.fq summary::after{content:'+';font-size:15px;font-weight:400;color:var(--soft);flex-shrink:0}
+details.fq[open] summary::after{content:'−'}
+details.fq p{margin-top:8px;font-size:11px;line-height:1.6;color:var(--soft)}
+body.lux details.fq p{color:var(--lsub)}
+
+/* ═══ GIFT & REFERRAL ═══ */
+.gift-box{border-radius:var(--radius);padding:16px;border:2px dashed var(--border);background:var(--cream);text-align:center}
+body.lux .gift-box{background:rgba(184,144,58,.04);border-color:rgba(184,144,58,.2)}
+.gift-box h3{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--dark);margin-bottom:4px}
+body.lux .gift-box h3{color:var(--lt)}
+.gift-box p{font-size:11px;color:var(--soft);margin-bottom:12px}
+body.lux .gift-box p{color:var(--lsub)}
+.ref-box{border-radius:var(--radius);padding:16px;background:var(--g5);border:1px solid rgba(15,110,86,.1)}
+body.lux .ref-box{background:var(--gold-dim);border-color:rgba(184,144,58,.18)}
+.ref-box h3{font-size:14px;font-weight:800;color:var(--g1);margin-bottom:4px}
+body.lux .ref-box h3{color:var(--gold2)}
+.ref-box p{font-size:11px;color:var(--soft);margin-bottom:10px}
+body.lux .ref-box p{color:var(--lsub)}
+.ref-code-box{display:flex;align-items:center;gap:8px;padding:10px;border-radius:var(--radius-sm);background:var(--white);border:1px solid var(--border)}
+body.lux .ref-code-box{background:var(--lc);border-color:var(--lb2)}
+.ref-code-box code{flex:1;font-size:14px;font-weight:800;color:var(--g2);letter-spacing:.08em}
+body.lux .ref-code-box code{color:var(--gold)}
+
+/* ═══ FOOTER ═══ */
+.foot{padding:24px 16px 100px;text-align:center;border-top:1px solid var(--border);background:var(--cream)}
+body.lux .foot{background:#060606;border-color:var(--lb2)}
+.foot .brand{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:4px}
+.foot .brand em{font-style:normal;color:var(--g2)}
+body.lux .foot .brand{color:var(--lt)}
+body.lux .foot .brand em{color:var(--gold)}
+.foot p{font-size:9px;color:var(--soft);line-height:1.5}
+body.lux .foot p{color:var(--lsub)}
+.foot-links{display:flex;justify-content:center;gap:12px;margin-top:8px;flex-wrap:wrap}
+.foot-links a{font-size:9px;color:var(--soft);text-decoration:underline;cursor:pointer}
+body.lux .foot-links a{color:var(--lsoft)}
+
+/* ═══ STICKY ═══ */
+.sticky{position:fixed;bottom:-80px;left:50%;transform:translateX(-50%);width:100%;max-width:var(--maxw);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;z-index:70;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:1px solid var(--border);transition:bottom .3s ease,background .4s}
+.sticky.show{bottom:0}
+body.lux .sticky{background:rgba(11,11,11,.97);border-color:rgba(184,144,58,.2)}
+.sticky strong{font-size:11px;color:var(--dark);display:block}
+body.lux .sticky strong{color:var(--lt)}
+.sticky span{font-size:9px;color:var(--soft)}
+body.lux .sticky span{color:var(--gold2)}
+
+/* ═══ OVERLAYS ═══ */
+.ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center}
+.ov.open{display:flex}
+.sheet{border-radius:22px 22px 0 0;width:100%;max-width:var(--maxw);max-height:92vh;overflow-y:auto;padding:14px 16px 28px;background:var(--cream);transition:background .4s}
+body.lux .sheet{background:var(--ls);border-top:1px solid var(--lb)}
+.sh-handle{width:34px;height:3px;border-radius:2px;margin:0 auto 12px;background:var(--border)}
+body.lux .sh-handle{background:rgba(184,144,58,.3)}
+.sh-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.sh-title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--dark)}
+body.lux .sh-title{color:var(--lt)}
+.sh-close{width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;background:var(--g5);color:var(--g2)}
+body.lux .sh-close{background:var(--gold-dim);color:var(--gold)}
+.progress{height:3px;border-radius:2px;background:var(--border);margin-bottom:4px;overflow:hidden}
+body.lux .progress{background:var(--lb2)}
+.progress-fill{height:100%;background:var(--g2);transition:width .3s}
+body.lux .progress-fill{background:var(--gold)}
+.sh-step{font-size:9px;font-weight:700;color:var(--soft);letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+body.lux .sh-step{color:var(--lsub)}
+
+/* ═══ CALENDAR — FIXED ═══ */
+.cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:0 4px}
+.cal-nav button{background:none;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:16px;color:var(--mid);padding:6px 12px;font-weight:700;transition:all .15s}
+body.lux .cal-nav button{color:var(--gold2);border-color:var(--lb2)}
+.cal-nav button:hover{background:var(--g5)}
+body.lux .cal-nav button:hover{background:rgba(184,144,58,.08)}
+.cal-month{font-size:14px;font-weight:800;color:var(--dark);letter-spacing:.02em}
+body.lux .cal-month{color:var(--lt)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-hdr{font-size:10px;font-weight:700;color:var(--soft);padding:6px 0}
+body.lux .cal-hdr{color:var(--lsub)}
+.cal-d{font-size:12px;font-weight:600;padding:10px 0;border-radius:10px;cursor:pointer;color:var(--dark);transition:all .15s;border:2px solid transparent}
+body.lux .cal-d{color:var(--lt)}
+.cal-d:hover{background:var(--g5)}
+body.lux .cal-d:hover{background:rgba(184,144,58,.08)}
+.cal-d.past{opacity:.2;pointer-events:none;text-decoration:line-through}
+.cal-d.empty{pointer-events:none}
+.cal-d.sel{background:var(--g2)!important;color:#fff!important;border-color:var(--g2)}
+body.lux .cal-d.sel{background:var(--gold)!important;color:#0d0d0d!important;border-color:var(--gold)}
+.cal-d.today{border-color:var(--g3)}
+body.lux .cal-d.today{border-color:var(--gold2)}
+
+/* ═══ TIME SLOTS — FIXED ═══ */
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.time-slot{padding:12px 8px;border-radius:var(--radius-sm);border:1.5px solid var(--border);text-align:center;cursor:pointer;font-size:13px;font-weight:700;color:var(--dark);transition:all .15s;background:var(--white)}
+body.lux .time-slot{border-color:var(--lb2);color:var(--lt);background:var(--lc)}
+.time-slot:hover{border-color:var(--g2);background:var(--g5)}
+body.lux .time-slot:hover{border-color:var(--gold);background:rgba(184,144,58,.06)}
+.time-slot.sel{background:var(--g2)!important;color:#fff!important;border-color:var(--g2)!important}
+body.lux .time-slot.sel{background:var(--gold)!important;color:#0d0d0d!important;border-color:var(--gold)!important}
+.time-slot small{display:block;font-size:9px;font-weight:400;opacity:.65;margin-top:3px}
+
+/* ═══ DASHBOARD ═══ */
+.dash-tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.dash-tabs::-webkit-scrollbar{display:none}
+.dash-tab{flex:0 0 auto;padding:8px 14px;border-radius:999px;font-size:10px;font-weight:700;background:var(--cream);color:var(--soft);border:1px solid var(--border);cursor:pointer;white-space:nowrap}
+body.lux .dash-tab{background:rgba(255,255,255,.03);border-color:var(--lb2);color:var(--lsub)}
+.dash-tab.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+body.lux .dash-tab.on{background:rgba(184,144,58,.15);color:var(--gold3);border-color:var(--gold)}
+.itin-card{border-radius:var(--radius);padding:12px;border:1px solid var(--border);background:var(--white);margin-bottom:8px}
+body.lux .itin-card{background:var(--lc);border-color:var(--lb2)}
+.itin-card h4{font-size:12px;font-weight:700;color:var(--dark);margin-bottom:2px}
+body.lux .itin-card h4{color:var(--lt)}
+.itin-card p{font-size:10px;color:var(--soft);line-height:1.5}
+body.lux .itin-card p{color:var(--lsub)}
+.itin-status{display:inline-block;padding:3px 8px;border-radius:999px;font-size:8px;font-weight:800;margin-top:4px}
+.itin-status.confirmed{background:#d4edda;color:#155724}
+.itin-status.pending{background:#fff3cd;color:#856404}
+body.lux .itin-status.confirmed{background:rgba(37,211,102,.12);color:#25D366}
+body.lux .itin-status.pending{background:rgba(184,144,58,.12);color:var(--gold2)}
+
+/* ═══ FADE ═══ */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* ═══ PLANNER/BOOKING OPTION CARDS — THEME-AWARE ═══ */
+.opt{padding:12px;border-radius:var(--radius);border:2px solid var(--border);background:var(--white);margin-bottom:8px;cursor:pointer;transition:all .2s}
+body.lux .opt{background:var(--lc);border-color:var(--lb2)}
+.opt:hover{border-color:var(--g3)}
+body.lux .opt:hover{border-color:rgba(184,144,58,.4)}
+.opt.on{border-color:var(--g2);background:var(--g5)}
+body.lux .opt.on{border-color:var(--gold);background:rgba(184,144,58,.08)}
+.opt-title{font-size:12px;font-weight:700;color:var(--dark)}
+body.lux .opt-title{color:var(--lt)}
+.opt-desc{font-size:10px;color:var(--soft);margin-top:2px}
+body.lux .opt-desc{color:var(--lsub)}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt-city{padding:10px;border-radius:var(--radius-sm);border:2px solid var(--border);background:var(--white);cursor:pointer;transition:all .2s}
+body.lux .opt-city{background:var(--lc);border-color:var(--lb2)}
+.opt-city:hover{border-color:var(--g3)}
+body.lux .opt-city:hover{border-color:rgba(184,144,58,.4)}
+.opt-city.on{border-color:var(--g2);background:var(--g5)}
+body.lux .opt-city.on{border-color:var(--gold);background:rgba(184,144,58,.08)}
+.opt-city-name{font-size:11px;font-weight:700;color:var(--dark)}
+body.lux .opt-city-name{color:var(--lt)}
+.opt-city-sub{font-size:9px;color:var(--soft)}
+body.lux .opt-city-sub{color:var(--lsub)}
+.plan-summary{padding:14px;border-radius:var(--radius);background:var(--g5);border:1px solid rgba(15,110,86,.1)}
+body.lux .plan-summary{background:var(--gold-dim);border-color:rgba(184,144,58,.18)}
+.plan-row{display:flex;justify-content:space-between;margin-bottom:6px}
+.plan-row-label{font-size:10px;color:var(--soft)}
+body.lux .plan-row-label{color:var(--lsub)}
+.plan-row-value{font-size:10px;font-weight:700;text-align:right;max-width:60%;color:var(--dark)}
+body.lux .plan-row-value{color:var(--lt)}
+.plan-special{margin-top:6px;padding-top:6px;border-top:1px dashed rgba(15,110,86,.15)}
+body.lux .plan-special{border-color:rgba(184,144,58,.2)}
+.plan-special span{font-size:9px;color:var(--soft)}
+body.lux .plan-special span{color:var(--lsub)}
+.plan-special p{font-size:10px;margin-top:2px;font-style:italic;color:var(--dark)}
+body.lux .plan-special p{color:var(--lt)}
+.plan-total{margin-top:8px;padding-top:8px;border-top:2px solid rgba(15,110,86,.15);display:flex;justify-content:space-between;align-items:center}
+body.lux .plan-total{border-color:rgba(184,144,58,.2)}
+.plan-total span{font-size:12px;font-weight:700;color:var(--dark)}
+body.lux .plan-total span{color:var(--lt)}
+.plan-total strong{font-size:18px;font-family:var(--serif);color:var(--dark)}
+body.lux .plan-total strong{color:var(--gold2)}
+.upgrade-hint{padding:10px;border-radius:var(--radius-sm);background:var(--gold-dim);border:1px solid rgba(184,144,58,.2);font-size:10px;display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:var(--gold)}
+.days-counter{display:flex;align-items:center;gap:16px;margin:14px 0}
+.days-val{font-family:var(--serif);font-size:38px;min-width:44px;text-align:center;color:var(--dark)}
+body.lux .days-val{color:var(--lt)}
+.days-hint{font-size:11px;font-weight:700;color:var(--g2)}
+body.lux .days-hint{color:var(--gold2)}
+.guests-counter{display:flex;align-items:center;gap:16px;margin:12px 0}
+.guests-val{font-family:var(--serif);font-size:32px;min-width:36px;text-align:center;color:var(--dark)}
+body.lux .guests-val{color:var(--lt)}
+.plan-section-title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--dark);margin-bottom:8px}
+body.lux .plan-section-title{color:var(--lt)}
+.secure-badge{padding:10px;border-radius:var(--radius-sm);background:var(--g5);border:1px solid rgba(15,110,86,.08);margin-bottom:14px;display:flex;gap:6px;align-items:center;font-size:11px;font-weight:700;color:var(--g1)}
+body.lux .secure-badge{background:var(--gold-dim);border-color:rgba(184,144,58,.12);color:var(--gold2)}
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+
+/* ═══ WHATSAPP LAYER ═══ */
+
+/* 1. Floating Action Button */
+.wa-fab{position:fixed;z-index:90;bottom:82px;right:calc(50% - var(--maxw)/2 + 14px);width:52px;height:52px;border-radius:50%;background:#25D366;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;animation:waPulse 3s ease-in-out infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,.3)}50%{box-shadow:0 4px 16px rgba(37,211,102,.35),0 0 0 10px rgba(37,211,102,0)}}
+.wa-fab:active{transform:scale(.9)}
+.wa-fab svg{width:24px;height:24px}
+body.lux .wa-fab{background:rgba(184,144,58,.9);box-shadow:0 4px 16px rgba(184,144,58,.3),0 0 0 0 rgba(184,144,58,.3);animation:waGoldPulse 3s ease-in-out infinite}
+@keyframes waGoldPulse{0%,100%{box-shadow:0 4px 16px rgba(184,144,58,.3),0 0 0 0 rgba(184,144,58,.25)}50%{box-shadow:0 4px 16px rgba(184,144,58,.3),0 0 0 10px rgba(184,144,58,0)}}
+/* FAB tooltip */
+.wa-fab-tip{position:absolute;right:60px;top:50%;transform:translateY(-50%);background:var(--dark);color:#fff;padding:8px 12px;border-radius:10px;font-size:10px;font-weight:700;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .3s;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+body.lux .wa-fab-tip{background:var(--lc);color:var(--gold2);border:1px solid var(--lb)}
+.wa-fab-tip::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--dark)}
+body.lux .wa-fab-tip::after{border-left-color:var(--lc)}
+.wa-fab:hover .wa-fab-tip{opacity:1}
+
+/* 2. Overlay escape hatch */
+.wa-escape{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;margin-top:12px;border-radius:var(--radius-sm);background:rgba(37,211,102,.06);border:1px solid rgba(37,211,102,.15);cursor:pointer;transition:all .2s;text-decoration:none}
+body.lux .wa-escape{background:rgba(184,144,58,.04);border-color:rgba(184,144,58,.15)}
+.wa-escape:hover{background:rgba(37,211,102,.12)}
+body.lux .wa-escape:hover{background:rgba(184,144,58,.08)}
+.wa-escape span{font-size:11px;font-weight:700;color:#128C7E}
+body.lux .wa-escape span{color:var(--gold2)}
+.wa-escape small{font-size:9px;color:var(--soft)}
+body.lux .wa-escape small{color:var(--lsub)}
+
+/* 3. Idle nudge toast */
+.wa-toast{position:fixed;z-index:300;bottom:140px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:calc(var(--maxw) - 32px);padding:12px 16px;border-radius:var(--radius);display:flex;align-items:center;gap:10px;background:var(--dark);color:#fff;box-shadow:0 8px 32px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;transform:translateX(-50%) translateY(10px)}
+.wa-toast.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+body.lux .wa-toast{background:var(--lc);border:1px solid var(--lb);color:var(--lt)}
+.wa-toast-dot{width:8px;height:8px;border-radius:50%;background:#25D366;flex-shrink:0;box-shadow:0 0 8px #25D366;animation:waPulse 2s infinite}
+body.lux .wa-toast-dot{background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.wa-toast-text{flex:1}
+.wa-toast-text strong{display:block;font-size:11px;font-weight:700;margin-bottom:1px}
+.wa-toast-text span{font-size:9px;color:rgba(255,255,255,.6)}
+body.lux .wa-toast-text span{color:var(--lsub)}
+.wa-toast-btn{padding:8px 14px;border-radius:999px;background:#25D366;color:#fff;border:none;cursor:pointer;font-size:10px;font-weight:700;flex-shrink:0;font-family:var(--sans)}
+body.lux .wa-toast-btn{background:var(--gold);color:#0d0d0d}
+.wa-toast-close{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:16px;padding:0 0 0 4px;line-height:1}
+body.lux .wa-toast-close{color:var(--lsub)}
+
+/* 4. Sticky bar WA icon */
+.sticky-wa{width:34px;height:34px;border-radius:50%;background:#25D366;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.sticky-wa:active{transform:scale(.9)}
+body.lux .sticky-wa{background:rgba(184,144,58,.12);color:var(--gold2);border:1px solid rgba(184,144,58,.25)}
+.sticky-wa svg{width:14px;height:14px}
+
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- NAV — FIXED: Plan your trip is primary, sign-in moved to footer area -->
+  <nav class="nav">
+    <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Seville<em>Tours</em></div>
+    <div class="nav-r">
+      <span class="nav-link" onclick="go('tours')">Tours</span>
+      <span class="nav-link" onclick="go('seasonal')">Seasons</span>
+      <button class="btn btn-sm btn-fill" onclick="openPlanner()">Plan your trip</button>
+      <div class="nav-avatar hidden" id="navAvatar" onclick="openDash()">MS</div>
+    </div>
+  </nav>
+
+  <!-- MODE BAR -->
+  <div class="mode-bar">
+    <div class="mode-label">Tier</div>
+    <div class="tog">
+      <button id="mP" class="tog-btn ap" onclick="setM('p')">Private</button>
+      <button id="mL" class="tog-btn" onclick="setM('l')">★ Luxury</button>
+    </div>
+    <div id="mTag" class="mode-tag">Seville historian</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg prv"></div>
+    <div class="hero-bg luxbg"></div>
+    <div class="hero-gold"></div>
+    <div class="hc">
+      <div class="h-badge" id="hBadge">Seville-based · licensed historian · book & plan</div>
+      <h1 id="hTitle">Seville first.<br/>Andalucía next.<br/>Always private.</h1>
+      <p id="hText">Book tours with calendar & payment, plan full trips, or go luxury with concierge arrivals, fleet, dining & events.</p>
+      <div class="h-actions">
+        <button class="btn btn-md btn-fill" onclick="go('tours')" id="hCta1">Explore tours</button>
+        <button class="btn btn-md btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="openPlanner()" id="hCta2">Plan a trip</button>
+      </div>
+      <div class="h-amen" id="hAmen"></div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR — FIXED -->
+  <div class="trust-bar">
+    <div class="trust-pill">Junta de Andalucía approved</div>
+    <div class="trust-pill"><span class="stars">★★★★★</span> 4.9</div>
+    <div class="trust-pill">Airport & AVE pickup</div>
+    <div class="trust-pill">Chauffeur fleet</div>
+    <div class="trust-pill">Gift cards & referrals</div>
+  </div>
+
+  <!-- TOURS -->
+  <section class="sec sec-w fade" id="tours">
+    <div class="ey">Tours & booking</div>
+    <div class="tt">Curated <em>experiences</em></div>
+    <p class="ss">Book with calendar, time & payment. Private guests can upgrade to luxury at any point.</p>
+    <div class="tabs">
+      <button id="tP" class="tab ap" onclick="setT('p')">Private tours</button>
+      <button id="tL" class="tab" onclick="setT('l')">Luxury access</button>
+    </div>
+    <div class="lux-strip" id="luxStrip">
+      <div class="lux-strip-head"><p>White-glove inclusions</p><span>Arranged uniquely for your party</span></div>
+      <div class="lux-grid">
+        <div class="lux-svc"><span>🚗</span><div><h4>Mercedes V-Class</h4><p>Chauffeur throughout</p></div></div>
+        <div class="lux-svc"><span>🕊</span><div><h4>Before-hours access</h4><p>Alcázar & Mezquita</p></div></div>
+        <div class="lux-svc"><span>🍽</span><div><h4>Curated dining</h4><p>Chef's table reservations</p></div></div>
+        <div class="lux-svc"><span>✈️</span><div><h4>Arrival concierge</h4><p>SVQ or Santa Justa</p></div></div>
+      </div>
+    </div>
+    <div id="tourList" class="cl"></div>
+    <div style="margin-top:14px;padding:12px;border-radius:var(--radius);background:var(--g5);border:1px solid rgba(15,110,86,.1);text-align:center" id="upgradeBox">
+      <p style="font-size:11px;font-weight:700;color:var(--g1);margin-bottom:6px">✨ Want more? Upgrade to luxury</p>
+      <p style="font-size:10px;color:var(--soft);margin-bottom:10px">Add airport pickup, fleet selection, dining & events</p>
+      <button class="btn btn-sm btn-gold" onclick="setM('l')">Switch to ★ Luxury</button>
+    </div>
+  </section>
+
+  <!-- SEASONAL -->
+  <section class="sec sec-c fade" id="seasonal">
+    <div class="ey">Seasonal calendar</div>
+    <div class="tt">Seville by <em>season</em></div>
+    <p class="ss">Swipe to find the perfect timing for your travel style.</p>
+    <div class="hscroll" id="seasonScroll"></div>
+  </section>
+
+  <!-- HOTELS -->
+  <section class="sec sec-w fade" id="hotels">
+    <div class="ey">Curated hotels</div>
+    <div class="tt">Stay in Seville's <em>best pockets</em></div>
+    <p class="ss">Carlos personally liaises with each property.</p>
+    <div class="hscroll" id="hotelScroll"></div>
+  </section>
+
+  <!-- DINING -->
+  <section class="sec sec-c fade" id="dining-sec">
+    <div class="ey">Luxury dining</div>
+    <div class="tt">Dining with <em>local intelligence</em></div>
+    <div id="diningList" style="display:flex;flex-direction:column;gap:8px;margin-top:14px"></div>
+  </section>
+
+  <!-- MAP -->
+  <section class="sec sec-w fade" id="route-map">
+    <div class="ey">Route map</div>
+    <div class="tt">Seville as the <em>launch point</em></div>
+    <div class="map-card">
+      <div class="map-stage">
+        <div class="route-line" style="left:22%;top:42%;width:20%;transform:rotate(-12deg)"></div>
+        <div class="route-line" style="left:42%;top:36%;width:18%;transform:rotate(-20deg)"></div>
+        <div class="route-line" style="left:22%;top:48%;width:36%;transform:rotate(18deg)"></div>
+        <div class="route-line" style="left:18%;top:52%;width:14%;transform:rotate(40deg)"></div>
+        <div class="pin pin-home" style="left:20%;top:45%"><div class="pin-dot"></div><span>Seville ★</span></div>
+        <div class="pin" style="left:44%;top:34%"><div class="pin-dot"></div><span>Córdoba</span></div>
+        <div class="pin" style="left:62%;top:28%"><div class="pin-dot"></div><span>Granada</span></div>
+        <div class="pin" style="left:56%;top:62%"><div class="pin-dot"></div><span>Ronda</span></div>
+        <div class="pin" style="left:14%;top:72%"><div class="pin-dot"></div><span>Cádiz</span></div>
+        <div class="pin" style="left:32%;top:70%"><div class="pin-dot"></div><span>Jerez</span></div>
+      </div>
+      <div class="map-info">
+        <div class="mi"><strong>🏠 Seville base</strong>Sleep here, day-trip efficiently</div>
+        <div class="mi"><strong>🚄 Rail</strong>AVE to Córdoba 45 min</div>
+        <div class="mi"><strong>🚗 Road</strong>Mercedes to Ronda, Cádiz</div>
+        <div class="mi"><strong>💎 Luxury</strong>Hotel handoff & dining bridges</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec sec-c fade">
+    <div class="ey">Reviews</div>
+    <div class="tt">Guest <em>stories</em></div>
+    <div class="rv"><div class="rv-q">"Carlos arranged everything — airport pickup, early Alcázar access, dinner reservation I could never have made myself."</div><div class="rv-foot"><div><div class="rv-name">Lord & Lady Ashbourne</div><div class="rv-loc">London · Luxury escape</div></div><div class="rv-badge">★ 5</div></div></div>
+    <div class="rv"><div class="rv-q">"We arrived at Santa Justa, Carlos was waiting with a cold drink and a Mercedes. He arranged everything."</div><div class="rv-foot"><div><div class="rv-name">Prof. James T.</div><div class="rv-loc">Boston · Anniversary</div></div><div class="rv-badge">★ TripAdvisor</div></div></div>
+  </section>
+
+  <!-- GIFT & REFERRAL -->
+  <section class="sec sec-w fade" id="gift-ref">
+    <div class="ey">Gift & referral</div>
+    <div class="tt">Share the <em>experience</em></div>
+    <div class="gift-box" style="margin-bottom:14px">
+      <h3>🎁 Gift Voucher</h3>
+      <p>Give the gift of a private Seville experience.</p>
+      <button class="btn btn-md btn-fill" onclick="openGift()">Create gift card</button>
+    </div>
+    <div class="ref-box">
+      <h3>🔗 Refer a friend — earn 10% off</h3>
+      <p>Share your code. When they book, you both save.</p>
+      <div class="ref-code-box"><code id="refCode">SEVILLE-XXXX</code><button class="btn btn-xs btn-fill" onclick="copyRef()">Copy</button></div>
+      <p style="margin-top:8px;font-size:9px" id="refStatus">Sign in to get your personal referral code</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec sec-c fade" id="faq">
+    <div class="ey">FAQ</div>
+    <div class="tt">Common <em>questions</em></div>
+    <details class="fq" open><summary>Can I add airport or Santa Justa pickup?</summary><p>Yes. Select pickup in the booking flow or luxury concierge builder.</p></details>
+    <details class="fq"><summary>Can I choose the vehicle?</summary><p>Yes. Mercedes V-Class, premium sedan, executive electric, or signature elite.</p></details>
+    <details class="fq"><summary>Can dining and events be arranged?</summary><p>Yes. Michelin dining, rooftop dinners, private flamenco, Feria access, and more.</p></details>
+    <details class="fq"><summary>How do gift cards work?</summary><p>Create a digital voucher with any amount, add a personal message, send to anyone.</p></details>
+    <details class="fq"><summary>What's the cancellation policy?</summary><p>Free cancellation up to 48 hours. Luxury packages have custom terms via WhatsApp.</p></details>
+  </section>
+
+  <!-- FOOTER — Sign in moved here -->
+  <footer class="foot">
+    <div class="brand">Seville<em>Tours</em></div>
+    <p>Private & Luxury travel · Based in Seville · © 2026</p>
+    <div style="margin:12px 0">
+      <button class="btn btn-sm btn-ghost" id="footAuth" onclick="openAuth()" style="font-size:10px">Sign in / Create account</button>
+    </div>
+    <div class="foot-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+  </footer>
+
+  <!-- STICKY -->
+  <div class="sticky" id="stickyBar">
+    <div><strong id="stickyT">Plan your Seville trip</strong><span id="stickyS">Book · Plan · Gift · Refer</span></div>
+    <div style="display:flex;gap:6px;align-items:center">
+      <button class="sticky-wa" onclick="waChat()" title="Chat with Carlos"><svg fill="currentColor" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.704 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>
+      <button class="btn btn-sm btn-ghost" onclick="openPlanner()">Plan trip</button>
+      <button class="btn btn-sm btn-fill" onclick="go('tours')">Book</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ OVERLAYS ═══ -->
+<div class="ov" id="authOv" onclick="if(event.target===this)closeOv('authOv')"><div class="sheet"><div class="sh-handle"></div><div class="sh-head"><div class="sh-title" id="authTitle">Sign in</div><button class="sh-close" onclick="closeOv('authOv')">✕</button></div><div id="authBody"></div></div></div>
+<div class="ov" id="dashOv" onclick="if(event.target===this)closeOv('dashOv')"><div class="sheet"><div class="sh-handle"></div><div class="sh-head"><div class="sh-title">My account</div><button class="sh-close" onclick="closeOv('dashOv')">✕</button></div><div id="dashBody"></div></div></div>
+<div class="ov" id="bookOv" onclick="if(event.target===this)closeOv('bookOv')"><div class="sheet"><div class="sh-handle"></div><div class="sh-head"><div class="sh-title" id="bookTitle">Book tour</div><button class="sh-close" onclick="closeOv('bookOv')">✕</button></div><div class="progress"><div class="progress-fill" id="bookProg"></div></div><div class="sh-step" id="bookStep"></div><div id="bookBody"></div><div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-md btn-ghost hidden" id="bookBack" onclick="bookNav(-1)">← Back</button><button class="btn btn-md btn-fill" style="flex:1" id="bookNext" onclick="bookNav(1)">Continue →</button></div>
+    <div class="wa-escape" onclick="waChat()">
+      <span>💬 Prefer to chat? Talk to Carlos directly</span>
+      <small>Replies in minutes</small>
+    </div>
+  </div></div>
+<div class="ov" id="planOv" onclick="if(event.target===this)closeOv('planOv')"><div class="sheet"><div class="sh-handle"></div><div class="sh-head"><div class="sh-title" id="planTitle">Plan your trip</div><button class="sh-close" onclick="closeOv('planOv')">✕</button></div><div class="progress"><div class="progress-fill" id="planProg"></div></div><div class="sh-step" id="planStep"></div><div id="planBody"></div><div style="display:flex;gap:8px;margin-top:16px"><button class="btn btn-md btn-ghost hidden" id="planBack" onclick="planNav(-1)">← Back</button><button class="btn btn-md btn-fill" style="flex:1" id="planNext" onclick="planNav(1)">Continue →</button></div>
+    <div class="wa-escape" onclick="waChat()">
+      <span>💬 Too many steps? Let Carlos handle it</span>
+      <small>Just tell him what you want</small>
+    </div>
+  </div></div>
+<div class="ov" id="giftOv" onclick="if(event.target===this)closeOv('giftOv')"><div class="sheet"><div class="sh-handle"></div><div class="sh-head"><div class="sh-title">Create gift card</div><button class="sh-close" onclick="closeOv('giftOv')">✕</button></div><div id="giftBody"></div></div></div>
+
+<script>
+var S={mode:'p',tier:'p'};
+var BK={tour:'',price:0,step:0,guests:2,date:null,time:'',month:4,year:2026,pickup:'',car:'',special:''};
+var PL={step:0,tier:'',days:3,cities:[],interests:[],group:'',pickup:'',car:'',dining:'',event:'',hotel:'',special:''};
+var user=JSON.parse(localStorage.getItem('st_user')||'null');
+var bookings=JSON.parse(localStorage.getItem('st_bookings')||'[]');
+var gifts=JSON.parse(localStorage.getItem('st_gifts')||'[]');
+
+var AMEN={p:[{t:'Seville base',s:'All tours start here'},{t:'Private transport',s:'Hotel & site logistics'},{t:'Expert guiding',s:'Licensed historian'},{t:'Easy expansion',s:'Córdoba, Granada, Ronda'}],l:[{t:'Arrival concierge',s:'SVQ or Santa Justa'},{t:'Fleet selection',s:'Mercedes V-Class & more'},{t:'Dining desk',s:'Michelin, rooftop, tapas'},{t:'Seasonal access',s:'Feria, Semana Santa, Bienal'}]};
+var TOURS={p:[{t:'Royal Alcázar private tour',b:'Most popular',dur:'2.5 hrs',d:'Palace layers told properly — Mudéjar detail, hidden gardens, calm private rhythm.',tags:['Private','History','Skip-line'],p:39},{t:'Cathedral, Giralda & Santa Cruz',b:'Classic',dur:'2 hrs',d:'Essential first-day route covering Seville\'s core story arc.',tags:['Architecture','Private'],p:35},{t:'Full Seville private day',b:'Best value',dur:'Full day',d:'Roman walls to flamenco quarter — complete immersion. Pickup included.',tags:['Full day','All highlights','Pickup'],p:95},{t:'Seville + Córdoba rail day',b:'Seville+',dur:'Full day',d:'Base in Seville, AVE to Córdoba, explore Mezquita, return same evening.',tags:['AVE','Day trip'],p:145}],l:[{t:'Seville arrival & evening reset',b:'White-glove',dur:'Arrival day',d:'Airport/Santa Justa meet-and-greet, premium transfer, curated first-night dining.',tags:['Pickup','Hotel','Dining']},{t:'Before-hours Alcázar & chauffeured Seville',b:'Signature',dur:'Half day',d:'Quiet palace access 45 min before public. Seamless chauffeur flow.',tags:['Exclusive','Chauffeur']},{t:'Private flamenco & history evening',b:'Bespoke',dur:'4 hrs',d:'Twilight walk, intimate tablao (6 max), post-show sherry discussion.',tags:['Flamenco','Sherry']},{t:'Bespoke Andalucía from Seville',b:'Expandable',dur:'2–7 days',d:'Seville first, then Córdoba, Granada, Ronda. Hotel transitions handled.',tags:['Multi-city','Lifestyle']}]};
+var SEASONS=[{id:'spring',n:'Spring',m:'March – May',h:'Semana Santa & Feria',t:'Processions, dresses, horses, private balconies.'},{id:'summer',n:'Summer',m:'June – August',h:'Late starts & cool evenings',t:'Early access, rooftop dinners, river evenings.'},{id:'autumn',n:'Autumn',m:'Sept – Nov',h:'Bienal & harvests',t:'Flamenco intensity, sherry routes, olive harvests.'},{id:'winter',n:'Winter',m:'Dec – Feb',h:'Quiet elegance',t:'Christmas lights, boutique stays, museum pace.'}];
+var HOTELS=[{n:'Hotel Alfonso XIII',s:'Historic grande dame',z:'Santa Cruz',c:'hci-a',q:'"Step outside into the heart of Seville."'},{n:'Mercer Sevilla',s:'Boutique luxury',z:'El Arenal',c:'hci-m',q:'"Design-conscious couples. Beautiful pool."'},{n:'Hospes Las Casas',s:'Elegant retreat',z:'Old town',c:'hci-h',q:'"Feel like you live in Seville."'},{n:'Casa Palacio Don Ramón',s:'Ultra-boutique',z:'Historic center',c:'hci-p',q:'"Like staying in a private palace."'}];
+var DINING=[{n:'Michelin evening',tp:'High gastronomy',ic:'mic',e:'⭐',d:'Cañabota, Abantal, or seasonal openings.'},{n:'Rooftop sunset',tp:'Atmosphere-first',ic:'roof',e:'🌇',d:'Golden hour drinks, dinner as city lights up.'},{n:'Hidden local tapas',tp:'Insider classic',ic:'tapas',e:'🍷',d:'Where Sevillanos actually eat.'},{n:'Sherry in Jerez',tp:'Regional add-on',ic:'sherry',e:'🥃',d:'Private bodega, guided tasting, family estate.'}];
+var PICKUPS=['Seville Airport (SVQ)','Santa Justa Station','Hotel lobby','Custom address'];
+var CARS=['Mercedes V-Class','Premium sedan','Executive electric','Signature elite'];
+var EVENTS=['Private flamenco','Feria access','Semana Santa balcony','Bienal de Flamenco','Sunset yacht','Equestrian show'];
+var INTERESTS=['History','Architecture','Food & tapas','Flamenco','Art','Hidden gems','Wine','Photography'];
+var GROUPS=['Solo','Couple','Family','Small group','Corporate'];
+var CITIES=[{id:'seville',n:'Seville',s:'Alcázar · Cathedral'},{id:'granada',n:'Granada',s:'Alhambra'},{id:'cordoba',n:'Córdoba',s:'Mezquita'},{id:'ronda',n:'Ronda',s:'Gorge'},{id:'cadiz',n:'Cádiz',s:'Atlantic'},{id:'jerez',n:'Jerez',s:'Sherry'}];
+var TIMES=[{t:'09:00',l:'Morning'},{t:'09:30',l:'Morning'},{t:'10:00',l:'Morning'},{t:'10:30',l:'Morning'},{t:'11:00',l:'Late morning'},{t:'14:00',l:'Afternoon'},{t:'15:00',l:'Afternoon'},{t:'16:00',l:'Afternoon'},{t:'17:00',l:'Late afternoon'},{t:'18:00',l:'Evening'},{t:'19:00',l:'Evening'},{t:'20:00',l:'Sunset'}];
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function $(id){return document.getElementById(id)}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function openOv(id){$(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeOv(id){$(id).classList.remove('open');document.body.style.overflow=''}
+
+function setM(m){
+  S.mode=m;var isL=m==='l';
+  if(isL)document.body.classList.add('lux');else document.body.classList.remove('lux');
+  $('mP').className='tog-btn'+(m==='p'?' ap':'');
+  $('mL').className='tog-btn'+(m==='l'?' al':'');
+  $('mTag').textContent=isL?'White-glove':'Seville historian';
+  $('hBadge').textContent=isL?'White-glove arrivals · fleet · dining · events':'Seville-based · licensed historian · book & plan';
+  $('hTitle').innerHTML=isL?'Arrive in Seville.<br/><em>Travel in absolute style.</em>':'Seville first.<br/>Andalucía next.<br/>Always private.';
+  $('hText').textContent=isL?'Add airport pickup, choose the car, reserve the table, lock the hotel.':'Book tours with calendar & payment, plan full trips, or upgrade to luxury.';
+  $('hCta1').textContent=isL?'View luxury access':'Explore tours';
+  $('hCta2').textContent=isL?'Build concierge plan':'Plan a trip';
+  $('upgradeBox').style.display=isL?'none':'block';
+  $('stickyT').textContent=isL?'Design your luxury stay':'Plan your Seville trip';
+  renderAmen();setT(isL?'l':'p');
+}
+function setT(t){S.tier=t;$('tP').className='tab'+(t==='p'?' ap':'');$('tL').className='tab'+(t==='l'?' al':'');$('luxStrip').style.display=t==='l'?'block':'none';renderTours()}
+function renderAmen(){$('hAmen').innerHTML=AMEN[S.mode].map(a=>'<div class="h-am"><strong>'+a.t+'</strong><span>'+a.s+'</span></div>').join('')}
+function renderTours(){
+  var list=TOURS[S.tier],isL=S.tier==='l';
+  $('tourList').innerHTML=list.map(t=>{
+    var tags=t.tags.map(g=>'<span class="tc-tag">'+g+'</span>').join('');
+    var foot=isL?'<div class="lux-inq">Inquiry only<small>Tailored to you</small></div><button class="btn btn-sm btn-gold" onclick="openPlanner()">◆ Enquire</button>':'<div class="tc-price">€'+t.p+'<small>/person</small></div><button class="btn btn-sm btn-fill" onclick="openBooking(\''+t.t.replace(/'/g,"\\'")+'\','+t.p+')">Book now →</button>';
+    return '<article class="tc"><div class="tc-img"><div class="tc-img-bg '+(isL?'luxbg':'prv')+'"></div>'+(t.b?'<div class="tc-badge">'+t.b+'</div>':'')+'<div class="tc-dur">'+t.dur+'</div><h3>'+t.t+'</h3></div><div class="tc-body"><p class="tc-desc">'+t.d+'</p><div class="tc-tags">'+tags+'</div>'+(isL?'':'<div style="font-size:9px;color:var(--soft);margin-bottom:6px">★★★★★ 4.9</div>')+'<div class="tc-foot">'+foot+'</div></div></article>'}).join('')}
+function renderSeasons(){$('seasonScroll').innerHTML=SEASONS.map(s=>'<article class="season-card sc-'+s.id+'"><h3>'+s.n+'</h3><div class="s-months">'+s.m+'</div><div class="s-hook">'+s.h+'</div><div class="s-text">'+s.t+'</div></article>').join('')}
+function renderHotels(){$('hotelScroll').innerHTML=HOTELS.map(h=>'<article class="hotel-card"><div class="hc-img"><div class="hc-img-bg '+h.c+'"></div><div class="hc-stars">★★★★★</div></div><div class="hc-body"><h3>'+h.n+'</h3><div class="hc-style">'+h.s+'</div><p>📍 '+h.z+'</p><div class="hc-carlos">Carlos: '+h.q+'</div></div></article>').join('')}
+function renderDining(){$('diningList').innerHTML=DINING.map(d=>'<article class="dc"><div class="dc-icon '+d.ic+'">'+d.e+'</div><div><h4>'+d.n+'</h4><div class="dc-type">'+d.tp+'</div><p>'+d.d+'</p></div></article>').join('')}
+
+/* ═══ AUTH ═══ */
+function openAuth(){
+  $('authTitle').textContent='Sign in';
+  $('authBody').innerHTML='<div style="display:flex;flex-direction:column;gap:12px"><label class="label">Email</label><input class="input" id="aEmail" placeholder="your@email.com" type="email"/><label class="label">Password</label><input class="input" id="aPass" placeholder="••••••••" type="password"/><button class="btn btn-lg btn-fill" onclick="doLogin()">Sign in</button><div style="height:1px;background:var(--border);margin:8px 0"></div><p style="font-size:11px;color:var(--soft);text-align:center">No account yet?</p><button class="btn btn-lg btn-ghost" onclick="showRegister()">Create account</button></div>';
+  openOv('authOv');
+}
+function showRegister(){
+  $('authTitle').textContent='Create account';
+  $('authBody').innerHTML='<div style="display:flex;flex-direction:column;gap:12px"><label class="label">Full name</label><input class="input" id="rName" placeholder="Your name"/><label class="label">Email</label><input class="input" id="rEmail" placeholder="your@email.com" type="email"/><label class="label">Password</label><input class="input" id="rPass" placeholder="Min 6 characters" type="password"/><button class="btn btn-lg btn-fill" onclick="doRegister()">Create account</button><div style="height:1px;background:var(--border);margin:8px 0"></div><button class="btn btn-lg btn-ghost" onclick="openAuth()">Already have an account? Sign in</button></div>';
+}
+function doLogin(){var e=$('aEmail').value;if(!e)return alert('Enter email');user={name:e.split('@')[0],email:e,ref:'SEVILLE-'+Math.random().toString(36).substr(2,5).toUpperCase()};localStorage.setItem('st_user',JSON.stringify(user));updateAuthUI();closeOv('authOv')}
+function doRegister(){var n=$('rName').value,e=$('rEmail').value;if(!n||!e)return alert('Fill all fields');user={name:n,email:e,ref:'SEVILLE-'+Math.random().toString(36).substr(2,5).toUpperCase()};localStorage.setItem('st_user',JSON.stringify(user));updateAuthUI();closeOv('authOv')}
+function doLogout(){user=null;localStorage.removeItem('st_user');updateAuthUI();closeOv('dashOv')}
+function updateAuthUI(){
+  if(user){$('navAvatar').classList.remove('hidden');$('navAvatar').textContent=user.name.substr(0,2).toUpperCase();$('refCode').textContent=user.ref;$('refStatus').textContent='Share your code — both get 10% off!';$('footAuth').textContent='Signed in as '+user.name}
+  else{$('navAvatar').classList.add('hidden');$('refCode').textContent='SEVILLE-XXXX';$('refStatus').textContent='Sign in to get your personal referral code';$('footAuth').textContent='Sign in / Create account'}
+}
+
+/* ═══ DASHBOARD ═══ */
+function openDash(){renderDash('itineraries');openOv('dashOv')}
+function renderDash(tab){
+  var tabs=['itineraries','gift-cards','referrals','profile'];
+  var th=tabs.map(t=>'<button class="dash-tab'+(t===tab?' on':'')+'" onclick="renderDash(\''+t+'\')">'+t.replace(/-/g,' ').replace(/\b\w/g,l=>l.toUpperCase())+'</button>').join('');
+  var body='';
+  if(tab==='itineraries'){body=bookings.length?bookings.map(b=>'<div class="itin-card"><h4>'+b.tour+'</h4><p>'+b.date+' · '+b.time+' · '+b.guests+' guests</p><div class="itin-status '+(b.paid?'confirmed':'pending')+'">'+(b.paid?'✓ Confirmed':'Pending')+'</div></div>').join(''):'<p style="font-size:11px;color:var(--soft);text-align:center;padding:20px 0">No bookings yet. Book a tour to see it here.</p>'}
+  else if(tab==='gift-cards'){body='<button class="btn btn-md btn-fill" style="width:100%;margin-bottom:12px" onclick="closeOv(\'dashOv\');openGift()">+ Create new gift card</button>';body+=gifts.length?gifts.map(g=>'<div class="itin-card"><h4>🎁 €'+g.amount+' Gift Card</h4><p>To: '+g.to+' · "'+g.msg+'"</p><div class="itin-status confirmed">Code: '+g.code+'</div></div>').join(''):'<p style="font-size:11px;color:var(--soft);text-align:center;padding:20px 0">No gift cards yet.</p>'}
+  else if(tab==='referrals'){body='<div class="ref-box"><h3>Your referral code</h3><div class="ref-code-box" style="margin-bottom:8px"><code>'+user.ref+'</code><button class="btn btn-xs btn-fill" onclick="copyRef()">Copy</button></div><p>Share this code — both get 10% off.</p><button class="btn btn-md btn-wa" style="width:100%" onclick="alert(\'Share via WhatsApp\')">Share via WhatsApp</button></div>'}
+  else{body='<div style="display:flex;flex-direction:column;gap:12px"><label class="label">Name</label><div class="input">'+user.name+'</div><label class="label">Email</label><div class="input">'+user.email+'</div><div style="height:1px;background:var(--border);margin:8px 0"></div><button class="btn btn-lg btn-danger" onclick="doLogout()">Sign out</button></div>'}
+  $('dashBody').innerHTML='<div class="dash-tabs" style="margin-bottom:14px">'+th+'</div>'+body;
+}
+
+/* ═══ BOOKING — FIXED CALENDAR & TIME ═══ */
+function openBooking(title,price){
+  BK={tour:title,price:price,step:0,guests:2,date:null,time:'',month:4,year:2026,pickup:'',car:'',special:''};
+  $('bookTitle').textContent=title;renderBook();openOv('bookOv');
+}
+function renderBook(){
+  var s=BK.step,total=S.mode==='l'?6:5;
+  $('bookProg').style.width=((s+1)/total*100)+'%';
+  $('bookStep').textContent='Step '+(s+1)+' of '+total;
+  $('bookBack').classList.toggle('hidden',s===0);
+  var isLast=s===total-1;
+  $('bookNext').textContent=isLast?'✦ Confirm & pay':'Continue →';
+  var h='';
+  if(s===0){
+    h+='<label class="label">📅 Select date</label>';
+    h+=buildCal(BK.month,BK.year,'BK');
+  } else if(s===1){
+    h+='<label class="label">🕐 Select time</label><div class="time-grid">';
+    TIMES.forEach(function(t){h+='<div class="time-slot'+(BK.time===t.t?' sel':'')+'" onclick="BK.time=\''+t.t+'\';renderBook()">'+t.t+'<small>'+t.l+'</small></div>'});
+    h+='</div>';
+  } else if(s===2){
+    h+='<label class="label">👥 Number of guests</label><div class="guests-counter"><button class="btn btn-sm btn-ghost" onclick="BK.guests=Math.max(1,BK.guests-1);renderBook()">−</button><div class="guests-val">'+BK.guests+'</div><button class="btn btn-sm btn-ghost" onclick="BK.guests=Math.min(12,BK.guests+1);renderBook()">+</button></div>';
+    if(S.mode==='l'){
+      h+='<div style="height:1px;background:var(--border);margin:14px 0"></div>';
+      h+='<label class="label">✈️ Pickup point</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">';
+      PICKUPS.forEach(function(p){h+='<button class="chip'+(BK.pickup===p?' on':'')+'" onclick="BK.pickup=\''+p.replace(/'/g,"\\'")+'\';renderBook()">'+p+'</button>'});
+      h+='</div><label class="label">🚗 Car selection</label><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      CARS.forEach(function(c){h+='<button class="chip'+(BK.car===c?' on':'')+'" onclick="BK.car=\''+c.replace(/'/g,"\\'")+'\';renderBook()">'+c+'</button>'});
+      h+='</div>';
+    }
+  } else if(s===3){
+    if(S.mode==='l'){h+='<label class="label">📝 Special requests</label><textarea class="input" placeholder="Dietary needs, accessibility, celebrations, surprises..." oninput="BK.special=this.value">'+BK.special+'</textarea><p style="font-size:9px;color:var(--soft);margin-top:6px">Carlos reads every request personally.</p>'}
+    else{h+=buildSummary()}
+  } else if(s===4){
+    if(S.mode==='l'){h+=buildSummary()}else{h+=buildPayment()}
+  } else if(s===5){h+=buildPayment()}
+  $('bookBody').innerHTML=h;
+}
+function bookNav(dir){
+  var total=S.mode==='l'?6:5;
+  if(dir===1){if(BK.step===0&&!BK.date)return alert('Please select a date');if(BK.step===1&&!BK.time)return alert('Please select a time');if(BK.step===total-1){confirmBooking();return}}
+  BK.step=Math.max(0,Math.min(total-1,BK.step+dir));renderBook();
+}
+function buildCal(m,y,target){
+  var first=(new Date(y,m,1).getDay()+6)%7;
+  var dim=new Date(y,m+1,0).getDate();
+  var today=new Date();today.setHours(0,0,0,0);
+  var h='<div class="cal-nav"><button onclick="calNav(-1,\''+target+'\')">‹</button><div class="cal-month">'+MONTHS[m]+' '+y+'</div><button onclick="calNav(1,\''+target+'\')">›</button></div>';
+  h+='<div class="cal-grid">';
+  ['Mo','Tu','We','Th','Fr','Sa','Su'].forEach(d=>{h+='<div class="cal-hdr">'+d+'</div>'});
+  for(var i=0;i<first;i++)h+='<div class="cal-d empty"></div>';
+  for(var d=1;d<=dim;d++){
+    var dt=new Date(y,m,d);
+    var isPast=dt<today;
+    var obj=target==='BK'?BK:PL;
+    var isSel=obj.date===d&&obj.month===m&&obj.year===y;
+    var isToday=dt.getTime()===today.getTime();
+    h+='<div class="cal-d'+(isPast?' past':'')+(isSel?' sel':'')+(isToday&&!isSel?' today':'')+'" onclick="selDate('+d+',\''+target+'\')">'+ d+'</div>';
+  }
+  h+='</div>';return h;
+}
+function calNav(dir,target){
+  var obj=target==='BK'?BK:PL;
+  obj.month+=dir;
+  if(obj.month>11){obj.month=0;obj.year++}
+  if(obj.month<0){obj.month=11;obj.year--}
+  if(target==='BK')renderBook();else renderPlan();
+}
+function selDate(d,target){
+  if(target==='BK'){BK.date=d;renderBook()}else{PL.date=d;renderPlan()}
+}
+function buildSummary(){
+  var mo=MONTHS[BK.month].substr(0,3),total=BK.guests*BK.price;
+  var h='<label class="label">📋 Booking summary</label><div class="plan-summary">';
+  h+='<div class="plan-row"><span class="plan-row-label">Tour</span><strong class="plan-row-value">'+BK.tour+'</strong></div>';
+  h+='<div class="plan-row"><span class="plan-row-label">Date</span><strong class="plan-row-value">'+BK.date+' '+mo+' '+BK.year+'</strong></div>';
+  h+='<div class="plan-row"><span class="plan-row-label">Time</span><strong class="plan-row-value">'+BK.time+'</strong></div>';
+  h+='<div class="plan-row"><span class="plan-row-label">Guests</span><strong class="plan-row-value">'+BK.guests+'</strong></div>';
+  if(BK.pickup)h+='<div class="plan-row"><span class="plan-row-label">Pickup</span><strong class="plan-row-value">'+BK.pickup+'</strong></div>';
+  if(BK.car)h+='<div class="plan-row"><span class="plan-row-label">Vehicle</span><strong class="plan-row-value">'+BK.car+'</strong></div>';
+  if(BK.special)h+='<div class="plan-special"><span>Special requests:</span><p>'+BK.special+'</p></div>';
+  h+='<div class="plan-total"><span>Total</span><strong>€'+total+'</strong></div></div>';
+  return h;
+}
+function buildPayment(){
+  var h='<label class="label">💳 Payment</label>';
+  h+='<div class="secure-badge">🛡 Secure checkout · Stripe encrypted</div>';
+  h+='<div style="display:flex;flex-direction:column;gap:12px">';
+  h+='<div><label class="label">Cardholder name</label><input class="input" placeholder="Name on card"/></div>';
+  h+='<div><label class="label">Card number</label><input class="input" placeholder="1234 5678 9012 3456" maxlength="19"/></div>';
+  h+='<div class="pay-grid"><div><label class="label">Expiry</label><input class="input" placeholder="MM/YY"/></div><div><label class="label">CVC</label><input class="input" placeholder="123" maxlength="4"/></div></div>';
+  h+='<div><label class="label">Referral / gift code</label><input class="input" placeholder="SEVILLE-XXXXX (optional)"/></div></div>';
+  return h;
+}
+function confirmBooking(){
+  var mo=MONTHS[BK.month].substr(0,3);
+  bookings.push({tour:BK.tour,date:BK.date+' '+mo+' '+BK.year,time:BK.time,guests:BK.guests,pickup:BK.pickup,car:BK.car,special:BK.special,paid:true,total:BK.guests*BK.price});
+  localStorage.setItem('st_bookings',JSON.stringify(bookings));
+  $('bookNext').textContent='✓ Booking confirmed!';$('bookNext').style.background='#25D366';
+  setTimeout(()=>{closeOv('bookOv');$('bookNext').style.background=''},2000);
+}
+
+/* ═══ TRIP PLANNER ═══ */
+function openPlanner(){
+  PL={step:0,tier:S.mode==='l'?'luxury':'private',days:3,cities:['seville'],interests:[],group:'',pickup:'',car:'',dining:'',event:'',hotel:'',special:''};
+  renderPlan();openOv('planOv');
+}
+function renderPlan(){
+  var s=PL.step,total=7,isL=PL.tier==='luxury';
+  $('planProg').style.width=((s+1)/total*100)+'%';
+  $('planStep').textContent='Step '+(s+1)+' of '+total;
+  $('planBack').classList.toggle('hidden',s===0);
+  $('planNext').textContent=s===total-1?'Close':'Continue →';
+  var h='';
+  if(s===0){
+    h+='<div class="plan-section-title">Select travel tier</div><p class="ss">Choose private and upgrade later, or start luxury.</p>';
+    [{k:'private',t:'Private Tours',d:'Expert historian, flexible pacing, easy booking'},{k:'luxury',t:'★ Luxury Escape',d:'Arrivals, fleet, dining, events, hotel concierge'}].forEach(function(o){
+      var on=PL.tier===o.k;h+='<div class="opt'+(on?' on':'')+'" onclick="PL.tier=\''+o.k+'\';renderPlan()"><div class="opt-title">'+o.t+'</div><div class="opt-desc">'+o.d+'</div></div>'});
+    if(PL.tier==='private')h+='<div class="upgrade-hint">💡 You can upgrade to luxury at step 3</div>';
+  } else if(s===1){
+    h+='<div class="plan-section-title">How many days?</div>';
+    h+='<div class="days-counter"><button class="btn btn-sm btn-ghost" onclick="PL.days=Math.max(1,PL.days-1);renderPlan()">−</button><div class="days-val">'+PL.days+'</div><button class="btn btn-sm btn-ghost" onclick="PL.days=Math.min(14,PL.days+1);renderPlan()">+</button></div>';
+    var hints=['Seville highlights','Seville + day trip','Seville + day trip','Seville + 2nd city','Full Andalucía','Full Andalucía','Deep immersion'];
+    h+='<div class="days-hint">'+hints[Math.min(PL.days-1,hints.length-1)]+'</div>';
+  } else if(s===2){
+    h+='<div class="plan-section-title">Destinations</div><div class="opt-grid">';
+    CITIES.forEach(function(c){var on=PL.cities.indexOf(c.id)>=0;h+='<div class="opt-city'+(on?' on':'')+'" onclick="togArr(PL.cities,\''+c.id+'\');renderPlan()"><div class="opt-city-name">'+c.n+'</div><div class="opt-city-sub">'+c.s+'</div></div>'});
+    h+='</div>';
+    if(!isL)h+='<div class="upgrade-hint"><span>✨ Upgrade to luxury</span><button class="btn btn-xs btn-gold" onclick="upgradePlan()">Upgrade</button></div>';
+  } else if(s===3){
+    h+='<div class="plan-section-title">What moves you?</div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+    INTERESTS.forEach(function(i){var on=PL.interests.indexOf(i)>=0;h+='<button class="chip'+(on?' on':'')+'" onclick="togArr(PL.interests,\''+i+'\');renderPlan()">'+i+'</button>'});
+    h+='</div>';
+  } else if(s===4){
+    h+='<div class="plan-section-title">Who is traveling?</div>';
+    GROUPS.forEach(function(g){var on=PL.group===g;h+='<div class="opt'+(on?' on':'')+'" onclick="PL.group=\''+g+'\';renderPlan()"><div class="opt-title">'+g+'</div></div>'});
+  } else if(s===5){
+    if(isL){
+      h+='<div class="plan-section-title">Luxury concierge</div>';
+      h+='<label class="label">✈️ Pickup</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">';PICKUPS.forEach(function(p){h+='<button class="chip'+(PL.pickup===p?' on':'')+'" onclick="PL.pickup=\''+p.replace(/'/g,"\\'")+'\';renderPlan()">'+p+'</button>'});
+      h+='</div><label class="label">🚗 Vehicle</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">';CARS.forEach(function(c){h+='<button class="chip'+(PL.car===c?' on':'')+'" onclick="PL.car=\''+c.replace(/'/g,"\\'")+'\';renderPlan()">'+c+'</button>'});
+      h+='</div><label class="label">🍽 Dining</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">';DINING.forEach(function(d){h+='<button class="chip'+(PL.dining===d.n?' on':'')+'" onclick="PL.dining=\''+d.n.replace(/'/g,"\\'")+'\';renderPlan()">'+d.n+'</button>'});
+      h+='</div><label class="label">🎭 Event</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">';EVENTS.forEach(function(e){h+='<button class="chip'+(PL.event===e?' on':'')+'" onclick="PL.event=\''+e.replace(/'/g,"\\'")+'\';renderPlan()">'+e+'</button>'});
+      h+='</div><label class="label">🏨 Hotel</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">';HOTELS.forEach(function(ho){h+='<button class="chip'+(PL.hotel===ho.n?' on':'')+'" onclick="PL.hotel=\''+ho.n.replace(/'/g,"\\'")+'\';renderPlan()">'+ho.n+'</button>'});
+      h+='</div><label class="label">📝 Special requests</label><textarea class="input" placeholder="Dietary needs, celebrations, surprises..." oninput="PL.special=this.value">'+PL.special+'</textarea>';
+    } else {
+      h+=buildPlanSummary();
+      h+='<div class="upgrade-hint"><span>✨ Upgrade to luxury for the full experience</span><button class="btn btn-xs btn-gold" onclick="upgradePlan()">Upgrade</button></div>';
+    }
+  } else if(s===6){
+    h+='<div class="plan-section-title">Your '+(isL?'luxury ':'')+'plan</div>';
+    h+=buildPlanSummary();
+    h+='<div style="display:flex;flex-direction:column;gap:8px;margin-top:14px"><button class="btn btn-lg btn-fill" onclick="alert(\'Opens WhatsApp\\nwa.me/34600000000\')">✦ Send to Carlos via WhatsApp</button>';
+    if(!isL)h+='<button class="btn btn-lg btn-ghost" onclick="closeOv(\'planOv\');go(\'tours\')">Browse & book tours</button>';
+    h+='</div>';
+  }
+  $('planBody').innerHTML=h;
+}
+function planNav(dir){if(dir===1&&PL.step===6){closeOv('planOv');return}PL.step=Math.max(0,Math.min(6,PL.step+dir));renderPlan()}
+function togArr(arr,val){var i=arr.indexOf(val);if(i>=0)arr.splice(i,1);else arr.push(val)}
+function buildPlanSummary(){
+  var h='<div class="plan-summary">';
+  var rows=[['Tier',PL.tier],['Days',PL.days],['Cities',PL.cities.join(', ')],['Interests',PL.interests.join(', ')||'—'],['Group',PL.group||'—']];
+  if(PL.pickup)rows.push(['Pickup',PL.pickup]);if(PL.car)rows.push(['Vehicle',PL.car]);if(PL.dining)rows.push(['Dining',PL.dining]);if(PL.event)rows.push(['Event',PL.event]);if(PL.hotel)rows.push(['Hotel',PL.hotel]);
+  rows.forEach(function(r){h+='<div class="plan-row"><span class="plan-row-label">'+r[0]+'</span><strong class="plan-row-value">'+r[1]+'</strong></div>'});
+  if(PL.special)h+='<div class="plan-special"><span>Special:</span><p>'+PL.special+'</p></div>';
+  h+='</div>';return h;
+}
+
+/* upgradePlan: switches BOTH planner tier AND body theme */
+function upgradePlan(){
+  PL.tier='luxury';
+  setM('l');
+  renderPlan();
+}
+
+/* ═══ GIFT ═══ */
+function openGift(){
+  $('giftBody').innerHTML='<div style="display:flex;flex-direction:column;gap:12px"><label class="label">Gift amount (€)</label><div style="display:flex;flex-wrap:wrap;gap:6px">'+[50,100,150,200,300,500].map(a=>'<button class="chip" onclick="this.parentNode.querySelectorAll(\'.chip\').forEach(c=>c.classList.remove(\'on\'));this.classList.add(\'on\');document.getElementById(\'gAmt\').value='+a+'">€'+a+'</button>').join('')+'</div><input class="input" id="gAmt" placeholder="Or enter custom amount" type="number"/><label class="label">Recipient name</label><input class="input" id="gTo" placeholder="Who is this for?"/><label class="label">Personal message</label><textarea class="input" id="gMsg" placeholder="Happy birthday! Enjoy Seville..."></textarea><button class="btn btn-lg btn-fill" onclick="createGift()">🎁 Create gift card</button></div>';
+  openOv('giftOv');
+}
+function createGift(){
+  var amt=$('gAmt').value,to=$('gTo').value,msg=$('gMsg').value||'';
+  if(!amt||!to)return alert('Enter amount and recipient');
+  var code='GIFT-'+Math.random().toString(36).substr(2,6).toUpperCase();
+  gifts.push({amount:amt,to:to,msg:msg,code:code});localStorage.setItem('st_gifts',JSON.stringify(gifts));
+  $('giftBody').innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:36px;margin-bottom:10px">🎁</div><div class="tt" style="font-size:20px">Gift card created!</div><p class="ss">€'+amt+' for '+to+'</p><div style="padding:12px;border-radius:var(--radius);background:var(--g5);border:1px solid rgba(15,110,86,.1);margin-bottom:14px"><div style="font-size:10px;color:var(--soft);margin-bottom:4px">Gift code</div><div style="font-family:monospace;font-size:18px;font-weight:800;color:var(--g2);letter-spacing:.1em">'+code+'</div></div><button class="btn btn-lg btn-fill" onclick="closeOv(\'giftOv\')">Done</button></div>';
+}
+function copyRef(){if(user){navigator.clipboard.writeText(user.ref);$('refStatus').textContent='✓ Copied!';setTimeout(()=>{$('refStatus').textContent='Share your code — both get 10% off!'},2000)}else openAuth()}
+
+/* ═══ INIT ═══ */
+var obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('in')})},{threshold:0.05});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{$('stickyBar').classList.toggle('show',window.scrollY>400)});
+renderAmen();renderTours();renderSeasons();renderHotels();renderDining();updateAuthUI();
+
+
+/* ═══ WHATSAPP LAYER ═══ */
+var waPhone='34600000000'; // Replace with Carlos's real number
+var toastShown=false;
+var idleTimer=null;
+
+function waChat(){
+  var msg=getWaMessage();
+  var url='https://wa.me/'+waPhone+'?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
+  dismissToast();
+}
+
+function getWaMessage(){
+  // Context-aware message based on what user is doing
+  var isLux=S.mode==='l';
+  
+  // If booking overlay is open
+  if($('bookOv').classList.contains('open')){
+    return isLux
+      ? 'Hi Carlos, I need help with a luxury booking for "'+BK.tour+'". Can you assist?'
+      : 'Hi Carlos, I\'m interested in booking "'+BK.tour+'". Can you help me?';
+  }
+  
+  // If planner overlay is open
+  if($('planOv').classList.contains('open')){
+    var cities=PL.cities.length?PL.cities.join(', '):'Seville';
+    return isLux
+      ? 'Hi Carlos, I\'m planning a '+PL.days+'-day luxury trip to '+cities+'. I\'d like to discuss arrivals, fleet, dining, and events. Can you create a bespoke proposal?'
+      : 'Hi Carlos, I\'m planning a '+PL.days+'-day trip to '+cities+'. Can you help me design the perfect itinerary?';
+  }
+  
+  // Default based on mode
+  return isLux
+    ? 'Hi Carlos, I\'m interested in a luxury experience in Seville & Andalucía. Can we discuss a bespoke arrangement?'
+    : 'Hi Carlos, I\'m interested in a private tour in Seville. Can you tell me more?';
+}
+
+// Update FAB tooltip based on mode
+function updateFabTip(){
+  var isLux=S.mode==='l';
+  $('waFabTip').textContent=isLux?'Request bespoke proposal':'Chat with Carlos';
+  $('waToastTitle').textContent=isLux?'Want Carlos to handle everything?':'Not sure where to start?';
+  $('waToastSub').textContent=isLux?'One message. He builds your entire trip.':'Carlos replies in under 2 minutes';
+}
+
+// Idle nudge — shows once after 15s of no interaction
+function resetIdle(){
+  clearTimeout(idleTimer);
+  if(toastShown)return;
+  idleTimer=setTimeout(function(){
+    if(!toastShown){
+      $('waToast').classList.add('show');
+      toastShown=true;
+      // Auto-dismiss after 8 seconds
+      setTimeout(function(){$('waToast').classList.remove('show')},8000);
+    }
+  },15000);
+}
+
+function dismissToast(){
+  $('waToast').classList.remove('show');
+  toastShown=true;
+}
+
+// Listen for any interaction to reset idle timer
+['scroll','click','touchstart','mousemove','keydown'].forEach(function(evt){
+  document.addEventListener(evt,resetIdle,{passive:true});
+});
+
+// Start idle timer on load
+resetIdle();
+
+// Hook into setM to update FAB tooltip
+var _origSetM=setM;
+setM=function(m){_origSetM(m);updateFabTip()};
+
+// Also update hero buttons for luxury — make WhatsApp primary
+var _origSetMForHero=setM;
+setM=function(m){
+  _origSetMForHero(m);
+  var isL=m==='l';
+  if(isL){
+    $('hCta2').textContent='WhatsApp Carlos';
+    $('hCta2').onclick=function(){waChat()};
+    $('hCta2').style.cssText='color:var(--gold2);border-color:rgba(184,144,58,.35);background:transparent';
+  } else {
+    $('hCta2').textContent='Plan a trip';
+    $('hCta2').onclick=function(){openPlanner()};
+    $('hCta2').style.cssText='color:#fff;border-color:rgba(255,255,255,.3);background:transparent';
+  }
+};
+
+// Initial FAB tip
+updateFabTip();
+
+</script>
+</body>
+</html>

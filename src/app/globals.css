@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3efe8;
+  --foreground: #13110f;
+  --surface-cream: #f6f4f0;
+  --surface-card: #fffdf9;
+  --surface-dark: #0d0c0a;
+  --surface-dark-soft: #151311;
+  --brand-green-900: #06503f;
+  --brand-green-700: #0d7a5c;
+  --brand-green-500: #18a878;
+  --brand-green-100: #e4f6ee;
+  --brand-gold-500: #b8903a;
+  --brand-gold-300: #d4af5a;
+  --brand-gold-100: #f0d48a;
+  --border-soft: #dfd8cd;
+  --text-muted: #5f5a54;
+  --text-muted-dark: rgba(240, 237, 232, 0.72);
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+  --shadow-soft: 0 24px 80px rgba(17, 17, 17, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-green-700) 22%, white);
+  color: var(--foreground);
+}
+
+/* Printing the TIS handover produces the operator-facing PDF; everything else is screen chrome. */
+@media print {
+  body:has(#tis-handover) > *:not(:has(#tis-handover)) {
+    display: none;
+  }
+
+  #tis-handover {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  [data-tis-window] {
+    height: auto !important;
+    overflow: visible !important;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.font-display {
+  font-family: var(--font-cormorant-display), Georgia, serif;
+}
+
+.page-shell {
+  position: relative;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at top, rgba(24, 168, 120, 0.08), transparent 38%),
+    linear-gradient(180deg, #f4f0e8 0%, #f8f5ef 40%, #f4f1ea 100%);
+}
+
+.luxury-panel {
+  background:
+    radial-gradient(circle at top right, rgba(184, 144, 58, 0.24), transparent 34%),
+    linear-gradient(145deg, #080705 0%, #14110d 40%, #0d0c0a 100%);
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(circle at 72% 16%, rgba(240, 212, 138, 0.18), transparent 20%),
+    repeating-linear-gradient(62deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 24px),
+    linear-gradient(165deg, #043328 0%, #0a6048 34%, #0f7a5c 64%, #145740 100%);
+}
+
+.hero-luxury {
+  background:
+    radial-gradient(circle at 72% 16%, rgba(240, 212, 138, 0.26), transparent 18%),
+    repeating-linear-gradient(62deg, rgba(184, 144, 58, 0.04) 0 1px, transparent 1px 24px),
+    linear-gradient(165deg, #080604 0%, #171109 34%, #0f0c08 64%, #080705 100%);
+}
+
+.card-glow {
+  box-shadow: var(--shadow-soft);
+}
+
+@keyframes loading-shimmer {
+  0% {
+    transform: translateX(-60%);
+  }
+
+  100% {
+    transform: translateX(160%);
+  }
+}
+
+.loading-shimmer {
+  animation: loading-shimmer 1.8s ease-in-out infinite;
+}
+
+/* --- Luxury: always-on gold treatments --- */
+
+/* Shimmering gold gradient text that keeps moving. */
+@keyframes gold-text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+.gold-shimmer-text {
+  background-image: linear-gradient(
+    100deg,
+    #b8903a 0%,
+    #f0d48a 18%,
+    #fff6d8 30%,
+    #f0d48a 42%,
+    #b8903a 58%,
+    #f0d48a 78%,
+    #b8903a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gold-text-shimmer 5s linear infinite;
+}
+
+/* Diagonal light band that sweeps across a gold surface on a loop. */
+@keyframes gold-sheen-sweep {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+    opacity: 0;
+  }
+
+  14% {
+    opacity: 1;
+  }
+
+  38% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(360%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+.luxury-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.luxury-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(240, 212, 138, 0) 20%,
+    rgba(255, 246, 216, 0.38) 50%,
+    rgba(240, 212, 138, 0) 80%,
+    transparent 100%
+  );
+  transform: translateX(-140%) skewX(-18deg);
+  animation: gold-sheen-sweep 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Softly pulsing gold border + glow. */
+@keyframes gold-glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(184, 144, 58, 0.32),
+      0 12px 32px rgba(184, 144, 58, 0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(240, 212, 138, 0.7),
+      0 16px 44px rgba(184, 144, 58, 0.3);
+  }
+}
+
+.luxury-glow {
+  animation: gold-glow-pulse 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-shimmer,
+  .gold-shimmer-text,
+  .luxury-shine::after,
+  .luxury-glow {
+    animation: none;
+  }
+
+  .gold-shimmer-text {
+    -webkit-text-fill-color: currentColor;
+    color: var(--brand-gold-100);
+  }
+}
