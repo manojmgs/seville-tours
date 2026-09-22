@@ -80,6 +80,11 @@ export function SouvenirShelf({
                       {copy.brandingLabels[product.branding]}
                       {product.validity ? ` · ${copy.validityLabel(product.validity)}` : ""}
                     </p>
+                    {product.status === "sample" ? (
+                      <p className="mt-1 text-[10px] leading-relaxed text-white/55">
+                        {copy.sampleDisclosure}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
 
@@ -165,11 +170,6 @@ export function SouvenirShelf({
                     <p className="text-[10px] leading-relaxed text-white/45">
                       {copy.madeToOrder}
                     </p>
-                    {product.status === "sample" ? (
-                      <p className="text-[10px] leading-relaxed text-white/45">
-                        {copy.sampleDisclosure}
-                      </p>
-                    ) : null}
                   </div>
                 ) : null}
                   </>

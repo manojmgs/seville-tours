@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { TisTravellerExperience } from "@/components/marco-showcase/TisTravellerExperience";
+import { ResearchDemoShell } from "@/components/marco-research/ResearchDemoShell";
 import { TIS_PARTNER_TOURS } from "@/lib/marco/showcase/tis-partner-catalogue";
-import { buildParaUstedMerchantUrl } from "@/lib/parausted/merchant-url";
 import { getMarcoTours } from "@/lib/marco/tours";
 import { normalizeLocale, supportedLocales } from "@/lib/i18n/site";
 import type { Locale } from "@/lib/i18n/types";
 
 export const metadata: Metadata = {
-  title: "TIS Traveller Playback",
+  title: "Seville Tours Co. research demos",
   robots: { index: false, follow: false },
 };
 
 export const dynamic = "force-dynamic";
 
-type TisTravellerPlaybackPageProps = {
+type SevilleToursResearchPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function TisTravellerPlaybackPage({ params }: TisTravellerPlaybackPageProps) {
+/** Development-only research entry point. Catalogue facts come from the generated manifest. */
+export default async function SevilleToursResearchPage({ params }: SevilleToursResearchPageProps) {
   if (process.env.NODE_ENV !== "development") {
     notFound();
   }
@@ -36,11 +36,5 @@ export default async function TisTravellerPlaybackPage({ params }: TisTravellerP
     notFound();
   }
 
-  return (
-    <TisTravellerExperience
-      tours={[...tours, ...TIS_PARTNER_TOURS]}
-      locale={locale}
-      giftUrl={buildParaUstedMerchantUrl(locale)}
-    />
-  );
+  return <ResearchDemoShell tours={[...tours, ...TIS_PARTNER_TOURS]} locale={locale} />;
 }

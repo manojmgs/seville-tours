@@ -3,6 +3,7 @@
 import { useEffect, useReducer, useRef, useState } from "react";
 import type { Dispatch, FormEvent } from "react";
 import { RecommendationReceipt } from "@/components/marco-chat/RecommendationReceipt";
+import { SouvenirShelf } from "@/components/marco-chat/SouvenirShelf";
 import type { MarcoTour, RecommendationInput, RecommendationReasonCode, RecommendationResult } from "@/components/marco-chat/types";
 import { TisTripPlan } from "@/components/marco-showcase/TisTripPlan";
 import { TisOpportunityBrowser } from "@/components/marco-showcase/TisOpportunityBrowser";
@@ -10,6 +11,7 @@ import { TisEnquiryPanel } from "@/components/marco-showcase/TisEnquiryPanel";
 import { TisArrangementRequests } from "@/components/marco-showcase/TisArrangementRequests";
 import { TisOperatorView } from "@/components/marco-showcase/TisOperatorView";
 import { attributionFor } from "@/lib/marco/showcase/tis-partner-catalogue";
+import { shelfForOperator } from "@/lib/marco/souvenirs";
 import {
   opportunityById,
   TIS_OPPORTUNITY_KIND_LABEL,
@@ -604,6 +606,7 @@ export function TisTravellerExperience({ tours, locale, giftUrl }: TisTravellerE
   const messagesRef = useRef<HTMLDivElement>(null);
   const [draft, setDraft] = useState("");
   const [showingOperator, setShowingOperator] = useState(false);
+  const [showSouvenirShelf, setShowSouvenirShelf] = useState(false);
 
   const question = nextQuestion(state);
   const brief = buildJourneyBrief(state);
@@ -630,6 +633,8 @@ export function TisTravellerExperience({ tours, locale, giftUrl }: TisTravellerE
     new Set(tours.map((tour) => attributionFor(tour.id).operator)),
   ).filter((operator) => operator !== "Seville Tours Co.");
   const sharedOffer = findSharedOffer(recommended);
+  const souvenirShelf = shelfForOperator("seville-tours-co");
+  const souvenirTourId = savedTours[0]?.id ?? recommended[0]?.id;
   const savedCount = state.tripPlanItems.filter((item) => item.status === "savedPossibility").length;
   const requestCount = hasRequest ? 1 : 0;
   const enquiryStatus = `${state.savedJourney ? ` · journey saved ${state.savedJourney.reference}` : ""}${
@@ -646,7 +651,13 @@ export function TisTravellerExperience({ tours, locale, giftUrl }: TisTravellerE
   useEffect(() => {
     const el = messagesRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [state.turns.length]);
+  }, [state.turns.length, showSouvenirShelf]);
+
+  const resetExperience = () => {
+    dispatch("reset");
+    setShowingOperator(false);
+    setShowSouvenirShelf(false);
+  };
 
   const submitOwnWords = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -671,7 +682,7 @@ export function TisTravellerExperience({ tours, locale, giftUrl }: TisTravellerE
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <button
             type="button"
-            onClick={() => dispatch("reset")}
+            onClick={resetExperience}
             className="min-h-11 rounded-[10px] border border-[var(--brand-green-700)]/35 px-4 py-2 text-sm font-semibold text-[var(--brand-green-900)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-green-900)]"
           >
             Start over
@@ -709,6 +720,32 @@ export function TisTravellerExperience({ tours, locale, giftUrl }: TisTravellerE
                   {state.turns.map((turn) => (
                     <Bubble key={turn.id} turn={turn} />
                   ))}
+
+                  {state.phase === "deciding" && souvenirShelf ? (
+                    showSouvenirShelf ? (
+                      <>
+                        <Bubble turn={{ id: "souvenir-choice", speaker: "traveller", text: "Take something home" }} />
+                        <SouvenirShelf
+                          shelf={souvenirShelf}
+                          tourId={souvenirTourId}
+                          giftProviderName="ParaUsted"
+                          accentColor="#d8b45a"
+                          primaryColor="#1a3a2a"
+                          locale={locale}
+                        />
+                      </>
+                    ) : (
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowSouvenirShelf(true)}
+                          className="min-h-11 rounded-full border border-[var(--brand-green-900)] bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-green-900)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-green-900)]"
+                        >
+                          Take something home
+                        </button>
+                      </div>
+                    )
+                  ) : null}
 
                   {question ? (
                     <div className="rounded-xl border border-[var(--border-soft)] bg-white p-4">

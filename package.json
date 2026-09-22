@@ -15,7 +15,11 @@
     "video:music": "node scripts/generate-music.mjs",
     "video:render": "remotion render remotion/index.ts ConciergePromo out/isabel-concierge-promo.mp4",
     "video:render:square": "remotion render remotion/index.ts ConciergePromoSquare out/isabel-concierge-promo-square.mp4",
-    "video:still": "remotion still remotion/index.ts ConciergePromo out/isabel-concierge-poster.png --frame=70"
+    "video:still": "remotion still remotion/index.ts ConciergePromo out/isabel-concierge-poster.png --frame=70",
+    "video:carlos:voiceover": "node scripts/generate-carlos-voiceovers.mjs",
+    "video:carlos:1": "remotion render remotion/index.ts CarlosDemo1JourneyBrief out/carlos-demo-1-journey-brief-es.mp4",
+    "video:carlos:2": "remotion render remotion/index.ts CarlosDemo2Collaboration out/carlos-demo-2-collaboration-es.mp4",
+    "video:carlos:3": "remotion render remotion/index.ts CarlosDemo3ReturnLoop out/carlos-demo-3-return-loop-es.mp4"
   },
   "dependencies": {
     "next": "16.2.6",

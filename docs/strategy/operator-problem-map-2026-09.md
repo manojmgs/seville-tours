@@ -1,8 +1,8 @@
-# The Operator Problem Map — What We Remove, and How
+# The Operator Product Vision — What We Remove, and How
 
-**Status:** Strategy / design reference. **Does not control the roadmap.** Nothing here is committed engineering.
-**Version:** 1.0 — 2026-09-18
-**Purpose:** list every operator problem we claim to address, state honestly what already solves it, and define exactly what Para Usted removes and by what mechanism.
+**Status:** Product vision / strategy reference. **Does not control the roadmap.** Nothing beyond items marked `BUILT` is committed engineering.
+**Version:** 1.1 — 2026-09-21
+**Purpose:** define the operator product vision we will present at TIS, state honestly what already solves each problem, and identify exactly what Para Usted removes and by what mechanism.
 **Related:** [vision](./next-gen-experience-platform-vision-2026-09.md) · [battle plan](./tis-2026-battle-plan.md) · [interview guide](./operator-interview-guide-2026-09.md) · [demo scenarios](./tis-2026-demo-scenarios.md) · [ParaUsted integration contract](../architecture/integrations/seville-tours-parausted-integration-contract-2026-06.md) · [deep links & partial redemption](../architecture/integrations/seville-tours-deep-link-partial-redemption-gap-and-plan.md)
 
 **Evidence markers used throughout:**
@@ -23,6 +23,54 @@ Now try to express this in either system:
 You cannot. **The deciding is unmodelled**, in every system, everywhere. It happens in WhatsApp, in email, and in the operator's head. That is the surface we work on.
 
 Two constitutional refusals, unchanged: **we take no inventory, and we never resell.**
+
+### 0.1 The operator product vision we will show at TIS
+
+> **Operators spend too much time manually translating traveller intent into decisions, passing incomplete context across professionals, and losing the relationship after the experience.**
+
+Para Usted progressively removes that translation work:
+
+```
+Traveller intent
+→ traveller-reviewed Journey Brief
+→ operator judgement
+→ context-preserving collaboration
+→ external commerce
+→ confirmed experience
+→ memory, review, referral, gift and repeat
+```
+
+The operator proposition is:
+
+> **Para Usted removes manual work before, between and after bookings while letting operators keep the professional decisions and systems that already work.**
+
+The adoption principle is equally important:
+
+> **The operator receives value before being asked to configure, migrate, subscribe or learn anything.**
+
+The first experience arrives through a channel the operator already uses: WhatsApp, email or a recipient-scoped link. FareHarbor, Bókun, Ventrata or the operator's existing system remains authoritative for product, availability, booking, payment and fulfilment. Para Usted owns the traveller-reviewed context, explicit unknowns, purpose-bounded sharing and attribution around that commerce boundary.
+
+### 0.2 TIS presentation contract
+
+We will show the complete product direction, but we will not present the complete direction as implemented software.
+
+| What we show | TIS treatment |
+|---|---|
+| Journey Brief, Trip Plan, honest states, operator review, published catalogue matching and link-out to operator booking | **Working playback.** Demonstrate directly and use present-tense claims from the battle plan. |
+| Cross-operator anonymous opportunity, traveller-approved sharing, operator response and introduction receipt | **Labelled concept workflow.** Show after the working playback as the next operator scenario we came to validate. No real recipient, transmission, consent record or attribution event is implied. |
+| Negative capabilities and an introduction history | **Product vision.** Use to test routing quality and reciprocity with operators; do not describe either as a live directory, score or ledger. |
+| Multi-city composition brief and blocking-unknowns register | **Product vision and interview prompt.** Never present it as a priced itinerary, combined service or confirmed package. |
+| Post-booking preparation, review, referral, gift, souvenir and repeat journey | **Lifecycle vision.** Show only after the operator handoff has landed. The existing operator gift card may be shown as live; samples and all other future rails must remain visibly labelled. |
+| Network gift cards, rewards, commissions and cross-operator settlement | **Roadmap hypothesis only.** Discuss the commercial and regulatory questions; do not demonstrate these as available capabilities. |
+
+The TIS sequence is therefore:
+
+1. **Show what works now:** conversation → Journey Brief → deliberate Trip Plan → operator review → external booking boundary.
+2. **Show the next operator workflow:** a clearly labelled cross-operator handoff concept that preserves context, traveller control and attribution.
+3. **Show the lifecycle direction:** preparation, memory, review, referral, gift and repeat, with built and proposed elements visibly separated.
+4. **Return to evidence:** ask for the operator's most recent real enquiry, referral, multi-city change or post-trip follow-up and quantify the work involved.
+
+Until recipient selection and transmission exist, say **"prepares context for the operator"**, never **"sends"**. Permission to display an operator's published catalogue is not a partnership, and a link to a booking provider is not an integration.
 
 ---
 

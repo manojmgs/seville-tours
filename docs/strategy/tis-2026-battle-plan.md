@@ -5,8 +5,8 @@
 **Confirmed names:** Grupo Piñero, Klook, WeRoad, Skyscanner, Louvre Hotels
 **Our status:** attending as visitors. No booth. Primary laptop plus one prepared backup device.
 **Demo language:** the playback UI is **English only** — verified 2026-09-18, the showcase components carry no i18n. Narrate in Spanish; the screen stays English.
-**Written:** 2026-09-18 — **18 days out** · **v1.1** after independent review
-**Related:** [vision](./next-gen-experience-platform-vision-2026-09.md) · [interview guide](./operator-interview-guide-2026-09.md) · [validation prompts](./validation-prompts-memory-layer-vision-2026-09.md)
+**Updated:** 2026-09-21 — **15 days out** · **v1.2** — freeze moved behind explicit product-owner approval
+**Related:** [operator product vision](./operator-problem-map-2026-09.md) · [memory-layer vision](./next-gen-experience-platform-vision-2026-09.md) · [interview guide](./operator-interview-guide-2026-09.md) · [validation prompts](./validation-prompts-memory-layer-vision-2026-09.md)
 
 ---
 
@@ -69,15 +69,17 @@ Floor version, three clauses, repeatable by a stranger:
 
 **We begin with an artefact: the Journey Brief.** Travel has the invoice, the boarding pass, the voucher. It has no standard way for a traveller's *intent* to reach an operator undistorted. We are testing whether the Journey Brief can become that standard handoff — we do not claim to own a category that does not yet exist.
 
-### The ladder — we present rungs 1 and 2 only
+### The ladder — demonstrate the present, then show the vision
 
 | Rung | Status | At TIS |
 |---|---|---|
 | **1.** Journey Brief + Trip Plan; suggested ≠ saved ≠ requested ≠ confirmed; never invents price or availability | **Built. In the demo.** | Yes — this is the pitch |
 | **2.** The brief reaches the operator and reduces real clarification work; the guide contributes something back | Hypothesis (Gates 2–3) | Yes — labelled as what we came to test |
-| **3.** The thread persists into a traveller-controlled record — the Memory Layer | Unvalidated (Gates 4–6) | **Only if asked**, flagged as a bet |
+| **3.** The thread continues through preparation, memory, review, referral, gift and repeat | Unvalidated (Gates 4–6) | Yes in substantive conversations — explicitly labelled as product vision, never as built |
 
-If asked where it goes: *"If operators tell us the brief is worth something, the same thread can keep going after the tour. We haven't earned the right to claim that yet — that's part of why we're here."*
+After the working playback, introduce the wider direction with: *"What you just saw works today. What we are testing next is whether that same reviewed context should move between operators and continue after the experience. The next screens are product vision, not live operations."*
+
+The presentation contract in the [operator product vision](./operator-problem-map-2026-09.md#02-tis-presentation-contract) controls that reveal. Showing a concept expands the conversation; it does not expand the claims sheet. For a short floor interaction, stop after rung 1. For a substantive operator discussion, show rungs 2 and 3, then return immediately to a recent real workflow and quantify the work involved.
 
 ### The refusals are the product
 
@@ -226,11 +228,25 @@ That last line is the most important sentence on the floor. Land it.
 
 Beats to land: refinement creates a **separate** request ("we don't merge things that aren't the same thing") → "Nothing sent. No operator has accepted." → the operator review shows only the private request, with the Alcázar marked as a separate saved possibility.
 
+### Optional shelf beat — only when rewards or post-tour continuity are relevant
+
+After the traveller choices, select **Take something home**. The shelf opens inline in the transcript.
+
+- The operator-approved Alcázar gift card leads: **€50**, **365 days validity**, with purchase and issuance owned by ParaUsted.
+- Because Alcázar is the matched tour, the Alcázar gift card and azulejo print appear before the general shelf.
+- Every print-on-demand product is visibly labelled **"Not yet approved by the operator"** until the operator approves it.
+- Branding, customer-selected options and fulfilment are explicit: operator mark, city-only or unbranded; size and colour where relevant; ship home, waiting on arrival or collect on the day.
+- End on **"Nothing ordered yet."** The playback does not provide or imply checkout for sample products.
+
+This is not part of Versions A or B. Use it only after the core operator-handoff proposition has landed, or when the person explicitly asks about loyalty, gifts or continuity after the tour.
+
 ### NEVER CLICK
 
 > **"Check dates before booking"** and **"Check dates"** are real FareHarbor links with no `target="_blank"`.
 > Playback state is in-memory only. **Clicking either navigates away and destroys the entire demo.**
 > If you need to reference them, point — don't click.
+
+> **"Open gift card"** opens the real ParaUsted product in a new tab and requires connectivity. Point to it during the offline demo; open it only when the network is known to be available.
 
 ### Recovery
 
@@ -249,6 +265,8 @@ Beats to land: refinement creates a **separate** request ("we don't merge things
 | Refinement → separate request | We don't merge unlike things |
 | "Nothing sent. No operator has accepted." | We don't speak for the operator |
 | Operator review | The human confirms |
+| Operator-approved gift card leads; other products say sample | Real commerce and proposed products remain visibly distinct |
+| "Nothing ordered yet." | We don't fake checkout or fulfilment |
 
 ---
 
@@ -262,11 +280,11 @@ Beats to land: refinement creates a **separate** request ("we don't merge things
 - [ ] F4 — focus lost to `<body>` after Remove *(if time)*
 - [ ] F5 — mobile Top button clips "Ready to review", and zero-count grammar *(if time)*
 - [ ] Full test suite green before freeze
-- [ ] **Feature freeze 25 September.** After that date: no new features, no new copy, no Memory Layer, no persistence, no new recommendation types. **Separately reviewed P0 fixes are permitted**, each followed by full regression and a fresh rehearsal.
+- [ ] **Freeze only after explicit product-owner go-ahead.** September 25 is a readiness target, not an automatic freeze date. Once approval is given: no new features, no new copy, no Memory Layer, no persistence, and no new recommendation types. **Separately reviewed P0 fixes are permitted**, each followed by full regression and a fresh rehearsal.
 
 ### Verification
 
-- [ ] Run the **full offline protocol** above — restart, network off, clean profile, hard refresh, complete micro-demo
+- [ ] Run the **full offline protocol** above — restart, network off, clean profile, hard refresh, complete micro-demo, open the shelf without following the external gift-card link
 - [ ] Run at the laptop's real resolution, not 1280×800 in devtools
 - [ ] Time Version A three times; all under 35 seconds
 - [ ] Time Version B three times; all under 75 seconds
@@ -277,7 +295,7 @@ Beats to land: refinement creates a **separate** request ("we don't merge things
 - [ ] Primary laptop, charged, repo and `node_modules` installed and warm
 - [ ] **One prepared backup** — second laptop if we have one, otherwise a tablet or phone with the recorded demo
 - [ ] Phone with the mobile demo — the mobile Add moment is our strongest transition
-- [ ] Screenshots of all 11 states, offline, on both devices
+- [ ] Screenshots of every playback state, including the open shelf and expanded product options, offline, on both devices
 - [ ] Screen brightness to maximum — FIBES halls are bright
 - [ ] A5 cards printed: refusal line + QR to the 45-second recording on the front, three interview questions on the back
 - [ ] Interview guide **on the phone**, not on paper
@@ -322,7 +340,7 @@ Beats to land: refinement creates a **separate** request ("we don't merge things
 | Dates | Priority |
 |---|---|
 | **Sep 19–22** | **Outreach. Book meetings now.** Hold the Seville Tours Co. meeting (§10) — it unlocks guide interviews, baseline numbers and warm intros. In parallel: fix F1, F2, F3. |
-| Sep 23–25 | **Freeze the demo.** Record the 45-second fallback video. Offline test on the real laptop. |
+| Sep 23–25 | **Prepare for freeze review. Do not freeze without explicit product-owner go-ahead.** Resolve blockers, run the full regression, record the 45-second fallback video, and complete the offline test on the real laptop. |
 | Sep 26–30 | Rehearse Versions A and B, Spanish narration over English screen. Print cards. Finalise claims sheet. Confirm second person. |
 | Oct 1–3 | Confirm meetings. Interview guide on phones. Charge everything. |
 | Oct 5 | Equipment setup, final offline rehearsal, route check, rest. *(Home city — no travel. If anyone is coming from elsewhere, name them in the private plan.)* |

@@ -2,6 +2,13 @@ import React from "react";
 import { Composition, staticFile } from "remotion";
 import { ConciergePromo, type ConciergePromoProps } from "./ConciergePromo";
 import { VIDEO } from "./theme";
+import { CarlosDemo1JourneyBrief } from "./carlos/CarlosDemo1JourneyBrief";
+import { CarlosDemo2Collaboration } from "./carlos/CarlosDemo2Collaboration";
+import { CarlosDemo3ReturnLoop } from "./carlos/CarlosDemo3ReturnLoop";
+import { resolveCarlosAudio, type CarlosVideoProps } from "./carlos/VideoShell";
+import { DEMO1_SCENES, DEMO2_SCENES, DEMO3_SCENES } from "./carlos/script";
+import { CARLOS_VIDEO } from "./carlos/theme";
+import { videoDurationInFrames } from "./carlos/timing";
 
 const VOICEOVER_FILE = "audio/vo-en.mp3";
 const MUSIC_FILE = "audio/music.mp3";
@@ -69,6 +76,37 @@ export const RemotionRoot: React.FC = () => {
           } satisfies ConciergePromoProps
         }
         calculateMetadata={({ props }) => resolveAudio(props)}
+      />
+
+      <Composition
+        id="CarlosDemo1JourneyBrief"
+        component={CarlosDemo1JourneyBrief}
+        durationInFrames={videoDurationInFrames(DEMO1_SCENES, CARLOS_VIDEO.fps)}
+        fps={CARLOS_VIDEO.fps}
+        width={CARLOS_VIDEO.width}
+        height={CARLOS_VIDEO.height}
+        defaultProps={{ hasAudio: false } satisfies CarlosVideoProps}
+        calculateMetadata={() => resolveCarlosAudio(DEMO1_SCENES)}
+      />
+      <Composition
+        id="CarlosDemo2Collaboration"
+        component={CarlosDemo2Collaboration}
+        durationInFrames={videoDurationInFrames(DEMO2_SCENES, CARLOS_VIDEO.fps)}
+        fps={CARLOS_VIDEO.fps}
+        width={CARLOS_VIDEO.width}
+        height={CARLOS_VIDEO.height}
+        defaultProps={{ hasAudio: false } satisfies CarlosVideoProps}
+        calculateMetadata={() => resolveCarlosAudio(DEMO2_SCENES)}
+      />
+      <Composition
+        id="CarlosDemo3ReturnLoop"
+        component={CarlosDemo3ReturnLoop}
+        durationInFrames={videoDurationInFrames(DEMO3_SCENES, CARLOS_VIDEO.fps)}
+        fps={CARLOS_VIDEO.fps}
+        width={CARLOS_VIDEO.width}
+        height={CARLOS_VIDEO.height}
+        defaultProps={{ hasAudio: false } satisfies CarlosVideoProps}
+        calculateMetadata={() => resolveCarlosAudio(DEMO3_SCENES)}
       />
     </>
   );
