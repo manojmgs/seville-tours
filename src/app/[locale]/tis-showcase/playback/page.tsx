@@ -19,10 +19,6 @@ type TisTravellerPlaybackPageProps = {
 };
 
 export default async function TisTravellerPlaybackPage({ params }: TisTravellerPlaybackPageProps) {
-  if (process.env.NODE_ENV !== "development") {
-    notFound();
-  }
-
   const { locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale) as Locale | undefined;
 

@@ -43,13 +43,14 @@ afterEach(() => {
 });
 
 describe("TIS traveller playback route boundary", () => {
-  it("blocks production access before rendering playback", async () => {
+  it("renders playback in production for the Vercel showcase", async () => {
     vi.stubEnv("NODE_ENV", "production");
 
-    await expect(
-      TisTravellerPlaybackPage({ params: Promise.resolve({ locale: "en" }) }),
-    ).rejects.toThrow("NEXT_NOT_FOUND");
-    expect(notFoundMock).toHaveBeenCalledOnce();
+    const page = await TisTravellerPlaybackPage({ params: Promise.resolve({ locale: "en" }) });
+    render(page as ReactElement);
+
+    expect(screen.getByRole("heading", { name: "A Journey Brief, built by the traveller" })).toBeTruthy();
+    expect(notFoundMock).not.toHaveBeenCalled();
   });
 
   it("renders the playback in development", async () => {

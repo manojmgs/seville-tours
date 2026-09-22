@@ -53,13 +53,13 @@ async function openDemo1() {
 }
 
 describe("Seville Tours research route boundary", () => {
-  it("blocks production access before rendering anything", async () => {
+  it("renders in production for the Vercel showcase", async () => {
     vi.stubEnv("NODE_ENV", "production");
 
-    await expect(
-      SevilleToursResearchPage({ params: Promise.resolve({ locale: "en" }) }),
-    ).rejects.toThrow("NEXT_NOT_FOUND");
-    expect(notFoundMock).toHaveBeenCalledOnce();
+    await renderResearchRoute();
+
+    expect(screen.getByText(RESEARCH_BANNER)).toBeTruthy();
+    expect(notFoundMock).not.toHaveBeenCalled();
   });
 
   it("renders the presenter menu with all three demos and never auto-advances", async () => {

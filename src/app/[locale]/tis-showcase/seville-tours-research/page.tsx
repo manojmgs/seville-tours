@@ -17,12 +17,8 @@ type SevilleToursResearchPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-/** Development-only research entry point. Catalogue facts come from the generated manifest. */
+/** Research entry point. Catalogue facts come from the generated manifest. */
 export default async function SevilleToursResearchPage({ params }: SevilleToursResearchPageProps) {
-  if (process.env.NODE_ENV !== "development") {
-    notFound();
-  }
-
   const { locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale) as Locale | undefined;
 

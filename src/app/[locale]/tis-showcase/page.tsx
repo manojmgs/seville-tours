@@ -16,10 +16,6 @@ type TisShowcasePageProps = {
 };
 
 export default async function TisShowcasePage({ params }: TisShowcasePageProps) {
-  if (process.env.NODE_ENV !== "development") {
-    notFound();
-  }
-
   const { locale: rawLocale } = await params;
   const locale = normalizeLocale(rawLocale) as Locale | undefined;
 
